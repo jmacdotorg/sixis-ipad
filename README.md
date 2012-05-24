@@ -70,9 +70,9 @@ This is the essential flow I have in mind (see related sketches):
 1. User taps "Play!".
 1. App responds with a modal asking how many players there are, giving them three dice to tap: 2, 3 or 4. (Die graphics are cool and thematic and will please Chris.)
 1. User taps one of the dice
-![How many players?](sixis/Sketches/how_many_players.jpg)
+![How many players?](sixis/raw/master/Sketches/how_many_players.jpg)
 1. If it's a four player game, shift to a view that lets you choose between a partnership game or a standard game. Otherwise, skip to the next view.
-![Play with teams?](sixis/Sketches/play_with_teams.jpg)
+![Play with teams?](sixis/raw/master/Sketches/play_with_teams.jpg)
 1. Modal shifts to a configuration view, essentially a table with one row per player
     * Row contents include:
         * A die, with face 1 - 4 showing. This is interactive! Tap it to bring up a simple color picker containing six swatches, one for each 36-DICE die color.
@@ -81,18 +81,18 @@ This is the essential flow I have in mind (see related sketches):
     * If this is a team game, then the rows will be visually grouped as two pairs.
     * The header for the table has a Back button. Tap it to return to "How many players?"
     * All this is to say that all these views are wrapped in a standard iOS Navigation controller.
-![Who's Playing?](sixis/Sketches/whos_playing.jpg)
+![Who's Playing?](sixis/raw/master/Sketches/whos_playing.jpg)
 1. Shift to a view to choose a game length:
     * [1] Play just one round _The [1] etc are dice illustrations, btw_
     * Play for [3] rounds
     * Play for [5] rounds
     * Play to 600 points _No dice illos on this row_
-![Game Length](sixis/Sketches/game_length.jpg)
+![Game Length](sixis/raw/master/Sketches/game_length.jpg)
 1. The game starts, going right to the playfield. 
 
 ## Playfield
 
-![Loose sketch of playfield areas](sixis/Sketches/Table.jpg)
+![Loose sketch of playfield areas](sixis/raw/master/Sketches/Table.jpg)
 
 The game takes place on a nice green felt surface. Yes, it will look like the Game Center app, but this is because these two apps are drawing from the same well.
 

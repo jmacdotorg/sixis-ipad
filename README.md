@@ -1,13 +1,6 @@
 Sixis
 =====
 
-# TODO
-
-## Rethink the dice-lock / unlock UI?
-  * I'm not convinced about the locking UI. Might be more discoverable to allow only tapping the dice, which makes a _klunk_ sound and draws a little padlock symbol over the die. Tap again to un-klunk. All dice left in that state are animated as sweeping intou the player's safe; the other dice fade away entirely.
-  
-  In that case, the dice aren't draggable at all. And there'd be no confusion about which dice you can drag out of the safe.
-
 # Overall goals
 
 The iOS version of _Sixis_ will aim towards simulation of playing a copy of the game with physical cards. It will favor a realistic presentation of the cards and other play materials as well as the experience of interacting with them -- no need for bursts of fireworks on success or whatnot.

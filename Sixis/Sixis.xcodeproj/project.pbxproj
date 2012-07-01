@@ -1,0 +1,473 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		89EFB3E515926DAC00D09240 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89EFB3E415926DAC00D09240 /* UIKit.framework */; };
+		89EFB3E715926DAC00D09240 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89EFB3E615926DAC00D09240 /* Foundation.framework */; };
+		89EFB3E915926DAC00D09240 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89EFB3E815926DAC00D09240 /* CoreGraphics.framework */; };
+		89EFB3EF15926DAC00D09240 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 89EFB3ED15926DAC00D09240 /* InfoPlist.strings */; };
+		89EFB3F115926DAC00D09240 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB3F015926DAC00D09240 /* main.m */; };
+		89EFB3F515926DAD00D09240 /* SixisAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB3F415926DAD00D09240 /* SixisAppDelegate.m */; };
+		89EFB3FE15926F0A00D09240 /* SixisChoosePlayerNumberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB3FC15926F0A00D09240 /* SixisChoosePlayerNumberViewController.m */; };
+		89EFB3FF15926F0A00D09240 /* SixisChoosePlayerNumberViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89EFB3FD15926F0A00D09240 /* SixisChoosePlayerNumberViewController.xib */; };
+		89EFB407159572F800D09240 /* SixisTeamOrNotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB405159572F800D09240 /* SixisTeamOrNotViewController.m */; };
+		89EFB408159572F800D09240 /* SixisTeamOrNotViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89EFB406159572F800D09240 /* SixisTeamOrNotViewController.xib */; };
+		89EFB4111595771B00D09240 /* SixisGameLengthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB40F1595771B00D09240 /* SixisGameLengthViewController.m */; };
+		89EFB4121595771B00D09240 /* SixisGameLengthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89EFB4101595771B00D09240 /* SixisGameLengthViewController.xib */; };
+		89EFB4151595793600D09240 /* SixisPlayerSetupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB4141595793600D09240 /* SixisPlayerSetupCell.m */; };
+		89EFB41A15963B7100D09240 /* SixisGameType.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB41915963B7100D09240 /* SixisGameType.m */; };
+		89EFB41D15963BB000D09240 /* SixisPointsGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB41C15963BB000D09240 /* SixisPointsGame.m */; };
+		89EFB42015963BBB00D09240 /* SixisRoundsGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB41F15963BBB00D09240 /* SixisRoundsGame.m */; };
+		89EFB42315963E9300D09240 /* SixisPlayersType.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB42215963E9300D09240 /* SixisPlayersType.m */; };
+		89EFB42615963ED600D09240 /* SixisTwoPlayers.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB42515963ED500D09240 /* SixisTwoPlayers.m */; };
+		89EFB42915963EE300D09240 /* SixisThreePlayers.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB42815963EE300D09240 /* SixisThreePlayers.m */; };
+		89EFB42C15963EED00D09240 /* SixisFourPlayers.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB42B15963EED00D09240 /* SixisFourPlayers.m */; };
+		89EFB432159641D900D09240 /* SixisPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB431159641D800D09240 /* SixisPlayer.m */; };
+		89EFB435159641EE00D09240 /* SixisHuman.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB434159641ED00D09240 /* SixisHuman.m */; };
+		89EFB438159641F800D09240 /* SixisRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB437159641F700D09240 /* SixisRobot.m */; };
+		89EFB43F1596435900D09240 /* SixisGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB43E1596435900D09240 /* SixisGame.m */; };
+		89EFB442159646A300D09240 /* SixisNewGameInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB441159646A300D09240 /* SixisNewGameInfo.m */; };
+		89EFB44815968EB000D09240 /* SixisPlayerSetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB44615968EAF00D09240 /* SixisPlayerSetupViewController.m */; };
+		89EFB44915968EB000D09240 /* SixisPlayerSetupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89EFB44715968EB000D09240 /* SixisPlayerSetupViewController.xib */; };
+		89EFB44B1596B22200D09240 /* SixisPlayerSetupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89EFB44A1596B22200D09240 /* SixisPlayerSetupCell.xib */; };
+		89EFB455159A21F100D09240 /* SixisDie.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB454159A21EE00D09240 /* SixisDie.m */; };
+		89EFB458159A2A4B00D09240 /* SixisCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB457159A2A4900D09240 /* SixisCard.m */; };
+		89EFB45C159A3B4A00D09240 /* SixisCardDoubleOnes.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB45B159A3B4A00D09240 /* SixisCardDoubleOnes.m */; };
+		89EFB45F159A49E500D09240 /* SixisCardFourOnes.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB45E159A49E500D09240 /* SixisCardFourOnes.m */; };
+		89EFB462159A4A5A00D09240 /* SixisCardSixis.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB461159A4A5A00D09240 /* SixisCardSixis.m */; };
+		89EFB465159A4A9B00D09240 /* SixisCardDoubleTwos.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB464159A4A9B00D09240 /* SixisCardDoubleTwos.m */; };
+		89EFB468159A4AA600D09240 /* SixisCardFourTwos.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB467159A4AA500D09240 /* SixisCardFourTwos.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		89EFB3E015926DAC00D09240 /* Sixis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sixis.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		89EFB3E415926DAC00D09240 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		89EFB3E615926DAC00D09240 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		89EFB3E815926DAC00D09240 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		89EFB3EC15926DAC00D09240 /* Sixis-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Sixis-Info.plist"; sourceTree = "<group>"; };
+		89EFB3EE15926DAC00D09240 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		89EFB3F015926DAC00D09240 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		89EFB3F215926DAD00D09240 /* Sixis-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sixis-Prefix.pch"; sourceTree = "<group>"; };
+		89EFB3F315926DAD00D09240 /* SixisAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SixisAppDelegate.h; sourceTree = "<group>"; };
+		89EFB3F415926DAD00D09240 /* SixisAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SixisAppDelegate.m; sourceTree = "<group>"; };
+		89EFB3FB15926F0A00D09240 /* SixisChoosePlayerNumberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisChoosePlayerNumberViewController.h; sourceTree = "<group>"; };
+		89EFB3FC15926F0A00D09240 /* SixisChoosePlayerNumberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisChoosePlayerNumberViewController.m; sourceTree = "<group>"; };
+		89EFB3FD15926F0A00D09240 /* SixisChoosePlayerNumberViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SixisChoosePlayerNumberViewController.xib; sourceTree = "<group>"; };
+		89EFB404159572F800D09240 /* SixisTeamOrNotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisTeamOrNotViewController.h; sourceTree = "<group>"; };
+		89EFB405159572F800D09240 /* SixisTeamOrNotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisTeamOrNotViewController.m; sourceTree = "<group>"; };
+		89EFB406159572F800D09240 /* SixisTeamOrNotViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SixisTeamOrNotViewController.xib; sourceTree = "<group>"; };
+		89EFB40E1595771B00D09240 /* SixisGameLengthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisGameLengthViewController.h; sourceTree = "<group>"; };
+		89EFB40F1595771B00D09240 /* SixisGameLengthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisGameLengthViewController.m; sourceTree = "<group>"; };
+		89EFB4101595771B00D09240 /* SixisGameLengthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SixisGameLengthViewController.xib; sourceTree = "<group>"; };
+		89EFB4131595793600D09240 /* SixisPlayerSetupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SixisPlayerSetupCell.h; path = ../SixisPlayerSetupCell.h; sourceTree = "<group>"; };
+		89EFB4141595793600D09240 /* SixisPlayerSetupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SixisPlayerSetupCell.m; path = ../SixisPlayerSetupCell.m; sourceTree = "<group>"; };
+		89EFB41815963B7100D09240 /* SixisGameType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisGameType.h; sourceTree = "<group>"; };
+		89EFB41915963B7100D09240 /* SixisGameType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisGameType.m; sourceTree = "<group>"; };
+		89EFB41B15963BAF00D09240 /* SixisPointsGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisPointsGame.h; sourceTree = "<group>"; };
+		89EFB41C15963BB000D09240 /* SixisPointsGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisPointsGame.m; sourceTree = "<group>"; };
+		89EFB41E15963BBB00D09240 /* SixisRoundsGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisRoundsGame.h; sourceTree = "<group>"; };
+		89EFB41F15963BBB00D09240 /* SixisRoundsGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisRoundsGame.m; sourceTree = "<group>"; };
+		89EFB42115963E9300D09240 /* SixisPlayersType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisPlayersType.h; sourceTree = "<group>"; };
+		89EFB42215963E9300D09240 /* SixisPlayersType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisPlayersType.m; sourceTree = "<group>"; };
+		89EFB42415963ED500D09240 /* SixisTwoPlayers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisTwoPlayers.h; sourceTree = "<group>"; };
+		89EFB42515963ED500D09240 /* SixisTwoPlayers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisTwoPlayers.m; sourceTree = "<group>"; };
+		89EFB42715963EE200D09240 /* SixisThreePlayers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisThreePlayers.h; sourceTree = "<group>"; };
+		89EFB42815963EE300D09240 /* SixisThreePlayers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisThreePlayers.m; sourceTree = "<group>"; };
+		89EFB42A15963EED00D09240 /* SixisFourPlayers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisFourPlayers.h; sourceTree = "<group>"; };
+		89EFB42B15963EED00D09240 /* SixisFourPlayers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisFourPlayers.m; sourceTree = "<group>"; };
+		89EFB430159641D800D09240 /* SixisPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisPlayer.h; sourceTree = "<group>"; };
+		89EFB431159641D800D09240 /* SixisPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisPlayer.m; sourceTree = "<group>"; };
+		89EFB433159641ED00D09240 /* SixisHuman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisHuman.h; sourceTree = "<group>"; };
+		89EFB434159641ED00D09240 /* SixisHuman.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisHuman.m; sourceTree = "<group>"; };
+		89EFB436159641F700D09240 /* SixisRobot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisRobot.h; sourceTree = "<group>"; };
+		89EFB437159641F700D09240 /* SixisRobot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisRobot.m; sourceTree = "<group>"; };
+		89EFB43D1596435900D09240 /* SixisGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisGame.h; sourceTree = "<group>"; };
+		89EFB43E1596435900D09240 /* SixisGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisGame.m; sourceTree = "<group>"; };
+		89EFB440159646A300D09240 /* SixisNewGameInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisNewGameInfo.h; sourceTree = "<group>"; };
+		89EFB441159646A300D09240 /* SixisNewGameInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisNewGameInfo.m; sourceTree = "<group>"; };
+		89EFB44515968EAF00D09240 /* SixisPlayerSetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisPlayerSetupViewController.h; sourceTree = "<group>"; };
+		89EFB44615968EAF00D09240 /* SixisPlayerSetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisPlayerSetupViewController.m; sourceTree = "<group>"; };
+		89EFB44715968EB000D09240 /* SixisPlayerSetupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SixisPlayerSetupViewController.xib; sourceTree = "<group>"; };
+		89EFB44A1596B22200D09240 /* SixisPlayerSetupCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SixisPlayerSetupCell.xib; sourceTree = "<group>"; };
+		89EFB453159A21EC00D09240 /* SixisDie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisDie.h; sourceTree = "<group>"; };
+		89EFB454159A21EE00D09240 /* SixisDie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisDie.m; sourceTree = "<group>"; };
+		89EFB456159A2A4800D09240 /* SixisCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisCard.h; sourceTree = "<group>"; };
+		89EFB457159A2A4900D09240 /* SixisCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCard.m; sourceTree = "<group>"; };
+		89EFB45A159A3B4A00D09240 /* SixisCardDoubleOnes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisCardDoubleOnes.h; sourceTree = "<group>"; };
+		89EFB45B159A3B4A00D09240 /* SixisCardDoubleOnes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCardDoubleOnes.m; sourceTree = "<group>"; };
+		89EFB45D159A49E500D09240 /* SixisCardFourOnes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisCardFourOnes.h; sourceTree = "<group>"; };
+		89EFB45E159A49E500D09240 /* SixisCardFourOnes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCardFourOnes.m; sourceTree = "<group>"; };
+		89EFB460159A4A5A00D09240 /* SixisCardSixis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisCardSixis.h; sourceTree = "<group>"; };
+		89EFB461159A4A5A00D09240 /* SixisCardSixis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCardSixis.m; sourceTree = "<group>"; };
+		89EFB463159A4A9B00D09240 /* SixisCardDoubleTwos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisCardDoubleTwos.h; sourceTree = "<group>"; };
+		89EFB464159A4A9B00D09240 /* SixisCardDoubleTwos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCardDoubleTwos.m; sourceTree = "<group>"; };
+		89EFB466159A4AA400D09240 /* SixisCardFourTwos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisCardFourTwos.h; sourceTree = "<group>"; };
+		89EFB467159A4AA500D09240 /* SixisCardFourTwos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCardFourTwos.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		89EFB3DD15926DAC00D09240 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89EFB3E515926DAC00D09240 /* UIKit.framework in Frameworks */,
+				89EFB3E715926DAC00D09240 /* Foundation.framework in Frameworks */,
+				89EFB3E915926DAC00D09240 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		89EFB3D515926DAB00D09240 = {
+			isa = PBXGroup;
+			children = (
+				89EFB3EA15926DAC00D09240 /* Sixis */,
+				89EFB3E315926DAC00D09240 /* Frameworks */,
+				89EFB3E115926DAC00D09240 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		89EFB3E115926DAC00D09240 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				89EFB3E015926DAC00D09240 /* Sixis.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		89EFB3E315926DAC00D09240 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				89EFB3E415926DAC00D09240 /* UIKit.framework */,
+				89EFB3E615926DAC00D09240 /* Foundation.framework */,
+				89EFB3E815926DAC00D09240 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		89EFB3EA15926DAC00D09240 /* Sixis */ = {
+			isa = PBXGroup;
+			children = (
+				89EFB43D1596435900D09240 /* SixisGame.h */,
+				89EFB43E1596435900D09240 /* SixisGame.m */,
+				89EFB453159A21EC00D09240 /* SixisDie.h */,
+				89EFB454159A21EE00D09240 /* SixisDie.m */,
+				89EFB456159A2A4800D09240 /* SixisCard.h */,
+				89EFB457159A2A4900D09240 /* SixisCard.m */,
+				89EFB459159A3AF700D09240 /* Cards */,
+				89EFB43A1596422C00D09240 /* Game Setup */,
+				89EFB4391596420600D09240 /* Player */,
+				89EFB3F315926DAD00D09240 /* SixisAppDelegate.h */,
+				89EFB3F415926DAD00D09240 /* SixisAppDelegate.m */,
+				89EFB43B159642FD00D09240 /* GameType */,
+				89EFB43C1596430B00D09240 /* PlayersType */,
+				89EFB3EB15926DAC00D09240 /* Supporting Files */,
+			);
+			name = Sixis;
+			path = SixisTemp;
+			sourceTree = "<group>";
+		};
+		89EFB3EB15926DAC00D09240 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				89EFB3EC15926DAC00D09240 /* Sixis-Info.plist */,
+				89EFB3ED15926DAC00D09240 /* InfoPlist.strings */,
+				89EFB3F015926DAC00D09240 /* main.m */,
+				89EFB3F215926DAD00D09240 /* Sixis-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		89EFB4391596420600D09240 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				89EFB430159641D800D09240 /* SixisPlayer.h */,
+				89EFB431159641D800D09240 /* SixisPlayer.m */,
+				89EFB436159641F700D09240 /* SixisRobot.h */,
+				89EFB437159641F700D09240 /* SixisRobot.m */,
+				89EFB433159641ED00D09240 /* SixisHuman.h */,
+				89EFB434159641ED00D09240 /* SixisHuman.m */,
+			);
+			name = Player;
+			sourceTree = "<group>";
+		};
+		89EFB43A1596422C00D09240 /* Game Setup */ = {
+			isa = PBXGroup;
+			children = (
+				89EFB440159646A300D09240 /* SixisNewGameInfo.h */,
+				89EFB441159646A300D09240 /* SixisNewGameInfo.m */,
+				89EFB3FB15926F0A00D09240 /* SixisChoosePlayerNumberViewController.h */,
+				89EFB3FC15926F0A00D09240 /* SixisChoosePlayerNumberViewController.m */,
+				89EFB4131595793600D09240 /* SixisPlayerSetupCell.h */,
+				89EFB4141595793600D09240 /* SixisPlayerSetupCell.m */,
+				89EFB404159572F800D09240 /* SixisTeamOrNotViewController.h */,
+				89EFB405159572F800D09240 /* SixisTeamOrNotViewController.m */,
+				89EFB406159572F800D09240 /* SixisTeamOrNotViewController.xib */,
+				89EFB40E1595771B00D09240 /* SixisGameLengthViewController.h */,
+				89EFB40F1595771B00D09240 /* SixisGameLengthViewController.m */,
+				89EFB4101595771B00D09240 /* SixisGameLengthViewController.xib */,
+				89EFB44515968EAF00D09240 /* SixisPlayerSetupViewController.h */,
+				89EFB44615968EAF00D09240 /* SixisPlayerSetupViewController.m */,
+				89EFB44715968EB000D09240 /* SixisPlayerSetupViewController.xib */,
+				89EFB3FD15926F0A00D09240 /* SixisChoosePlayerNumberViewController.xib */,
+				89EFB44A1596B22200D09240 /* SixisPlayerSetupCell.xib */,
+			);
+			name = "Game Setup";
+			sourceTree = "<group>";
+		};
+		89EFB43B159642FD00D09240 /* GameType */ = {
+			isa = PBXGroup;
+			children = (
+				89EFB41815963B7100D09240 /* SixisGameType.h */,
+				89EFB41915963B7100D09240 /* SixisGameType.m */,
+				89EFB41B15963BAF00D09240 /* SixisPointsGame.h */,
+				89EFB41C15963BB000D09240 /* SixisPointsGame.m */,
+				89EFB41E15963BBB00D09240 /* SixisRoundsGame.h */,
+				89EFB41F15963BBB00D09240 /* SixisRoundsGame.m */,
+			);
+			name = GameType;
+			sourceTree = "<group>";
+		};
+		89EFB43C1596430B00D09240 /* PlayersType */ = {
+			isa = PBXGroup;
+			children = (
+				89EFB42115963E9300D09240 /* SixisPlayersType.h */,
+				89EFB42215963E9300D09240 /* SixisPlayersType.m */,
+				89EFB42415963ED500D09240 /* SixisTwoPlayers.h */,
+				89EFB42515963ED500D09240 /* SixisTwoPlayers.m */,
+				89EFB42A15963EED00D09240 /* SixisFourPlayers.h */,
+				89EFB42B15963EED00D09240 /* SixisFourPlayers.m */,
+				89EFB42715963EE200D09240 /* SixisThreePlayers.h */,
+				89EFB42815963EE300D09240 /* SixisThreePlayers.m */,
+			);
+			name = PlayersType;
+			sourceTree = "<group>";
+		};
+		89EFB459159A3AF700D09240 /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				89EFB45A159A3B4A00D09240 /* SixisCardDoubleOnes.h */,
+				89EFB463159A4A9B00D09240 /* SixisCardDoubleTwos.h */,
+				89EFB464159A4A9B00D09240 /* SixisCardDoubleTwos.m */,
+				89EFB466159A4AA400D09240 /* SixisCardFourTwos.h */,
+				89EFB467159A4AA500D09240 /* SixisCardFourTwos.m */,
+				89EFB45B159A3B4A00D09240 /* SixisCardDoubleOnes.m */,
+				89EFB460159A4A5A00D09240 /* SixisCardSixis.h */,
+				89EFB461159A4A5A00D09240 /* SixisCardSixis.m */,
+				89EFB45D159A49E500D09240 /* SixisCardFourOnes.h */,
+				89EFB45E159A49E500D09240 /* SixisCardFourOnes.m */,
+			);
+			name = Cards;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		89EFB3DF15926DAC00D09240 /* Sixis */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89EFB3F815926DAD00D09240 /* Build configuration list for PBXNativeTarget "Sixis" */;
+			buildPhases = (
+				89EFB3DC15926DAC00D09240 /* Sources */,
+				89EFB3DD15926DAC00D09240 /* Frameworks */,
+				89EFB3DE15926DAC00D09240 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Sixis;
+			productName = SixisTemp;
+			productReference = 89EFB3E015926DAC00D09240 /* Sixis.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		89EFB3D715926DAC00D09240 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = Sixis;
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "Appleseed Software Consulting";
+			};
+			buildConfigurationList = 89EFB3DA15926DAC00D09240 /* Build configuration list for PBXProject "Sixis" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 89EFB3D515926DAB00D09240;
+			productRefGroup = 89EFB3E115926DAC00D09240 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				89EFB3DF15926DAC00D09240 /* Sixis */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		89EFB3DE15926DAC00D09240 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89EFB3EF15926DAC00D09240 /* InfoPlist.strings in Resources */,
+				89EFB3FF15926F0A00D09240 /* SixisChoosePlayerNumberViewController.xib in Resources */,
+				89EFB408159572F800D09240 /* SixisTeamOrNotViewController.xib in Resources */,
+				89EFB4121595771B00D09240 /* SixisGameLengthViewController.xib in Resources */,
+				89EFB44915968EB000D09240 /* SixisPlayerSetupViewController.xib in Resources */,
+				89EFB44B1596B22200D09240 /* SixisPlayerSetupCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		89EFB3DC15926DAC00D09240 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89EFB3F115926DAC00D09240 /* main.m in Sources */,
+				89EFB3F515926DAD00D09240 /* SixisAppDelegate.m in Sources */,
+				89EFB3FE15926F0A00D09240 /* SixisChoosePlayerNumberViewController.m in Sources */,
+				89EFB407159572F800D09240 /* SixisTeamOrNotViewController.m in Sources */,
+				89EFB4111595771B00D09240 /* SixisGameLengthViewController.m in Sources */,
+				89EFB4151595793600D09240 /* SixisPlayerSetupCell.m in Sources */,
+				89EFB41A15963B7100D09240 /* SixisGameType.m in Sources */,
+				89EFB41D15963BB000D09240 /* SixisPointsGame.m in Sources */,
+				89EFB42015963BBB00D09240 /* SixisRoundsGame.m in Sources */,
+				89EFB42315963E9300D09240 /* SixisPlayersType.m in Sources */,
+				89EFB42615963ED600D09240 /* SixisTwoPlayers.m in Sources */,
+				89EFB42915963EE300D09240 /* SixisThreePlayers.m in Sources */,
+				89EFB42C15963EED00D09240 /* SixisFourPlayers.m in Sources */,
+				89EFB432159641D900D09240 /* SixisPlayer.m in Sources */,
+				89EFB435159641EE00D09240 /* SixisHuman.m in Sources */,
+				89EFB438159641F800D09240 /* SixisRobot.m in Sources */,
+				89EFB43F1596435900D09240 /* SixisGame.m in Sources */,
+				89EFB442159646A300D09240 /* SixisNewGameInfo.m in Sources */,
+				89EFB44815968EB000D09240 /* SixisPlayerSetupViewController.m in Sources */,
+				89EFB455159A21F100D09240 /* SixisDie.m in Sources */,
+				89EFB458159A2A4B00D09240 /* SixisCard.m in Sources */,
+				89EFB45C159A3B4A00D09240 /* SixisCardDoubleOnes.m in Sources */,
+				89EFB45F159A49E500D09240 /* SixisCardFourOnes.m in Sources */,
+				89EFB462159A4A5A00D09240 /* SixisCardSixis.m in Sources */,
+				89EFB465159A4A9B00D09240 /* SixisCardDoubleTwos.m in Sources */,
+				89EFB468159A4AA600D09240 /* SixisCardFourTwos.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		89EFB3ED15926DAC00D09240 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				89EFB3EE15926DAC00D09240 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		89EFB3F615926DAD00D09240 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		89EFB3F715926DAD00D09240 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		89EFB3F915926DAD00D09240 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SixisTemp/Sixis-Prefix.pch";
+				INFOPLIST_FILE = "SixisTemp/Sixis-Info.plist";
+				PRODUCT_NAME = Sixis;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		89EFB3FA15926DAD00D09240 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SixisTemp/Sixis-Prefix.pch";
+				INFOPLIST_FILE = "SixisTemp/Sixis-Info.plist";
+				PRODUCT_NAME = Sixis;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		89EFB3DA15926DAC00D09240 /* Build configuration list for PBXProject "Sixis" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89EFB3F615926DAD00D09240 /* Debug */,
+				89EFB3F715926DAD00D09240 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		89EFB3F815926DAD00D09240 /* Build configuration list for PBXNativeTarget "Sixis" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89EFB3F915926DAD00D09240 /* Debug */,
+				89EFB3FA15926DAD00D09240 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 89EFB3D715926DAC00D09240 /* Project object */;
+}

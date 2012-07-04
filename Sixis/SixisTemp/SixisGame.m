@@ -11,8 +11,25 @@
 #import "SixisDie.h"
 #import "SixisCard.h"
 
-#import "SixisCardDoubleTwos.h"
+// We need to import only the blue cards to the build the deck. And the Sixis card.
 #import "SixisCardDoubleOnes.h"
+#import "SixisCardDoubleTwos.h"
+#import "SixisCardDoubleThrees.h"
+#import "SixisCardDoubleFours.h"
+#import "SixisCardDoubleFives.h"
+#import "SixisCardDoubleSixes.h"
+#import "SixisCardOneAndSix.h"
+#import "SixisCardTwoAndFive.h"
+#import "SixisCardThreeAndFour.h"
+#import "SixisCardRun123.h"
+#import "SixisCardRun456.h"
+#import "SixisCardOneThreeFive.h"
+#import "SixisCardTwoFourSix.h"
+#import "SixisCardThreeOfAKind.h"
+#import "SixisCardTwoPair.h"
+#import "SixisCardLow.h"
+#import "SixisCardHigh.h"
+
 #import "SixisCardSixis.h"
 
 #import "SixisPlayersType.h"
@@ -53,7 +70,25 @@
     self.currentRound = 0; // startRound will increment this to 1
 
     // Initialize the deck of blue cards.
-    deck = [NSArray arrayWithObjects:[[SixisCardDoubleOnes alloc] init], [[SixisCardDoubleTwos alloc] init], nil];
+    deck = [NSArray arrayWithObjects:[[SixisCardDoubleOnes alloc] init], 
+            [[SixisCardDoubleTwos alloc] init], 
+            [[SixisCardDoubleThrees alloc] init],
+            [[SixisCardDoubleFours alloc] init],
+            [[SixisCardDoubleFives alloc] init],
+            [[SixisCardDoubleSixes alloc] init],
+            [[SixisCardOneAndSix alloc] init],
+            [[SixisCardTwoAndFive alloc] init],
+            [[SixisCardThreeAndFour alloc] init],
+            [[SixisCardRun123 alloc] init],
+            [[SixisCardRun456 alloc] init],
+            [[SixisCardTwoPair alloc] init],
+            [[SixisCardThreeOfAKind alloc] init],
+            [[SixisCardTwoPair alloc] init],
+            [[SixisCardOneThreeFive alloc] init],
+            [[SixisCardTwoFourSix alloc] init],
+            [[SixisCardLow alloc] init],
+            [[SixisCardHigh alloc] init],
+            nil];
     
     self.winningPlayers = nil;
     

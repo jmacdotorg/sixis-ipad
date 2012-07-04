@@ -56,4 +56,22 @@
     [self.game.cardsInPlay replaceObjectAtIndex:cardIndex withObject:newCard];
 }
 
+-(NSDictionary *)sortedDice {
+    NSMutableDictionary *sortedDice = [[NSMutableDictionary alloc] init];
+    for ( int pipCount = 1; pipCount <= 6; pipCount++ ) {
+        NSSet *matchingDice = [ [self dice] objectsPassingTest:^(id obj, BOOL* stop) {
+            SixisDie *die = (SixisDie *)obj;
+            if ( die.value == pipCount ) {
+                return YES;
+            }
+            else {
+                return NO;
+            }
+        }];
+        [sortedDice setObject:matchingDice forKey:[NSNumber numberWithInt:pipCount]];
+    }
+    
+    return [NSDictionary dictionaryWithDictionary:sortedDice];
+}
+
 @end

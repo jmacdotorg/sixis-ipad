@@ -34,9 +34,9 @@ The controller tells the game object what the player did with their dice.
 
 The controller asks the game object what the roll result was, and which cards the player may now interact with.
 
-The controller animates the dice falling on the table, then highlights the right cards. These dice and cards now listen for tap events, as does an "End Turn" button that appears.
+The controller animates the dice falling on the table, then animates the player's locked dice (if any) moving from their safe onto the table. The controller then highlights all the cards that the player is qualified to take or flip. These dice and cards now listen for tap events, as does an "End Turn" button that appears.
 
-Tapping a rolled die toggles it between unlocked and locked (the latter represented with a little padlock symbol). This can happen as much as a player pleases.
+Tapping a rolled die toggles it between unlocked and locked (the latter represented with a little padlock symbol). This can happen as much as a player pleases. Dice that the player just rolled begin without a lock symbol attached, while dice that moved out of a player's safe begin with the lock symbol -- that is, they'll just go right back into the safe by default.
 
 Tapping a highlighted blue card displays a pop-up menu: Take (Green button), Flip (Blue button), Never Mind (Red button).
 

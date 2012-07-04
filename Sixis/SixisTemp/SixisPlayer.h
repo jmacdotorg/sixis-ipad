@@ -32,4 +32,6 @@
 
 -(NSSet *)dice;
 
+-(NSDictionary *) sortedDice;
+
 @end

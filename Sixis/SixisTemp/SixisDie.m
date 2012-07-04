@@ -17,4 +17,12 @@
 	[self setValue:randomNumber];
 }
 
+- (void) lock {
+    [self setIsLocked:YES];
+}
+
+- (void) unlock {
+    [self setIsLocked:NO];
+}
+
 @end

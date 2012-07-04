@@ -7,7 +7,26 @@
 //
 
 #import "SixisTwoFourSix.h"
+#import "SixisCardAllDiceEven.h"
 
 @implementation SixisTwoFourSix
+
+-(id) init {
+    return [self initWithValue:25 flipSide:[[SixisCardAllDiceEven alloc] init] Blueness:YES];
+}
+
+-(BOOL) isQualified {
+    NSDictionary *sortedDice = [self sortedDice];
+    
+    for (NSNumber *pipCount in [NSArray arrayWithObjects:[NSNumber numberWithInt:2], [NSNumber numberWithInt:4], [NSNumber numberWithInt:6], nil]) {
+        
+        NSSet *dice = [sortedDice objectForKey:pipCount];
+        if ( dice.count == 0 ) {
+            return NO;
+        }
+    }
+    
+    return YES;
+}
 
 @end

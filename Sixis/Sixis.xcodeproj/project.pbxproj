@@ -42,6 +42,37 @@
 		89EFB462159A4A5A00D09240 /* SixisCardSixis.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB461159A4A5A00D09240 /* SixisCardSixis.m */; };
 		89EFB465159A4A9B00D09240 /* SixisCardDoubleTwos.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB464159A4A9B00D09240 /* SixisCardDoubleTwos.m */; };
 		89EFB468159A4AA600D09240 /* SixisCardFourTwos.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB467159A4AA500D09240 /* SixisCardFourTwos.m */; };
+		89EFB48415A3BC2C00D09240 /* SixisCardThreeOfAKind.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB48315A3BC2C00D09240 /* SixisCardThreeOfAKind.m */; };
+		89EFB48815A3BD2500D09240 /* SixisCardFullHouse.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB48715A3BD2500D09240 /* SixisCardFullHouse.m */; };
+		89EFB48B15A3CE2300D09240 /* SixisCardVeryLow.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB48A15A3CE2300D09240 /* SixisCardVeryLow.m */; };
+		89EFB48E15A3D30D00D09240 /* SixisCardLow.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB48D15A3D30D00D09240 /* SixisCardLow.m */; };
+		89EFB49115A3D58700D09240 /* SixisCardVeryHigh.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB49015A3D58700D09240 /* SixisCardVeryHigh.m */; };
+		89EFB49415A3D6E800D09240 /* SixisCardHigh.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB49315A3D6E800D09240 /* SixisCardHigh.m */; };
+		89EFB49715A3DB0800D09240 /* SixisCardThreePair.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB49615A3DB0800D09240 /* SixisCardThreePair.m */; };
+		89EFB49A15A3E17400D09240 /* SixisCardTwoPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB49915A3E17400D09240 /* SixisCardTwoPair.m */; };
+		89EFB49D15A3E1FE00D09240 /* SixisCardAllDiceEven.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB49C15A3E1FE00D09240 /* SixisCardAllDiceEven.m */; };
+		89EFB4A015A3EBBF00D09240 /* SixisCardOneThreeFive.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB49F15A3EBBF00D09240 /* SixisCardOneThreeFive.m */; };
+		89EFB4A315A3ECC100D09240 /* SixisCardAllDiceOdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB4A215A3ECC100D09240 /* SixisCardAllDiceOdd.m */; };
+		89EFB4A615A3EE5B00D09240 /* SixisTwoFourSix.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB4A515A3EE5B00D09240 /* SixisTwoFourSix.m */; };
+		89EFB4A915A3EF0700D09240 /* SixisCardRun12345.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB4A815A3EF0700D09240 /* SixisCardRun12345.m */; };
+		89EFB4AC15A3F18300D09240 /* SixisCardRun23456.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB4AB15A3F18200D09240 /* SixisCardRun23456.m */; };
+		89EFB4AF15A3F1AC00D09240 /* SixisCardRun123.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB4AE15A3F1AC00D09240 /* SixisCardRun123.m */; };
+		89EFB4B215A3F20300D09240 /* SixisCardRun456.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB4B115A3F20200D09240 /* SixisCardRun456.m */; };
+		89EFB4B815A4947400D09240 /* SixisCardTwosAndFives.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB4B715A4947200D09240 /* SixisCardTwosAndFives.m */; };
+		89EFB4BB15A4953D00D09240 /* SixisCardOnesAndSixes.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB4BA15A4953C00D09240 /* SixisCardOnesAndSixes.m */; };
+		89EFB4BE15A4956100D09240 /* SixisCardOneAndSix.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB4BD15A4956000D09240 /* SixisCardOneAndSix.m */; };
+		89EFB4C115A4969700D09240 /* SixisCardTwoAndFive.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB4C015A4969600D09240 /* SixisCardTwoAndFive.m */; };
+		89EFB4C415A496C700D09240 /* SixisCardThreeAndFour.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB4C315A496C600D09240 /* SixisCardThreeAndFour.m */; };
+		89EFB4C615A497F200D09240 /* SixisCardThreesAndFours.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB4C515A497F000D09240 /* SixisCardThreesAndFours.m */; };
+		89EFB4D315A499A800D09240 /* SixisCardFourFours.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB4D215A499A800D09240 /* SixisCardFourFours.m */; };
+		89EFB4D715A499C400D09240 /* SixisCardFourFives.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB4D615A499C400D09240 /* SixisCardFourFives.m */; };
+		89EFB4DA15A499E900D09240 /* SixisCardFourSixes.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB4D915A499E800D09240 /* SixisCardFourSixes.m */; };
+		89EFB4DD15A49A5700D09240 /* SixisCardDoubleThrees.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB4DC15A49A5700D09240 /* SixisCardDoubleThrees.m */; };
+		89EFB4E015A49A9F00D09240 /* SixisCardDoubleFours.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB4DF15A49A9E00D09240 /* SixisCardDoubleFours.m */; };
+		89EFB4E315A49AC800D09240 /* SixisCardDoubleFives.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB4E215A49AC700D09240 /* SixisCardDoubleFives.m */; };
+		89EFB4E615A49AED00D09240 /* SixisCardDoubleSixes.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB4E515A49AEC00D09240 /* SixisCardDoubleSixes.m */; };
+		89EFB4E915A49C0F00D09240 /* SixisCardFourThrees.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB4E815A49C0E00D09240 /* SixisCardFourThrees.m */; };
+		89EFB4EC15A4D30700D09240 /* SixisCardTwoFourSix.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB4EB15A4D30500D09240 /* SixisCardTwoFourSix.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -108,6 +139,68 @@
 		89EFB464159A4A9B00D09240 /* SixisCardDoubleTwos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCardDoubleTwos.m; sourceTree = "<group>"; };
 		89EFB466159A4AA400D09240 /* SixisCardFourTwos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisCardFourTwos.h; sourceTree = "<group>"; };
 		89EFB467159A4AA500D09240 /* SixisCardFourTwos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCardFourTwos.m; sourceTree = "<group>"; };
+		89EFB48215A3BC2C00D09240 /* SixisCardThreeOfAKind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisCardThreeOfAKind.h; sourceTree = "<group>"; };
+		89EFB48315A3BC2C00D09240 /* SixisCardThreeOfAKind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCardThreeOfAKind.m; sourceTree = "<group>"; };
+		89EFB48615A3BD2500D09240 /* SixisCardFullHouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisCardFullHouse.h; sourceTree = "<group>"; };
+		89EFB48715A3BD2500D09240 /* SixisCardFullHouse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCardFullHouse.m; sourceTree = "<group>"; };
+		89EFB48915A3CE2200D09240 /* SixisCardVeryLow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisCardVeryLow.h; sourceTree = "<group>"; };
+		89EFB48A15A3CE2300D09240 /* SixisCardVeryLow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCardVeryLow.m; sourceTree = "<group>"; };
+		89EFB48C15A3D30D00D09240 /* SixisCardLow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisCardLow.h; sourceTree = "<group>"; };
+		89EFB48D15A3D30D00D09240 /* SixisCardLow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCardLow.m; sourceTree = "<group>"; };
+		89EFB48F15A3D58600D09240 /* SixisCardVeryHigh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisCardVeryHigh.h; sourceTree = "<group>"; };
+		89EFB49015A3D58700D09240 /* SixisCardVeryHigh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCardVeryHigh.m; sourceTree = "<group>"; };
+		89EFB49215A3D6E800D09240 /* SixisCardHigh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisCardHigh.h; sourceTree = "<group>"; };
+		89EFB49315A3D6E800D09240 /* SixisCardHigh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCardHigh.m; sourceTree = "<group>"; };
+		89EFB49515A3DB0800D09240 /* SixisCardThreePair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisCardThreePair.h; sourceTree = "<group>"; };
+		89EFB49615A3DB0800D09240 /* SixisCardThreePair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCardThreePair.m; sourceTree = "<group>"; };
+		89EFB49815A3E17400D09240 /* SixisCardTwoPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisCardTwoPair.h; sourceTree = "<group>"; };
+		89EFB49915A3E17400D09240 /* SixisCardTwoPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCardTwoPair.m; sourceTree = "<group>"; };
+		89EFB49B15A3E1FE00D09240 /* SixisCardAllDiceEven.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisCardAllDiceEven.h; sourceTree = "<group>"; };
+		89EFB49C15A3E1FE00D09240 /* SixisCardAllDiceEven.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCardAllDiceEven.m; sourceTree = "<group>"; };
+		89EFB49E15A3EBBF00D09240 /* SixisCardOneThreeFive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisCardOneThreeFive.h; sourceTree = "<group>"; };
+		89EFB49F15A3EBBF00D09240 /* SixisCardOneThreeFive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCardOneThreeFive.m; sourceTree = "<group>"; };
+		89EFB4A115A3ECC000D09240 /* SixisCardAllDiceOdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisCardAllDiceOdd.h; sourceTree = "<group>"; };
+		89EFB4A215A3ECC100D09240 /* SixisCardAllDiceOdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCardAllDiceOdd.m; sourceTree = "<group>"; };
+		89EFB4A415A3EE5A00D09240 /* SixisTwoFourSix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisTwoFourSix.h; sourceTree = "<group>"; };
+		89EFB4A515A3EE5B00D09240 /* SixisTwoFourSix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisTwoFourSix.m; sourceTree = "<group>"; };
+		89EFB4A715A3EF0600D09240 /* SixisCardRun12345.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisCardRun12345.h; sourceTree = "<group>"; };
+		89EFB4A815A3EF0700D09240 /* SixisCardRun12345.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCardRun12345.m; sourceTree = "<group>"; };
+		89EFB4AA15A3F18200D09240 /* SixisCardRun23456.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisCardRun23456.h; sourceTree = "<group>"; };
+		89EFB4AB15A3F18200D09240 /* SixisCardRun23456.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCardRun23456.m; sourceTree = "<group>"; };
+		89EFB4AD15A3F1AB00D09240 /* SixisCardRun123.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisCardRun123.h; sourceTree = "<group>"; };
+		89EFB4AE15A3F1AC00D09240 /* SixisCardRun123.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCardRun123.m; sourceTree = "<group>"; };
+		89EFB4B015A3F20200D09240 /* SixisCardRun456.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisCardRun456.h; sourceTree = "<group>"; };
+		89EFB4B115A3F20200D09240 /* SixisCardRun456.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCardRun456.m; sourceTree = "<group>"; };
+		89EFB4B315A493CA00D09240 /* SixisCardThreesAndFours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisCardThreesAndFours.h; sourceTree = "<group>"; };
+		89EFB4B615A4947200D09240 /* SixisCardTwosAndFives.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisCardTwosAndFives.h; sourceTree = "<group>"; };
+		89EFB4B715A4947200D09240 /* SixisCardTwosAndFives.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCardTwosAndFives.m; sourceTree = "<group>"; };
+		89EFB4B915A4953B00D09240 /* SixisCardOnesAndSixes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisCardOnesAndSixes.h; sourceTree = "<group>"; };
+		89EFB4BA15A4953C00D09240 /* SixisCardOnesAndSixes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCardOnesAndSixes.m; sourceTree = "<group>"; };
+		89EFB4BC15A4955F00D09240 /* SixisCardOneAndSix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisCardOneAndSix.h; sourceTree = "<group>"; };
+		89EFB4BD15A4956000D09240 /* SixisCardOneAndSix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCardOneAndSix.m; sourceTree = "<group>"; };
+		89EFB4BF15A4969500D09240 /* SixisCardTwoAndFive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisCardTwoAndFive.h; sourceTree = "<group>"; };
+		89EFB4C015A4969600D09240 /* SixisCardTwoAndFive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCardTwoAndFive.m; sourceTree = "<group>"; };
+		89EFB4C215A496C400D09240 /* SixisCardThreeAndFour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisCardThreeAndFour.h; sourceTree = "<group>"; };
+		89EFB4C315A496C600D09240 /* SixisCardThreeAndFour.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCardThreeAndFour.m; sourceTree = "<group>"; };
+		89EFB4C515A497F000D09240 /* SixisCardThreesAndFours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCardThreesAndFours.m; sourceTree = "<group>"; };
+		89EFB4D115A499A800D09240 /* SixisCardFourFours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisCardFourFours.h; sourceTree = "<group>"; };
+		89EFB4D215A499A800D09240 /* SixisCardFourFours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCardFourFours.m; sourceTree = "<group>"; };
+		89EFB4D515A499C400D09240 /* SixisCardFourFives.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisCardFourFives.h; sourceTree = "<group>"; };
+		89EFB4D615A499C400D09240 /* SixisCardFourFives.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCardFourFives.m; sourceTree = "<group>"; };
+		89EFB4D815A499E800D09240 /* SixisCardFourSixes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisCardFourSixes.h; sourceTree = "<group>"; };
+		89EFB4D915A499E800D09240 /* SixisCardFourSixes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCardFourSixes.m; sourceTree = "<group>"; };
+		89EFB4DB15A49A5700D09240 /* SixisCardDoubleThrees.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisCardDoubleThrees.h; sourceTree = "<group>"; };
+		89EFB4DC15A49A5700D09240 /* SixisCardDoubleThrees.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCardDoubleThrees.m; sourceTree = "<group>"; };
+		89EFB4DE15A49A9E00D09240 /* SixisCardDoubleFours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisCardDoubleFours.h; sourceTree = "<group>"; };
+		89EFB4DF15A49A9E00D09240 /* SixisCardDoubleFours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCardDoubleFours.m; sourceTree = "<group>"; };
+		89EFB4E115A49AC700D09240 /* SixisCardDoubleFives.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisCardDoubleFives.h; sourceTree = "<group>"; };
+		89EFB4E215A49AC700D09240 /* SixisCardDoubleFives.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCardDoubleFives.m; sourceTree = "<group>"; };
+		89EFB4E415A49AEC00D09240 /* SixisCardDoubleSixes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisCardDoubleSixes.h; sourceTree = "<group>"; };
+		89EFB4E515A49AEC00D09240 /* SixisCardDoubleSixes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCardDoubleSixes.m; sourceTree = "<group>"; };
+		89EFB4E715A49C0E00D09240 /* SixisCardFourThrees.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisCardFourThrees.h; sourceTree = "<group>"; };
+		89EFB4E815A49C0E00D09240 /* SixisCardFourThrees.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCardFourThrees.m; sourceTree = "<group>"; };
+		89EFB4EA15A4D30400D09240 /* SixisCardTwoFourSix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisCardTwoFourSix.h; sourceTree = "<group>"; };
+		89EFB4EB15A4D30500D09240 /* SixisCardTwoFourSix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCardTwoFourSix.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,16 +345,78 @@
 		89EFB459159A3AF700D09240 /* Cards */ = {
 			isa = PBXGroup;
 			children = (
+				89EFB49B15A3E1FE00D09240 /* SixisCardAllDiceEven.h */,
+				89EFB49C15A3E1FE00D09240 /* SixisCardAllDiceEven.m */,
+				89EFB4A115A3ECC000D09240 /* SixisCardAllDiceOdd.h */,
+				89EFB4A215A3ECC100D09240 /* SixisCardAllDiceOdd.m */,
+				89EFB4E115A49AC700D09240 /* SixisCardDoubleFives.h */,
+				89EFB4E215A49AC700D09240 /* SixisCardDoubleFives.m */,
+				89EFB4DE15A49A9E00D09240 /* SixisCardDoubleFours.h */,
+				89EFB4DF15A49A9E00D09240 /* SixisCardDoubleFours.m */,
 				89EFB45A159A3B4A00D09240 /* SixisCardDoubleOnes.h */,
+				89EFB45B159A3B4A00D09240 /* SixisCardDoubleOnes.m */,
+				89EFB4E415A49AEC00D09240 /* SixisCardDoubleSixes.h */,
+				89EFB4E515A49AEC00D09240 /* SixisCardDoubleSixes.m */,
+				89EFB4DB15A49A5700D09240 /* SixisCardDoubleThrees.h */,
+				89EFB4DC15A49A5700D09240 /* SixisCardDoubleThrees.m */,
+				89EFB4EA15A4D30400D09240 /* SixisCardTwoFourSix.h */,
+				89EFB4EB15A4D30500D09240 /* SixisCardTwoFourSix.m */,
 				89EFB463159A4A9B00D09240 /* SixisCardDoubleTwos.h */,
 				89EFB464159A4A9B00D09240 /* SixisCardDoubleTwos.m */,
-				89EFB466159A4AA400D09240 /* SixisCardFourTwos.h */,
-				89EFB467159A4AA500D09240 /* SixisCardFourTwos.m */,
-				89EFB45B159A3B4A00D09240 /* SixisCardDoubleOnes.m */,
-				89EFB460159A4A5A00D09240 /* SixisCardSixis.h */,
-				89EFB461159A4A5A00D09240 /* SixisCardSixis.m */,
+				89EFB4D515A499C400D09240 /* SixisCardFourFives.h */,
+				89EFB4D615A499C400D09240 /* SixisCardFourFives.m */,
+				89EFB4D115A499A800D09240 /* SixisCardFourFours.h */,
+				89EFB4D215A499A800D09240 /* SixisCardFourFours.m */,
 				89EFB45D159A49E500D09240 /* SixisCardFourOnes.h */,
 				89EFB45E159A49E500D09240 /* SixisCardFourOnes.m */,
+				89EFB4D815A499E800D09240 /* SixisCardFourSixes.h */,
+				89EFB4D915A499E800D09240 /* SixisCardFourSixes.m */,
+				89EFB4E715A49C0E00D09240 /* SixisCardFourThrees.h */,
+				89EFB4E815A49C0E00D09240 /* SixisCardFourThrees.m */,
+				89EFB466159A4AA400D09240 /* SixisCardFourTwos.h */,
+				89EFB467159A4AA500D09240 /* SixisCardFourTwos.m */,
+				89EFB48615A3BD2500D09240 /* SixisCardFullHouse.h */,
+				89EFB48715A3BD2500D09240 /* SixisCardFullHouse.m */,
+				89EFB49215A3D6E800D09240 /* SixisCardHigh.h */,
+				89EFB49315A3D6E800D09240 /* SixisCardHigh.m */,
+				89EFB48C15A3D30D00D09240 /* SixisCardLow.h */,
+				89EFB48D15A3D30D00D09240 /* SixisCardLow.m */,
+				89EFB4BC15A4955F00D09240 /* SixisCardOneAndSix.h */,
+				89EFB4BD15A4956000D09240 /* SixisCardOneAndSix.m */,
+				89EFB4B915A4953B00D09240 /* SixisCardOnesAndSixes.h */,
+				89EFB4BA15A4953C00D09240 /* SixisCardOnesAndSixes.m */,
+				89EFB49E15A3EBBF00D09240 /* SixisCardOneThreeFive.h */,
+				89EFB49F15A3EBBF00D09240 /* SixisCardOneThreeFive.m */,
+				89EFB4AD15A3F1AB00D09240 /* SixisCardRun123.h */,
+				89EFB4AE15A3F1AC00D09240 /* SixisCardRun123.m */,
+				89EFB4A715A3EF0600D09240 /* SixisCardRun12345.h */,
+				89EFB4A815A3EF0700D09240 /* SixisCardRun12345.m */,
+				89EFB4AA15A3F18200D09240 /* SixisCardRun23456.h */,
+				89EFB4AB15A3F18200D09240 /* SixisCardRun23456.m */,
+				89EFB4B015A3F20200D09240 /* SixisCardRun456.h */,
+				89EFB4B115A3F20200D09240 /* SixisCardRun456.m */,
+				89EFB460159A4A5A00D09240 /* SixisCardSixis.h */,
+				89EFB461159A4A5A00D09240 /* SixisCardSixis.m */,
+				89EFB4C215A496C400D09240 /* SixisCardThreeAndFour.h */,
+				89EFB4C315A496C600D09240 /* SixisCardThreeAndFour.m */,
+				89EFB48215A3BC2C00D09240 /* SixisCardThreeOfAKind.h */,
+				89EFB48315A3BC2C00D09240 /* SixisCardThreeOfAKind.m */,
+				89EFB49515A3DB0800D09240 /* SixisCardThreePair.h */,
+				89EFB49615A3DB0800D09240 /* SixisCardThreePair.m */,
+				89EFB4B315A493CA00D09240 /* SixisCardThreesAndFours.h */,
+				89EFB4C515A497F000D09240 /* SixisCardThreesAndFours.m */,
+				89EFB4BF15A4969500D09240 /* SixisCardTwoAndFive.h */,
+				89EFB4C015A4969600D09240 /* SixisCardTwoAndFive.m */,
+				89EFB49815A3E17400D09240 /* SixisCardTwoPair.h */,
+				89EFB49915A3E17400D09240 /* SixisCardTwoPair.m */,
+				89EFB4B615A4947200D09240 /* SixisCardTwosAndFives.h */,
+				89EFB4B715A4947200D09240 /* SixisCardTwosAndFives.m */,
+				89EFB48F15A3D58600D09240 /* SixisCardVeryHigh.h */,
+				89EFB49015A3D58700D09240 /* SixisCardVeryHigh.m */,
+				89EFB48915A3CE2200D09240 /* SixisCardVeryLow.h */,
+				89EFB48A15A3CE2300D09240 /* SixisCardVeryLow.m */,
+				89EFB4A415A3EE5A00D09240 /* SixisTwoFourSix.h */,
+				89EFB4A515A3EE5B00D09240 /* SixisTwoFourSix.m */,
 			);
 			name = Cards;
 			sourceTree = "<group>";
@@ -360,6 +515,37 @@
 				89EFB462159A4A5A00D09240 /* SixisCardSixis.m in Sources */,
 				89EFB465159A4A9B00D09240 /* SixisCardDoubleTwos.m in Sources */,
 				89EFB468159A4AA600D09240 /* SixisCardFourTwos.m in Sources */,
+				89EFB48415A3BC2C00D09240 /* SixisCardThreeOfAKind.m in Sources */,
+				89EFB48815A3BD2500D09240 /* SixisCardFullHouse.m in Sources */,
+				89EFB48B15A3CE2300D09240 /* SixisCardVeryLow.m in Sources */,
+				89EFB48E15A3D30D00D09240 /* SixisCardLow.m in Sources */,
+				89EFB49115A3D58700D09240 /* SixisCardVeryHigh.m in Sources */,
+				89EFB49415A3D6E800D09240 /* SixisCardHigh.m in Sources */,
+				89EFB49715A3DB0800D09240 /* SixisCardThreePair.m in Sources */,
+				89EFB49A15A3E17400D09240 /* SixisCardTwoPair.m in Sources */,
+				89EFB49D15A3E1FE00D09240 /* SixisCardAllDiceEven.m in Sources */,
+				89EFB4A015A3EBBF00D09240 /* SixisCardOneThreeFive.m in Sources */,
+				89EFB4A315A3ECC100D09240 /* SixisCardAllDiceOdd.m in Sources */,
+				89EFB4A615A3EE5B00D09240 /* SixisTwoFourSix.m in Sources */,
+				89EFB4A915A3EF0700D09240 /* SixisCardRun12345.m in Sources */,
+				89EFB4AC15A3F18300D09240 /* SixisCardRun23456.m in Sources */,
+				89EFB4AF15A3F1AC00D09240 /* SixisCardRun123.m in Sources */,
+				89EFB4B215A3F20300D09240 /* SixisCardRun456.m in Sources */,
+				89EFB4B815A4947400D09240 /* SixisCardTwosAndFives.m in Sources */,
+				89EFB4BB15A4953D00D09240 /* SixisCardOnesAndSixes.m in Sources */,
+				89EFB4BE15A4956100D09240 /* SixisCardOneAndSix.m in Sources */,
+				89EFB4C115A4969700D09240 /* SixisCardTwoAndFive.m in Sources */,
+				89EFB4C415A496C700D09240 /* SixisCardThreeAndFour.m in Sources */,
+				89EFB4C615A497F200D09240 /* SixisCardThreesAndFours.m in Sources */,
+				89EFB4D315A499A800D09240 /* SixisCardFourFours.m in Sources */,
+				89EFB4D715A499C400D09240 /* SixisCardFourFives.m in Sources */,
+				89EFB4DA15A499E900D09240 /* SixisCardFourSixes.m in Sources */,
+				89EFB4DD15A49A5700D09240 /* SixisCardDoubleThrees.m in Sources */,
+				89EFB4E015A49A9F00D09240 /* SixisCardDoubleFours.m in Sources */,
+				89EFB4E315A49AC800D09240 /* SixisCardDoubleFives.m in Sources */,
+				89EFB4E615A49AED00D09240 /* SixisCardDoubleSixes.m in Sources */,
+				89EFB4E915A49C0F00D09240 /* SixisCardFourThrees.m in Sources */,
+				89EFB4EC15A4D30700D09240 /* SixisCardTwoFourSix.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

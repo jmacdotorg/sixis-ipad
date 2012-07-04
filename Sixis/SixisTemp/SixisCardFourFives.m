@@ -1,17 +1,14 @@
 //
-//  SixisCardFourTwos.m
-//  SixisTemp
+//  SixisCardFourFives.m
+//  Sixis
 //
-//  Created by Jason McIntosh on 6/26/12.
+//  Created by Jason McIntosh on 7/4/12.
 //  Copyright (c) 2012 Appleseed Software Consulting. All rights reserved.
 //
 
-#import "SixisCardFourTwos.h"
-#import "SixisDie.h"
-#import "SixisGame.h"
-#import "SixisPlayer.h"
+#import "SixisCardFourFives.h"
 
-@implementation SixisCardFourTwos
+@implementation SixisCardFourFives
 
 -(id) init {
     return [self initWithValue:50 flipSide:nil Blueness:NO];
@@ -20,7 +17,7 @@
 -(BOOL) isQualified {
     NSDictionary *sortedDice = [self sortedDice];
     
-    NSSet *dice = [sortedDice objectForKey:[NSNumber numberWithInt:2]];
+    NSSet *dice = [sortedDice objectForKey:[NSNumber numberWithInt:5]];
     if ( dice.count < 4 ) {
         return NO;
     }

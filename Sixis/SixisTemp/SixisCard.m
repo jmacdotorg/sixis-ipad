@@ -30,4 +30,12 @@
 }
 
 
+-(NSDictionary *) sortedDice {
+    return [game.currentPlayer sortedDice];
+}
+
+-(NSSet *) dice {
+    return [game.currentPlayer dice];
+}
+
 @end

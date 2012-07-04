@@ -18,22 +18,14 @@
 }
 
 -(BOOL) isQualified {
-    NSSet *dice = [self.game.currentPlayer dice];
-    NSSet *matchingDice = [dice objectsPassingTest:^(id obj, BOOL *stop) {
-        SixisDie *die = (SixisDie *)obj;
-        if ( die.value == 1 ) {
-            return YES;
-        }
-        else {
-            return NO;
-        }
-    }];
-    if ( matchingDice.count == 4 ) {
-        return YES;
-    }
-    else {
+    NSDictionary *sortedDice = [self sortedDice];
+    
+    NSSet *dice = [sortedDice objectForKey:[NSNumber numberWithInt:1]];
+    if ( dice.count < 4 ) {
         return NO;
     }
+    
+    return YES;
 }
 
 @end

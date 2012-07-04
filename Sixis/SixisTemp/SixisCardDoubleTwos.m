@@ -20,22 +20,14 @@
 
 
 -(BOOL) isQualified {
-    NSSet *dice = [self.game.currentPlayer dice];
-    NSSet *twos = [dice objectsPassingTest:^(id obj, BOOL *stop) {
-        SixisDie *die = (SixisDie *)obj;
-        if ( die.value == 2 ) {
-            return YES;
-        }
-        else {
-            return NO;
-        }
-    }];
-    if ( twos.count == 2 ) {
-        return YES;
-    }
-    else {
+    NSDictionary *sortedDice = [self sortedDice];
+    
+    NSSet *dice = [sortedDice objectForKey:[NSNumber numberWithInt:2]];
+    if ( dice.count < 2 ) {
         return NO;
     }
+    
+    return YES;
 }
 
 @end

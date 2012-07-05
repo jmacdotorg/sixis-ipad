@@ -140,7 +140,7 @@
         
     }
     
-    SixisGame *game = [[SixisGame alloc] initWithGameType:gameInfo.gameType PlayersType:gameInfo.playersType Players:players];
+    SixisGame *game = [[SixisGame alloc] initWithGameType:gameInfo.gameType PlayersType:gameInfo.playersType Players:[NSArray arrayWithArray:players]];
     
     NSLog(@"I have a game, hurray. %@", game);
     

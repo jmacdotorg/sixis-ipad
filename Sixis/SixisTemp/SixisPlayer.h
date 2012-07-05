@@ -34,4 +34,6 @@
 
 -(NSDictionary *) sortedDice;
 
+-(NSComparisonResult) compareScores:(SixisPlayer *)otherPlayer;
+
 @end

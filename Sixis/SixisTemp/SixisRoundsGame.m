@@ -39,7 +39,7 @@
             }
         }
         else { // Not a team game
-            NSArray *sortedPlayers = [self.game.players sortedArrayUsingSelector:@selector(compareScores)];
+            NSArray *sortedPlayers = [self.game.players sortedArrayUsingSelector:@selector(compareScores:)];
             NSMutableArray *winners = [[NSMutableArray alloc] init];
             // We need to account for the possibility of a tie, and several winners.
             // Sixis has no official tiebreaker rule.

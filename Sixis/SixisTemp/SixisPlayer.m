@@ -74,4 +74,16 @@
     return [NSDictionary dictionaryWithDictionary:sortedDice];
 }
 
+-(NSComparisonResult)compareScores:(SixisPlayer *)otherPlayer {
+    if ( [otherPlayer score] > [self score] ) {
+        return NSOrderedDescending;
+    }
+    else if ( [otherPlayer score] < [self score] ) {
+        return NSOrderedAscending;
+    }
+    else {
+        return NSOrderedSame;
+    }
+}
+
 @end

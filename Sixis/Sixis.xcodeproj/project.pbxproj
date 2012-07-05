@@ -73,7 +73,22 @@
 		89EFB4E615A49AED00D09240 /* SixisCardDoubleSixes.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB4E515A49AEC00D09240 /* SixisCardDoubleSixes.m */; };
 		89EFB4E915A49C0F00D09240 /* SixisCardFourThrees.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB4E815A49C0E00D09240 /* SixisCardFourThrees.m */; };
 		89EFB4EC15A4D30700D09240 /* SixisCardTwoFourSix.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB4EB15A4D30500D09240 /* SixisCardTwoFourSix.m */; };
+		89EFB4FB15A50B7100D09240 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89EFB4FA15A50B7000D09240 /* SenTestingKit.framework */; };
+		89EFB4FC15A50B7100D09240 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89EFB3E415926DAC00D09240 /* UIKit.framework */; };
+		89EFB4FD15A50B7100D09240 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89EFB3E615926DAC00D09240 /* Foundation.framework */; };
+		89EFB50315A50B7100D09240 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 89EFB50115A50B7100D09240 /* InfoPlist.strings */; };
+		89EFB50615A50B7100D09240 /* SixisLogicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB50515A50B7100D09240 /* SixisLogicTests.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8943560015A5E97D009E3C79 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 89EFB3D715926DAC00D09240 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 89EFB3DF15926DAC00D09240;
+			remoteInfo = Sixis;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		89EFB3E015926DAC00D09240 /* Sixis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sixis.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -201,6 +216,13 @@
 		89EFB4E815A49C0E00D09240 /* SixisCardFourThrees.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCardFourThrees.m; sourceTree = "<group>"; };
 		89EFB4EA15A4D30400D09240 /* SixisCardTwoFourSix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisCardTwoFourSix.h; sourceTree = "<group>"; };
 		89EFB4EB15A4D30500D09240 /* SixisCardTwoFourSix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCardTwoFourSix.m; sourceTree = "<group>"; };
+		89EFB4F915A50B7000D09240 /* SixisLogicTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SixisLogicTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		89EFB4FA15A50B7000D09240 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		89EFB50015A50B7100D09240 /* SixisLogicTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SixisLogicTests-Info.plist"; sourceTree = "<group>"; };
+		89EFB50215A50B7100D09240 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		89EFB50415A50B7100D09240 /* SixisLogicTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SixisLogicTests.h; sourceTree = "<group>"; };
+		89EFB50515A50B7100D09240 /* SixisLogicTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SixisLogicTests.m; sourceTree = "<group>"; };
+		89EFB50715A50B7100D09240 /* SixisLogicTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SixisLogicTests-Prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +236,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		89EFB4F515A50B7000D09240 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89EFB4FB15A50B7100D09240 /* SenTestingKit.framework in Frameworks */,
+				89EFB4FC15A50B7100D09240 /* UIKit.framework in Frameworks */,
+				89EFB4FD15A50B7100D09240 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -221,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				89EFB3EA15926DAC00D09240 /* Sixis */,
+				89EFB4FE15A50B7100D09240 /* SixisLogicTests */,
 				89EFB3E315926DAC00D09240 /* Frameworks */,
 				89EFB3E115926DAC00D09240 /* Products */,
 			);
@@ -230,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				89EFB3E015926DAC00D09240 /* Sixis.app */,
+				89EFB4F915A50B7000D09240 /* SixisLogicTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -240,6 +274,7 @@
 				89EFB3E415926DAC00D09240 /* UIKit.framework */,
 				89EFB3E615926DAC00D09240 /* Foundation.framework */,
 				89EFB3E815926DAC00D09240 /* CoreGraphics.framework */,
+				89EFB4FA15A50B7000D09240 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -421,6 +456,26 @@
 			name = Cards;
 			sourceTree = "<group>";
 		};
+		89EFB4FE15A50B7100D09240 /* SixisLogicTests */ = {
+			isa = PBXGroup;
+			children = (
+				89EFB50415A50B7100D09240 /* SixisLogicTests.h */,
+				89EFB50515A50B7100D09240 /* SixisLogicTests.m */,
+				89EFB4FF15A50B7100D09240 /* Supporting Files */,
+			);
+			path = SixisLogicTests;
+			sourceTree = "<group>";
+		};
+		89EFB4FF15A50B7100D09240 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				89EFB50015A50B7100D09240 /* SixisLogicTests-Info.plist */,
+				89EFB50115A50B7100D09240 /* InfoPlist.strings */,
+				89EFB50715A50B7100D09240 /* SixisLogicTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -440,6 +495,25 @@
 			productName = SixisTemp;
 			productReference = 89EFB3E015926DAC00D09240 /* Sixis.app */;
 			productType = "com.apple.product-type.application";
+		};
+		89EFB4F815A50B7000D09240 /* SixisLogicTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89EFB50A15A50B7100D09240 /* Build configuration list for PBXNativeTarget "SixisLogicTests" */;
+			buildPhases = (
+				89EFB4F415A50B7000D09240 /* Sources */,
+				89EFB4F515A50B7000D09240 /* Frameworks */,
+				89EFB4F615A50B7000D09240 /* Resources */,
+				89EFB4F715A50B7000D09240 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8943560115A5E97D009E3C79 /* PBXTargetDependency */,
+			);
+			name = SixisLogicTests;
+			productName = SixisLogicTests;
+			productReference = 89EFB4F915A50B7000D09240 /* SixisLogicTests.octest */;
+			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
@@ -464,6 +538,7 @@
 			projectRoot = "";
 			targets = (
 				89EFB3DF15926DAC00D09240 /* Sixis */,
+				89EFB4F815A50B7000D09240 /* SixisLogicTests */,
 			);
 		};
 /* End PBXProject section */
@@ -482,7 +557,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		89EFB4F615A50B7000D09240 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89EFB50315A50B7100D09240 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		89EFB4F715A50B7000D09240 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		89EFB3DC15926DAC00D09240 /* Sources */ = {
@@ -549,13 +648,37 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		89EFB4F415A50B7000D09240 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89EFB50615A50B7100D09240 /* SixisLogicTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8943560115A5E97D009E3C79 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 89EFB3DF15926DAC00D09240 /* Sixis */;
+			targetProxy = 8943560015A5E97D009E3C79 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		89EFB3ED15926DAC00D09240 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				89EFB3EE15926DAC00D09240 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		89EFB50115A50B7100D09240 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				89EFB50215A50B7100D09240 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -632,6 +755,38 @@
 			};
 			name = Release;
 		};
+		89EFB50815A50B7100D09240 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Sixis.app/Sixis";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SixisLogicTests/SixisLogicTests-Prefix.pch";
+				INFOPLIST_FILE = "SixisLogicTests/SixisLogicTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		89EFB50915A50B7100D09240 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SixisLogicTests/SixisLogicTests-Prefix.pch";
+				INFOPLIST_FILE = "SixisLogicTests/SixisLogicTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -649,6 +804,15 @@
 			buildConfigurations = (
 				89EFB3F915926DAD00D09240 /* Debug */,
 				89EFB3FA15926DAD00D09240 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		89EFB50A15A50B7100D09240 /* Build configuration list for PBXNativeTarget "SixisLogicTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89EFB50815A50B7100D09240 /* Debug */,
+				89EFB50915A50B7100D09240 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

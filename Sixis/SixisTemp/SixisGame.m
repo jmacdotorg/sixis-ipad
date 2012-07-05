@@ -70,7 +70,7 @@
     self.currentRound = 0; // startRound will increment this to 1
 
     // Initialize the deck of blue cards.
-    deck = [NSArray arrayWithObjects:[[SixisCardDoubleOnes alloc] init], 
+    deck = [NSMutableArray arrayWithObjects:[[SixisCardDoubleOnes alloc] init], 
             [[SixisCardDoubleTwos alloc] init], 
             [[SixisCardDoubleThrees alloc] init],
             [[SixisCardDoubleFours alloc] init],
@@ -161,16 +161,17 @@
 }
 
 -(void)setPlayersType:(SixisPlayersType *)newPlayersType {
-    self.playersType = newPlayersType;
+    playersType = newPlayersType;
     self.playersType.game = self;
 }
 
 -(void)setGameType:(SixisGameType *)newGameType {
-    self.gameType = newGameType;
+    gameType = newGameType;
     self.gameType.game = self;
 }
 
 -(void)deal {
+    cardsInPlay = [[NSMutableArray alloc] init];
     [cardsInPlay addObject:[[SixisCardSixis alloc] init]];
     for ( int i = 0; i < playersType.tableauSize; i++ ) {
         [cardsInPlay addObject:[deck objectAtIndex:0]];

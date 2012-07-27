@@ -29,4 +29,22 @@
     return YES;
 }
 
+-(NSSet *)bestDice {
+    NSDictionary *sortedDice = [self sortedDice];
+    
+    NSMutableSet *bestDice = [[NSMutableSet alloc] init];
+    for (NSNumber *pipCount in [NSArray arrayWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:6], nil]) {    
+        
+        // Only two matches count. Toss away any others.
+        NSMutableSet *matchingDice = [sortedDice objectForKey:pipCount];
+        while ( matchingDice.count > 2 ) {
+            [matchingDice removeObject:[matchingDice anyObject]];
+        }
+        
+        [bestDice unionSet:matchingDice];
+    }
+    
+    return [NSSet setWithSet: bestDice];
+}
+
 @end

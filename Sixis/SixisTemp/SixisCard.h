@@ -31,7 +31,7 @@
  
  Only blue cards have this property set, since red cards don't flip. (And making this a one-way relationship simplifies the object diagram.)
  */
-@property (nonatomic, weak) SixisCard *flipSide;
+@property (nonatomic, strong) SixisCard *flipSide;
 
 /// The current SixisGame object.
 @property (nonatomic, weak) SixisGame *game;
@@ -50,7 +50,6 @@
            flipSide:(SixisCard *)newFlipSide
            Blueness:(BOOL)blueness;
 
-
 /// @name Querying cards
 
 /** Returns YES if the current player can pick up the current card, based on the results of the most recent die roll. NO otherwise.
@@ -58,6 +57,13 @@
  SixisCard itself leaves this method as a no-op stub; card-specific subclasses must define it. (Indeed, the bulk of a card's specific business logic will go into defining this. */
 
 -(BOOL) isQualified;
+
+/** Returns the SixisDie objects belonging to the current player which best fit this card's demands.
+ 
+ If this is a blue card, then this message is automatically passed along to this card's flipSide: red card.
+ */
+
+-(NSSet *) bestDice;
 
 /// @name Convenience methods
 

@@ -12,11 +12,39 @@
 @implementation SixisTwoPlayers
 
 -(id) init {
-    return [self initWithTableauSize:8];
+
+    NSArray *cardIndices = [NSArray arrayWithObjects:
+                            [NSArray arrayWithObjects:
+                             [NSNumber numberWithInt:0],
+                             [NSNumber numberWithInt:1],
+                             [NSNumber numberWithInt:2],
+                             [NSNumber numberWithInt:3],
+                             [NSNumber numberWithInt:4],
+                             [NSNumber numberWithInt:5],
+                             [NSNumber numberWithInt:6],
+                             [NSNumber numberWithInt:7],
+                             [NSNumber numberWithInt:8],
+                             nil
+                             ],
+                            [NSArray arrayWithObjects:
+                             [NSNumber numberWithInt:0],
+                             [NSNumber numberWithInt:1],
+                             [NSNumber numberWithInt:2],
+                             [NSNumber numberWithInt:3],
+                             [NSNumber numberWithInt:4],
+                             [NSNumber numberWithInt:5],
+                             [NSNumber numberWithInt:6],
+                             [NSNumber numberWithInt:7],
+                             [NSNumber numberWithInt:8],
+                             nil
+                             ],
+                            nil];
+    
+    return [self initWithTableauSize:8 cardIndicesForPlayerIndex:cardIndices];
 }
 
 -(BOOL) roundHasEnded {
-    if ( ! [self.game.cardsInPlay objectAtIndex:0] ) {
+    if ( [[self.game.cardsInPlay objectAtIndex:0] isEqual:[NSNull null]] ) {
         // Someone took the sixis. Round over.
         return YES;
     }
@@ -30,6 +58,7 @@
     // Are all the cards red?
     int blueCards = 0;
     for ( SixisCard *card in [self.game remainingCardsInPlay] ) {
+ //       NSLog(@"%@", card);
         if ( [card isBlue] ) {
             blueCards++;
         }
@@ -40,7 +69,7 @@
     }
     
     // Are all the cards on one side of the Sixis gone?
-    if ( ![self cardsRemainAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(1, 4)]] || ![self cardsRemainAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(5, 8)]] ) {
+    if ( ![self cardsRemainAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(1, 4)]] || ![self cardsRemainAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(5, 4)]] ) {
         return YES;
     }
     

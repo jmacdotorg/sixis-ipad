@@ -104,4 +104,22 @@ It then calls startTurn:.
 /// Returns an array holding only the cards still on the table. This is a convenience method around having to filter the blank spots out of the game object's raw cards array.
 -(NSArray *)remainingCardsInPlay;
 
+
+/// Returns the subset of remainingCardsInPlay containing only those cards available to the current player.
+-(NSSet *)availableCards;
+
+// -(void)endRobotTurn;
+
+/// Returns YES if this is a two-player game, and the board is in a state where either player has the option of declaring the round over (at the start of their turn).
+-(BOOL) roundMightEnd;
+
+// Notification handlers
+-(void)handleNewTurn:(NSNotification *)note;
+-(void)handleDiceRoll:(NSNotification *)note;
+-(void)handleCardPickup:(NSNotification *)note;
+-(void)handleCardFlip:(NSNotification *)note;
+-(void)handleDiceLock:(NSNotification *)note;
+-(void)handleWinning:(NSNotification *)note;
+-(void)handleDealtCard:(NSNotification *)note;
+
 @end

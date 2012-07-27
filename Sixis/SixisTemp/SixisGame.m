@@ -8,6 +8,7 @@
 
 #import "SixisGame.h"
 #import "SixisPlayer.h"
+#import "SixisRobot.h"
 #import "SixisDie.h"
 #import "SixisCard.h"
 
@@ -47,9 +48,21 @@
     self.playersType = newPlayersType;
     
     // Give each player object a (weak) backlink to this game object.)
-    for ( SixisPlayer *player in newPlayers ) {
-        player.game = self;
+    for ( SixisPlayer *player in players ) {
+        [player setGame:self];
     }
+    
+    // Register for various notifications.
+    // For the most part, we'll just react to these events by logging them.
+    // The controllers will also register as observers to the same events, and their reactions will of more interest to actual players.
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc addObserver:self selector:@selector(handleNewTurn:) name:@"SixisNewTurn" object:nil];
+    [nc addObserver:self selector:@selector(handleCardPickup:) name:@"SixisPlayerTookCard" object:nil];
+    [nc addObserver:self selector:@selector(handleCardFlip:) name:@"SixisPlayerFlippedCard" object:nil];
+    [nc addObserver:self selector:@selector(handleDiceLock:) name:@"SixisPlayerLockedDice" object:nil];
+    [nc addObserver:self selector:@selector(handleDiceRoll:) name:@"SixisPlayerRolledDice" object:nil];
+    [nc addObserver:self selector:@selector(handleWinning:) name:@"SixisPlayersWon" object:nil];
+    [nc addObserver:self selector:@selector(handleDealtCard:) name:@"SixisCardDealt" object:nil];
     
     return self;
 }
@@ -90,6 +103,11 @@
             [[SixisCardHigh alloc] init],
             nil];
     
+    // XXX This is dumb I bet.
+    for ( SixisCard *card in deck ) {
+        [card setGame:self];
+    }
+    
     self.winningPlayers = nil;
     
     [self startRound];
@@ -102,6 +120,7 @@
     // If someone just won the game, make that info public, and stop.
     [self.gameType checkForWinner];
     if ( self.winningPlayers ) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"SixisPlayersWon" object:self userInfo:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:self.winningPlayers, nil] forKeys:[NSArray arrayWithObjects:@"players", nil]]];
         return;
     }
     
@@ -138,6 +157,21 @@
         [self startRound];
         return;
     }
+
+    // Set the new-round flags
+    if ( shouldRaiseNewRoundFlag ) {
+        self.newRoundJustStarted = YES;
+        shouldRaiseNewRoundFlag = NO;
+    }
+    else {
+        self.newRoundJustStarted = NO;
+    }
+    
+    // Unless this is a brand-new round, post a notification about the previous player's 
+    // locked dice.
+    if ( ! newRoundJustStarted ) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"SixisPlayerLockedDice"object:self userInfo:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[currentPlayer lockedDice], currentPlayer, nil] forKeys:[NSArray arrayWithObjects:@"dice", @"player", nil]]];
+    }
     
     // Advance the player-pointer.
     int indexOfCurrentPlayer = [players indexOfObject:self.currentPlayer];
@@ -150,15 +184,25 @@
     }
     self.currentPlayer = [players objectAtIndex:indexOfNextPlayer];
     
-    // Set the new-round flags
-    if ( shouldRaiseNewRoundFlag ) {
-        self.newRoundJustStarted = YES;
-        shouldRaiseNewRoundFlag = NO;
+    
+    // Post a notification that a new turn has started.
+    // If the current player is a robot, this will spur them into action.
+    NSLog(@"Hi.");
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SixisNewTurn" object:self userInfo:[NSDictionary dictionaryWithObject:currentPlayer forKey:@"player"]];
+}
+
+/*
+-(void)endRobotTurn {
+    SixisRobot *robot = (SixisRobot *)currentPlayer;
+    if ( [robot wantsToEndRound] ) {
+        // This flag is raised in two-players games when the robot declares the round has ended.
+        [self startRound];
     }
     else {
-        self.newRoundJustStarted = NO;
+        [self startTurn];
     }
 }
+ */
 
 -(void)setPlayersType:(SixisPlayersType *)newPlayersType {
     playersType = newPlayersType;
@@ -173,10 +217,18 @@
 -(void)deal {
     cardsInPlay = [[NSMutableArray alloc] init];
     [cardsInPlay addObject:[[SixisCardSixis alloc] init]];
+    [[cardsInPlay objectAtIndex:0] setGame:self];
     for ( int i = 0; i < playersType.tableauSize; i++ ) {
         [cardsInPlay addObject:[deck objectAtIndex:0]];
         [deck removeObjectAtIndex:0];
     }
+    
+    // Post notifications about all these new cards (including the Sixis card)
+    int index = 0;
+    for (SixisCard *card in cardsInPlay) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"SixisCardDealt" object:self userInfo:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:card, [NSNumber numberWithInt:index++], nil] forKeys:[NSArray arrayWithObjects:@"card", @"index", nil]]];        
+    }
+
 }
 
 -(NSArray *)remainingCardsInPlay {
@@ -189,6 +241,60 @@
         }
     }
     return [NSArray arrayWithArray:remainingCards];
+}
+
+-(NSSet *)availableCards {
+    NSSet *cardIndices = [playersType cardIndicesForPlayerAtIndex:[players indexOfObject:currentPlayer]];
+    NSMutableSet *availableCards = [[NSMutableSet alloc] init];
+    for (NSNumber *index in cardIndices) {
+        SixisCard *card = [cardsInPlay objectAtIndex:[index intValue]];
+        if ( ! [ card isEqual:[NSNull null] ] ) {
+            [availableCards addObject:card];
+        }
+    }
+    
+    return [NSSet setWithSet:availableCards];
+}
+
+-(BOOL)roundMightEnd {
+    return [playersType roundMightEnd];
+}
+
+-(void)handleNewTurn:(NSNotification *)note {
+    NSLog(@"A new turn just started.");
+}
+
+-(void)handleDiceRoll:(NSNotification *)note {
+    NSLog(@"Looks like some dice just got rolled:");
+    NSMutableString *dieString = [[NSMutableString alloc] init];
+    for ( SixisDie *die in currentPlayer.dice ) {
+        [dieString appendString:[NSString stringWithFormat:@"%d ", die.value]];
+    }
+    NSLog(@"%@", dieString);
+}
+
+-(void)handleCardPickup:(NSNotification *)note {
+    int index = [(NSNumber *)[[note userInfo] valueForKey:@"index"] intValue];
+    NSLog(@"The current player just took the card %@ from position %d.", [[note userInfo] valueForKey:@"card"], index);
+}
+
+-(void)handleCardFlip:(NSNotification *)note {
+    int index = [(NSNumber *)[[note userInfo] valueForKey:@"index"] intValue];
+    NSLog(@"The current player just flipped the card %@ at position %d. Now the card at that position is %@.", [[note userInfo] valueForKey:@"card"], index, [cardsInPlay objectAtIndex:index]);
+}
+
+-(void)handleDiceLock:(NSNotification *)note {
+    int count = [(NSSet *)[[note userInfo] valueForKey:@"dice"] count];
+    NSLog(@"The current player has chosen to lock %d out of their 6 dice.", count);
+}
+
+-(void)handleWinning:(NSNotification *)note {
+    NSSet *winners = (NSSet *)[[note userInfo] valueForKey:@"players"];
+    NSLog(@"We have winners! Congratulations, %@.", winners);
+}
+
+-(void)handleDealtCard:(NSNotification *)note {
+    NSLog(@"A card just got dealt.");
 }
 
 @end

@@ -29,6 +29,12 @@
     return NO;
 }
 
+-(void) setGame:(SixisGame *)newGame {
+    game = newGame;
+    if ( flipSide != nil ) {
+        flipSide.game = newGame;
+    }
+}
 
 -(NSDictionary *) sortedDice {
     return [game.currentPlayer sortedDice];
@@ -36,6 +42,13 @@
 
 -(NSSet *) dice {
     return [game.currentPlayer dice];
+}
+
+-(NSSet *) bestDice {
+    if ( isBlue == YES ) {
+        return [flipSide bestDice];
+    }
+    return nil; // Control should never get here.
 }
 
 @end

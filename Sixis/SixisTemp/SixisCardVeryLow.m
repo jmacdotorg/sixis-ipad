@@ -31,4 +31,19 @@
     return NO;
 }
 
+// This is a bit naive. 
+-(NSSet *) bestDice {
+    NSDictionary *sortedDice = [self sortedDice];
+    NSMutableSet *bestDice = [[NSMutableSet alloc] init];
+    
+    for (NSNumber *pipCount in [NSArray arrayWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:2], nil]) {    
+        
+        NSMutableSet *matchingDice = [sortedDice objectForKey:pipCount];
+        
+        [bestDice unionSet:matchingDice];
+    }
+    
+    return [NSSet setWithSet: bestDice];
+}
+
 @end

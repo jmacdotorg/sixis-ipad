@@ -11,8 +11,6 @@
 #import "SixisCard.h"
 #import "SixisGame.h"
 
-// TODO: Decide where endTurn: should go. Not sure it should be in this class.
-
 @implementation SixisPlayer
 
 @synthesize name, dieColor, score, lockedDice, unlockedDice, game;
@@ -21,7 +19,22 @@
     self = [super init];
     self.name = newName;
     
+    // Pick up your dice!
+    unlockedDice = [[NSMutableSet alloc] init];
+    lockedDice = [[NSMutableSet alloc] init];
+    for ( int i = 1; i <= 6; i++ ) {
+        [unlockedDice addObject:[[SixisDie alloc] init]];
+    }
+    
+    for ( SixisDie *die in unlockedDice ) {
+        [die setPlayer:self];
+    }
+    
     return self;
+}
+
+-(id) init {
+    return [self initWithName:@"Nobody"];
 }
 
 -(NSSet *)dice {
@@ -29,31 +42,36 @@
     [dice unionSet: self.lockedDice];
     [dice unionSet: self.unlockedDice];
     
-    return [[NSSet alloc] initWithSet:dice];
+//    return [[NSSet alloc] initWithSet:dice];
+    return [NSSet setWithSet:dice];
 }
 
 -(void) rollAllDice {
     for (SixisDie *die in [self dice]) {
         [die roll];
     }
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SixisPlayerRolledDice" object:self userInfo:[NSDictionary dictionaryWithObject:[self dice] forKey:@"dice"]];
 }
 
 -(void) rollUnlockedDice {
     for (SixisDie *die in unlockedDice) {
         [die roll];
     }
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SixisPlayerRolledDice" object:self userInfo:[NSDictionary dictionaryWithObject:[self unlockedDice] forKey:@"dice"]];
 }
 
 -(void) takeCard:(SixisCard *)card {
     score += card.value;
     int cardIndex = [self.game.cardsInPlay indexOfObject:card];
     [self.game.cardsInPlay replaceObjectAtIndex:cardIndex withObject:[NSNull null]];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SixisPlayerTookCard" object:self userInfo:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:card, [NSNumber numberWithInt:cardIndex], nil] forKeys:[NSArray arrayWithObjects:@"card", @"index", nil]]];
 }
 
 -(void) flipCard:(SixisCard *)card {
     SixisCard *newCard = [card flipSide];
     int cardIndex = [self.game.cardsInPlay indexOfObject:card];
     [self.game.cardsInPlay replaceObjectAtIndex:cardIndex withObject:newCard];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SixisPlayerFlippedCard" object:self userInfo:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:card, [NSNumber numberWithInt:cardIndex], nil] forKeys:[NSArray arrayWithObjects:@"card", @"index", nil]]];
 }
 
 -(NSDictionary *)sortedDice {
@@ -68,7 +86,7 @@
                 return NO;
             }
         }];
-        [sortedDice setObject:matchingDice forKey:[NSNumber numberWithInt:pipCount]];
+        [sortedDice setObject:[NSMutableSet setWithSet:matchingDice] forKey:[NSNumber numberWithInt:pipCount]];
     }
     
     return [NSDictionary dictionaryWithDictionary:sortedDice];
@@ -84,6 +102,14 @@
     else {
         return NSOrderedSame;
     }
+}
+
+-(void)endTurn {
+    [[self game] startTurn];
+}
+
+-(void)endRound {
+    [[self game] startRound];
 }
 
 @end

@@ -25,4 +25,20 @@
     return YES;
 }
 
+-(NSSet *)bestDice {
+    NSDictionary *sortedDice = [self sortedDice];
+    
+    NSMutableSet *bestDice = [[NSMutableSet alloc] init];
+    
+    [bestDice unionSet:[sortedDice objectForKey:[NSNumber numberWithInt:3]]];
+
+    // Remove matching dice until we have only four.
+    while ( bestDice.count > 4 ) {
+        id dieToRemove = [bestDice anyObject];
+        [bestDice removeObject:dieToRemove];
+    }
+
+    return [NSSet setWithSet: bestDice];
+}
+
 @end

@@ -7,15 +7,37 @@
 //
 
 #import "SixisRobot.h"
+#import "SixisGame.h"
 
 @implementation SixisRobot
+
+@synthesize targetCard, wantsToEndRound;
 
 // For now, a super-passive robot who will never score any points.
 // It just throws all its dice, then passes.
 
 -(void) takeTurn {
     [self rollAllDice];
-    [self endTurn];
+//    hasFinishedTurn = YES;
+}
+
+-(id) initWithName:(NSString *)newName {
+    self = [super initWithName:newName];
+    
+    // Register notification handlers.
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc addObserver:self selector:@selector(handleNewTurn:) name:@"SixisNewTurn" object:nil];
+
+    return self;
+}
+
+-(void)handleNewTurn:(NSNotification *)note {
+
+    if ( [[[self game] currentPlayer] isEqual:self] ) {
+        // It's my turn!
+        // Set an alarm to take the turn once this thread's back in the run-loop.
+        [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(takeTurn) userInfo:nil repeats:NO];
+    }
 }
 
 @end

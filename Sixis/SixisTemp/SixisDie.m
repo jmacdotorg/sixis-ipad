@@ -7,22 +7,31 @@
 //
 
 #import "SixisDie.h"
+#import "SixisPlayer.h"
 
 @implementation SixisDie
 
 @synthesize value, player, color, isLocked;
 
 - (void) roll {
-	int randomNumber = random() % 6;
+	int randomNumber = random() % 6 + 1;
 	[self setValue:randomNumber];
 }
 
 - (void) lock {
-    [self setIsLocked:YES];
+    if ( ! [self isLocked] ) {
+        [self setIsLocked:YES];
+        [[[self player] unlockedDice] removeObject:self];
+        [[[self player] lockedDice] addObject:self];
+    }
 }
 
 - (void) unlock {
-    [self setIsLocked:NO];
+    if ( [self isLocked] ) {
+        [self setIsLocked:NO];
+        [[[self player] lockedDice] removeObject:self];
+        [[[self player] unlockedDice] addObject:self];
+    }
 }
 
 @end

@@ -44,4 +44,45 @@
     return NO;
 }
     
+-(NSSet *) bestDice {
+    NSDictionary *sortedDice = [self sortedDice];
+    NSMutableSet *bestDice = [[NSMutableSet alloc] init];
+ 
+    NSSet *pair;
+    NSSet *triplet;
+    
+    for (NSMutableSet *dice in [sortedDice allValues]) {
+        if ( dice.count == 2 ) {
+            pair = dice;
+        }
+        else if ( dice.count >= 3 ) {
+            while ( dice.count > 3 ) {
+                [dice removeObject:[dice anyObject]];
+            }
+            if ( triplet ) {
+                while ( dice.count > 2 ) {
+                    [dice removeObject:[dice anyObject]];
+                }
+                pair = dice;
+            }
+            else {
+                while ( dice.count > 3 ) {
+                    [dice removeObject:[dice anyObject]];
+                }
+                triplet = dice;
+            }
+        }
+    }
+    
+    if ( pair ) {
+        [bestDice unionSet:pair];
+    }
+    
+    if ( triplet ) {
+        [bestDice unionSet:triplet];
+    }
+    
+    return [NSSet setWithSet: bestDice];
+}
+
 @end

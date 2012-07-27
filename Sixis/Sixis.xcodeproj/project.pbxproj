@@ -7,6 +7,54 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8943560915AB9220009E3C79 /* SixisSmartbot.m in Sources */ = {isa = PBXBuildFile; fileRef = 8943560815AB9220009E3C79 /* SixisSmartbot.m */; };
+		89ADEBFF15B4E24300F0F82C /* FourOnes.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEBDB15B4E24300F0F82C /* FourOnes.png */; };
+		89ADEC0015B4E24300F0F82C /* DoubleOnes.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEBDC15B4E24300F0F82C /* DoubleOnes.png */; };
+		89ADEC0115B4E24300F0F82C /* FourTwos.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEBDD15B4E24300F0F82C /* FourTwos.png */; };
+		89ADEC0215B4E24300F0F82C /* DoubleTwos.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEBDE15B4E24300F0F82C /* DoubleTwos.png */; };
+		89ADEC0315B4E24300F0F82C /* FourThrees.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEBDF15B4E24300F0F82C /* FourThrees.png */; };
+		89ADEC0415B4E24300F0F82C /* DoubleThrees.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEBE015B4E24300F0F82C /* DoubleThrees.png */; };
+		89ADEC0515B4E24300F0F82C /* FourFours.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEBE115B4E24300F0F82C /* FourFours.png */; };
+		89ADEC0715B4E24300F0F82C /* FourFives.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEBE315B4E24300F0F82C /* FourFives.png */; };
+		89ADEC0815B4E24300F0F82C /* DoubleFives.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEBE415B4E24300F0F82C /* DoubleFives.png */; };
+		89ADEC0915B4E24300F0F82C /* FourSixes.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEBE515B4E24300F0F82C /* FourSixes.png */; };
+		89ADEC0A15B4E24300F0F82C /* DoubleSixes.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEBE615B4E24300F0F82C /* DoubleSixes.png */; };
+		89ADEC0B15B4E24300F0F82C /* OnesAndSixes.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEBE715B4E24300F0F82C /* OnesAndSixes.png */; };
+		89ADEC0C15B4E24300F0F82C /* OneAndSix.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEBE815B4E24300F0F82C /* OneAndSix.png */; };
+		89ADEC0D15B4E24300F0F82C /* TwosAndFives.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEBE915B4E24300F0F82C /* TwosAndFives.png */; };
+		89ADEC0E15B4E24300F0F82C /* TwoAndFive.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEBEA15B4E24300F0F82C /* TwoAndFive.png */; };
+		89ADEC1015B4E24300F0F82C /* ThreeAndFour.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEBEC15B4E24300F0F82C /* ThreeAndFour.png */; };
+		89ADEC1115B4E24300F0F82C /* Run12345.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEBED15B4E24300F0F82C /* Run12345.png */; };
+		89ADEC1215B4E24300F0F82C /* Run123.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEBEE15B4E24300F0F82C /* Run123.png */; };
+		89ADEC1315B4E24300F0F82C /* Run23456.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEBEF15B4E24300F0F82C /* Run23456.png */; };
+		89ADEC1415B4E24300F0F82C /* Run456.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEBF015B4E24300F0F82C /* Run456.png */; };
+		89ADEC1515B4E24300F0F82C /* AllDiceOdd.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEBF115B4E24300F0F82C /* AllDiceOdd.png */; };
+		89ADEC1615B4E24300F0F82C /* OneThreeFive.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEBF215B4E24300F0F82C /* OneThreeFive.png */; };
+		89ADEC1715B4E24300F0F82C /* AllDiceEven.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEBF315B4E24300F0F82C /* AllDiceEven.png */; };
+		89ADEC1815B4E24300F0F82C /* TwoFourSix.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEBF415B4E24300F0F82C /* TwoFourSix.png */; };
+		89ADEC1915B4E24300F0F82C /* FullHouse.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEBF515B4E24300F0F82C /* FullHouse.png */; };
+		89ADEC1A15B4E24300F0F82C /* ThreeOfAKind.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEBF615B4E24300F0F82C /* ThreeOfAKind.png */; };
+		89ADEC1B15B4E24300F0F82C /* ThreePair.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEBF715B4E24300F0F82C /* ThreePair.png */; };
+		89ADEC1C15B4E24300F0F82C /* TwoPair.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEBF815B4E24300F0F82C /* TwoPair.png */; };
+		89ADEC1D15B4E24300F0F82C /* VeryLow.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEBF915B4E24300F0F82C /* VeryLow.png */; };
+		89ADEC1E15B4E24300F0F82C /* Low.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEBFA15B4E24300F0F82C /* Low.png */; };
+		89ADEC1F15B4E24300F0F82C /* VeryHigh.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEBFB15B4E24300F0F82C /* VeryHigh.png */; };
+		89ADEC2015B4E24300F0F82C /* High.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEBFC15B4E24300F0F82C /* High.png */; };
+		89ADEC2115B4E24300F0F82C /* Sixis.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEBFD15B4E24300F0F82C /* Sixis.png */; };
+		89ADEC2215B4E24300F0F82C /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEBFE15B4E24300F0F82C /* back.png */; };
+		89ADEC2615B4E2BC00F0F82C /* DoubleFours.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEC2515B4E2BC00F0F82C /* DoubleFours.png */; };
+		89ADEC2815B4E34100F0F82C /* ThreesAndFours.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEC2715B4E33E00F0F82C /* ThreesAndFours.png */; };
+		89CBE85E15BDE5030045AD3E /* SixisTabletopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CBE85C15BDE5030045AD3E /* SixisTabletopViewController.m */; };
+		89CBE85F15BDE5030045AD3E /* SixisTabletopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89CBE85D15BDE5030045AD3E /* SixisTabletopViewController.xib */; };
+		89CBE86515BDE5EB0045AD3E /* SixisCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CBE86415BDE5EB0045AD3E /* SixisCardView.m */; };
+		89CBE86C15BEEBE80045AD3E /* SixisDieView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CBE86B15BEEBE80045AD3E /* SixisDieView.m */; };
+		89CBE87415BF06510045AD3E /* DieBlue5.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CBE86E15BF06510045AD3E /* DieBlue5.png */; };
+		89CBE87515BF06510045AD3E /* DieBlue4.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CBE86F15BF06510045AD3E /* DieBlue4.png */; };
+		89CBE87615BF06510045AD3E /* DieBlue1.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CBE87015BF06510045AD3E /* DieBlue1.png */; };
+		89CBE87715BF06510045AD3E /* DieBlue6.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CBE87115BF06510045AD3E /* DieBlue6.png */; };
+		89CBE87815BF06510045AD3E /* DieBlue3.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CBE87215BF06510045AD3E /* DieBlue3.png */; };
+		89CBE87B15BF0FC20045AD3E /* DieBlue2.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CBE87A15BF0FC20045AD3E /* DieBlue2.png */; };
+		89D02C0615AF737500A5DC5F /* SixisRobotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D02C0515AF737500A5DC5F /* SixisRobotTests.m */; };
 		89EFB3E515926DAC00D09240 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89EFB3E415926DAC00D09240 /* UIKit.framework */; };
 		89EFB3E715926DAC00D09240 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89EFB3E615926DAC00D09240 /* Foundation.framework */; };
 		89EFB3E915926DAC00D09240 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89EFB3E815926DAC00D09240 /* CoreGraphics.framework */; };
@@ -91,6 +139,59 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8943560715AB921F009E3C79 /* SixisSmartbot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisSmartbot.h; sourceTree = "<group>"; };
+		8943560815AB9220009E3C79 /* SixisSmartbot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisSmartbot.m; sourceTree = "<group>"; };
+		89ADEBDB15B4E24300F0F82C /* FourOnes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FourOnes.png; sourceTree = "<group>"; };
+		89ADEBDC15B4E24300F0F82C /* DoubleOnes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DoubleOnes.png; sourceTree = "<group>"; };
+		89ADEBDD15B4E24300F0F82C /* FourTwos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FourTwos.png; sourceTree = "<group>"; };
+		89ADEBDE15B4E24300F0F82C /* DoubleTwos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DoubleTwos.png; sourceTree = "<group>"; };
+		89ADEBDF15B4E24300F0F82C /* FourThrees.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FourThrees.png; sourceTree = "<group>"; };
+		89ADEBE015B4E24300F0F82C /* DoubleThrees.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DoubleThrees.png; sourceTree = "<group>"; };
+		89ADEBE115B4E24300F0F82C /* FourFours.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FourFours.png; sourceTree = "<group>"; };
+		89ADEBE315B4E24300F0F82C /* FourFives.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FourFives.png; sourceTree = "<group>"; };
+		89ADEBE415B4E24300F0F82C /* DoubleFives.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DoubleFives.png; sourceTree = "<group>"; };
+		89ADEBE515B4E24300F0F82C /* FourSixes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FourSixes.png; sourceTree = "<group>"; };
+		89ADEBE615B4E24300F0F82C /* DoubleSixes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DoubleSixes.png; sourceTree = "<group>"; };
+		89ADEBE715B4E24300F0F82C /* OnesAndSixes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OnesAndSixes.png; sourceTree = "<group>"; };
+		89ADEBE815B4E24300F0F82C /* OneAndSix.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OneAndSix.png; sourceTree = "<group>"; };
+		89ADEBE915B4E24300F0F82C /* TwosAndFives.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TwosAndFives.png; sourceTree = "<group>"; };
+		89ADEBEA15B4E24300F0F82C /* TwoAndFive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TwoAndFive.png; sourceTree = "<group>"; };
+		89ADEBEC15B4E24300F0F82C /* ThreeAndFour.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ThreeAndFour.png; sourceTree = "<group>"; };
+		89ADEBED15B4E24300F0F82C /* Run12345.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Run12345.png; sourceTree = "<group>"; };
+		89ADEBEE15B4E24300F0F82C /* Run123.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Run123.png; sourceTree = "<group>"; };
+		89ADEBEF15B4E24300F0F82C /* Run23456.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Run23456.png; sourceTree = "<group>"; };
+		89ADEBF015B4E24300F0F82C /* Run456.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Run456.png; sourceTree = "<group>"; };
+		89ADEBF115B4E24300F0F82C /* AllDiceOdd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AllDiceOdd.png; sourceTree = "<group>"; };
+		89ADEBF215B4E24300F0F82C /* OneThreeFive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OneThreeFive.png; sourceTree = "<group>"; };
+		89ADEBF315B4E24300F0F82C /* AllDiceEven.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AllDiceEven.png; sourceTree = "<group>"; };
+		89ADEBF415B4E24300F0F82C /* TwoFourSix.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TwoFourSix.png; sourceTree = "<group>"; };
+		89ADEBF515B4E24300F0F82C /* FullHouse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FullHouse.png; sourceTree = "<group>"; };
+		89ADEBF615B4E24300F0F82C /* ThreeOfAKind.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ThreeOfAKind.png; sourceTree = "<group>"; };
+		89ADEBF715B4E24300F0F82C /* ThreePair.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ThreePair.png; sourceTree = "<group>"; };
+		89ADEBF815B4E24300F0F82C /* TwoPair.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TwoPair.png; sourceTree = "<group>"; };
+		89ADEBF915B4E24300F0F82C /* VeryLow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VeryLow.png; sourceTree = "<group>"; };
+		89ADEBFA15B4E24300F0F82C /* Low.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Low.png; sourceTree = "<group>"; };
+		89ADEBFB15B4E24300F0F82C /* VeryHigh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VeryHigh.png; sourceTree = "<group>"; };
+		89ADEBFC15B4E24300F0F82C /* High.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = High.png; sourceTree = "<group>"; };
+		89ADEBFD15B4E24300F0F82C /* Sixis.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sixis.png; sourceTree = "<group>"; };
+		89ADEBFE15B4E24300F0F82C /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
+		89ADEC2515B4E2BC00F0F82C /* DoubleFours.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DoubleFours.png; sourceTree = "<group>"; };
+		89ADEC2715B4E33E00F0F82C /* ThreesAndFours.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ThreesAndFours.png; sourceTree = "<group>"; };
+		89CBE85B15BDE5030045AD3E /* SixisTabletopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SixisTabletopViewController.h; path = SixisTemp/SixisTabletopViewController.h; sourceTree = "<group>"; };
+		89CBE85C15BDE5030045AD3E /* SixisTabletopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SixisTabletopViewController.m; path = SixisTemp/SixisTabletopViewController.m; sourceTree = "<group>"; };
+		89CBE85D15BDE5030045AD3E /* SixisTabletopViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SixisTabletopViewController.xib; path = SixisTemp/SixisTabletopViewController.xib; sourceTree = "<group>"; };
+		89CBE86315BDE5EB0045AD3E /* SixisCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisCardView.h; sourceTree = "<group>"; };
+		89CBE86415BDE5EB0045AD3E /* SixisCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCardView.m; sourceTree = "<group>"; };
+		89CBE86A15BEEBE80045AD3E /* SixisDieView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisDieView.h; sourceTree = "<group>"; };
+		89CBE86B15BEEBE80045AD3E /* SixisDieView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisDieView.m; sourceTree = "<group>"; };
+		89CBE86E15BF06510045AD3E /* DieBlue5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DieBlue5.png; sourceTree = "<group>"; };
+		89CBE86F15BF06510045AD3E /* DieBlue4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DieBlue4.png; sourceTree = "<group>"; };
+		89CBE87015BF06510045AD3E /* DieBlue1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DieBlue1.png; sourceTree = "<group>"; };
+		89CBE87115BF06510045AD3E /* DieBlue6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DieBlue6.png; sourceTree = "<group>"; };
+		89CBE87215BF06510045AD3E /* DieBlue3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DieBlue3.png; sourceTree = "<group>"; };
+		89CBE87A15BF0FC20045AD3E /* DieBlue2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DieBlue2.png; sourceTree = "<group>"; };
+		89D02C0415AF737500A5DC5F /* SixisRobotTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisRobotTests.h; sourceTree = "<group>"; };
+		89D02C0515AF737500A5DC5F /* SixisRobotTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisRobotTests.m; sourceTree = "<group>"; };
 		89EFB3E015926DAC00D09240 /* Sixis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sixis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89EFB3E415926DAC00D09240 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		89EFB3E615926DAC00D09240 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -249,13 +350,79 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		89ADEBDA15B4E24000F0F82C /* Card Artwork */ = {
+			isa = PBXGroup;
+			children = (
+				89ADEBDB15B4E24300F0F82C /* FourOnes.png */,
+				89ADEBDC15B4E24300F0F82C /* DoubleOnes.png */,
+				89ADEBDD15B4E24300F0F82C /* FourTwos.png */,
+				89ADEBDE15B4E24300F0F82C /* DoubleTwos.png */,
+				89ADEBDF15B4E24300F0F82C /* FourThrees.png */,
+				89ADEBE015B4E24300F0F82C /* DoubleThrees.png */,
+				89ADEC2515B4E2BC00F0F82C /* DoubleFours.png */,
+				89ADEBE115B4E24300F0F82C /* FourFours.png */,
+				89ADEBE315B4E24300F0F82C /* FourFives.png */,
+				89ADEBE415B4E24300F0F82C /* DoubleFives.png */,
+				89ADEBE515B4E24300F0F82C /* FourSixes.png */,
+				89ADEBE615B4E24300F0F82C /* DoubleSixes.png */,
+				89ADEBE715B4E24300F0F82C /* OnesAndSixes.png */,
+				89ADEBE815B4E24300F0F82C /* OneAndSix.png */,
+				89ADEBE915B4E24300F0F82C /* TwosAndFives.png */,
+				89ADEBEA15B4E24300F0F82C /* TwoAndFive.png */,
+				89ADEC2715B4E33E00F0F82C /* ThreesAndFours.png */,
+				89ADEBEC15B4E24300F0F82C /* ThreeAndFour.png */,
+				89ADEBED15B4E24300F0F82C /* Run12345.png */,
+				89ADEBEE15B4E24300F0F82C /* Run123.png */,
+				89ADEBEF15B4E24300F0F82C /* Run23456.png */,
+				89ADEBF015B4E24300F0F82C /* Run456.png */,
+				89ADEBF115B4E24300F0F82C /* AllDiceOdd.png */,
+				89ADEBF215B4E24300F0F82C /* OneThreeFive.png */,
+				89ADEBF315B4E24300F0F82C /* AllDiceEven.png */,
+				89ADEBF415B4E24300F0F82C /* TwoFourSix.png */,
+				89ADEBF515B4E24300F0F82C /* FullHouse.png */,
+				89ADEBF615B4E24300F0F82C /* ThreeOfAKind.png */,
+				89ADEBF715B4E24300F0F82C /* ThreePair.png */,
+				89ADEBF815B4E24300F0F82C /* TwoPair.png */,
+				89ADEBF915B4E24300F0F82C /* VeryLow.png */,
+				89ADEBFA15B4E24300F0F82C /* Low.png */,
+				89ADEBFB15B4E24300F0F82C /* VeryHigh.png */,
+				89ADEBFC15B4E24300F0F82C /* High.png */,
+				89ADEBFD15B4E24300F0F82C /* Sixis.png */,
+				89ADEBFE15B4E24300F0F82C /* back.png */,
+			);
+			name = "Card Artwork";
+			path = "Asmadi artwork";
+			sourceTree = "<group>";
+		};
+		89CBE86D15BF06510045AD3E /* Die images */ = {
+			isa = PBXGroup;
+			children = (
+				89CBE86E15BF06510045AD3E /* DieBlue5.png */,
+				89CBE86F15BF06510045AD3E /* DieBlue4.png */,
+				89CBE87015BF06510045AD3E /* DieBlue1.png */,
+				89CBE87115BF06510045AD3E /* DieBlue6.png */,
+				89CBE87215BF06510045AD3E /* DieBlue3.png */,
+				89CBE87A15BF0FC20045AD3E /* DieBlue2.png */,
+			);
+			name = "Die images";
+			path = rough_dice;
+			sourceTree = "<group>";
+		};
 		89EFB3D515926DAB00D09240 = {
 			isa = PBXGroup;
 			children = (
+				89CBE86315BDE5EB0045AD3E /* SixisCardView.h */,
+				89CBE86415BDE5EB0045AD3E /* SixisCardView.m */,
 				89EFB3EA15926DAC00D09240 /* Sixis */,
+				89CBE85B15BDE5030045AD3E /* SixisTabletopViewController.h */,
+				89CBE85C15BDE5030045AD3E /* SixisTabletopViewController.m */,
+				89CBE85D15BDE5030045AD3E /* SixisTabletopViewController.xib */,
+				89CBE86A15BEEBE80045AD3E /* SixisDieView.h */,
+				89CBE86B15BEEBE80045AD3E /* SixisDieView.m */,
 				89EFB4FE15A50B7100D09240 /* SixisLogicTests */,
 				89EFB3E315926DAC00D09240 /* Frameworks */,
 				89EFB3E115926DAC00D09240 /* Products */,
+				89CBE86D15BF06510045AD3E /* Die images */,
 			);
 			sourceTree = "<group>";
 		};
@@ -282,17 +449,18 @@
 		89EFB3EA15926DAC00D09240 /* Sixis */ = {
 			isa = PBXGroup;
 			children = (
+				89EFB3F315926DAD00D09240 /* SixisAppDelegate.h */,
+				89EFB3F415926DAD00D09240 /* SixisAppDelegate.m */,
 				89EFB43D1596435900D09240 /* SixisGame.h */,
 				89EFB43E1596435900D09240 /* SixisGame.m */,
 				89EFB453159A21EC00D09240 /* SixisDie.h */,
 				89EFB454159A21EE00D09240 /* SixisDie.m */,
 				89EFB456159A2A4800D09240 /* SixisCard.h */,
 				89EFB457159A2A4900D09240 /* SixisCard.m */,
+				89ADEBDA15B4E24000F0F82C /* Card Artwork */,
 				89EFB459159A3AF700D09240 /* Cards */,
 				89EFB43A1596422C00D09240 /* Game Setup */,
 				89EFB4391596420600D09240 /* Player */,
-				89EFB3F315926DAD00D09240 /* SixisAppDelegate.h */,
-				89EFB3F415926DAD00D09240 /* SixisAppDelegate.m */,
 				89EFB43B159642FD00D09240 /* GameType */,
 				89EFB43C1596430B00D09240 /* PlayersType */,
 				89EFB3EB15926DAC00D09240 /* Supporting Files */,
@@ -319,6 +487,8 @@
 				89EFB431159641D800D09240 /* SixisPlayer.m */,
 				89EFB436159641F700D09240 /* SixisRobot.h */,
 				89EFB437159641F700D09240 /* SixisRobot.m */,
+				8943560715AB921F009E3C79 /* SixisSmartbot.h */,
+				8943560815AB9220009E3C79 /* SixisSmartbot.m */,
 				89EFB433159641ED00D09240 /* SixisHuman.h */,
 				89EFB434159641ED00D09240 /* SixisHuman.m */,
 			);
@@ -459,6 +629,8 @@
 		89EFB4FE15A50B7100D09240 /* SixisLogicTests */ = {
 			isa = PBXGroup;
 			children = (
+				89D02C0415AF737500A5DC5F /* SixisRobotTests.h */,
+				89D02C0515AF737500A5DC5F /* SixisRobotTests.m */,
 				89EFB50415A50B7100D09240 /* SixisLogicTests.h */,
 				89EFB50515A50B7100D09240 /* SixisLogicTests.m */,
 				89EFB4FF15A50B7100D09240 /* Supporting Files */,
@@ -554,6 +726,49 @@
 				89EFB4121595771B00D09240 /* SixisGameLengthViewController.xib in Resources */,
 				89EFB44915968EB000D09240 /* SixisPlayerSetupViewController.xib in Resources */,
 				89EFB44B1596B22200D09240 /* SixisPlayerSetupCell.xib in Resources */,
+				89ADEBFF15B4E24300F0F82C /* FourOnes.png in Resources */,
+				89ADEC0015B4E24300F0F82C /* DoubleOnes.png in Resources */,
+				89ADEC0115B4E24300F0F82C /* FourTwos.png in Resources */,
+				89ADEC0215B4E24300F0F82C /* DoubleTwos.png in Resources */,
+				89ADEC0315B4E24300F0F82C /* FourThrees.png in Resources */,
+				89ADEC0415B4E24300F0F82C /* DoubleThrees.png in Resources */,
+				89ADEC0515B4E24300F0F82C /* FourFours.png in Resources */,
+				89ADEC0715B4E24300F0F82C /* FourFives.png in Resources */,
+				89ADEC0815B4E24300F0F82C /* DoubleFives.png in Resources */,
+				89ADEC0915B4E24300F0F82C /* FourSixes.png in Resources */,
+				89ADEC0A15B4E24300F0F82C /* DoubleSixes.png in Resources */,
+				89ADEC0B15B4E24300F0F82C /* OnesAndSixes.png in Resources */,
+				89ADEC0C15B4E24300F0F82C /* OneAndSix.png in Resources */,
+				89ADEC0D15B4E24300F0F82C /* TwosAndFives.png in Resources */,
+				89ADEC0E15B4E24300F0F82C /* TwoAndFive.png in Resources */,
+				89ADEC1015B4E24300F0F82C /* ThreeAndFour.png in Resources */,
+				89ADEC1115B4E24300F0F82C /* Run12345.png in Resources */,
+				89ADEC1215B4E24300F0F82C /* Run123.png in Resources */,
+				89ADEC1315B4E24300F0F82C /* Run23456.png in Resources */,
+				89ADEC1415B4E24300F0F82C /* Run456.png in Resources */,
+				89ADEC1515B4E24300F0F82C /* AllDiceOdd.png in Resources */,
+				89ADEC1615B4E24300F0F82C /* OneThreeFive.png in Resources */,
+				89ADEC1715B4E24300F0F82C /* AllDiceEven.png in Resources */,
+				89ADEC1815B4E24300F0F82C /* TwoFourSix.png in Resources */,
+				89ADEC1915B4E24300F0F82C /* FullHouse.png in Resources */,
+				89ADEC1A15B4E24300F0F82C /* ThreeOfAKind.png in Resources */,
+				89ADEC1B15B4E24300F0F82C /* ThreePair.png in Resources */,
+				89ADEC1C15B4E24300F0F82C /* TwoPair.png in Resources */,
+				89ADEC1D15B4E24300F0F82C /* VeryLow.png in Resources */,
+				89ADEC1E15B4E24300F0F82C /* Low.png in Resources */,
+				89ADEC1F15B4E24300F0F82C /* VeryHigh.png in Resources */,
+				89ADEC2015B4E24300F0F82C /* High.png in Resources */,
+				89ADEC2115B4E24300F0F82C /* Sixis.png in Resources */,
+				89ADEC2215B4E24300F0F82C /* back.png in Resources */,
+				89ADEC2615B4E2BC00F0F82C /* DoubleFours.png in Resources */,
+				89ADEC2815B4E34100F0F82C /* ThreesAndFours.png in Resources */,
+				89CBE85F15BDE5030045AD3E /* SixisTabletopViewController.xib in Resources */,
+				89CBE87415BF06510045AD3E /* DieBlue5.png in Resources */,
+				89CBE87515BF06510045AD3E /* DieBlue4.png in Resources */,
+				89CBE87615BF06510045AD3E /* DieBlue1.png in Resources */,
+				89CBE87715BF06510045AD3E /* DieBlue6.png in Resources */,
+				89CBE87815BF06510045AD3E /* DieBlue3.png in Resources */,
+				89CBE87B15BF0FC20045AD3E /* DieBlue2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -645,6 +860,10 @@
 				89EFB4E615A49AED00D09240 /* SixisCardDoubleSixes.m in Sources */,
 				89EFB4E915A49C0F00D09240 /* SixisCardFourThrees.m in Sources */,
 				89EFB4EC15A4D30700D09240 /* SixisCardTwoFourSix.m in Sources */,
+				8943560915AB9220009E3C79 /* SixisSmartbot.m in Sources */,
+				89CBE85E15BDE5030045AD3E /* SixisTabletopViewController.m in Sources */,
+				89CBE86515BDE5EB0045AD3E /* SixisCardView.m in Sources */,
+				89CBE86C15BEEBE80045AD3E /* SixisDieView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -653,6 +872,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89EFB50615A50B7100D09240 /* SixisLogicTests.m in Sources */,
+				89D02C0615AF737500A5DC5F /* SixisRobotTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

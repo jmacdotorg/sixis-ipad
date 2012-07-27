@@ -10,6 +10,7 @@
 #import "SixisTwoPlayers.h"
 #import "SixisRoundsGame.h"
 #import "SixisHuman.h"
+#import "SixisDie.h"
 
 @implementation SixisLogicTests
 
@@ -25,7 +26,6 @@
     game = [[SixisGame alloc] initWithGameType:[[SixisRoundsGame alloc] initWithRounds:1] PlayersType:[[SixisTwoPlayers alloc] init] Players:players];
     
     [game startGame];
-    NSLog(@"I see this many cards on the table: %d", [game cardsInPlay].count);
 }
 
 - (void)testGameSetup {
@@ -34,6 +34,14 @@
     STAssertNil([game winningPlayers], @"There are no winning players yet");
     STAssertEqualObjects(bob, [game currentPlayer], @"Bob gets the first turn.");
     STAssertEquals([bob score], 0, @"Bob has no points at the start of the game.");
+}
+
+- (void)testOneTurn {
+    [bob rollAllDice];
+    NSSet *dice = [bob dice];
+    for (SixisDie *die in dice) {
+        NSLog(@"The value of a die is %d.", [die value]);
+    }
 }
 
 - (void)tearDown

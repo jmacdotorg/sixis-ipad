@@ -18,7 +18,7 @@
 @property (nonatomic, strong) NSMutableSet *lockedDice;
 @property (nonatomic, copy) UIColor *dieColor;
 @property (nonatomic) int score;
-@property (nonatomic, weak) SixisGame *game;
+@property (nonatomic) SixisGame *game;
 
 -(id)initWithName: (NSString *)newName;
 
@@ -29,6 +29,7 @@
 -(void) rollUnlockedDice;
 
 -(void) endTurn;
+-(void) endRound;
 
 -(NSSet *)dice;
 

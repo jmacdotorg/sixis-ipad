@@ -28,4 +28,16 @@
     return YES;
 }
 
+-(NSSet *)bestDice {
+    NSDictionary *sortedDice = [self sortedDice];
+    
+    NSMutableSet *bestDice = [[NSMutableSet alloc] init];
+    for (NSNumber *pipCount in [NSArray arrayWithObjects:[NSNumber numberWithInt:2], [NSNumber numberWithInt:4], [NSNumber numberWithInt:6], nil]) {    
+//        NSSet *dice = [sortedDice objectForKey:pipCount];
+        [bestDice unionSet:[sortedDice objectForKey:pipCount]];
+    }
+    
+    return [NSSet setWithSet: bestDice];
+}
+
 @end

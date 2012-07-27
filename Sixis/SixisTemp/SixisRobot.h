@@ -8,8 +8,16 @@
 
 #import "SixisPlayer.h"
 
+@class SixisCard;
+
 @interface SixisRobot : SixisPlayer
 
 -(void) takeTurn;
+
+@property (nonatomic, strong) SixisCard *targetCard;
+@property (nonatomic) BOOL wantsToEndRound;
+
+// Notification handlers
+-(void)handleNewTurn:(NSNotification *)note;
 
 @end

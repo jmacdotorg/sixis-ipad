@@ -13,11 +13,12 @@
 
 @synthesize game, tableauSize;
 
--(id)initWithTableauSize:(int)newSize {
+-(id)initWithTableauSize:(int)newSize cardIndicesForPlayerIndex:(NSArray *)cardIndices{
     self = [super init];
     
     if ( self ) {
         self.tableauSize = newSize;
+        cardIndicesForPlayerIndex = cardIndices;
     }
     
     return self;
@@ -27,7 +28,8 @@
     NSArray *cards = [self.game.cardsInPlay objectsAtIndexes:indexSet];
     BOOL cardFound = NO;
     for (NSObject *object in cards) {
-        if ([object isMemberOfClass:[SixisCard class]]) {
+//        if ([object isMemberOfClass:[SixisCard class]]) {
+        if ( object ) {
             cardFound = YES;
             break;
         }
@@ -44,6 +46,10 @@
 -(BOOL)roundHasEnded {
     // Subclass needs to override this.
     return NO;
+}
+
+-(NSSet *)cardIndicesForPlayerAtIndex:(int)playerIndex {
+    return [NSSet setWithArray:[cardIndicesForPlayerIndex objectAtIndex:playerIndex]];
 }
 
 @end

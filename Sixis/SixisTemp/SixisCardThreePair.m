@@ -31,4 +31,19 @@
     return NO;
 }
 
+-(NSSet *) bestDice {
+    NSDictionary *sortedDice = [self sortedDice];
+    NSMutableSet *bestDice = [[NSMutableSet alloc] init];
+
+    for (NSMutableSet *dice in [sortedDice allValues]) {
+        if (dice.count >= 2) {
+            while ( dice.count > 2 ) {
+                [dice removeObject:[dice anyObject]];
+            }
+            [bestDice unionSet:dice];
+        }
+    }
+    return [NSSet setWithSet: bestDice];
+}
+
 @end

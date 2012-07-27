@@ -12,7 +12,7 @@
 @implementation SixisCardTwoPair
 
 -(id) init {
-    return [self initWithValue:20 flipSide:[[SixisCardThreePair alloc] init] Blueness:NO];
+    return [self initWithValue:20 flipSide:[[SixisCardThreePair alloc] init] Blueness:YES];
 }
 
 -(BOOL) isQualified {

@@ -9,16 +9,23 @@
 #import <Foundation/Foundation.h>
 #import "SixisGame.h"
 
-@interface SixisPlayersType : NSObject
+@interface SixisPlayersType : NSObject {
+    NSArray *cardIndicesForPlayerIndex;
+//    int cardIndicesForPlayerIndex[4][9];
+}
 
 @property (nonatomic, weak) SixisGame *game;
 @property (nonatomic) int tableauSize;
 
--(id)initWithTableauSize:(int) newSize;
+-(id)initWithTableauSize:(int) newSize
+cardIndicesForPlayerIndex:(NSArray *) cardIndices;
 
 -(BOOL)roundHasEnded;
 -(BOOL)roundMightEnd;
 
 -(BOOL)cardsRemainAtIndexes:(NSIndexSet *) indexSet;
+
+-(NSSet *)cardIndicesForPlayerAtIndex:(int) playerIndex;
+
 
 @end

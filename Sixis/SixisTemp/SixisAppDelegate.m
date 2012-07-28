@@ -13,6 +13,7 @@
 
 // XXX Fuckery
 #import "SixisSmartbot.h"
+#import "SixisHuman.h"
 #import "SixisGame.h"
 #import "SixisRoundsGame.h"
 #import "SixisTwoPlayers.h"
@@ -42,12 +43,14 @@
     
     // XXX Fucking around with robots!
     SixisSmartbot *rockem = [[SixisSmartbot alloc] initWithName:@"Rockem"];
-    SixisSmartbot *sockem = [[SixisSmartbot alloc] initWithName:@"Sockem"];
+//    SixisSmartbot *sockem = [[SixisSmartbot alloc] initWithName:@"Sockem"];
+    SixisHuman *alice = [[SixisHuman alloc] initWithName:@"Alice"];
 //    SixisSmartbot *threee = [[SixisSmartbot alloc] initWithName:@"Threee"];
 //    SixisSmartbot *fourrr = [[SixisSmartbot alloc] initWithName:@"Fourrr"];
     
 //    NSArray *players = [NSArray arrayWithObjects: rockem, sockem, threee, nil];
-    NSArray *players = [NSArray arrayWithObjects: rockem, sockem, nil];
+//    NSArray *players = [NSArray arrayWithObjects: rockem, sockem, nil];
+    NSArray *players = [NSArray arrayWithObjects: rockem, alice, nil];
     
     SixisGame *game = [[SixisGame alloc] initWithGameType:[[SixisRoundsGame alloc] initWithRounds:1] PlayersType:[[SixisTwoPlayers alloc] init] Players:players];
 //    SixisGame *game = [[SixisGame alloc] initWithGameType:[[SixisRoundsGame alloc] initWithRounds:1] PlayersType:[[SixisThreePlayers alloc] init] Players:players];

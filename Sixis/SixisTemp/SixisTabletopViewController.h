@@ -18,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *player2Score;
 @property (weak, nonatomic) IBOutlet UILabel *winMessage;
 
+- (IBAction)handleRollAllDiceTap:(id)sender;
+- (IBAction)handleRollUnlockedDiceTap:(id)sender;
 
 @property (nonatomic, strong) SixisGame *game;
 @property (nonatomic, strong) SixisPlayer *currentPlayer;

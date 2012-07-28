@@ -28,6 +28,11 @@
 #define BANK_TAG_BASE 4
 #define SCORE_TAG_BASE 8
 
+#define FIRST_ROLL_TEXT @"Roll!"
+#define ROLL_ALL_DICE_TEXT @"Roll all dice"
+#define ROLL_UNLOCKED_DICE_TEXT @"Roll unlocked dice"
+#define ROLL_NOTHING_TEXT @"Keep all dice locked"
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -207,4 +212,11 @@
     [cardView setCard:[card flipSide]];
 }
 
+- (IBAction)handleRollAllDiceTap:(id)sender {
+    [currentPlayer rollAllDice];
+}
+
+- (IBAction)handleRollUnlockedDiceTap:(id)sender {
+    [currentPlayer rollUnlockedDice];
+}
 @end

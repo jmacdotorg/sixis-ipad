@@ -10,4 +10,7 @@
 
 @interface SixisHuman : SixisPlayer
 
+// Notification handlers
+-(void)handleNewTurn:(NSNotification *)note;
+
 @end

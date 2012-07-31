@@ -44,6 +44,10 @@
         NSString *cardClass = [NSStringFromClass([newCard class]) substringFromIndex:9];
         UIImage *image = [UIImage imageNamed:cardClass];
         [self setImage:image];
+        
+        // XXX Setting the highlighted image to something stupid for now.
+        UIImage *highlightedImage = [UIImage imageNamed:@"back"];
+        [self setHighlightedImage:highlightedImage];
     }
 }
 

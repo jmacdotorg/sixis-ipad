@@ -13,13 +13,20 @@
 
 @interface SixisTabletopViewController : UIViewController {
     NSMutableArray *cards;
+    UIView *playerControls;
 }
 @property (weak, nonatomic) IBOutlet UILabel *player1Score;
 @property (weak, nonatomic) IBOutlet UILabel *player2Score;
 @property (weak, nonatomic) IBOutlet UILabel *winMessage;
+@property (weak, nonatomic) IBOutlet UIButton *rollAllDiceButton;
+@property (weak, nonatomic) IBOutlet UIButton *rollUnlockedDiceButton;
+@property (weak, nonatomic) IBOutlet UIButton *endTurnButton;
+@property (weak, nonatomic) IBOutlet UIView *diceView;
 
 - (IBAction)handleRollAllDiceTap:(id)sender;
 - (IBAction)handleRollUnlockedDiceTap:(id)sender;
+- (IBAction)handleDieTap:(id)sender;
+- (IBAction)handleEndTurnTap:(id)sender;
 
 @property (nonatomic, strong) SixisGame *game;
 @property (nonatomic, strong) SixisPlayer *currentPlayer;

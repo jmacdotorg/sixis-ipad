@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8943560915AB9220009E3C79 /* SixisSmartbot.m in Sources */ = {isa = PBXBuildFile; fileRef = 8943560815AB9220009E3C79 /* SixisSmartbot.m */; };
+		89A08EFC15C70FB40011E57D /* SixisPlayerControls.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89A08EFB15C70FB40011E57D /* SixisPlayerControls.xib */; };
 		89ADEBFF15B4E24300F0F82C /* FourOnes.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEBDB15B4E24300F0F82C /* FourOnes.png */; };
 		89ADEC0015B4E24300F0F82C /* DoubleOnes.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEBDC15B4E24300F0F82C /* DoubleOnes.png */; };
 		89ADEC0115B4E24300F0F82C /* FourTwos.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEBDD15B4E24300F0F82C /* FourTwos.png */; };
@@ -141,6 +142,7 @@
 /* Begin PBXFileReference section */
 		8943560715AB921F009E3C79 /* SixisSmartbot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisSmartbot.h; sourceTree = "<group>"; };
 		8943560815AB9220009E3C79 /* SixisSmartbot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisSmartbot.m; sourceTree = "<group>"; };
+		89A08EFB15C70FB40011E57D /* SixisPlayerControls.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SixisPlayerControls.xib; sourceTree = "<group>"; };
 		89ADEBDB15B4E24300F0F82C /* FourOnes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FourOnes.png; sourceTree = "<group>"; };
 		89ADEBDC15B4E24300F0F82C /* DoubleOnes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DoubleOnes.png; sourceTree = "<group>"; };
 		89ADEBDD15B4E24300F0F82C /* FourTwos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FourTwos.png; sourceTree = "<group>"; };
@@ -417,6 +419,7 @@
 				89CBE85B15BDE5030045AD3E /* SixisTabletopViewController.h */,
 				89CBE85C15BDE5030045AD3E /* SixisTabletopViewController.m */,
 				89CBE85D15BDE5030045AD3E /* SixisTabletopViewController.xib */,
+				89A08EFB15C70FB40011E57D /* SixisPlayerControls.xib */,
 				89CBE86A15BEEBE80045AD3E /* SixisDieView.h */,
 				89CBE86B15BEEBE80045AD3E /* SixisDieView.m */,
 				89EFB4FE15A50B7100D09240 /* SixisLogicTests */,
@@ -769,6 +772,7 @@
 				89CBE87715BF06510045AD3E /* DieBlue6.png in Resources */,
 				89CBE87815BF06510045AD3E /* DieBlue3.png in Resources */,
 				89CBE87B15BF0FC20045AD3E /* DieBlue2.png in Resources */,
+				89A08EFC15C70FB40011E57D /* SixisPlayerControls.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

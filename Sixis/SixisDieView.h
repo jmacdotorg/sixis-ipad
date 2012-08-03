@@ -10,7 +10,7 @@
 
 @class SixisDie;
 
-@interface SixisDieView : UIImageView
+@interface SixisDieView : UIButton
 
 @property (nonatomic, strong) SixisDie *die;
 

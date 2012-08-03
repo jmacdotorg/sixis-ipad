@@ -7,18 +7,21 @@
 //
 
 #import "SixisTabletopViewController.h"
+#import "SixisCardPopoverViewController.h"
 #import "SixisGame.h"
 #import "SixisCardView.h"
 #import "SixisPlayer.h"
 #import "SixisHuman.h"
 #import "SixisDieView.h"
 #import "SixisCard.h"
+#import "SixisDie.h"
 
 @interface SixisTabletopViewController ()
 
 @end
 
 @implementation SixisTabletopViewController
+@synthesize endRoundButton;
 @synthesize player1Score;
 @synthesize player2Score;
 @synthesize winMessage;
@@ -33,12 +36,9 @@
 #define BANK_TAG_BASE 4
 #define SCORE_TAG_BASE 8
 
-#define FIRST_ROLL_TEXT @"Roll!"
-#define ROLL_ALL_DICE_TEXT @"Roll all dice"
-#define ROLL_UNLOCKED_DICE_TEXT @"Roll unlocked dice"
-#define ROLL_NOTHING_TEXT @"Keep all dice locked"
-
-#define TWO_PLAYER_CARD_Y 200
+#define NAME_LABEL_TAG 1
+#define SCORE_LABEL_TAG 2
+#define DICE_VIEW_TAG 3
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -67,6 +67,14 @@
     playerControls = [[[NSBundle mainBundle] loadNibNamed:@"SixisPlayerControls" owner:self options:nil] objectAtIndex:0];
     [[self view] addSubview:playerControls];
     
+    // Generate all the players' status bars, and store them in an instance variable.
+    NSMutableArray *statusBars = [[NSMutableArray alloc] init];
+    for (SixisPlayer *player in [game players] ) {
+        UIView *statusBar = [[[NSBundle mainBundle] loadNibNamed:@"SixisPlayerStatus" owner:self options:nil] objectAtIndex:0];
+        [statusBars addObject:statusBar];
+    }
+    statusBarForPlayer = [NSDictionary dictionaryWithObjects:statusBars forKeys:[game players]];
+    
 }
 
 - (void)viewDidUnload
@@ -78,6 +86,7 @@
     [self setRollUnlockedDiceButton:nil];
     [self setEndTurnButton:nil];
     [self setDiceView:nil];
+    [self setEndRoundButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -88,15 +97,18 @@
 	return YES;
 }
 
--(void)_addCardViewWithX:(int)x Y:(int)y width:(int)width rotation:(int)rotation {
-    // Figure out this view's height based on the given width, and the cards' fixed dimentions
-    // The raw card graphics are 750 x 1050 pixels.
-    CGFloat height = 1050.0 * ( width / 750.0 );
-    CGRect frame = CGRectMake(x, y, width, height);
+-(void)_addCardViewWithX:(int)x Y:(int)y rotation:(CGFloat)rotation {
+    CGRect frame = CGRectMake(x, y, 125, 179);
 
     SixisCardView *cardView = [[SixisCardView alloc] initWithFrame:frame];
     [cards addObject:cardView];
     
+    if ( rotation > 0 ) {
+        CGAffineTransform xform = CGAffineTransformMakeRotation( rotation );
+        cardView.transform = xform;
+    }
+    
+    [cardView addTarget:self action:@selector(handleCardTap:) forControlEvents:UIControlEventTouchUpInside];
     [[self view] addSubview:cardView];
 }
 
@@ -104,17 +116,17 @@
     game = newGame;
     // Define all of this game's cardviews, then place them onto the tabletop view.
     if ( [game players].count == 2 ) {
-        [self _addCardViewWithX:400 Y:TWO_PLAYER_CARD_Y width:100 rotation:0];
+        [self _addCardViewWithX:450 Y:282 rotation:M_PI_2];
 
-        [self _addCardViewWithX:0 Y:TWO_PLAYER_CARD_Y width:100 rotation:0];
-        [self _addCardViewWithX:100 Y:TWO_PLAYER_CARD_Y width:100 rotation:0];
-        [self _addCardViewWithX:200 Y:TWO_PLAYER_CARD_Y width:100 rotation:0];
-        [self _addCardViewWithX:300 Y:TWO_PLAYER_CARD_Y width:100 rotation:0];
+        [self _addCardViewWithX:54 Y:442 rotation:0];
+        [self _addCardViewWithX:186 Y:442 rotation:0];
+        [self _addCardViewWithX:318 Y:442  rotation:0];
+        [self _addCardViewWithX:450 Y:442  rotation:0];
 
-        [self _addCardViewWithX:500 Y:TWO_PLAYER_CARD_Y width:100 rotation:0];
-        [self _addCardViewWithX:600 Y:TWO_PLAYER_CARD_Y width:100 rotation:0];
-        [self _addCardViewWithX:700 Y:TWO_PLAYER_CARD_Y width:100 rotation:0];
-        [self _addCardViewWithX:800 Y:TWO_PLAYER_CARD_Y width:100 rotation:0];
+        [self _addCardViewWithX:450 Y:125  rotation:0];
+        [self _addCardViewWithX:582 Y:125  rotation:0];
+        [self _addCardViewWithX:714 Y:125  rotation:0];
+        [self _addCardViewWithX:846 Y:125  rotation:0];
     }
 }
 
@@ -129,17 +141,30 @@
     
     // If the current player is a human, plop the control view on the screen, placed and rotated in a position appropriate to that player.
     if ( [currentPlayer isKindOfClass:[SixisHuman class]]) {
-        CGRect frame = CGRectMake(100, TWO_PLAYER_CARD_Y + 200, 256, 256);
+        CGRect frame = CGRectMake(650, 350, 256, 256);
         [playerControls setFrame:frame];
+        playerControls.hidden = NO;
+    
+        // Show the dice-rolling buttons; hide the other controls.
+        rollAllDiceButton.hidden = NO;
+        rollUnlockedDiceButton.hidden = NO;
+        
+        diceView.hidden = YES;
+        endTurnButton.hidden = YES;
+        
+        // If it's a 2P game and the player can call the round over, show that button.
+        if ( [game roundMightEnd] ) {
+            endRoundButton.hidden = NO;
+        }
+        else {
+            endRoundButton.hidden = YES;
+        }
+    }
+    else {
+        // The player is a robot, so hide all the player controls.
+        playerControls.hidden = YES;
     }
     
-    // Show the dice-rolling buttons; hide the other controls.
-    rollAllDiceButton.hidden = NO;
-    rollUnlockedDiceButton.hidden = NO;
-    
-    diceView.hidden = YES;
-    
-    endTurnButton.hidden = YES;
 }
 
 -(void)handleDiceRoll:(NSNotification *)note {
@@ -160,16 +185,16 @@
     // Update the dice imageviews.
     NSArray *dieViews = [diceView subviews];
     for (SixisDieView *dieView in dieViews) {
-        // I am not thrilled by having to add this test, a consequence of my jamming invisible buttons over the uiimageview subclasses that make up the dice. But StackOverflow seems to think this is a more practical solution that setting up full touch-response on the imageviews.
-        if ( [dieView isKindOfClass:[UIImageView class]] ) {
-            if ( dice.count == 0 ) {
-                break;
-            }
-            SixisDie *die = [dice anyObject];
-            [dice removeObject:die];
-            [dieView setDie:die];
+        if ( dice.count == 0 ) {
+            break;
         }
+        SixisDie *die = [dice anyObject];
+        [dice removeObject:die];
+        [dieView setDie:die];
     }
+    
+    // Too late to end the round now...
+    endRoundButton.hidden = YES;
     
 }
 
@@ -246,6 +271,15 @@
 
 - (IBAction)handleRollAllDiceTap:(id)sender {
     [currentPlayer rollAllDice];
+    [self _prepareForDiceInteraction];
+}
+
+- (IBAction)handleRollUnlockedDiceTap:(id)sender {
+    [currentPlayer rollUnlockedDice];
+    [self _prepareForDiceInteraction];
+}
+
+- (void) _prepareForDiceInteraction {
     
     // Hide the player's dice-rolling buttons.
     rollAllDiceButton.hidden = YES;
@@ -261,22 +295,59 @@
     endTurnButton.hidden = NO;
 }
 
-- (IBAction)handleRollUnlockedDiceTap:(id)sender {
-    [currentPlayer rollUnlockedDice];
-}
-
 - (IBAction)handleDieTap:(id)sender {
-    // XXX Uhh... I have no association between this button and a particular die.
+    SixisDieView *dieView = (SixisDieView *)sender;
+    SixisDie *die = [dieView die];
+    if ( [die isLocked] ) {
+        [die unlock];
+        dieView.selected = NO;
+        NSLog(@"Unlocking.");
+        dieView.tintColor = [UIColor redColor];
+    }
+    else {
+        [die lock];
+        dieView.selected = YES;
+        NSLog(@"Locking.");
+    }
 }
 
 - (IBAction)handleEndTurnTap:(id)sender {
+    [game startTurn];
 }
+
+-(void)handleCardTap:(id)sender {
+    SixisCardPopoverViewController *content = [[SixisCardPopoverViewController alloc] init];
+    content.parent = self;
+    content.card = [(SixisCardView *)sender card];
+    popover = [[UIPopoverController alloc] initWithContentViewController:content];
+    
+    SixisCardView *cardView = (SixisCardView *)sender;
+    
+    // Display the popover as eminating from the tapped card.
+    [popover presentPopoverFromRect:[cardView frame] inView:[self view] permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+//    popover.delegate = self;
+    
+}
+
+- (void)handleTakeCardTap:(SixisCard *)card {
+    [popover dismissPopoverAnimated:YES];
+    [currentPlayer takeCard:card];
+    [self _unhighlightAllCards];
+}
+
+- (void)handleFlipCardTap:(SixisCard *)card {
+    [popover dismissPopoverAnimated:YES];
+    [currentPlayer flipCard:card];
+    [self _unhighlightAllCards];
+}
+
 
 - (void) _highlightQualifiedCards {
     for (int i = 0; i < [game cardsInPlay].count; i++) {
         SixisCardView *cardView = [cards objectAtIndex:i];
         if ( [[cardView card] isQualified] ) {
-            cardView.highlighted = YES;
+            cardView.selected = YES;
+            cardView.enabled = YES;
         }
     }
 }
@@ -284,7 +355,10 @@
 -(void) _unhighlightAllCards {
     for (int i = 0; i < [game cardsInPlay].count; i++) {
         SixisCardView *cardView = [cards objectAtIndex:i];
-        cardView.highlighted = NO;
+        cardView.selected = NO;
+        cardView.enabled = NO;
     }
+}
+- (IBAction)handleEndRoundButtonTap:(id)sender {
 }
 @end

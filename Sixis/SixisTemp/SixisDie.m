@@ -34,4 +34,13 @@
     }
 }
 
+-(void) toggle {
+    if ( [self isLocked] ) {
+        [self unlock];
+    }
+    else {
+        [self lock];
+    }
+}
+
 @end

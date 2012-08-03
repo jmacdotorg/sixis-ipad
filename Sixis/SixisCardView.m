@@ -18,6 +18,8 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        self.adjustsImageWhenDisabled = NO;
+        self.enabled = NO;
     }
     return self;
 }
@@ -36,18 +38,19 @@
     // Also set this object's image.
     if ( newCard == nil ) {
         // Oh, we've removed the card? Then we'll remove the image, too.
-        [self setImage:nil];
+        [self setImage:nil forState:UIControlStateNormal];
+        self.enabled = NO;
     }
     else {
         // We've set a new card object for this view. Set its image to the image whose filename
         // matches the card's classname (minus the "SixisCard" prefix).
         NSString *cardClass = [NSStringFromClass([newCard class]) substringFromIndex:9];
         UIImage *image = [UIImage imageNamed:cardClass];
-        [self setImage:image];
+        [self setImage:image forState:UIControlStateNormal];
         
-        // XXX Setting the highlighted image to something stupid for now.
-        UIImage *highlightedImage = [UIImage imageNamed:@"back"];
-        [self setHighlightedImage:highlightedImage];
+        NSString *highlightedFile = [NSString stringWithFormat:@"%@Highlight2", cardClass];
+        UIImage *highlightedImage = [UIImage imageNamed:highlightedFile];
+        [self setImage:highlightedImage forState:UIControlStateSelected];
     }
 }
 

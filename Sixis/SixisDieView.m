@@ -17,7 +17,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Cover myself with a button
+        // Initialization code
     }
     return self;
 }
@@ -27,14 +27,16 @@
     // Also set this object's image.
     if ( newDie == nil ) {
         // Oh, we've removed the die? Then we'll remove the image, too.
-        [self setImage:nil];
+        [self setImage:nil forState:UIControlStateNormal];
     }
     else {
         // We've set a new die object for this view. Set its image appropriately.
         // XXX Wer'e gonna wanna update this to get the right color.
         NSString *dieImage = [NSString stringWithFormat:@"DieBlue%d", [die value]];
+        NSString *selectedImage = [NSString stringWithFormat:@"DieBlueSelected%d", [die value]];
         UIImage *image = [UIImage imageNamed:dieImage];
-        [self setImage:image];
+        [self setImage:image forState:UIControlStateNormal];
+        [self setImage:[UIImage imageNamed:selectedImage] forState:UIControlStateSelected];
     }
 }
 

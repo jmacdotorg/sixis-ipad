@@ -39,4 +39,7 @@
 /// Unlock the die. (This is equivalent to setIsLocked:NO.)
 -(void) unlock;
 
+/// Toggle the die's lock-state.
+-(void) toggle;
+
 @end

@@ -32,13 +32,9 @@
 
 @synthesize game, currentPlayer;
 
-#define DICE_TAG_BASE 0
-#define BANK_TAG_BASE 4
-#define SCORE_TAG_BASE 8
-
 #define NAME_LABEL_TAG 1
 #define SCORE_LABEL_TAG 2
-#define DICE_VIEW_TAG 3
+#define DICE_BANK_TAG 3
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -66,15 +62,7 @@
     // Load the player-controls view from its XIB.
     playerControls = [[[NSBundle mainBundle] loadNibNamed:@"SixisPlayerControls" owner:self options:nil] objectAtIndex:0];
     [[self view] addSubview:playerControls];
-    
-    // Generate all the players' status bars, and store them in an instance variable.
-    NSMutableArray *statusBars = [[NSMutableArray alloc] init];
-    for (SixisPlayer *player in [game players] ) {
-        UIView *statusBar = [[[NSBundle mainBundle] loadNibNamed:@"SixisPlayerStatus" owner:self options:nil] objectAtIndex:0];
-        [statusBars addObject:statusBar];
-    }
-    statusBarForPlayer = [NSDictionary dictionaryWithObjects:statusBars forKeys:[game players]];
-    
+
 }
 
 - (void)viewDidUnload
@@ -128,6 +116,51 @@
         [self _addCardViewWithX:714 Y:125  rotation:0];
         [self _addCardViewWithX:846 Y:125  rotation:0];
     }
+    else if ( [game players].count == 3 ) {
+        [self _addCardViewWithX:450 Y:282 rotation:M_PI_2];
+        
+        [self _addCardViewWithX:50 Y:282 rotation:0];
+        [self _addCardViewWithX:174 Y:282 rotation:0];
+        [self _addCardViewWithX:298 Y:282  rotation:0];
+        
+        [self _addCardViewWithX:510 Y:125  rotation:M_PI_4 + M_PI_2];
+        [self _addCardViewWithX:672 Y:120  rotation:M_PI_4 + M_PI_2];
+        [self _addCardViewWithX:798 Y:70  rotation:M_PI_4 + M_PI_2];
+        
+        [self _addCardViewWithX:450 Y:525  rotation:0];
+        [self _addCardViewWithX:582 Y:500  rotation:0];
+        [self _addCardViewWithX:714 Y:525  rotation:0];
+        
+    }
+    
+    
+    // Generate all the players' status bars, and store them in an instance variable.
+    NSMutableArray *statusBars = [[NSMutableArray alloc] init];
+    NSMutableDictionary *tempDict = [[NSMutableDictionary alloc] init];
+    for (SixisPlayer *player in [game players] ) {
+        UIView *statusBar = [[[NSBundle mainBundle] loadNibNamed:@"SixisPlayerStatus" owner:self options:nil] objectAtIndex:0];
+        [statusBars addObject:statusBar];
+        [[self view] addSubview:statusBar];
+        
+        // Initialize the player's name and score.
+        UILabel *nameLabel = (UILabel *)[statusBar viewWithTag:NAME_LABEL_TAG];
+        [nameLabel setText:[player name]];
+        UILabel *scoreLabel = (UILabel *)[statusBar viewWithTag:SCORE_LABEL_TAG];
+        [scoreLabel setText:@"0"];
+        [tempDict setObject:statusBar forKey:player.name];
+    }
+    statusBarForPlayer = [NSDictionary dictionaryWithDictionary:tempDict];
+    
+    // Place the status bars on the screen.
+    // XXX This needs to be (much!) more flexible for >2-player games.
+    CGRect bottomStatusFrame = CGRectMake(100, 700, 600, 50);
+    CGRect topStatusFrame = CGRectMake(300, 0, 600, 50);
+    
+    [[statusBars objectAtIndex:0] setFrame:bottomStatusFrame];
+    [[statusBars objectAtIndex:1] setFrame:topStatusFrame];
+    CGAffineTransform xform = CGAffineTransformMakeRotation( M_PI );
+    [(UIView *)[statusBars objectAtIndex:1] setTransform:xform];
+    
 }
 
 /****************
@@ -175,8 +208,7 @@
     
     // Sweep out the dice from the player's bank, and add em to the dice to display.
     [dice unionSet:[currentPlayer lockedDice]];
-    int playerNumber = [[[self game] players] indexOfObject:currentPlayer] + 1;
-    UIView *bank = [[self view] viewWithTag:playerNumber + BANK_TAG_BASE];
+    UIView *bank = [[statusBarForPlayer objectForKey:currentPlayer.name] viewWithTag:DICE_BANK_TAG];
     NSArray *bankDieViews = [bank subviews];
     for (SixisDieView *dieView in bankDieViews) {
         [dieView setDie:nil];
@@ -205,15 +237,7 @@
     [cardView setCard:nil];
     
     // Increment this player's score.
-    int playerNumber = [[[self game] players] indexOfObject:currentPlayer] + 1;
-    // XXX This is awful. I have to stick this shit into a hash.
-    UILabel *scoreLabel;
-    if ( playerNumber == 1 ) {
-        scoreLabel = player1Score;
-    }
-    else {
-        scoreLabel = player2Score;
-    }
+    UILabel *scoreLabel = (UILabel *)[[statusBarForPlayer objectForKey:[currentPlayer name]] viewWithTag:SCORE_LABEL_TAG];
     scoreLabel.text = [NSString stringWithFormat:@"%d", [currentPlayer score]];
 
     
@@ -232,7 +256,7 @@
    
     NSMutableSet *dice = [NSMutableSet setWithSet:[[note userInfo] objectForKey:@"dice"]];
     
-    UIView *bank = [[self view] viewWithTag:playerNumber + BANK_TAG_BASE];
+    UIView *bank = [[statusBarForPlayer objectForKey:currentPlayer.name] viewWithTag:DICE_BANK_TAG];
     NSArray *bankDieViews = [bank subviews];
     for (SixisDieView *dieView in bankDieViews) {
         if ( dice.count == 0 ) {

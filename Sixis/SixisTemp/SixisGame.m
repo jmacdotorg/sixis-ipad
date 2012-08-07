@@ -48,8 +48,11 @@
     self.playersType = newPlayersType;
     
     // Give each player object a (weak) backlink to this game object.)
+    // Also, tell the players what player number they are (an int between 1 and 4).
     for ( SixisPlayer *player in players ) {
         [player setGame:self];
+        int number = [players indexOfObject:player] + 1;
+        [player setNumber:number];
     }
     
     // Register for various notifications.
@@ -129,8 +132,9 @@
     
     // Shuffle the blue-card deck.
     NSMutableArray *shuffledDeck = [[NSMutableArray alloc] init];
-    for ( int i = 0; i < deck.count; i++ ) {
-        int randomIndex = random() % deck.count - 1;
+//    for ( int i = 0; i < deck.count; i++ ) {
+    while ( deck.count > 0 ) {
+        int randomIndex = random() % deck.count;
         [shuffledDeck addObject:[deck objectAtIndex:randomIndex]];
         [deck removeObjectAtIndex:randomIndex];
     }
@@ -191,18 +195,6 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"SixisNewTurn" object:self userInfo:[NSDictionary dictionaryWithObject:currentPlayer forKey:@"player"]];
 }
 
-/*
--(void)endRobotTurn {
-    SixisRobot *robot = (SixisRobot *)currentPlayer;
-    if ( [robot wantsToEndRound] ) {
-        // This flag is raised in two-players games when the robot declares the round has ended.
-        [self startRound];
-    }
-    else {
-        [self startTurn];
-    }
-}
- */
 
 -(void)setPlayersType:(SixisPlayersType *)newPlayersType {
     playersType = newPlayersType;
@@ -250,6 +242,7 @@
         SixisCard *card = [cardsInPlay objectAtIndex:[index intValue]];
         if ( ! [ card isEqual:[NSNull null] ] ) {
             [availableCards addObject:card];
+            NSLog(@"I see %@ at index %d.", card, [index integerValue]);
         }
     }
     

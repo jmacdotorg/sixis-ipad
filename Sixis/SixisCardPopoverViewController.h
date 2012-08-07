@@ -18,6 +18,7 @@
 @property (nonatomic, strong) SixisPlayer *player;
 @property (nonatomic, strong) SixisCard *card;
 @property (nonatomic, weak) SixisTabletopViewController *parent;
+@property (nonatomic) CGFloat rotation;
 
 
 @end

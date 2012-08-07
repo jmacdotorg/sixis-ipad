@@ -26,6 +26,16 @@
                              ],
                             [NSArray arrayWithObjects:
                              [NSNumber numberWithInt:0],
+                             [NSNumber numberWithInt:1],
+                             [NSNumber numberWithInt:2],
+                             [NSNumber numberWithInt:3],
+                             [NSNumber numberWithInt:4],
+                             [NSNumber numberWithInt:5],
+                             [NSNumber numberWithInt:6],
+                             nil
+                             ],
+                            [NSArray arrayWithObjects:
+                             [NSNumber numberWithInt:0],
                              [NSNumber numberWithInt:7],
                              [NSNumber numberWithInt:8],
                              [NSNumber numberWithInt:9],
@@ -34,16 +44,7 @@
                              [NSNumber numberWithInt:6],
                              nil
                              ],
-                            [NSArray arrayWithObjects:
-                             [NSNumber numberWithInt:0],
-                             [NSNumber numberWithInt:1],
-                             [NSNumber numberWithInt:2],
-                             [NSNumber numberWithInt:3],
-                             [NSNumber numberWithInt:4],
-                             [NSNumber numberWithInt:5],
-                             [NSNumber numberWithInt:6],
-                             nil
-                             ],                            
+                          
                             nil];
     
     return [self initWithTableauSize:9 cardIndicesForPlayerIndex:cardIndices];

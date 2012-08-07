@@ -16,10 +16,8 @@
     NSMutableArray *cards;
     UIView *playerControls;
     UIPopoverController *popover;
-    NSDictionary *statusBarForPlayer;
+    NSDictionary *tableInfoForPlayer;
 }
-@property (weak, nonatomic) IBOutlet UILabel *player1Score;
-@property (weak, nonatomic) IBOutlet UILabel *player2Score;
 @property (weak, nonatomic) IBOutlet UILabel *winMessage;
 @property (weak, nonatomic) IBOutlet UIButton *rollAllDiceButton;
 @property (weak, nonatomic) IBOutlet UIButton *rollUnlockedDiceButton;

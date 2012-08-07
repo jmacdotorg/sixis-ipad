@@ -19,6 +19,7 @@
 @property (nonatomic, copy) UIColor *dieColor;
 @property (nonatomic) int score;
 @property (nonatomic) SixisGame *game;
+@property int number;
 
 -(id)initWithName: (NSString *)newName;
 

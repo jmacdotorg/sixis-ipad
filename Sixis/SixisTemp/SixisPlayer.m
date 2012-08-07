@@ -13,7 +13,7 @@
 
 @implementation SixisPlayer
 
-@synthesize name, dieColor, score, lockedDice, unlockedDice, game;
+@synthesize name, dieColor, score, lockedDice, unlockedDice, game, number;
 
 -(id)initWithName:(NSString *)newName {
     self = [super init];

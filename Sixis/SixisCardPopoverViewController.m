@@ -8,6 +8,7 @@
 
 #import "SixisCardPopoverViewController.h"
 #import "SixisTabletopViewController.h"
+#import "SixisPlayerTableInfo.h"
 #import "SixisPlayer.h"
 #import "SixisCard.h"
 
@@ -17,7 +18,7 @@
 
 @implementation SixisCardPopoverViewController
 
-@synthesize player, card;
+@synthesize player, card, rotation;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,7 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.view.transform = CGAffineTransformMakeRotation( rotation );
 }
 
 - (void)viewDidUnload

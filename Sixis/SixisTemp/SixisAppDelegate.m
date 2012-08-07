@@ -18,6 +18,7 @@
 #import "SixisRoundsGame.h"
 #import "SixisTwoPlayers.h"
 #import "SixisThreePlayers.h"
+#import "SixisFourPlayers.h"
 
 @implementation SixisAppDelegate
 
@@ -42,19 +43,22 @@
     [self.window makeKeyAndVisible];
     
     // XXX Fucking around with robots!
-    SixisSmartbot *rockem = [[SixisSmartbot alloc] initWithName:@"Rockem"];
-    SixisSmartbot *sockem = [[SixisSmartbot alloc] initWithName:@"Sockem"];
+//    SixisSmartbot *rockem = [[SixisSmartbot alloc] initWithName:@"Rockem"];
+//    SixisSmartbot *sockem = [[SixisSmartbot alloc] initWithName:@"Sockem"];
     SixisHuman *alice = [[SixisHuman alloc] initWithName:@"Alice"];
+    SixisHuman *bob = [[SixisHuman alloc ] initWithName:@"Bob"];
+    SixisHuman *carol = [[SixisHuman alloc] initWithName:@"Carol"];
+    SixisHuman *dave = [[SixisHuman alloc] initWithName:@"Dave"];
 //    SixisSmartbot *threee = [[SixisSmartbot alloc] initWithName:@"Threee"];
 //    SixisSmartbot *fourrr = [[SixisSmartbot alloc] initWithName:@"Fourrr"];
     
 //    NSArray *players = [NSArray arrayWithObjects: rockem, sockem, threee, nil];
 //    NSArray *players = [NSArray arrayWithObjects: rockem, sockem, nil];
 //    NSArray *players = [NSArray arrayWithObjects: alice, rockem, nil];
-    NSArray *players = [NSArray arrayWithObjects: alice, rockem, sockem, nil];
+    NSArray *players = [NSArray arrayWithObjects: alice, bob, carol, dave, nil];
     
 //    SixisGame *game = [[SixisGame alloc] initWithGameType:[[SixisRoundsGame alloc] initWithRounds:1] PlayersType:[[SixisTwoPlayers alloc] init] Players:players];
-    SixisGame *game = [[SixisGame alloc] initWithGameType:[[SixisRoundsGame alloc] initWithRounds:1] PlayersType:[[SixisThreePlayers alloc] init] Players:players];
+    SixisGame *game = [[SixisGame alloc] initWithGameType:[[SixisRoundsGame alloc] initWithRounds:1] PlayersType:[[SixisFourPlayers alloc] init] Players:players];
     
     [rootController setGame:game];
     

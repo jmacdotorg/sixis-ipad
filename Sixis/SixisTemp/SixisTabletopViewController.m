@@ -15,6 +15,8 @@
 #import "SixisDieView.h"
 #import "SixisCard.h"
 #import "SixisDie.h"
+#import "SixisPlayerTableInfo.h"
+#import "SixisPlayersType.h"
 
 @interface SixisTabletopViewController ()
 
@@ -22,8 +24,6 @@
 
 @implementation SixisTabletopViewController
 @synthesize endRoundButton;
-@synthesize player1Score;
-@synthesize player2Score;
 @synthesize winMessage;
 @synthesize rollAllDiceButton;
 @synthesize rollUnlockedDiceButton;
@@ -67,8 +67,6 @@
 
 - (void)viewDidUnload
 {
-    [self setPlayer1Score:nil];
-    [self setPlayer2Score:nil];
     [self setWinMessage:nil];
     [self setRollAllDiceButton:nil];
     [self setRollUnlockedDiceButton:nil];
@@ -86,7 +84,7 @@
 }
 
 -(void)_addCardViewWithX:(int)x Y:(int)y rotation:(CGFloat)rotation {
-    CGRect frame = CGRectMake(x, y, 125, 179);
+    CGRect frame = CGRectMake(x, y, 118.75, 170.05);
 
     SixisCardView *cardView = [[SixisCardView alloc] initWithFrame:frame];
     [cards addObject:cardView];
@@ -119,48 +117,66 @@
     else if ( [game players].count == 3 ) {
         [self _addCardViewWithX:450 Y:282 rotation:M_PI_2];
         
-        [self _addCardViewWithX:50 Y:282 rotation:0];
-        [self _addCardViewWithX:174 Y:282 rotation:0];
-        [self _addCardViewWithX:298 Y:282  rotation:0];
+        [self _addCardViewWithX:53 Y:282 rotation:0];
+        [self _addCardViewWithX:177 Y:282 rotation:0];
+        [self _addCardViewWithX:301 Y:282  rotation:0];
         
-        [self _addCardViewWithX:510 Y:125  rotation:M_PI_4 + M_PI_2];
-        [self _addCardViewWithX:672 Y:120  rotation:M_PI_4 + M_PI_2];
-        [self _addCardViewWithX:798 Y:70  rotation:M_PI_4 + M_PI_2];
+        [self _addCardViewWithX:560 Y:167  rotation:M_PI_4 * 7];
+        [self _addCardViewWithX:685 Y:117  rotation:M_PI_4 * 7];
+        [self _addCardViewWithX:810 Y:67  rotation:M_PI_4 * 7];
         
-        [self _addCardViewWithX:450 Y:525  rotation:0];
-        [self _addCardViewWithX:582 Y:500  rotation:0];
-        [self _addCardViewWithX:714 Y:525  rotation:0];
+        [self _addCardViewWithX:560 Y:400  rotation:M_PI_4];
+        [self _addCardViewWithX:685 Y:450  rotation:M_PI_4];
+        [self _addCardViewWithX:810 Y:505  rotation:M_PI_4];
+    }
+    else {
+        [self _addCardViewWithX:450 Y:282 rotation:M_PI_2];
         
+        [self _addCardViewWithX:93 Y:67 rotation:M_PI_4 + M_PI];
+        [self _addCardViewWithX:217 Y:117 rotation:M_PI_4 + M_PI];
+        [self _addCardViewWithX:341 Y:167  rotation:M_PI_4 + M_PI];
+        
+        [self _addCardViewWithX:560 Y:167  rotation:M_PI_4 * 7];
+        [self _addCardViewWithX:685 Y:117  rotation:M_PI_4 * 7];
+        [self _addCardViewWithX:810 Y:67  rotation:M_PI_4 * 7];
+        
+        [self _addCardViewWithX:560 Y:400  rotation:M_PI_4];
+        [self _addCardViewWithX:685 Y:450  rotation:M_PI_4];
+        [self _addCardViewWithX:810 Y:505  rotation:M_PI_4];
+        
+        [self _addCardViewWithX:93 Y:505 rotation:M_PI_4 + M_PI_2];
+        [self _addCardViewWithX:217 Y:450 rotation:M_PI_4 + M_PI_2];
+        [self _addCardViewWithX:341 Y:400  rotation:M_PI_4 + M_PI_2];
     }
     
     
     // Generate all the players' status bars, and store them in an instance variable.
-    NSMutableArray *statusBars = [[NSMutableArray alloc] init];
+    NSMutableArray *tableInfos = [[NSMutableArray alloc] init];
     NSMutableDictionary *tempDict = [[NSMutableDictionary alloc] init];
     for (SixisPlayer *player in [game players] ) {
         UIView *statusBar = [[[NSBundle mainBundle] loadNibNamed:@"SixisPlayerStatus" owner:self options:nil] objectAtIndex:0];
-        [statusBars addObject:statusBar];
         [[self view] addSubview:statusBar];
+        
+        // Initialize a table-info object for this player.
+        SixisPlayerTableInfo *tableInfo = [[SixisPlayerTableInfo alloc] init];
+        tableInfo.player = player;
+        tableInfo.game = game;
+        tableInfo.statusBar = statusBar;
+
+        [tableInfos addObject:tableInfo];
         
         // Initialize the player's name and score.
         UILabel *nameLabel = (UILabel *)[statusBar viewWithTag:NAME_LABEL_TAG];
         [nameLabel setText:[player name]];
         UILabel *scoreLabel = (UILabel *)[statusBar viewWithTag:SCORE_LABEL_TAG];
         [scoreLabel setText:@"0"];
-        [tempDict setObject:statusBar forKey:player.name];
+        [tempDict setObject:tableInfo forKey:player.name];
+        
+        // Set the status bar's frame and rotation.
+        [statusBar setFrame:[tableInfo statusFrame]];
+        [statusBar setTransform:CGAffineTransformMakeRotation(tableInfo.rotation)];
     }
-    statusBarForPlayer = [NSDictionary dictionaryWithDictionary:tempDict];
-    
-    // Place the status bars on the screen.
-    // XXX This needs to be (much!) more flexible for >2-player games.
-    CGRect bottomStatusFrame = CGRectMake(100, 700, 600, 50);
-    CGRect topStatusFrame = CGRectMake(300, 0, 600, 50);
-    
-    [[statusBars objectAtIndex:0] setFrame:bottomStatusFrame];
-    [[statusBars objectAtIndex:1] setFrame:topStatusFrame];
-    CGAffineTransform xform = CGAffineTransformMakeRotation( M_PI );
-    [(UIView *)[statusBars objectAtIndex:1] setTransform:xform];
-    
+    tableInfoForPlayer = [NSDictionary dictionaryWithDictionary:tempDict];
 }
 
 /****************
@@ -174,8 +190,10 @@
     
     // If the current player is a human, plop the control view on the screen, placed and rotated in a position appropriate to that player.
     if ( [currentPlayer isKindOfClass:[SixisHuman class]]) {
-        CGRect frame = CGRectMake(650, 350, 256, 256);
+        SixisPlayerTableInfo *info = (SixisPlayerTableInfo *)[tableInfoForPlayer objectForKey:[currentPlayer name]];
+        CGRect frame = info.controlsFrame;
         [playerControls setFrame:frame];
+        [playerControls setTransform:CGAffineTransformMakeRotation(info.rotation)];
         playerControls.hidden = NO;
     
         // Show the dice-rolling buttons; hide the other controls.
@@ -208,7 +226,8 @@
     
     // Sweep out the dice from the player's bank, and add em to the dice to display.
     [dice unionSet:[currentPlayer lockedDice]];
-    UIView *bank = [[statusBarForPlayer objectForKey:currentPlayer.name] viewWithTag:DICE_BANK_TAG];
+    SixisPlayerTableInfo *info = (SixisPlayerTableInfo *)[tableInfoForPlayer objectForKey:[currentPlayer name]];
+    UIView *bank = [info.statusBar viewWithTag:DICE_BANK_TAG];
     NSArray *bankDieViews = [bank subviews];
     for (SixisDieView *dieView in bankDieViews) {
         [dieView setDie:nil];
@@ -237,7 +256,8 @@
     [cardView setCard:nil];
     
     // Increment this player's score.
-    UILabel *scoreLabel = (UILabel *)[[statusBarForPlayer objectForKey:[currentPlayer name]] viewWithTag:SCORE_LABEL_TAG];
+    SixisPlayerTableInfo *info = (SixisPlayerTableInfo *)[tableInfoForPlayer objectForKey:[currentPlayer name]];
+    UILabel *scoreLabel = (UILabel *)[info.statusBar viewWithTag:SCORE_LABEL_TAG];
     scoreLabel.text = [NSString stringWithFormat:@"%d", [currentPlayer score]];
 
     
@@ -256,7 +276,8 @@
    
     NSMutableSet *dice = [NSMutableSet setWithSet:[[note userInfo] objectForKey:@"dice"]];
     
-    UIView *bank = [[statusBarForPlayer objectForKey:currentPlayer.name] viewWithTag:DICE_BANK_TAG];
+    SixisPlayerTableInfo *info = (SixisPlayerTableInfo *)[tableInfoForPlayer objectForKey:[currentPlayer name]];
+    UIView *bank = [info.statusBar viewWithTag:DICE_BANK_TAG];
     NSArray *bankDieViews = [bank subviews];
     for (SixisDieView *dieView in bankDieViews) {
         if ( dice.count == 0 ) {
@@ -337,6 +358,7 @@
 
 - (IBAction)handleEndTurnTap:(id)sender {
     [game startTurn];
+    [self _unhighlightAllCards];
 }
 
 -(void)handleCardTap:(id)sender {
@@ -349,7 +371,7 @@
     
     // Display the popover as eminating from the tapped card.
     [popover presentPopoverFromRect:[cardView frame] inView:[self view] permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-//    popover.delegate = self;
+
     
 }
 
@@ -367,8 +389,11 @@
 
 
 - (void) _highlightQualifiedCards {
-    for (int i = 0; i < [game cardsInPlay].count; i++) {
-        SixisCardView *cardView = [cards objectAtIndex:i];
+//    NSSet *availableCards = [game availableCards];
+    NSSet *availableCardIndices = [game.playersType cardIndicesForPlayerAtIndex:[currentPlayer number] - 1];
+//    for (int i = 0; i < [game availableCards].count; i++) {
+    for (NSNumber *cardIndex in availableCardIndices) {
+        SixisCardView *cardView = [cards objectAtIndex:[cardIndex integerValue]];
         if ( [[cardView card] isQualified] ) {
             cardView.selected = YES;
             cardView.enabled = YES;

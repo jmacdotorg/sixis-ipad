@@ -62,6 +62,9 @@
     // Load the player-controls view from its XIB.
     playerControls = [[[NSBundle mainBundle] loadNibNamed:@"SixisPlayerControls" owner:self options:nil] objectAtIndex:0];
     [[self view] addSubview:playerControls];
+    // And the view that holds the rolled dice.
+    diceView = [[[NSBundle mainBundle] loadNibNamed:@"SixisRolledDice" owner:self options:nil] objectAtIndex:0];
+    [[self view] addSubview:diceView];
 
 }
 
@@ -191,11 +194,17 @@
     // If the current player is a human, plop the control view on the screen, placed and rotated in a position appropriate to that player.
     if ( [currentPlayer isKindOfClass:[SixisHuman class]]) {
         SixisPlayerTableInfo *info = (SixisPlayerTableInfo *)[tableInfoForPlayer objectForKey:[currentPlayer name]];
-        CGRect frame = info.controlsFrame;
-        [playerControls setFrame:frame];
+        CGPoint controlsCenter = info.controlsCenter;
+        [playerControls setCenter:controlsCenter];
         [playerControls setTransform:CGAffineTransformMakeRotation(info.rotation)];
         playerControls.hidden = NO;
-    
+        
+        // Reposition the UIView that holds the rolled dice.
+        CGPoint diceCenter = info.diceCenter;
+        [diceView setCenter:diceCenter];
+        [diceView setTransform:CGAffineTransformMakeRotation(info.rotation)];
+        diceView.hidden = NO;
+        
         // Show the dice-rolling buttons; hide the other controls.
         rollAllDiceButton.hidden = NO;
         rollUnlockedDiceButton.hidden = NO;
@@ -214,6 +223,7 @@
     else {
         // The player is a robot, so hide all the player controls.
         playerControls.hidden = YES;
+        diceView.hidden = YES;
     }
     
 }

@@ -17,8 +17,8 @@
 @property (nonatomic) SixisGame *game;
 @property (nonatomic) UIView *statusBar;
 
--(CGRect) controlsFrame;
-
+-(CGPoint) controlsCenter;
+-(CGPoint) diceCenter;
 -(CGRect) statusFrame;
 
 -(CGFloat) rotation;

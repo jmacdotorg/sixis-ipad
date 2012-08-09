@@ -17,54 +17,74 @@
 #define TOP 3
 #define RIGHT 4
 
+#define DICE_WIDTH 216
+#define DICE_HEIGHT 136
+#define BANK_WIDTH 391
+
 @synthesize game, player;
 
-// controlsFrame: return the CGRect that this player's controls & rolled dice should get drawn in.
--(CGRect) controlsFrame {
-    CGRect frame;
+-(CGPoint) controlsCenter {
+    CGPoint frame;
+    if ( [self _tablePosition] == BOTTOM ) {
+        frame = CGPointMake(780, 721);
+    }
+    else if ( [self _tablePosition] == TOP ) {
+        frame = CGPointMake(210, 26);
+    }
+    else if ( [self _tablePosition] == RIGHT ) {
+        frame = CGPointMake(1000, 153);
+    }
+    else {
+        frame = CGPointMake(24, 620);
+    }
+    return frame;
+}
+
+-(CGPoint) diceCenter {
+    CGPoint frame;
     if ( [self _tablePosition] == BOTTOM ) {
         if ( game.players.count == 2 ) {
-            frame = CGRectMake(650, 350, 256, 256);
+            frame = CGPointMake(885, 420 );
         }
         else if ( game.players.count == 3 ) {
-            frame = CGRectMake(150, 475, 256, 256);
+            frame = CGPointMake(385, 555 );
         }
         else {
-            frame = CGRectMake(400, 475, 256, 256);
+            frame = CGPointMake(510, 640 );
         }
     }
     else if ( [self _tablePosition] == TOP ) {
         if ( game.players.count == 2 ) {
-            frame = CGRectMake(350, 100, 256, 256);
+            frame = CGPointMake(425, 208 );
         }
         else if ( game.players.count == 3 ) {
-            frame = CGRectMake(150, 60, 256, 256);
+            frame = CGPointMake(225, 168 );
         }
         else {
-            frame = CGRectMake(375, -50, 256, 256);
+            frame = CGPointMake(510, 108 );
         }
     }
     else if ( [self _tablePosition] == RIGHT ) {
-        frame = CGRectMake(750, 237, 256, 256);
+        frame = CGPointMake(874, 375 );
     }
     else {
-        frame = CGRectMake(20, 237, 256, 256);
+        frame = CGPointMake(150, 375 );
     }
     return frame;
 }
 
 -(CGRect) statusFrame {
     if ( [self _tablePosition] == BOTTOM ) {
-        return CGRectMake(100, 700, 600, 50);
+        return CGRectMake(50, 700, BANK_WIDTH, 50);
     }
     else if ( [self _tablePosition] == TOP ) {
-        return CGRectMake(300, 0, 600, 50);
+        return CGRectMake(580, 0, BANK_WIDTH, 50);
     }
     else if ( [self _tablePosition] == RIGHT ) {
-        return CGRectMake(700, 350, 600, 50);
+        return CGRectMake(800, 470, BANK_WIDTH, 50);
     }
     else {
-        return CGRectMake(-270, 350, 600, 50);
+        return CGRectMake(-175, 225, BANK_WIDTH, 50);
     }
 }
 

@@ -24,6 +24,7 @@
 
 @implementation SixisTabletopViewController
 @synthesize endRoundButton;
+@synthesize textPromptLabel;
 @synthesize winMessage;
 @synthesize rollAllDiceButton;
 @synthesize rollUnlockedDiceButton;
@@ -66,6 +67,12 @@
     diceView = [[[NSBundle mainBundle] loadNibNamed:@"SixisRolledDice" owner:self options:nil] objectAtIndex:0];
     [[self view] addSubview:diceView];
 
+    // And the view that holds the text prompt.
+    textPromptLabel = [[[NSBundle mainBundle] loadNibNamed:@"SixisTextPrompt" owner:self options:nil] objectAtIndex:0];
+    [[self view] addSubview:diceView];
+    [[self view] addSubview:textPromptLabel];
+    [textPromptLabel setText:@"Hi mom!"];
+    
 }
 
 - (void)viewDidUnload
@@ -76,6 +83,7 @@
     [self setEndTurnButton:nil];
     [self setDiceView:nil];
     [self setEndRoundButton:nil];
+    [self setTextPromptLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -187,10 +195,20 @@
  ****************/
 
 -(void)handleNewTurn:(NSNotification *)note {
+    
     // Set the current player, based on the argument attached to this notification.
     SixisPlayer *player = [[note userInfo] valueForKey:@"player"];
     currentPlayer = player;
     
+    // Update the thisIsTheFirstRound boolean.
+    if ( firstPlayer == nil ) {
+        firstPlayer = currentPlayer;
+        thisIsTheFirstGoRound = YES;
+    }
+    else if ( [firstPlayer isEqual:currentPlayer] ) {
+        thisIsTheFirstGoRound = NO;
+    }
+        
     // If the current player is a human, plop the control view on the screen, placed and rotated in a position appropriate to that player.
     if ( [currentPlayer isKindOfClass:[SixisHuman class]]) {
         SixisPlayerTableInfo *info = (SixisPlayerTableInfo *)[tableInfoForPlayer objectForKey:[currentPlayer name]];
@@ -204,6 +222,12 @@
         [diceView setCenter:diceCenter];
         [diceView setTransform:CGAffineTransformMakeRotation(info.rotation)];
         diceView.hidden = NO;
+        
+        // Reposition and show the UILabel that displays the text prompt.
+        CGPoint textCenter = info.textCenter;
+        [textPromptLabel setCenter:textCenter];
+        [textPromptLabel setTransform:CGAffineTransformMakeRotation(info.rotation)];
+        textPromptLabel.hidden = NO;
         
         // Show the dice-rolling buttons; hide the other controls.
         rollAllDiceButton.hidden = NO;
@@ -219,6 +243,28 @@
         else {
             endRoundButton.hidden = YES;
         }
+        
+        // Update the text prompt.
+        NSMutableString *newText = [[NSMutableString alloc] init];
+        
+        if ( [game roundMightEnd] ) {
+            [newText appendString:@"Tap the End Round button to declare this round over.\n\n"];
+        }
+        
+        if ( currentPlayer.lockedDice.count == 6 ) {
+            [newText appendString:@"All of your dice are locked! Roll nothing, OR re-roll all six."];
+        }
+        else if ( thisIsTheFirstGoRound ) {
+            [newText appendString:@"This is your first turn this round, so roll all your dice! Tap the Roll All button."];
+        }
+        else if ( currentPlayer.lockedDice.count == 0 ) {
+            [newText appendString:@"None of your dice are locked, so roll all your dice!"];
+        }
+        else {
+            [newText appendString:@"Roll your unlocked dice, OR re-roll all six of your dice."];
+        }
+        
+        [textPromptLabel setText:newText];
     }
     else {
         // The player is a robot, so hide all the player controls.
@@ -253,9 +299,11 @@
         [dice removeObject:die];
         [dieView setDie:die];
     }
+    [self _selectOnlyLockedDice];
     
     // Too late to end the round now...
     endRoundButton.hidden = YES;
+
     
 }
 
@@ -344,7 +392,18 @@
     [self _highlightQualifiedCards];
     
     // Display the player-action hint.
+    NSMutableString *newText = [[NSMutableString alloc] init];
     
+    if (thereAreHighlightedCards) {
+        [newText appendString:@"You may take OR flip one card that matches your dice.\n\n"];
+    }
+    else {
+        [newText appendString:@"No cards match your dice this time.\n\n"];
+    }
+    
+    [newText appendString:@"Tap dice to choose which ones to lock."];
+    
+    [textPromptLabel setText:newText];
     // Display the end-turn hint and controls.
     diceView.hidden = NO;
     endTurnButton.hidden = NO;
@@ -373,6 +432,8 @@
 
 -(void)handleCardTap:(id)sender {
     SixisCardPopoverViewController *content = [[SixisCardPopoverViewController alloc] init];
+    SixisPlayerTableInfo *info = (SixisPlayerTableInfo *)[tableInfoForPlayer objectForKey:[currentPlayer name]];
+    content.rotation = info.rotation;
     content.parent = self;
     content.card = [(SixisCardView *)sender card];
     popover = [[UIPopoverController alloc] initWithContentViewController:content];
@@ -381,32 +442,37 @@
     
     // Display the popover as eminating from the tapped card.
     [popover presentPopoverFromRect:[cardView frame] inView:[self view] permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-
-    
 }
 
 - (void)handleTakeCardTap:(SixisCard *)card {
     [popover dismissPopoverAnimated:YES];
     [currentPlayer takeCard:card];
     [self _unhighlightAllCards];
+    [self _removeCardInstruction];
 }
 
 - (void)handleFlipCardTap:(SixisCard *)card {
     [popover dismissPopoverAnimated:YES];
     [currentPlayer flipCard:card];
     [self _unhighlightAllCards];
+    [self _removeCardInstruction];
 }
 
+-(void) _removeCardInstruction {
+    if ( [currentPlayer isKindOfClass:[SixisHuman class]]) {
+        textPromptLabel.text = @"Tap dice to choose which ones to lock.";
+    }
+}
 
 - (void) _highlightQualifiedCards {
-//    NSSet *availableCards = [game availableCards];
     NSSet *availableCardIndices = [game.playersType cardIndicesForPlayerAtIndex:[currentPlayer number] - 1];
-//    for (int i = 0; i < [game availableCards].count; i++) {
+    thereAreHighlightedCards = NO;
     for (NSNumber *cardIndex in availableCardIndices) {
         SixisCardView *cardView = [cards objectAtIndex:[cardIndex integerValue]];
         if ( [[cardView card] isQualified] ) {
             cardView.selected = YES;
             cardView.enabled = YES;
+            thereAreHighlightedCards = YES;
         }
     }
 }
@@ -417,7 +483,23 @@
         cardView.selected = NO;
         cardView.enabled = NO;
     }
+    thereAreHighlightedCards = NO;
 }
+
+// _selectLockedDice: select all dice that the current player has locked.
+-(void) _selectOnlyLockedDice {
+    NSArray *dieViews = [diceView subviews];
+    for (SixisDieView *dieView in dieViews) {
+        if ( dieView.die.isLocked ) {
+            dieView.selected = YES;
+        }
+        else {
+            dieView.selected = NO;
+        }
+    }
+}
+
 - (IBAction)handleEndRoundButtonTap:(id)sender {
+    [game startRound];
 }
 @end

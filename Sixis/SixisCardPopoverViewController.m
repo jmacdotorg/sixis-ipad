@@ -32,7 +32,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.transform = CGAffineTransformMakeRotation( rotation );
+    
+
 }
 
 - (void)viewDidUnload
@@ -45,6 +46,19 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
 	return YES;
+}
+
+-(void)setRotation:(CGFloat)newRotation {
+    rotation = newRotation;
+    self.view.transform = CGAffineTransformMakeRotation( rotation );
+    
+    // If the rotation is 90 degrees, swap the height & width of this popover.
+    // Comparison is weird becaue I dunno how to use the == operator with the M_PI constants?
+    NSLog(@"Rotation is %f. M_PI_2 is %f.", rotation, M_PI_2 + M_PI);
+    if ( ( rotation > 1.5 && rotation < 1.6 ) || ( rotation > 4.7 && rotation < 4.8 ) ) {
+        NSLog(@"Yeps.");
+        self.contentSizeForViewInPopover = CGSizeMake(122, 166);
+    }
 }
 
 - (IBAction)handleTakeCardTap:(id)sender {

@@ -21,7 +21,8 @@
     // Before anything happens: If this is a two-player game, and I have the option of ending the round, _and_ I am winning, end the round.
     if ( [self.game roundMightEnd] && [[[self.game.players sortedArrayUsingSelector:@selector(compareScores:)] objectAtIndex:0] isEqual:self] ) {
         NSLog(@"I'm declaring this round over!");
-        [self setWantsToEndRound:YES];
+//        [self setWantsToEndRound:YES];
+        [[self game] startRound];
     }
     
     targetCardIsPresent = NO;

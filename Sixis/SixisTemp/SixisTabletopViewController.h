@@ -17,6 +17,9 @@
     UIView *playerControls;
     UIPopoverController *popover;
     NSDictionary *tableInfoForPlayer;
+    BOOL thereAreHighlightedCards;
+    SixisPlayer *firstPlayer;
+    BOOL thisIsTheFirstGoRound;
 }
 @property (weak, nonatomic) IBOutlet UILabel *winMessage;
 @property (weak, nonatomic) IBOutlet UIButton *rollAllDiceButton;
@@ -24,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *endTurnButton;
 @property (weak, nonatomic) IBOutlet UIView *diceView;
 @property (weak, nonatomic) IBOutlet UIButton *endRoundButton;
+@property (strong, nonatomic) IBOutlet UILabel *textPromptLabel;
 
 - (IBAction)handleRollAllDiceTap:(id)sender;
 - (IBAction)handleRollUnlockedDiceTap:(id)sender;
@@ -48,5 +52,7 @@
 -(void)handleDiceLock:(NSNotification *)note;
 -(void)handleWinning:(NSNotification *)note;
 -(void)handleDealtCard:(NSNotification *)note;
+
+
 
 @end

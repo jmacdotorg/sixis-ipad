@@ -132,7 +132,6 @@
     
     // Shuffle the blue-card deck.
     NSMutableArray *shuffledDeck = [[NSMutableArray alloc] init];
-//    for ( int i = 0; i < deck.count; i++ ) {
     while ( deck.count > 0 ) {
         int randomIndex = random() % deck.count;
         [shuffledDeck addObject:[deck objectAtIndex:randomIndex]];

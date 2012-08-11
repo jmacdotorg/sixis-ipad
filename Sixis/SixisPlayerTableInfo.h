@@ -18,6 +18,7 @@
 @property (nonatomic) UIView *statusBar;
 
 -(CGPoint) controlsCenter;
+-(CGPoint) textCenter;
 -(CGPoint) diceCenter;
 -(CGRect) statusFrame;
 

@@ -44,7 +44,7 @@
     CGPoint frame;
     if ( [self _tablePosition] == BOTTOM ) {
         if ( game.players.count == 2 ) {
-            frame = CGPointMake(885, 420 );
+            frame = CGPointMake(759, 533 );
         }
         else if ( game.players.count == 3 ) {
             frame = CGPointMake(385, 555 );
@@ -55,7 +55,7 @@
     }
     else if ( [self _tablePosition] == TOP ) {
         if ( game.players.count == 2 ) {
-            frame = CGPointMake(425, 208 );
+            frame = CGPointMake(265, 215 );
         }
         else if ( game.players.count == 3 ) {
             frame = CGPointMake(225, 168 );
@@ -69,6 +69,44 @@
     }
     else {
         frame = CGPointMake(150, 375 );
+    }
+    return frame;
+}
+
+-(CGPoint) textCenter {
+    CGPoint frame;
+    if ( [self _tablePosition] == TOP ) {
+        if ( game.players.count == 2 ) {
+            frame = CGPointMake(759, 533 );
+        }
+        else if ( game.players.count == 3 ) {
+            frame = CGPointMake(385, 555 );
+        }
+        else {
+            frame = CGPointMake(510, 640 );
+        }
+    }
+    else if ( [self _tablePosition] == BOTTOM ) {
+        if ( game.players.count == 2 ) {
+            frame = CGPointMake(265, 215 );
+        }
+        else if ( game.players.count == 3 ) {
+            frame = CGPointMake(225, 168 );
+        }
+        else {
+            frame = CGPointMake(510, 108 );
+        }
+    }
+    else if ( [self _tablePosition] == LEFT ) {
+        frame = CGPointMake(874, 375 );
+    }
+    else {
+        if ( game.players.count == 3 ) {
+            frame = CGPointMake(200, 575);
+        }
+        else {
+            frame = CGPointMake(150, 375 );
+        }
     }
     return frame;
 }

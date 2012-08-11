@@ -160,6 +160,7 @@
 		8925DD6915CC352000C1399A /* felt.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8925DD6815CC352000C1399A /* felt.jpg */; };
 		8925DD6B15CC352700C1399A /* wood.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8925DD6A15CC352700C1399A /* wood.jpg */; };
 		8925DD6E15CC516500C1399A /* SixisPlayerStatus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8925DD6D15CC516500C1399A /* SixisPlayerStatus.xib */; };
+		89329B9215D58E8E0055A001 /* SixisTextPrompt.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89329B9115D58E8E0055A001 /* SixisTextPrompt.xib */; };
 		8943560915AB9220009E3C79 /* SixisSmartbot.m in Sources */ = {isa = PBXBuildFile; fileRef = 8943560815AB9220009E3C79 /* SixisSmartbot.m */; };
 		89A08EFC15C70FB40011E57D /* SixisPlayerControls.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89A08EFB15C70FB40011E57D /* SixisPlayerControls.xib */; };
 		89A08F0A15C77ADE0011E57D /* DieBlueSelected1.png in Resources */ = {isa = PBXBuildFile; fileRef = 89A08F0915C77ADE0011E57D /* DieBlueSelected1.png */; };
@@ -451,6 +452,7 @@
 		8925DD6815CC352000C1399A /* felt.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = felt.jpg; sourceTree = "<group>"; };
 		8925DD6A15CC352700C1399A /* wood.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wood.jpg; sourceTree = "<group>"; };
 		8925DD6D15CC516500C1399A /* SixisPlayerStatus.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SixisPlayerStatus.xib; sourceTree = "<group>"; };
+		89329B9115D58E8E0055A001 /* SixisTextPrompt.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SixisTextPrompt.xib; sourceTree = "<group>"; };
 		8943560715AB921F009E3C79 /* SixisSmartbot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisSmartbot.h; sourceTree = "<group>"; };
 		8943560815AB9220009E3C79 /* SixisSmartbot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisSmartbot.m; sourceTree = "<group>"; };
 		89A08EFB15C70FB40011E57D /* SixisPlayerControls.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SixisPlayerControls.xib; sourceTree = "<group>"; };
@@ -902,6 +904,7 @@
 				8925DD6D15CC516500C1399A /* SixisPlayerStatus.xib */,
 				89A08EFB15C70FB40011E57D /* SixisPlayerControls.xib */,
 				89D3817715D0B81000ADE63D /* SixisRolledDice.xib */,
+				89329B9115D58E8E0055A001 /* SixisTextPrompt.xib */,
 				89CBE86A15BEEBE80045AD3E /* SixisDieView.h */,
 				89CBE86B15BEEBE80045AD3E /* SixisDieView.m */,
 				89EFB4FE15A50B7100D09240 /* SixisLogicTests */,
@@ -1411,6 +1414,7 @@
 				8925DD6B15CC352700C1399A /* wood.jpg in Resources */,
 				8925DD6E15CC516500C1399A /* SixisPlayerStatus.xib in Resources */,
 				89D3817815D0B81000ADE63D /* SixisRolledDice.xib in Resources */,
+				89329B9215D58E8E0055A001 /* SixisTextPrompt.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

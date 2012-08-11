@@ -42,12 +42,12 @@
     [dice unionSet: self.lockedDice];
     [dice unionSet: self.unlockedDice];
     
-//    return [[NSSet alloc] initWithSet:dice];
     return [NSSet setWithSet:dice];
 }
 
 -(void) rollAllDice {
     for (SixisDie *die in [self dice]) {
+        [die unlock];
         [die roll];
     }
     [[NSNotificationCenter defaultCenter] postNotificationName:@"SixisPlayerRolledDice" object:self userInfo:[NSDictionary dictionaryWithObject:[self dice] forKey:@"dice"]];

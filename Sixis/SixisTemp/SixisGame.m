@@ -97,7 +97,6 @@
             [[SixisCardThreeAndFour alloc] init],
             [[SixisCardRun123 alloc] init],
             [[SixisCardRun456 alloc] init],
-            [[SixisCardTwoPair alloc] init],
             [[SixisCardThreeOfAKind alloc] init],
             [[SixisCardTwoPair alloc] init],
             [[SixisCardOneThreeFive alloc] init],

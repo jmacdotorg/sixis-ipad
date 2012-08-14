@@ -229,9 +229,26 @@
         [textPromptLabel setTransform:CGAffineTransformMakeRotation(info.rotation)];
         textPromptLabel.hidden = NO;
         
-        // Show the dice-rolling buttons; hide the other controls.
-        rollAllDiceButton.hidden = NO;
-        rollUnlockedDiceButton.hidden = NO;
+//        // Show the dice-rolling buttons; hide the other controls.
+//        rollAllDiceButton.hidden = NO;
+//        rollUnlockedDiceButton.hidden = NO;
+        
+        // Define the text and status of the dice-rolling buttons, depending on die-count.
+        if ( currentPlayer.lockedDice.count == 0 ) {
+            rollAllDiceButton.hidden = NO;
+            rollUnlockedDiceButton.hidden = YES;
+        }
+        else if ( currentPlayer.lockedDice.count == 6 ) {
+            rollAllDiceButton.hidden = NO;
+            rollUnlockedDiceButton.hidden = NO;
+            rollUnlockedDiceButton.titleLabel.textAlignment = UITextAlignmentCenter;
+            [self _setTitleOfButton:rollUnlockedDiceButton toString:@"Roll None"];
+        }
+        else {
+            rollAllDiceButton.hidden = NO;
+            rollUnlockedDiceButton.hidden = NO;
+            [self _setTitleOfButton:rollUnlockedDiceButton toString:@"Roll Unlocked"];
+        }
         
         diceView.hidden = YES;
         endTurnButton.hidden = YES;
@@ -317,6 +334,14 @@
     SixisPlayerTableInfo *info = (SixisPlayerTableInfo *)[tableInfoForPlayer objectForKey:[currentPlayer name]];
     UILabel *scoreLabel = (UILabel *)[info.statusBar viewWithTag:SCORE_LABEL_TAG];
     scoreLabel.text = [NSString stringWithFormat:@"%d", [currentPlayer score]];
+    
+    // If they have a teammate, increment the teammate's score as well.
+    SixisPlayer *teammate = [currentPlayer teammate];
+    if ( teammate != nil ) {
+        SixisPlayerTableInfo *teammateInfo = (SixisPlayerTableInfo *)[tableInfoForPlayer objectForKey:[teammate name]];
+        UILabel *scoreLabel = (UILabel *)[teammateInfo.statusBar viewWithTag:SCORE_LABEL_TAG];
+        scoreLabel.text = [NSString stringWithFormat:@"%d", [teammate score]];
+    }
 
     
 }
@@ -502,4 +527,14 @@
 - (IBAction)handleEndRoundButtonTap:(id)sender {
     [game startRound];
 }
+
+-(void)_setTitleOfButton:(UIButton *)button toString:(NSString *)label {
+    [button setTitle: label forState: UIControlStateNormal];
+    [button setTitle: label forState: UIControlStateApplication];
+    [button setTitle: label forState: UIControlStateHighlighted];
+    [button setTitle: label forState: UIControlStateReserved];
+    [button setTitle: label forState: UIControlStateSelected];
+    [button setTitle: label forState: UIControlStateDisabled];
+}
+
 @end

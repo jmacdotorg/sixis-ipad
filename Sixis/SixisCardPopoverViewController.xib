@@ -38,9 +38,8 @@
 					<object class="IBUIButton" id="895282696">
 						<reference key="NSNextResponder" ref="261529678"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 65}, {126, 37}}</string>
+						<string key="NSFrame">{{20, 87}, {152, 37}}</string>
 						<reference key="NSSuperview" ref="261529678"/>
-						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -73,9 +72,8 @@
 					<object class="IBUIButton" id="59710017">
 						<reference key="NSNextResponder" ref="261529678"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 20}, {126, 37}}</string>
+						<string key="NSFrame">{{20, 20}, {152, 37}}</string>
 						<reference key="NSSuperview" ref="261529678"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="895282696"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
@@ -94,9 +92,8 @@
 						<reference key="IBUIFont" ref="422089325"/>
 					</object>
 				</array>
-				<string key="NSFrameSize">{166, 122}</string>
+				<string key="NSFrameSize">{192, 144}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="59710017"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<object class="NSColor" key="IBUIBackgroundColor">
@@ -115,6 +112,22 @@
 						<reference key="destination" ref="261529678"/>
 					</object>
 					<int key="connectionID">9</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">flipCardButton</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="895282696"/>
+					</object>
+					<int key="connectionID">10</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">takeCardButton</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="59710017"/>
+					</object>
+					<int key="connectionID">11</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -188,34 +201,9 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">9</int>
+			<int key="maxID">11</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes">
-			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
-				<object class="IBPartialClassDescription">
-					<string key="className">SixisCardPopoverViewController</string>
-					<string key="superclassName">UIViewController</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="handleFlipCardTap:">id</string>
-						<string key="handleTakeCardTap:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="handleFlipCardTap:">
-							<string key="name">handleFlipCardTap:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="handleTakeCardTap:">
-							<string key="name">handleTakeCardTap:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/SixisCardPopoverViewController.h</string>
-					</object>
-				</object>
-			</array>
-		</object>
+		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBIPadFramework</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">

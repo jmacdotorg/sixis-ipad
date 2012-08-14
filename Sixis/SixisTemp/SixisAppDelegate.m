@@ -27,6 +27,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
+    srandom(time(NULL));
+    
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -48,7 +50,7 @@
     SixisHuman *alice = [[SixisHuman alloc] initWithName:@"Alice"];
     SixisHuman *bob = [[SixisHuman alloc ] initWithName:@"Bob"];
     SixisHuman *carol = [[SixisHuman alloc] initWithName:@"Carol"];
-//    SixisHuman *dave = [[SixisHuman alloc] initWithName:@"Dave"];
+    SixisHuman *dave = [[SixisHuman alloc] initWithName:@"Dave"];
 //    SixisSmartbot *threee = [[SixisSmartbot alloc] initWithName:@"Threee"];
 //    SixisSmartbot *fourrr = [[SixisSmartbot alloc] initWithName:@"Fourrr"];
     
@@ -56,15 +58,18 @@
 //    NSArray *players = [NSArray arrayWithObjects: rockem, sockem, nil];
 //    NSArray *players = [NSArray arrayWithObjects: alice, rockem, nil];
 //    NSArray *players = [NSArray arrayWithObjects: alice, bob, nil];
-//    NSArray *players = [NSArray arrayWithObjects: alice, bob, carol, dave, nil];
-    NSArray *players = [NSArray arrayWithObjects: alice, bob, carol, nil];
+    NSArray *players = [NSArray arrayWithObjects: alice, bob, carol, dave, nil];
+//    NSArray *players = [NSArray arrayWithObjects: alice, bob, carol, nil];
 //    NSArray *players = [NSArray arrayWithObjects: alice, bob, rockem, nil];
     
 //    SixisGame *game = [[SixisGame alloc] initWithGameType:[[SixisRoundsGame alloc] initWithRounds:1] PlayersType:[[SixisTwoPlayers alloc] init] Players:players];
-//    SixisGame *game = [[SixisGame alloc] initWithGameType:[[SixisRoundsGame alloc] initWithRounds:1] PlayersType:[[SixisFourPlayers alloc] init] Players:players];
-    SixisGame *game = [[SixisGame alloc] initWithGameType:[[SixisRoundsGame alloc] initWithRounds:1] PlayersType:[[SixisThreePlayers alloc] init] Players:players];
+//    SixisGame *game = [[SixisGame alloc] initWithGameType:[[SixisRoundsGame alloc] initWithRounds:1] PlayersType:[[SixisThreePlayers alloc] init] Players:players];
+    
+    SixisGame *game = [[SixisGame alloc] initWithGameType:[[SixisRoundsGame alloc] initWithRounds:1] PlayersType:[[SixisFourPlayers alloc] init] Players:players];
     
     [rootController setGame:game];
+    
+    game.hasTeams = YES;
     
     [game startGame];
     

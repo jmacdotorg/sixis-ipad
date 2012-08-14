@@ -38,4 +38,6 @@
 
 -(NSComparisonResult) compareScores:(SixisPlayer *)otherPlayer;
 
+-(SixisPlayer *) teammate;
+
 @end

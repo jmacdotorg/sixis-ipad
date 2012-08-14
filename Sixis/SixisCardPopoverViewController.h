@@ -20,5 +20,7 @@
 @property (nonatomic, weak) SixisTabletopViewController *parent;
 @property (nonatomic) CGFloat rotation;
 
+@property (weak, nonatomic) IBOutlet UIButton *flipCardButton;
+@property (weak, nonatomic) IBOutlet UIButton *takeCardButton;
 
 @end

@@ -62,6 +62,10 @@
 
 -(void) takeCard:(SixisCard *)card {
     score += card.value;
+    SixisPlayer *teammate = [self teammate];
+    if ( teammate != nil ) {
+        teammate.score += card.value;
+    }
     int cardIndex = [self.game.cardsInPlay indexOfObject:card];
     [self.game.cardsInPlay replaceObjectAtIndex:cardIndex withObject:[NSNull null]];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"SixisPlayerTookCard" object:self userInfo:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:card, [NSNumber numberWithInt:cardIndex], nil] forKeys:[NSArray arrayWithObjects:@"card", @"index", nil]]];
@@ -112,4 +116,26 @@
     [[self game] startRound];
 }
 
+-(SixisPlayer *) teammate {
+    if ( ! game.hasTeams ) {
+        return nil;
+    }
+    
+    int teammateIndex;
+    switch ( self.number ) {
+        case 1:
+            teammateIndex = 2;
+            break;
+        case 2:
+            teammateIndex = 3;
+            break;
+        case 3:
+            teammateIndex = 0;
+            break;
+        case 4:
+            teammateIndex = 1;
+            break;
+    }
+    return [game.players objectAtIndex:teammateIndex];
+}
 @end

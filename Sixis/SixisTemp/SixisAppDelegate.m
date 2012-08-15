@@ -45,20 +45,22 @@
     [self.window makeKeyAndVisible];
     
     // XXX Fucking around with robots!
-//    SixisSmartbot *rockem = [[SixisSmartbot alloc] initWithName:@"Rockem"];
-//    SixisSmartbot *sockem = [[SixisSmartbot alloc] initWithName:@"Sockem"];
-    SixisHuman *alice = [[SixisHuman alloc] initWithName:@"Alice"];
-    SixisHuman *bob = [[SixisHuman alloc ] initWithName:@"Bob"];
-    SixisHuman *carol = [[SixisHuman alloc] initWithName:@"Carol"];
-    SixisHuman *dave = [[SixisHuman alloc] initWithName:@"Dave"];
-//    SixisSmartbot *threee = [[SixisSmartbot alloc] initWithName:@"Threee"];
-//    SixisSmartbot *fourrr = [[SixisSmartbot alloc] initWithName:@"Fourrr"];
+    SixisSmartbot *rockem = [[SixisSmartbot alloc] initWithName:@"Rockem"];
+    SixisSmartbot *sockem = [[SixisSmartbot alloc] initWithName:@"Sockem"];
+    SixisSmartbot *threee = [[SixisSmartbot alloc] initWithName:@"Threee"];
+    SixisSmartbot *fourrr = [[SixisSmartbot alloc] initWithName:@"Fourrr"];
+    
+//    SixisHuman *alice = [[SixisHuman alloc] initWithName:@"Alice"];
+//    SixisHuman *bob = [[SixisHuman alloc ] initWithName:@"Bob"];
+//    SixisHuman *carol = [[SixisHuman alloc] initWithName:@"Carol"];
+//    SixisHuman *dave = [[SixisHuman alloc] initWithName:@"Dave"];
     
 //    NSArray *players = [NSArray arrayWithObjects: rockem, sockem, threee, nil];
+    NSArray *players = [NSArray arrayWithObjects: rockem, sockem, threee, fourrr, nil];
 //    NSArray *players = [NSArray arrayWithObjects: rockem, sockem, nil];
 //    NSArray *players = [NSArray arrayWithObjects: alice, rockem, nil];
 //    NSArray *players = [NSArray arrayWithObjects: alice, bob, nil];
-    NSArray *players = [NSArray arrayWithObjects: alice, bob, carol, dave, nil];
+//    NSArray *players = [NSArray arrayWithObjects: alice, bob, carol, dave, nil];
 //    NSArray *players = [NSArray arrayWithObjects: alice, bob, carol, nil];
 //    NSArray *players = [NSArray arrayWithObjects: alice, bob, rockem, nil];
     
@@ -69,7 +71,7 @@
     
     [rootController setGame:game];
     
-    game.hasTeams = YES;
+//    game.hasTeams = YES;
     
     [game startGame];
     

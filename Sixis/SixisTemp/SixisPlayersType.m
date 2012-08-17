@@ -28,8 +28,7 @@
     NSArray *cards = [self.game.cardsInPlay objectsAtIndexes:indexSet];
     BOOL cardFound = NO;
     for (NSObject *object in cards) {
-//        if ([object isMemberOfClass:[SixisCard class]]) {
-        if ( object ) {
+        if ( ![object isEqual:[NSNull null]] ) {
             cardFound = YES;
             break;
         }

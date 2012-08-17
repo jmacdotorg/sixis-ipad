@@ -49,8 +49,12 @@
         [self setImage:image forState:UIControlStateNormal];
         
         NSString *highlightedFile = [NSString stringWithFormat:@"%@Highlight2", cardClass];
-        UIImage *highlightedImage = [UIImage imageNamed:highlightedFile];
-        [self setImage:highlightedImage forState:UIControlStateSelected];
+        UIImage *highlightedImage2 = [UIImage imageNamed:highlightedFile];
+        UIImage *highlightedImage1 = [UIImage imageNamed:[NSString stringWithFormat:@"%@Highlight1", cardClass]];
+        UIImage *highlightedImage3 = [UIImage imageNamed:[NSString stringWithFormat:@"%@Highlight3", cardClass]];
+        UIImage *animatedImage = [UIImage animatedImageWithImages:@[ highlightedImage1, highlightedImage2, highlightedImage1, image, image, image, image, image, image] duration:1];
+        [self setImage:animatedImage forState:UIControlStateSelected];
+
     }
 }
 

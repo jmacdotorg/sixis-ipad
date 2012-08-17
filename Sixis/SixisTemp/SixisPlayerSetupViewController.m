@@ -7,10 +7,11 @@
 //
 
 #import "SixisPlayerSetupViewController.h"
+#import "SixisTabletopViewController.h"
 #import "SixisNewGameInfo.h"
 #import "SixisPlayerSetupCell.h"
 #import "SixisGame.h"
-#import "SixisRobot.h"
+#import "SixisSmartbot.h"
 #import "SixisHuman.h"
 
 @interface SixisPlayerSetupViewController ()
@@ -47,7 +48,7 @@
     doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneTapped:)];
     [[self navigationItem] setRightBarButtonItem:doneButton];
     
-    [self tableView].rowHeight = 80;
+    [self tableView].rowHeight = 127;
 }
 
 - (void)viewDidUnload
@@ -92,7 +93,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }    
-    
+    NSLog(@"Hey fucker. I'm here with section %d and row %d.", indexPath.section, indexPath.row);
     SixisPlayerSetupCell *playerCell = (SixisPlayerSetupCell *)cell;
     playerCell.nameField.text = [NSString stringWithFormat:@"Player %i", ( indexPath.section * 2 ) + indexPath.row + 1];
     
@@ -123,10 +124,29 @@
     NSMutableArray *players = [[NSMutableArray alloc] init];
     for (int i = 0; i < gameInfo.numberOfPlayers; i++ ) {
         int section = 0;
-        if ( gameInfo.gameHasTeams && i > 1 ) {
-            section = 1;
+        int row = i;
+        if ( gameInfo.gameHasTeams ) {
+            // A bit hacky, but we don't need to scale here.
+            switch ( i ) {
+                case 0:
+                    row = 0;
+                    section = 0;
+                    break;
+                case 1:
+                    row = 0;
+                    section = 1;
+                    break;
+                case 2:
+                    row = 1;
+                    section = 0;
+                    break;
+                case 3:
+                    row = 1;
+                    section = 1;
+                    break;
+            }
         }
-        NSIndexPath *path = [NSIndexPath indexPathForRow:i inSection:section];
+        NSIndexPath *path = [NSIndexPath indexPathForRow:row inSection:section];
         UITableViewCell *rawCell = [[self tableView] cellForRowAtIndexPath:path];
         
         SixisPlayerSetupCell *cell = (SixisPlayerSetupCell *)rawCell;
@@ -135,14 +155,23 @@
             [players addObject:[[SixisHuman alloc] initWithName:cell.nameField.text]];
         }
         else {
-            [players addObject:[[SixisRobot alloc] initWithName:cell.nameField.text]];
+            [players addObject:[[SixisSmartbot alloc] initWithName:cell.nameField.text]];
         }
         
     }
     
     SixisGame *game = [[SixisGame alloc] initWithGameType:gameInfo.gameType PlayersType:gameInfo.playersType Players:[NSArray arrayWithArray:players]];
+    if ([gameInfo gameHasTeams]) {
+        game.hasTeams = YES;
+    }
+    else {
+        game.hasTeams = NO;
+    }
     
-    NSLog(@"I have a game, hurray. %@", game);
+    SixisTabletopViewController *tabletop = [[SixisTabletopViewController alloc] init];
+    tabletop.game = game;
+    self.view.window.rootViewController = tabletop;
+    [game startGame];
     
 }
 

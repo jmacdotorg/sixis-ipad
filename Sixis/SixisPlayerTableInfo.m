@@ -32,10 +32,10 @@
         frame = CGPointMake(210, 26);
     }
     else if ( [self _tablePosition] == RIGHT ) {
-        frame = CGPointMake(1000, 153);
+        frame = CGPointMake(1000, 115);
     }
     else {
-        frame = CGPointMake(24, 620);
+        frame = CGPointMake(24, 625);
     }
     return frame;
 }
@@ -119,10 +119,10 @@
         return CGRectMake(580, 0, BANK_WIDTH, 50);
     }
     else if ( [self _tablePosition] == RIGHT ) {
-        return CGRectMake(800, 470, BANK_WIDTH, 50);
+        return CGRectMake(802, 475, BANK_WIDTH, 50);
     }
     else {
-        return CGRectMake(-175, 225, BANK_WIDTH, 50);
+        return CGRectMake(-173, 220, BANK_WIDTH, 50);
     }
 }
 

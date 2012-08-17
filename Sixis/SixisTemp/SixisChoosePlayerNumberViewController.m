@@ -57,7 +57,7 @@
     SixisPlayerSetupViewController *controller = [[SixisPlayerSetupViewController alloc] initWithStyle:UITableViewStyleGrouped];
     [controller setGameInfo:gameInfo];
     
-    [self.navigationController pushViewController:controller animated:YES];
+    [self.navigationController pushViewController:controller animated:NO];
 }
 
 - (IBAction)threePlayerButtonTapped:(id)sender {
@@ -66,7 +66,7 @@
     [gameInfo setNumberOfPlayers:3];
     SixisPlayerSetupViewController *controller = [[SixisPlayerSetupViewController alloc] initWithStyle:UITableViewStyleGrouped];
     [controller setGameInfo:gameInfo];
-    [self.navigationController pushViewController:controller animated:YES];
+    [self.navigationController pushViewController:controller animated:NO];
 }
 
 - (IBAction)fourPlayerButtonTapped:(id)sender {
@@ -74,7 +74,7 @@
     [gameInfo setNumberOfPlayers:4];
     SixisTeamOrNotViewController *controller = [[SixisTeamOrNotViewController alloc] init];
     [controller setGameInfo:gameInfo];
-    [self.navigationController pushViewController:controller animated:YES];
+    [self.navigationController pushViewController:controller animated:NO];
 }
 
 @end

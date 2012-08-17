@@ -17,6 +17,7 @@
 #import "SixisDie.h"
 #import "SixisPlayerTableInfo.h"
 #import "SixisPlayersType.h"
+#import "SixisMainMenuViewController.h"
 
 @interface SixisTabletopViewController ()
 
@@ -26,6 +27,7 @@
 @synthesize endRoundButton;
 @synthesize textPromptLabel;
 @synthesize winMessage;
+@synthesize gameOverView;
 @synthesize rollAllDiceButton;
 @synthesize rollUnlockedDiceButton;
 @synthesize endTurnButton;
@@ -84,6 +86,7 @@
     [self setDiceView:nil];
     [self setEndRoundButton:nil];
     [self setTextPromptLabel:nil];
+    [self setGameOverView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -375,8 +378,10 @@
 }
 
 -(void)handleWinning:(NSNotification *)note {
-    [winMessage setText:@"GAME OVER"];
-    [winMessage setHidden:NO];
+//    [winMessage setText:@"GAME OVER"];
+//    [winMessage setHidden:NO];
+    [gameOverView setHidden:NO];
+    [self.view bringSubviewToFront:gameOverView];
 }
 
 -(void)handleDealtCard:(NSNotification *)note {
@@ -526,6 +531,17 @@
 
 - (IBAction)handleEndRoundButtonTap:(id)sender {
     [game startRound];
+}
+
+- (IBAction)handlePlayAgain:(id)sender {
+    // XXX Needs implementation;
+    [self handleMainMenu:sender];
+}
+
+- (IBAction)handleMainMenu:(id)sender {
+    gameOverView.hidden = YES;
+    SixisMainMenuViewController *mainMenu = [[SixisMainMenuViewController alloc] init];
+    self.view.window.rootViewController = mainMenu;
 }
 
 -(void)_setTitleOfButton:(UIButton *)button toString:(NSString *)label {

@@ -7,10 +7,10 @@
 //
 
 #import "SixisAppDelegate.h"
-#import "SixisGameLengthViewController.h"
-#import "SixisTabletopViewController.h"
-#import "SixisNewGameInfo.h"
+#import "SixisMainMenuViewController.h"
+#import "SixisChoosePlayerNumberViewController.h"
 
+/*
 // XXX Fuckery
 #import "SixisSmartbot.h"
 #import "SixisHuman.h"
@@ -19,6 +19,11 @@
 #import "SixisTwoPlayers.h"
 #import "SixisThreePlayers.h"
 #import "SixisFourPlayers.h"
+
+#import "SixisGameLengthViewController.h"
+#import "SixisTabletopViewController.h"
+#import "SixisNewGameInfo.h" 
+*/
 
 @implementation SixisAppDelegate
 
@@ -33,16 +38,22 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
+    SixisMainMenuViewController *menuController = [[SixisMainMenuViewController alloc] init];
+
+    [self.window setRootViewController:menuController];
+    [self.window makeKeyAndVisible];
+    
+    return YES;
+    
+    // Giant pile of garbage below.
+    // When we finally clean it up, delete the unneccessary #import directives as well.
+    /*
     SixisTabletopViewController *rootController = [[SixisTabletopViewController alloc] init];
 //    SixisNewGameInfo *gameInfo = [[SixisNewGameInfo alloc] init];
 //    [rootController setGameInfo:gameInfo];
     
 //    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootController];
     
-//    [self.window setRootViewController:navigationController];
-    [self.window setRootViewController:rootController];
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
     
     // XXX Fucking around with robots!
     SixisSmartbot *rockem = [[SixisSmartbot alloc] initWithName:@"Rockem"];
@@ -74,8 +85,8 @@
 //    game.hasTeams = YES;
     
     [game startGame];
-    
-    return YES;
+    */
+
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

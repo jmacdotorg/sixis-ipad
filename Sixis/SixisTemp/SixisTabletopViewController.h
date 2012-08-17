@@ -22,6 +22,7 @@
     BOOL thisIsTheFirstGoRound;
 }
 @property (weak, nonatomic) IBOutlet UILabel *winMessage;
+@property (weak, nonatomic) IBOutlet UIView *gameOverView;
 @property (weak, nonatomic) IBOutlet UIButton *rollAllDiceButton;
 @property (weak, nonatomic) IBOutlet UIButton *rollUnlockedDiceButton;
 @property (weak, nonatomic) IBOutlet UIButton *endTurnButton;
@@ -36,6 +37,9 @@
 -(void)handleTakeCardTap:(SixisCard *)card;
 -(void)handleFlipCardTap:(SixisCard *)card;
 - (IBAction)handleEndRoundButtonTap:(id)sender;
+- (IBAction)handlePlayAgain:(id)sender;
+- (IBAction)handleMainMenu:(id)sender;
+
 
 @property (nonatomic, strong) SixisGame *game;
 @property (nonatomic, strong) SixisPlayer *currentPlayer;

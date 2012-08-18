@@ -153,12 +153,6 @@
     if ( self.winningPlayers ) {
         return;
     }
-    
-    // Check for round-end.
-    if ( [self.playersType roundHasEnded] ) {
-        [self startRound];
-        return;
-    }
 
     // Set the new-round flags
     if ( shouldRaiseNewRoundFlag ) {
@@ -185,7 +179,12 @@
         indexOfNextPlayer = indexOfCurrentPlayer + 1;
     }
     self.currentPlayer = [players objectAtIndex:indexOfNextPlayer];
-    
+        
+    // Check for round-end. (This MUST happen AFTER advancing the player-pointer.)
+    if ( [self.playersType roundHasEnded] ) {
+        [self startRound];
+        return;
+    }
     
     // Post a notification that a new turn has started.
     // If the current player is a robot, this will spur them into action.

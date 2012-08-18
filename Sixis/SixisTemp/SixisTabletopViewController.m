@@ -35,9 +35,9 @@
 
 @synthesize game, currentPlayer;
 
-#define NAME_LABEL_TAG 1
-#define SCORE_LABEL_TAG 2
-#define DICE_BANK_TAG 3
+#define NAME_LABEL_TAG 10
+#define SCORE_LABEL_TAG 20
+#define DICE_BANK_TAG 30
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -94,7 +94,12 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-	return YES;
+	if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft) {
+        return YES;
+    }
+    else {
+        return NO;
+    }
 }
 
 -(void)_addCardViewWithX:(int)x Y:(int)y rotation:(CGFloat)rotation {

@@ -92,8 +92,8 @@
     
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }    
-    NSLog(@"Hey fucker. I'm here with section %d and row %d.", indexPath.section, indexPath.row);
+    }
+    
     SixisPlayerSetupCell *playerCell = (SixisPlayerSetupCell *)cell;
     playerCell.nameField.text = [NSString stringWithFormat:@"Player %i", ( indexPath.section * 2 ) + indexPath.row + 1];
     

@@ -75,7 +75,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{148, 20}, {120, 37}}</string>
 						<reference key="NSSuperview" ref="141930728"/>
-						<reference key="NSNextKeyView" ref="7585664"/>
+						<reference key="NSNextKeyView" ref="979097970"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -97,7 +97,7 @@
 						<int key="NSvFlags">293</int>
 						<string key="NSFrame">{{20, 20}, {120, 37}}</string>
 						<reference key="NSSuperview" ref="141930728"/>
-						<reference key="NSNextKeyView" ref="979097970"/>
+						<reference key="NSNextKeyView" ref="885430485"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -119,6 +119,7 @@
 						<int key="NSvFlags">293</int>
 						<string key="NSFrame">{{276, 20}, {120, 37}}</string>
 						<reference key="NSSuperview" ref="141930728"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -138,7 +139,7 @@
 				</array>
 				<string key="NSFrameSize">{416, 77}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSNextKeyView" ref="885430485"/>
+				<reference key="NSNextKeyView" ref="7585664"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 			</object>

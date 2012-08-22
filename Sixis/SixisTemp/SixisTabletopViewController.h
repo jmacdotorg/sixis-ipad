@@ -39,6 +39,7 @@
 - (IBAction)handleEndRoundButtonTap:(id)sender;
 - (IBAction)handlePlayAgain:(id)sender;
 - (IBAction)handleMainMenu:(id)sender;
+- (IBAction)handleAddRound:(id)sender;
 
 
 @property (nonatomic, strong) SixisGame *game;

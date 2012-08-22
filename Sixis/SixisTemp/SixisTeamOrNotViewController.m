@@ -8,6 +8,7 @@
 
 #import "SixisTeamOrNotViewController.h"
 #import "SixisPlayerSetupViewController.h"
+#import "SixisGameLengthViewController.h"
 #import "SixisNewGameInfo.h"
 
 @interface SixisTeamOrNotViewController ()
@@ -48,14 +49,14 @@
 
 - (IBAction)yesButtonTapped:(id)sender {
     [gameInfo setGameHasTeams:YES];    
-    SixisPlayerSetupViewController *controller = [[SixisPlayerSetupViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    SixisGameLengthViewController *controller = [[SixisGameLengthViewController alloc] init];
     [controller setGameInfo:gameInfo];
     [self.navigationController pushViewController:controller animated:YES];    
 }
 
 - (IBAction)noButtonTapped:(id)sender {
     [gameInfo setGameHasTeams:NO];
-    SixisPlayerSetupViewController *controller = [[SixisPlayerSetupViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    SixisGameLengthViewController *controller = [[SixisGameLengthViewController alloc] init];
     [controller setGameInfo:gameInfo];
     [self.navigationController pushViewController:controller animated:YES];}
 @end

@@ -11,6 +11,7 @@
 #import "SixisPointsGame.h"
 #import "SixisRoundsGame.h"
 #import "SixisChoosePlayerNumberViewController.h"
+#import "SixisPlayerSetupViewController.h"
 
 @interface SixisGameLengthViewController ()
 
@@ -49,35 +50,29 @@
 
 - (IBAction)oneRoundButtonTapped:(id)sender {
     [gameInfo setGameType:[[SixisRoundsGame alloc] initWithRounds:1]];
-    SixisChoosePlayerNumberViewController *controller = [[SixisChoosePlayerNumberViewController alloc] init];
-    [controller setGameInfo:gameInfo];
-    
-    [self.navigationController pushViewController:controller animated:YES];
+    [self _goToNextController];
 }
 
 - (IBAction)threeRoundButtonTapped:(id)sender {
     [gameInfo setGameType:[[SixisRoundsGame alloc] initWithRounds:3]];
-    SixisChoosePlayerNumberViewController *controller = [[SixisChoosePlayerNumberViewController alloc] init];   
-    [controller setGameInfo:gameInfo];
-    
-    [self.navigationController pushViewController:controller animated:YES];
-
+    [self _goToNextController];
 }
 
 - (IBAction)fiveRoundButtonTapped:(id)sender {
     [gameInfo setGameType:[[SixisRoundsGame alloc] initWithRounds:5]];
-    SixisChoosePlayerNumberViewController *controller = [[SixisChoosePlayerNumberViewController alloc] init]; 
-    [controller setGameInfo:gameInfo];
-    
-    [self.navigationController pushViewController:controller animated:YES];
-
+    [self _goToNextController];
 }
 
 - (IBAction)pointButtonTapped:(id)sender {
     [gameInfo setGameType:[[SixisPointsGame alloc] initWithGoal:600]];
-    SixisChoosePlayerNumberViewController *controller = [[SixisChoosePlayerNumberViewController alloc] init];
+    [self _goToNextController];
+}
+
+-(void) _goToNextController {
+    SixisPlayerSetupViewController *controller = [[SixisPlayerSetupViewController alloc] initWithStyle:UITableViewStyleGrouped];
     [controller setGameInfo:gameInfo];
     
-    [self.navigationController pushViewController:controller animated:YES];
+    [self.navigationController pushViewController:controller animated:NO];
 }
+
 @end

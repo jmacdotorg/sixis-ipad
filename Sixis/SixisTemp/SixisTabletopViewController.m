@@ -395,6 +395,17 @@
     SixisCard *card = [[note userInfo] valueForKey:@"card"];
     SixisCardView *cardView = [cards objectAtIndex:index];
     [cardView setCard:card];
+    
+    // Make sure that all players' banks are empty.
+    // XXX This is inefficient; should really just fire on the first dealt card. Eh.
+    for (SixisPlayer *player in game.players) {
+        SixisPlayerTableInfo *info = (SixisPlayerTableInfo *)[tableInfoForPlayer objectForKey:[player name]];
+        UIView *bank = [info.statusBar viewWithTag:DICE_BANK_TAG];
+        NSArray *bankDieViews = [bank subviews];
+        for (SixisDieView *dieView in bankDieViews) {
+            [dieView setDie:nil];
+        }
+    }
 }
 
 
@@ -558,4 +569,7 @@
     [button setTitle: label forState: UIControlStateDisabled];
 }
 
+- (IBAction)handleAddRound:(id)sender {
+
+}
 @end

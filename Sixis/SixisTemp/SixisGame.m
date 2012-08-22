@@ -84,31 +84,6 @@
     }
     
     self.currentRound = 0; // startRound will increment this to 1
-
-    // Initialize the deck of blue cards.
-    deck = [NSMutableArray arrayWithObjects:[[SixisCardDoubleOnes alloc] init], 
-            [[SixisCardDoubleTwos alloc] init], 
-            [[SixisCardDoubleThrees alloc] init],
-            [[SixisCardDoubleFours alloc] init],
-            [[SixisCardDoubleFives alloc] init],
-            [[SixisCardDoubleSixes alloc] init],
-            [[SixisCardOneAndSix alloc] init],
-            [[SixisCardTwoAndFive alloc] init],
-            [[SixisCardThreeAndFour alloc] init],
-            [[SixisCardRun123 alloc] init],
-            [[SixisCardRun456 alloc] init],
-            [[SixisCardThreeOfAKind alloc] init],
-            [[SixisCardTwoPair alloc] init],
-            [[SixisCardOneThreeFive alloc] init],
-            [[SixisCardTwoFourSix alloc] init],
-            [[SixisCardLow alloc] init],
-            [[SixisCardHigh alloc] init],
-            nil];
-    
-    // XXX This is dumb I bet.
-    for ( SixisCard *card in deck ) {
-        [card setGame:self];
-    }
     
     self.winningPlayers = nil;
     
@@ -129,6 +104,9 @@
     // Set this so that the public new-round property flag goes up when the turn starts:
     shouldRaiseNewRoundFlag = YES;
     
+    // Refresh the deck.
+    [self _refreshTheDeck];
+    
     // Shuffle the blue-card deck.
     NSMutableArray *shuffledDeck = [[NSMutableArray alloc] init];
     while ( deck.count > 0 ) {
@@ -141,6 +119,14 @@
     // Deal out the cards
     [self deal];
     
+    // Empty all players' banks of locked dice.
+    for (SixisPlayer *player in players) {
+        NSSet *lockedDice = [NSSet setWithSet:[player lockedDice]];
+        for (SixisDie *die in lockedDice) {
+            [die unlock];
+        }
+    }
+    
     // XXX This isn't the correct way to determine the first player.
     self.currentPlayer = [players objectAtIndex:0];
     
@@ -151,6 +137,7 @@
     // If someone just won the game, make that info public, and stop.
     [self.gameType checkForWinner];
     if ( self.winningPlayers ) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"SixisPlayersWon" object:self userInfo:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:self.winningPlayers, nil] forKeys:[NSArray arrayWithObjects:@"players", nil]]];
         return;
     }
 
@@ -265,12 +252,12 @@
 
 -(void)handleCardPickup:(NSNotification *)note {
     int index = [(NSNumber *)[[note userInfo] valueForKey:@"index"] intValue];
-    NSLog(@"The current player just took the card %@ from position %d.", [[note userInfo] valueForKey:@"card"], index);
+    NSLog(@"The current player (%@) just took the card %@ from position %d.", currentPlayer.name, [[note userInfo] valueForKey:@"card"], index);
 }
 
 -(void)handleCardFlip:(NSNotification *)note {
     int index = [(NSNumber *)[[note userInfo] valueForKey:@"index"] intValue];
-    NSLog(@"The current player just flipped the card %@ at position %d. Now the card at that position is %@.", [[note userInfo] valueForKey:@"card"], index, [cardsInPlay objectAtIndex:index]);
+    NSLog(@"The current player (%@) just flipped the card %@ at position %d. Now the card at that position is %@.", currentPlayer.name, [[note userInfo] valueForKey:@"card"], index, [cardsInPlay objectAtIndex:index]);
 }
 
 -(void)handleDiceLock:(NSNotification *)note {
@@ -284,7 +271,34 @@
 }
 
 -(void)handleDealtCard:(NSNotification *)note {
-    NSLog(@"A card just got dealt.");
+    NSLog(@"A card just got dealt: %@.", [[note userInfo] valueForKey:@"card"]);
+}
+
+-(void) _refreshTheDeck {
+    // Initialize the deck of blue cards.
+    deck = [NSMutableArray arrayWithObjects:[[SixisCardDoubleOnes alloc] init],
+            [[SixisCardDoubleTwos alloc] init],
+            [[SixisCardDoubleThrees alloc] init],
+            [[SixisCardDoubleFours alloc] init],
+            [[SixisCardDoubleFives alloc] init],
+            [[SixisCardDoubleSixes alloc] init],
+            [[SixisCardOneAndSix alloc] init],
+            [[SixisCardTwoAndFive alloc] init],
+            [[SixisCardThreeAndFour alloc] init],
+            [[SixisCardRun123 alloc] init],
+            [[SixisCardRun456 alloc] init],
+            [[SixisCardThreeOfAKind alloc] init],
+            [[SixisCardTwoPair alloc] init],
+            [[SixisCardOneThreeFive alloc] init],
+            [[SixisCardTwoFourSix alloc] init],
+            [[SixisCardLow alloc] init],
+            [[SixisCardHigh alloc] init],
+            nil];
+    
+    // XXX This is dumb I bet.
+    for ( SixisCard *card in deck ) {
+        [card setGame:self];
+    }
 }
 
 @end

@@ -7,6 +7,8 @@
 //
 
 #import "SixisPointsGame.h"
+#import "SixisGame.h"
+#import "SixisPlayer.h"
 
 @implementation SixisPointsGame
 
@@ -18,6 +20,19 @@
     [self setGoal:newGoal];
     
     return self;
+}
+
+-(void) checkForWinner {
+    for (SixisPlayer *player in self.game.players ) {
+        if ( player.score >= goal ) {
+            if ( player.teammate ) {
+                self.game.winningPlayers = [NSArray arrayWithObjects:player, player.teammate, nil];
+            }
+            else {
+                self.game.winningPlayers = [NSArray arrayWithObject:player];
+            }
+        }
+    }
 }
 
 @end

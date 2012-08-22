@@ -67,6 +67,7 @@
         teammate.score += card.value;
     }
     int cardIndex = [self.game.cardsInPlay indexOfObject:card];
+    NSLog(@"cardIndex: %d card: %@", cardIndex, card);
     [self.game.cardsInPlay replaceObjectAtIndex:cardIndex withObject:[NSNull null]];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"SixisPlayerTookCard" object:self userInfo:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:card, [NSNumber numberWithInt:cardIndex], nil] forKeys:[NSArray arrayWithObjects:@"card", @"index", nil]]];
 }
@@ -74,6 +75,7 @@
 -(void) flipCard:(SixisCard *)card {
     SixisCard *newCard = [card flipSide];
     int cardIndex = [self.game.cardsInPlay indexOfObject:card];
+    NSLog(@"cardIndex: %d card: %@", cardIndex, card);
     [self.game.cardsInPlay replaceObjectAtIndex:cardIndex withObject:newCard];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"SixisPlayerFlippedCard" object:self userInfo:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:card, [NSNumber numberWithInt:cardIndex], nil] forKeys:[NSArray arrayWithObjects:@"card", @"index", nil]]];
 }

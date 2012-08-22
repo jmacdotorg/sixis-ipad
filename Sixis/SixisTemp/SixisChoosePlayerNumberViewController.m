@@ -11,6 +11,7 @@
 #import "SixisThreePlayers.h"
 #import "SixisFourPlayers.h"
 #import "SixisPlayerSetupViewController.h"
+#import "SixisGameLengthViewController.h"
 #import "SixisTeamOrNotViewController.h"
 
 @interface SixisChoosePlayerNumberViewController ()
@@ -54,9 +55,9 @@
     [gameInfo setPlayersType:[[SixisTwoPlayers alloc] init]];
     [gameInfo setGameHasTeams:NO];
     [gameInfo setNumberOfPlayers:2];
-    SixisPlayerSetupViewController *controller = [[SixisPlayerSetupViewController alloc] initWithStyle:UITableViewStyleGrouped];
+
+    SixisGameLengthViewController *controller = [[SixisGameLengthViewController alloc] init];
     [controller setGameInfo:gameInfo];
-    
     [self.navigationController pushViewController:controller animated:NO];
 }
 
@@ -64,7 +65,8 @@
     [gameInfo setPlayersType:[[SixisThreePlayers alloc] init]];
     [gameInfo setGameHasTeams:NO];
     [gameInfo setNumberOfPlayers:3];
-    SixisPlayerSetupViewController *controller = [[SixisPlayerSetupViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    
+    SixisGameLengthViewController *controller = [[SixisGameLengthViewController alloc] init];
     [controller setGameInfo:gameInfo];
     [self.navigationController pushViewController:controller animated:NO];
 }

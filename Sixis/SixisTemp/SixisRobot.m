@@ -27,6 +27,7 @@
     // Register notification handlers.
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     [nc addObserver:self selector:@selector(handleNewTurn:) name:@"SixisNewTurn" object:nil];
+    [nc addObserver:self selector:@selector(handleCardDealt:) name:@"SixisCardDealt" object:nil];
 
     return self;
 }
@@ -38,6 +39,11 @@
         // Set an alarm to take the turn once this thread's back in the run-loop.
         [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(takeTurn) userInfo:nil repeats:NO];
     }
+}
+
+-(void)handleCardDealt:(NSNotification *)note {
+    // A dealt card means that a new round is beginning. Make sure that we don't have a desired card hanging around.
+    [self setTargetCard:nil];
 }
 
 @end

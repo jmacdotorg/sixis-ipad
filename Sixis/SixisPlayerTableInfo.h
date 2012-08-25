@@ -14,7 +14,7 @@
 @interface SixisPlayerTableInfo : NSObject
 
 @property (nonatomic) SixisPlayer *player;
-@property (nonatomic) SixisGame *game;
+@property (nonatomic, weak) SixisGame *game;
 @property (nonatomic) UIView *statusBar;
 
 -(CGPoint) controlsCenter;

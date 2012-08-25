@@ -74,9 +74,9 @@
 
     for (SixisPlayer *player in players) {
         // Unlock every player's dice.
-        for (SixisDie *die in player.lockedDice) {
-            [player.lockedDice removeObject:die];
-            [player.unlockedDice addObject:die];
+        NSSet *dice = [NSSet setWithSet:player.lockedDice];
+        for (SixisDie *die in dice) {
+            [die unlock];
         }
         
         // Reset every player's score.

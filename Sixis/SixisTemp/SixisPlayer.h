@@ -18,7 +18,7 @@
 @property (nonatomic, strong) NSMutableSet *lockedDice;
 @property (nonatomic, copy) UIColor *dieColor;
 @property (nonatomic) int score;
-@property (nonatomic) SixisGame *game;
+@property (nonatomic, weak) SixisGame *game;
 @property int number;
 
 -(id)initWithName: (NSString *)newName;

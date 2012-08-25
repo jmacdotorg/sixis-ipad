@@ -18,6 +18,9 @@
 #import "SixisPlayerTableInfo.h"
 #import "SixisPlayersType.h"
 #import "SixisMainMenuViewController.h"
+#import "SixisGameType.h"
+#import "SixisRoundsGame.h"
+#import "SixisPointsGame.h"
 
 @interface SixisTabletopViewController ()
 
@@ -74,6 +77,9 @@
     [[self view] addSubview:diceView];
     [[self view] addSubview:textPromptLabel];
     [textPromptLabel setText:@"Hi mom!"];
+    
+    // Get out of here, game-over view, nobody likes your style
+    gameOverView.hidden = YES;
     
 }
 
@@ -383,8 +389,21 @@
 }
 
 -(void)handleWinning:(NSNotification *)note {
-//    [winMessage setText:@"GAME OVER"];
-//    [winMessage setHidden:NO];
+    NSMutableString *winners = [[NSMutableString alloc] init];
+    for (SixisPlayer *winner in game.winningPlayers) {
+        if ( winners.length ) {
+            [winners appendString:@" & "];
+        }
+        [winners appendString:winner.name];
+    }
+    if (game.winningPlayers.count > 1) {
+        [winners appendString:@" win!"];
+    }
+    else {
+        [winners appendString:@" wins!"];
+    }
+    winMessage.text = winners;
+    
     [gameOverView setHidden:NO];
     [self.view bringSubviewToFront:gameOverView];
 }
@@ -550,14 +569,25 @@
 }
 
 - (IBAction)handlePlayAgain:(id)sender {
-    // XXX Needs implementation;
-    [self handleMainMenu:sender];
+
+    // Reset player score displays.
+    for (SixisPlayer *player in [game players] ) {
+        SixisPlayerTableInfo *info = (SixisPlayerTableInfo *)[tableInfoForPlayer objectForKey:[player name]];
+        UILabel *scoreLabel = (UILabel *)[info.statusBar viewWithTag:SCORE_LABEL_TAG];
+        scoreLabel.text = @"0";
+    }
+
+    gameOverView.hidden = YES;
+    
+    [game startGame];
 }
 
 - (IBAction)handleMainMenu:(id)sender {
     gameOverView.hidden = YES;
+    
     SixisMainMenuViewController *mainMenu = [[SixisMainMenuViewController alloc] init];
     self.view.window.rootViewController = mainMenu;
+
 }
 
 -(void)_setTitleOfButton:(UIButton *)button toString:(NSString *)label {
@@ -570,6 +600,13 @@
 }
 
 - (IBAction)handleAddRound:(id)sender {
-
+    if ( [game.gameType isKindOfClass:[SixisRoundsGame class]] ) {
+        SixisRoundsGame *gameType = (SixisRoundsGame *)game.gameType;
+        game.currentRound--;
+        gameType.rounds++;
+        gameOverView.hidden = YES;
+        game.winningPlayers = nil;
+        [game startRound];
+    }
 }
 @end

@@ -10,21 +10,6 @@
 #import "SixisMainMenuViewController.h"
 #import "SixisChoosePlayerNumberViewController.h"
 
-/*
-// XXX Fuckery
-#import "SixisSmartbot.h"
-#import "SixisHuman.h"
-#import "SixisGame.h"
-#import "SixisRoundsGame.h"
-#import "SixisTwoPlayers.h"
-#import "SixisThreePlayers.h"
-#import "SixisFourPlayers.h"
-
-#import "SixisGameLengthViewController.h"
-#import "SixisTabletopViewController.h"
-#import "SixisNewGameInfo.h" 
-*/
-
 @implementation SixisAppDelegate
 
 @synthesize window = _window;
@@ -44,49 +29,6 @@
     [self.window makeKeyAndVisible];
     
     return YES;
-    
-    // Giant pile of garbage below.
-    // When we finally clean it up, delete the unneccessary #import directives as well.
-    /*
-    SixisTabletopViewController *rootController = [[SixisTabletopViewController alloc] init];
-//    SixisNewGameInfo *gameInfo = [[SixisNewGameInfo alloc] init];
-//    [rootController setGameInfo:gameInfo];
-    
-//    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootController];
-    
-    
-    // XXX Fucking around with robots!
-    SixisSmartbot *rockem = [[SixisSmartbot alloc] initWithName:@"Rockem"];
-    SixisSmartbot *sockem = [[SixisSmartbot alloc] initWithName:@"Sockem"];
-    SixisSmartbot *threee = [[SixisSmartbot alloc] initWithName:@"Threee"];
-    SixisSmartbot *fourrr = [[SixisSmartbot alloc] initWithName:@"Fourrr"];
-    
-//    SixisHuman *alice = [[SixisHuman alloc] initWithName:@"Alice"];
-//    SixisHuman *bob = [[SixisHuman alloc ] initWithName:@"Bob"];
-//    SixisHuman *carol = [[SixisHuman alloc] initWithName:@"Carol"];
-//    SixisHuman *dave = [[SixisHuman alloc] initWithName:@"Dave"];
-    
-//    NSArray *players = [NSArray arrayWithObjects: rockem, sockem, threee, nil];
-    NSArray *players = [NSArray arrayWithObjects: rockem, sockem, threee, fourrr, nil];
-//    NSArray *players = [NSArray arrayWithObjects: rockem, sockem, nil];
-//    NSArray *players = [NSArray arrayWithObjects: alice, rockem, nil];
-//    NSArray *players = [NSArray arrayWithObjects: alice, bob, nil];
-//    NSArray *players = [NSArray arrayWithObjects: alice, bob, carol, dave, nil];
-//    NSArray *players = [NSArray arrayWithObjects: alice, bob, carol, nil];
-//    NSArray *players = [NSArray arrayWithObjects: alice, bob, rockem, nil];
-    
-//    SixisGame *game = [[SixisGame alloc] initWithGameType:[[SixisRoundsGame alloc] initWithRounds:1] PlayersType:[[SixisTwoPlayers alloc] init] Players:players];
-//    SixisGame *game = [[SixisGame alloc] initWithGameType:[[SixisRoundsGame alloc] initWithRounds:1] PlayersType:[[SixisThreePlayers alloc] init] Players:players];
-    
-    SixisGame *game = [[SixisGame alloc] initWithGameType:[[SixisRoundsGame alloc] initWithRounds:1] PlayersType:[[SixisFourPlayers alloc] init] Players:players];
-    
-    [rootController setGame:game];
-    
-//    game.hasTeams = YES;
-    
-    [game startGame];
-    */
-
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

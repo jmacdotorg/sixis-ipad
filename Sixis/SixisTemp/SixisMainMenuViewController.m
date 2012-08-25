@@ -10,6 +10,7 @@
 #import "SixisChoosePlayerNumberViewController.h"
 #import "SixisNewGameInfo.h"
 #import "SixisRoundsGame.h"
+#import "SixisTabletopViewController.h"
 
 
 @interface SixisMainMenuViewController ()
@@ -17,7 +18,7 @@
 @end
 
 @implementation SixisMainMenuViewController
-@synthesize controlsView;
+@synthesize controlsView, tabletopController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,17 +39,29 @@
     SixisNewGameInfo *gameInfo = [[SixisNewGameInfo alloc] init];
     [numberController setGameInfo:gameInfo];
     
-    // XXX Cheating! The player needs to pick this, of course...
-    gameInfo.gameType = [[SixisRoundsGame alloc] initWithRounds:1];
+    // Create the tabletop view controller. This is destined to get passed around for the rest of the app's lifetime.
+    tabletopController = [[SixisTabletopViewController alloc] init];
+    [tabletopController setMainMenuController:self];
+    [gameInfo setTabletopController:tabletopController];
     
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:numberController];
+    navController = [[UINavigationController alloc] initWithRootViewController:numberController];
     
-//    navigationController.navigationBar.alpha = .1;
+    [[navController view] setFrame:[controlsView frame]];
+    [self.view addSubview:navController.view];
+    [self addChildViewController:navController];
     
-    [[navigationController view] setFrame:[controlsView frame]];
-    [self.view addSubview:navigationController.view];
-    [self addChildViewController:navigationController];
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [navController popToRootViewControllerAnimated:NO];
     
+    if ( tabletopController.game != nil ) {
+        NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+        [nc removeObserver:tabletopController.game];
+        for (SixisPlayer *player in tabletopController.game.players) {
+            [nc removeObserver:player];
+        }
+    }
 }
 
 - (void)viewDidUnload

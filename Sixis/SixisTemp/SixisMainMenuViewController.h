@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SixisMainMenuViewController : UIViewController
+@class SixisTabletopViewController;
+
+@interface SixisMainMenuViewController : UIViewController {
+    UINavigationController *navController;
+}
 - (IBAction)handlePlayButton:(id)sender;
 @property (weak, nonatomic) IBOutlet UIView *controlsView;
+@property (nonatomic) SixisTabletopViewController *tabletopController;
 
 @end

@@ -35,6 +35,7 @@
 @synthesize rollUnlockedDiceButton;
 @synthesize endTurnButton;
 @synthesize diceView;
+@synthesize mainMenuController;
 
 @synthesize game, currentPlayer;
 
@@ -46,7 +47,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        cards = [[NSMutableArray alloc] init];
+
     }
     return self;
 }
@@ -125,6 +126,16 @@
 
 -(void)setGame:(SixisGame *)newGame {
     game = newGame;
+    
+    // Clean up any cardViews lying around from a previous game.
+    // Then init the cards array.
+    if ( cards != nil ) {
+        for ( SixisCardView *cardView in cards ) {
+            [cardView removeFromSuperview];
+        }
+    }
+    cards = [[NSMutableArray alloc] init];
+    
     // Define all of this game's cardviews, then place them onto the tabletop view.
     if ( [game players].count == 2 ) {
         [self _addCardViewWithX:450 Y:282 rotation:M_PI_2];
@@ -174,6 +185,14 @@
         [self _addCardViewWithX:341 Y:400  rotation:M_PI_4 + M_PI_2];
     }
     
+    // Clean up any status bard lying around from a previous game.
+    // Then init the status bar array.
+    if ( statusBars != nil ) {
+        for ( UIView *statusBar in statusBars ) {
+            [statusBar removeFromSuperview];
+        }
+    }
+    statusBars = [[NSMutableArray alloc] init];
     
     // Generate all the players' status bars, and store them in an instance variable.
     NSMutableArray *tableInfos = [[NSMutableArray alloc] init];
@@ -181,6 +200,7 @@
     for (SixisPlayer *player in [game players] ) {
         UIView *statusBar = [[[NSBundle mainBundle] loadNibNamed:@"SixisPlayerStatus" owner:self options:nil] objectAtIndex:0];
         [[self view] addSubview:statusBar];
+        [statusBars addObject:statusBar];
         
         // Initialize a table-info object for this player.
         SixisPlayerTableInfo *tableInfo = [[SixisPlayerTableInfo alloc] init];
@@ -585,7 +605,8 @@
 - (IBAction)handleMainMenu:(id)sender {
     gameOverView.hidden = YES;
     
-    SixisMainMenuViewController *mainMenu = [[SixisMainMenuViewController alloc] init];
+//    SixisMainMenuViewController *mainMenu = [[SixisMainMenuViewController alloc] init];
+    SixisMainMenuViewController *mainMenu = self.mainMenuController;
     self.view.window.rootViewController = mainMenu;
 
 }

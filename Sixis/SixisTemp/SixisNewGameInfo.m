@@ -10,6 +10,6 @@
 
 @implementation SixisNewGameInfo
 
-@synthesize playersType, gameType, gameHasTeams, numberOfPlayers;
+@synthesize playersType, gameType, gameHasTeams, numberOfPlayers, tabletopController;
 
 @end

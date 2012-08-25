@@ -51,6 +51,7 @@
     [self tableView].rowHeight = 127;
 }
 
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];
@@ -168,7 +169,8 @@
         game.hasTeams = NO;
     }
     
-    SixisTabletopViewController *tabletop = [[SixisTabletopViewController alloc] init];
+//    SixisTabletopViewController *tabletop = [[SixisTabletopViewController alloc] init];
+    SixisTabletopViewController *tabletop = gameInfo.tabletopController;
     tabletop.game = game;
     self.view.window.rootViewController = tabletop;
     [game startGame];

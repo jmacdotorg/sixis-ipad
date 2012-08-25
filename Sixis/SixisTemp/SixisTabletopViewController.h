@@ -11,9 +11,11 @@
 @class SixisGame;
 @class SixisPlayer;
 @class SixisCard;
+@class SixisMainMenuViewController;
 
 @interface SixisTabletopViewController : UIViewController {
     NSMutableArray *cards;
+    NSMutableArray *statusBars;
     UIView *playerControls;
     UIPopoverController *popover;
     NSDictionary *tableInfoForPlayer;
@@ -29,6 +31,7 @@
 @property (weak, nonatomic) IBOutlet UIView *diceView;
 @property (weak, nonatomic) IBOutlet UIButton *endRoundButton;
 @property (strong, nonatomic) IBOutlet UILabel *textPromptLabel;
+@property (nonatomic) SixisMainMenuViewController *mainMenuController;
 
 - (IBAction)handleRollAllDiceTap:(id)sender;
 - (IBAction)handleRollUnlockedDiceTap:(id)sender;

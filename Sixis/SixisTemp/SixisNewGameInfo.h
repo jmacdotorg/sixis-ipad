@@ -10,11 +10,14 @@
 #import "SixisPlayersType.h"
 #import "SixisGameType.h"
 
+@class SixisTabletopViewController;
+
 @interface SixisNewGameInfo : NSObject
 
 @property (nonatomic) int numberOfPlayers;
 @property (nonatomic, strong) SixisPlayersType *playersType;
 @property (nonatomic, strong) SixisGameType *gameType;
 @property (nonatomic) BOOL gameHasTeams;
+@property (nonatomic, weak) SixisTabletopViewController *tabletopController;
 
 @end

@@ -263,14 +263,11 @@
         [textPromptLabel setTransform:CGAffineTransformMakeRotation(info.rotation)];
         textPromptLabel.hidden = NO;
         
-//        // Show the dice-rolling buttons; hide the other controls.
-//        rollAllDiceButton.hidden = NO;
-//        rollUnlockedDiceButton.hidden = NO;
-        
         // Define the text and status of the dice-rolling buttons, depending on die-count.
         if ( currentPlayer.lockedDice.count == 0 ) {
-            rollAllDiceButton.hidden = NO;
-            rollUnlockedDiceButton.hidden = YES;
+            rollAllDiceButton.hidden = YES;
+            rollUnlockedDiceButton.hidden = NO;
+            [self _setTitleOfButton:rollUnlockedDiceButton toString:@"Roll All"];
         }
         else if ( currentPlayer.lockedDice.count == 6 ) {
             rollAllDiceButton.hidden = NO;

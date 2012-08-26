@@ -29,6 +29,7 @@
 @implementation SixisTabletopViewController
 @synthesize endRoundButton;
 @synthesize textPromptLabel;
+@synthesize undoCardButton;
 @synthesize winMessage;
 @synthesize gameOverView;
 @synthesize rollAllDiceButton;
@@ -61,6 +62,8 @@
     [nc addObserver:self selector:@selector(handleNewTurn:) name:@"SixisNewTurn" object:nil];
     [nc addObserver:self selector:@selector(handleCardPickup:) name:@"SixisPlayerTookCard" object:nil];
     [nc addObserver:self selector:@selector(handleCardFlip:) name:@"SixisPlayerFlippedCard" object:nil];
+    [nc addObserver:self selector:@selector(handleCardUnpickup:) name:@"SixisPlayerUntookCard" object:nil];
+    [nc addObserver:self selector:@selector(handleCardUnflip:) name:@"SixisPlayerUnflippedCard" object:nil];
     [nc addObserver:self selector:@selector(handleDiceLock:) name:@"SixisPlayerLockedDice" object:nil];
     [nc addObserver:self selector:@selector(handleDiceRoll:) name:@"SixisPlayerRolledDice" object:nil];
     [nc addObserver:self selector:@selector(handleWinning:) name:@"SixisPlayersWon" object:nil];
@@ -94,6 +97,7 @@
     [self setEndRoundButton:nil];
     [self setTextPromptLabel:nil];
     [self setGameOverView:nil];
+    [self setUndoCardButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -283,6 +287,7 @@
         
         diceView.hidden = YES;
         endTurnButton.hidden = YES;
+        undoCardButton.hidden = YES;
         
         // If it's a 2P game and the player can call the round over, show that button.
         if ( [game roundMightEnd] ) {
@@ -374,6 +379,34 @@
         scoreLabel.text = [NSString stringWithFormat:@"%d", [teammate score]];
     }
 
+    // Unhide the undo button.
+    undoCardButton.hidden = NO;
+    
+}
+
+-(void)handleCardUnpickup:(NSNotification *)note {
+    // Replace the card at the given index.
+    int index = [[[note userInfo] valueForKey:@"index"] intValue];
+    SixisCard *card = [[note userInfo] valueForKey:@"card"];
+    SixisCardView *cardView = [cards objectAtIndex:index];
+    [cardView setCard:card];
+    
+    // Decrement this player's score.
+    SixisPlayerTableInfo *info = (SixisPlayerTableInfo *)[tableInfoForPlayer objectForKey:[currentPlayer name]];
+    UILabel *scoreLabel = (UILabel *)[info.statusBar viewWithTag:SCORE_LABEL_TAG];
+    scoreLabel.text = [NSString stringWithFormat:@"%d", [currentPlayer score]];
+    
+    // If they have a teammate, decrement the teammate's score as well.
+    SixisPlayer *teammate = [currentPlayer teammate];
+    if ( teammate != nil ) {
+        SixisPlayerTableInfo *teammateInfo = (SixisPlayerTableInfo *)[tableInfoForPlayer objectForKey:[teammate name]];
+        UILabel *scoreLabel = (UILabel *)[teammateInfo.statusBar viewWithTag:SCORE_LABEL_TAG];
+        scoreLabel.text = [NSString stringWithFormat:@"%d", [teammate score]];
+    }
+    
+    // Re-hide the undo button.
+    undoCardButton.hidden = YES;
+    [self _prepareForDiceInteraction];
     
 }
 
@@ -452,6 +485,21 @@
     SixisCard *card = [[note userInfo] valueForKey:@"card"];
     SixisCardView *cardView = [cards objectAtIndex:index];
     [cardView setCard:[card flipSide]];
+    
+    // Unhide the undo button.
+    undoCardButton.hidden = NO;
+}
+
+-(void)handleCardUnflip:(NSNotification *) note {
+    // Tell the card view at the given index that it's holding a new card.
+    int index = [[[note userInfo] valueForKey:@"index"] intValue];
+    SixisCard *card = [[note userInfo] valueForKey:@"card"];
+    SixisCardView *cardView = [cards objectAtIndex:index];
+    [cardView setCard:card];
+    
+    // Re-hide the undo button.
+    undoCardButton.hidden = YES;
+    [self _prepareForDiceInteraction];
 }
 
 - (IBAction)handleRollAllDiceTap:(id)sender {
@@ -626,5 +674,9 @@
         game.winningPlayers = nil;
         [game startRound];
     }
+}
+
+- (IBAction)handleUndoCard:(id)sender {
+    [currentPlayer undoLastAction];
 }
 @end

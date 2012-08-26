@@ -67,6 +67,8 @@
         teammate.score += card.value;
     }
     int cardIndex = [self.game.cardsInPlay indexOfObject:card];
+    cardJustTaken = card;
+    indexOfLastCardAction = cardIndex;
     NSLog(@"cardIndex: %d card: %@", cardIndex, card);
     [self.game.cardsInPlay replaceObjectAtIndex:cardIndex withObject:[NSNull null]];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"SixisPlayerTookCard" object:self userInfo:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:card, [NSNumber numberWithInt:cardIndex], nil] forKeys:[NSArray arrayWithObjects:@"card", @"index", nil]]];
@@ -75,6 +77,8 @@
 -(void) flipCard:(SixisCard *)card {
     SixisCard *newCard = [card flipSide];
     int cardIndex = [self.game.cardsInPlay indexOfObject:card];
+    cardJustFlipped = card;
+    indexOfLastCardAction = cardIndex;
     NSLog(@"cardIndex: %d card: %@", cardIndex, card);
     [self.game.cardsInPlay replaceObjectAtIndex:cardIndex withObject:newCard];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"SixisPlayerFlippedCard" object:self userInfo:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:card, [NSNumber numberWithInt:cardIndex], nil] forKeys:[NSArray arrayWithObjects:@"card", @"index", nil]]];
@@ -111,6 +115,8 @@
 }
 
 -(void)endTurn {
+    cardJustTaken = nil;
+    cardJustFlipped = nil;
     [[self game] startTurn];
 }
 
@@ -140,4 +146,20 @@
     }
     return [game.players objectAtIndex:teammateIndex];
 }
+
+-(void)undoLastAction {
+    if ( cardJustFlipped ) {
+        [self.game.cardsInPlay replaceObjectAtIndex:indexOfLastCardAction withObject:cardJustFlipped];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"SixisPlayerUnflippedCard" object:self userInfo:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:cardJustFlipped, [NSNumber numberWithInt:indexOfLastCardAction], nil] forKeys:[NSArray arrayWithObjects:@"card", @"index", nil]]];
+        cardJustFlipped = nil;
+    }
+    else if ( cardJustTaken ) {
+        [self.game.cardsInPlay replaceObjectAtIndex:indexOfLastCardAction withObject:cardJustTaken];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"SixisPlayerUntookCard" object:self userInfo:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:cardJustTaken, [NSNumber numberWithInt:indexOfLastCardAction], nil] forKeys:[NSArray arrayWithObjects:@"card", @"index", nil]]];
+        self.score -= cardJustTaken.value;
+        cardJustTaken = nil;
+    }
+    // else, this is a no-op.
+}
+
 @end

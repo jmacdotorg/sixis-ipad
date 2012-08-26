@@ -31,6 +31,7 @@
 @property (weak, nonatomic) IBOutlet UIView *diceView;
 @property (weak, nonatomic) IBOutlet UIButton *endRoundButton;
 @property (strong, nonatomic) IBOutlet UILabel *textPromptLabel;
+@property (weak, nonatomic) IBOutlet UIButton *undoCardButton;
 @property (nonatomic) SixisMainMenuViewController *mainMenuController;
 
 - (IBAction)handleRollAllDiceTap:(id)sender;
@@ -43,6 +44,7 @@
 - (IBAction)handlePlayAgain:(id)sender;
 - (IBAction)handleMainMenu:(id)sender;
 - (IBAction)handleAddRound:(id)sender;
+- (IBAction)handleUndoCard:(id)sender;
 
 
 @property (nonatomic, strong) SixisGame *game;

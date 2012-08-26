@@ -62,6 +62,8 @@
     [nc addObserver:self selector:@selector(handleNewTurn:) name:@"SixisNewTurn" object:nil];
     [nc addObserver:self selector:@selector(handleCardPickup:) name:@"SixisPlayerTookCard" object:nil];
     [nc addObserver:self selector:@selector(handleCardFlip:) name:@"SixisPlayerFlippedCard" object:nil];
+    [nc addObserver:self selector:@selector(handleCardUnpickup:) name:@"SixisPlayerUntookCard" object:nil];
+    [nc addObserver:self selector:@selector(handleCardUnflip:) name:@"SixisPlayerUnflippedCard" object:nil];
     [nc addObserver:self selector:@selector(handleDiceLock:) name:@"SixisPlayerLockedDice" object:nil];
     [nc addObserver:self selector:@selector(handleDiceRoll:) name:@"SixisPlayerRolledDice" object:nil];
     [nc addObserver:self selector:@selector(handleWinning:) name:@"SixisPlayersWon" object:nil];
@@ -258,6 +260,16 @@
 -(void)handleCardFlip:(NSNotification *)note {
     int index = [(NSNumber *)[[note userInfo] valueForKey:@"index"] intValue];
     NSLog(@"The current player (%@) just flipped the card %@ at position %d. Now the card at that position is %@.", currentPlayer.name, [[note userInfo] valueForKey:@"card"], index, [cardsInPlay objectAtIndex:index]);
+}
+
+-(void)handleCardUnpickup:(NSNotification *)note {
+    int index = [(NSNumber *)[[note userInfo] valueForKey:@"index"] intValue];
+    NSLog(@"The current player (%@) just undid their pickup of the card %@ from position %d.", currentPlayer.name, [[note userInfo] valueForKey:@"card"], index);
+}
+
+-(void)handleCardUnflip:(NSNotification *)note {
+    int index = [(NSNumber *)[[note userInfo] valueForKey:@"index"] intValue];
+    NSLog(@"The current player (%@) just flipped the card at position %d back to %@.", currentPlayer.name, index, [cardsInPlay objectAtIndex:index]);
 }
 
 -(void)handleDiceLock:(NSNotification *)note {

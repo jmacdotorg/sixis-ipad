@@ -11,7 +11,11 @@
 @class SixisCard;
 @class SixisGame;
 
-@interface SixisPlayer : NSObject
+@interface SixisPlayer : NSObject {
+    SixisCard *cardJustFlipped;
+    SixisCard *cardJustTaken;
+    int indexOfLastCardAction;
+}
 
 @property (nonatomic, copy) NSString* name;
 @property (nonatomic, strong) NSMutableSet *unlockedDice;
@@ -25,6 +29,7 @@
 
 -(void) takeCard:(SixisCard *)card;
 -(void) flipCard:(SixisCard *)card;
+-(void) undoLastAction;
 
 -(void) rollAllDice;
 -(void) rollUnlockedDice;

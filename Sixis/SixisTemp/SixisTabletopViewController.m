@@ -674,6 +674,13 @@
         game.winningPlayers = nil;
         [game startRound];
     }
+    else {
+        SixisRoundsGame *gameType = [[SixisRoundsGame alloc] initWithRounds:2];
+        game.gameType = gameType;
+        gameOverView.hidden = YES;
+        game.winningPlayers = nil;
+        [game startRound];
+    }
 }
 
 - (IBAction)handleUndoCard:(id)sender {

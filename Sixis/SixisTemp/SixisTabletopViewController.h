@@ -12,6 +12,7 @@
 @class SixisPlayer;
 @class SixisCard;
 @class SixisMainMenuViewController;
+@class SixisGameType;
 
 @interface SixisTabletopViewController : UIViewController {
     NSMutableArray *cards;
@@ -22,6 +23,7 @@
     BOOL thereAreHighlightedCards;
     SixisPlayer *firstPlayer;
     BOOL thisIsTheFirstGoRound;
+    SixisGameType *originalGameType;
 }
 @property (weak, nonatomic) IBOutlet UILabel *winMessage;
 @property (weak, nonatomic) IBOutlet UIView *gameOverView;

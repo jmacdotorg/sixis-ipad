@@ -22,6 +22,10 @@
     return self;
 }
 
+-(id) copy {
+    return [[SixisPointsGame alloc] initWithGoal:self.goal];
+}
+
 -(void) checkForWinner {
     for (SixisPlayer *player in self.game.players ) {
         if ( player.score >= goal ) {

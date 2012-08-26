@@ -22,6 +22,10 @@
     return self;
 }
 
+-(id)copy {
+    return [[SixisRoundsGame alloc] initWithRounds:self.rounds];
+}
+
 -(void)checkForWinner {
     if ( self.game.currentRound > rounds ) {
         // The game is over. Who won?

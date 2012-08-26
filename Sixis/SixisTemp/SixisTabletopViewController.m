@@ -226,6 +226,9 @@
         [statusBar setTransform:CGAffineTransformMakeRotation(tableInfo.rotation)];
     }
     tableInfoForPlayer = [NSDictionary dictionaryWithDictionary:tempDict];
+    
+    // Remember the original gameType, since it might change if people want to add rounds later.
+    originalGameType = [game.gameType copy];
 }
 
 /****************
@@ -643,6 +646,9 @@
     }
 
     gameOverView.hidden = YES;
+    
+    // Replace the game's possibly-mutated gameType with a pristine copy.
+    game.gameType = [originalGameType copy];
     
     [game startGame];
 }

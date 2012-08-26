@@ -70,6 +70,7 @@
         if ( [[self targetCard] isQualified] ) {
             NSLog(@"It's qualified!");
             if ( [[self targetCard] isBlue] && (random() % 100) <= (FLIP_PROBABILITY * 100) ) {
+                NSLog(@"Gonna flip %@.", self.targetCard);
                 [self flipCard:[self targetCard]];
             }
             else {
@@ -80,7 +81,7 @@
             [self setTargetCard:nil]; // Mission accomplished
         }
         else {
-            NSLog(@"But I can't pick it up yet.");
+            NSLog(@"But I can't pick it up yet. Maybe I can pick up something else.");
             [self _endTurnWithTarget:[self targetCard]];
             return;
         }
@@ -102,8 +103,13 @@
         }
     }
     if ( bestCard ) {
-        [self _endTurnWithTarget:bestCard];
-        return;
+        if ( iHaveNotTakenACardThisTurn && [bestCard isQualified] ) {
+            [self takeCard:bestCard];
+        }
+        else {
+            [self _endTurnWithTarget:bestCard];
+            return;
+        }
     }
     
     // No... so can we pick up any BLUE FLIPSIDES next turn (but only if I haven't already claimed a card?
@@ -135,8 +141,13 @@
         }
     }
     if ( bestCard ) {
-        [self _endTurnWithTarget:bestCard];
-        return;
+        if ( iHaveNotTakenACardThisTurn && [bestCard isQualified] ) {
+            [self takeCard:bestCard];
+        }
+        else {
+            [self _endTurnWithTarget:bestCard];
+            return;
+        }
     }
     
     // No... very well. Aim at the highest-scoring card we seem most likely to pick up after our next roll.
@@ -181,6 +192,26 @@
     for ( SixisDie *die in [card bestDice] ) {
         [die lock];
     }
+    
+    /*
+    // Last licks: if I haven't taken a card, pick something up, if anything's available.
+    if ( iHaveNotTakenACardThisTurn ) {
+        NSSet *cards = [[self game] availableCards];
+        SixisCard *bestCard;
+        for ( SixisCard *card in cards ) {
+            if ( [card isQualified] ) {
+                if ( bestCard == nil || card.value > bestCard.value ) {
+                    bestCard = card;
+                }
+            }
+        }
+        if ( bestCard ) {
+            [self takeCard:bestCard];
+        }
+    }
+     */
+    
+    
     // Take a short snooze to let the UI update before we declare that we're done.
     [NSTimer scheduledTimerWithTimeInterval:SNOOZE_LENGTH target:self selector:@selector(endTurn) userInfo:nil repeats:NO];
     NSLog(@"I, %@, am all done.", self.name);

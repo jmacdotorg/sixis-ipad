@@ -64,4 +64,19 @@
     }
 }
 
+-(void) encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeConditionalObject:[self game] forKey:@"game"];
+    [aCoder encodeInt:rounds forKey:@"rounds"];
+}
+
+
+-(id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
+    if (self) {
+        [self setGame:[aDecoder decodeObjectForKey:@"game"]];
+        [self setRounds:[aDecoder decodeIntForKey:@"rounds"]];
+    }
+    return self;
+}
+
 @end

@@ -18,7 +18,7 @@
 
 @class SixisGame;
 
-@interface SixisCard : NSObject {
+@interface SixisCard : NSObject <NSCoding> {
     
 }
 

@@ -217,4 +217,15 @@
     NSLog(@"I, %@, am all done.", self.name);
 }
          
+/*
+-(id) initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+
+    [nc addObserver:self selector:@selector(handleNewTurn:) name:@"SixisNewTurn" object:nil];
+    [nc addObserver:self selector:@selector(handleCardDealt:) name:@"SixisCardDealt" object:nil];
+    return self;
+}
+*/
+
 @end

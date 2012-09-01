@@ -39,4 +39,9 @@
     }
 }
 
+-(void) encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeConditionalObject:[self game] forKey:@"game"];
+    [aCoder encodeInt:goal forKey:@"goal"];
+}
+
 @end

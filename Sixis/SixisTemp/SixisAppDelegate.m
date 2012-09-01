@@ -9,6 +9,8 @@
 #import "SixisAppDelegate.h"
 #import "SixisMainMenuViewController.h"
 #import "SixisChoosePlayerNumberViewController.h"
+#import "SixisTabletopViewController.h"
+#import "SixisGame.h"
 
 @implementation SixisAppDelegate
 
@@ -22,10 +24,22 @@
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-
     SixisMainMenuViewController *menuController = [[SixisMainMenuViewController alloc] init];
+    
+    // See if there's a game saved. If so, display and resume it. Otherwise, go right to the main menu.
+    NSString *savedGamePath = [SixisGame gameArchivePath];
+    SixisGame *game = [NSKeyedUnarchiver unarchiveObjectWithFile:savedGamePath];
+    if ( game ) {
+        SixisTabletopViewController *tabletop = [[SixisTabletopViewController alloc] init];
+        tabletop.mainMenuController = menuController;
+        menuController.tabletopController = tabletop;
+        tabletop.game = game;
+        [self.window setRootViewController:tabletop];
+    }
+    else {
+        [self.window setRootViewController:menuController];
+    }
 
-    [self.window setRootViewController:menuController];
     [self.window makeKeyAndVisible];
     
     return YES;
@@ -41,6 +55,17 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    // Determine whether there's a game logic object worth saving.
+    // If so, save it. Otherwise, do nothing.
+    UIViewController *root = self.window.rootViewController;
+    if ( [root isKindOfClass:[SixisTabletopViewController class]] ) {
+        SixisTabletopViewController *tabletop = (SixisTabletopViewController *)root;
+        [tabletop.game save];
+    }
+
+    
+    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application

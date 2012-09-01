@@ -17,4 +17,13 @@
     // Subclasses need to override this.
 }
 
+-(void)encodeWithCoder:(NSCoder *)aCoder {
+    // Subclasses need to override this.
+}
+
+-(id)initWithCoder:(NSCoder *)aDecoder {
+    // Subclasses need to override this.
+    return self;
+}
+
 @end

@@ -12,7 +12,7 @@
 #import <Foundation/Foundation.h>
 @class SixisPlayer;
 
-@interface SixisDie : NSObject
+@interface SixisDie : NSObject <NSCoding>
 
 /// @name Properties
 

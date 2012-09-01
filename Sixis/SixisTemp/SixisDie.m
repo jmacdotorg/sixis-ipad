@@ -43,4 +43,20 @@
     }
 }
 
+-(void) encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeConditionalObject:[self player] forKey:@"player"];
+    [aCoder encodeInt:value forKey:@"value"];
+    [aCoder encodeBool:isLocked forKey:@"isLocked"];
+}
+
+-(id) initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
+    if (self ) {
+        [self setPlayer:[aDecoder decodeObjectForKey:@"player"]];
+        [self setValue:[aDecoder decodeIntForKey:@"value"]];
+        [self setIsLocked:[aDecoder decodeBoolForKey:@"isLocked"]];
+    }
+    return self;
+}
+
 @end

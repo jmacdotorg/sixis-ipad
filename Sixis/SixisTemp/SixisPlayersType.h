@@ -9,9 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "SixisGame.h"
 
-@interface SixisPlayersType : NSObject {
+@interface SixisPlayersType : NSObject <NSCoding> {
     NSArray *cardIndicesForPlayerIndex;
-//    int cardIndicesForPlayerIndex[4][9];
 }
 
 @property (nonatomic, weak) SixisGame *game;

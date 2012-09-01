@@ -38,7 +38,7 @@
 
 @implementation SixisGame
 
-@synthesize gameType, playersType, players, cardsInPlay, winningPlayers, hasTeams, currentRound, newRoundJustStarted, currentPlayer;
+@synthesize gameType, playersType, players, cardsInPlay, winningPlayers, hasTeams, currentRound, newRoundJustStarted, currentPlayer, shouldRaiseNewRoundFlag;
 
 -(id)initWithGameType:(SixisGameType *)newGameType PlayersType:(SixisPlayersType *)newPlayersType Players:(NSMutableArray *)newPlayers {
     self = [super init];
@@ -174,10 +174,17 @@
         [self startRound];
         return;
     }
+
+    // Autosave!
+    if ( [self save] ) {
+        NSLog(@"Game saved (start-of-turn autosave).");
+    }
+    else {
+        NSLog(@"Game FAILED to save at start of turn.");
+    }
     
     // Post a notification that a new turn has started.
     // If the current player is a robot, this will spur them into action.
-    NSLog(@"Hi.");
     [[NSNotificationCenter defaultCenter] postNotificationName:@"SixisNewTurn" object:self userInfo:[NSDictionary dictionaryWithObject:currentPlayer forKey:@"player"]];
 }
 
@@ -280,6 +287,7 @@
 -(void)handleWinning:(NSNotification *)note {
     NSSet *winners = (NSSet *)[[note userInfo] valueForKey:@"players"];
     NSLog(@"We have winners! Congratulations, %@.", winners);
+    [self unsave];
 }
 
 -(void)handleDealtCard:(NSNotification *)note {
@@ -311,6 +319,57 @@
     for ( SixisCard *card in deck ) {
         [card setGame:self];
     }
+}
+
+-(void)encodeWithCoder:(NSCoder *)aCoder {
+    // Instance variables
+    [aCoder encodeObject:gameType forKey:@"gameType"];
+    [aCoder encodeObject:playersType forKey:@"playersType"];
+    [aCoder encodeObject:players forKey:@"players"];
+    [aCoder encodeObject:currentPlayer forKey:@"currentPlayer"];
+    [aCoder encodeBool:hasTeams forKey:@"hasTeams"];
+    [aCoder encodeObject:cardsInPlay forKey:@"cardsInPlay"];
+    [aCoder encodeBool:newRoundJustStarted forKey:@"newRoundJustStarted"];
+    [aCoder encodeInt:currentRound forKey:@"currentRound"];
+    [aCoder encodeBool:shouldRaiseNewRoundFlag forKey:@"shouldRaiseNewRoundFlag"];
+}
+
+-(id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
+    if ( self ) {
+        [self setCardsInPlay:[aDecoder decodeObjectForKey:@"cardsInPlay"]];
+        [self setGameType:[aDecoder decodeObjectForKey:@"gameType"]];
+        [self setPlayersType:[aDecoder decodeObjectForKey:@"playersType"]];
+        [self setPlayers:[aDecoder decodeObjectForKey:@"players"]];
+        [self setHasTeams:[aDecoder decodeBoolForKey:@"hasTeams"]];
+        [self setNewRoundJustStarted:[aDecoder decodeBoolForKey:@"newRoundJustStarted"]];
+        [self setCurrentRound:[aDecoder decodeIntForKey:@"currentRound"]];
+        [self setShouldRaiseNewRoundFlag:[aDecoder decodeBoolForKey:@"shouldRaiseNewRoundFlag"]];
+        [self setCurrentPlayer:[aDecoder decodeObjectForKey:@"currentPlayer"]];
+    }
+    return self;
+}
+
+-(BOOL)save {
+    // Figure out our path.
+    NSString *path = [[self class] gameArchivePath];
+    return [NSKeyedArchiver archiveRootObject:self toFile:path];
+}
+
+-(void)unsave {
+    NSString *path = [[self class] gameArchivePath];
+//    return [NSKeyedArchiver archiveRootObject:nil toFile:path];
+    [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
+}
+
++(NSString *)gameArchivePath {
+    // The last two args are always the same on iOS. (They're different in MacOS.)
+    NSArray *documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    // Get the one and only document directory from that list
+    NSString *documentDirectory = [documentDirectories objectAtIndex:0];
+    
+    // This is saying: the filename is "games.archive". And the full path is just that appended to the app's document directory.
+    return [documentDirectory stringByAppendingPathComponent:@"game.archive"];
 }
 
 @end

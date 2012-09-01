@@ -11,10 +11,8 @@
 @class SixisCard;
 @class SixisGame;
 
-@interface SixisPlayer : NSObject {
-    SixisCard *cardJustFlipped;
-    SixisCard *cardJustTaken;
-    int indexOfLastCardAction;
+@interface SixisPlayer : NSObject <NSCoding> {
+
 }
 
 @property (nonatomic, copy) NSString* name;
@@ -24,6 +22,11 @@
 @property (nonatomic) int score;
 @property (nonatomic, weak) SixisGame *game;
 @property int number;
+
+@property (nonatomic) SixisCard *cardJustFlipped;
+@property (nonatomic) SixisCard *cardJustTaken;
+@property (nonatomic) int indexOfLastCardAction;
+@property (nonatomic) BOOL hasRolledDice;
 
 -(id)initWithName: (NSString *)newName;
 

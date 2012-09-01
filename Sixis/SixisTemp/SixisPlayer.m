@@ -13,7 +13,7 @@
 
 @implementation SixisPlayer
 
-@synthesize name, dieColor, score, lockedDice, unlockedDice, game, number;
+@synthesize name, dieColor, score, lockedDice, unlockedDice, game, number, cardJustFlipped, cardJustTaken, indexOfLastCardAction, hasRolledDice;
 
 -(id)initWithName:(NSString *)newName {
     self = [super init];
@@ -29,6 +29,8 @@
     for ( SixisDie *die in unlockedDice ) {
         [die setPlayer:self];
     }
+    
+    hasRolledDice = NO;
     
     return self;
 }
@@ -50,6 +52,7 @@
         [die unlock];
         [die roll];
     }
+    hasRolledDice = YES;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"SixisPlayerRolledDice" object:self userInfo:[NSDictionary dictionaryWithObject:[self dice] forKey:@"dice"]];
 }
 
@@ -57,6 +60,7 @@
     for (SixisDie *die in unlockedDice) {
         [die roll];
     }
+    hasRolledDice = YES;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"SixisPlayerRolledDice" object:self userInfo:[NSDictionary dictionaryWithObject:[self unlockedDice] forKey:@"dice"]];
 }
 
@@ -117,6 +121,7 @@
 -(void)endTurn {
     cardJustTaken = nil;
     cardJustFlipped = nil;
+    hasRolledDice = NO;
     [[self game] startTurn];
 }
 
@@ -160,6 +165,38 @@
         cardJustTaken = nil;
     }
     // else, this is a no-op.
+}
+
+-(void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeBool:hasRolledDice forKey:@"hasRolledDice"];
+    [aCoder encodeObject:cardJustFlipped forKey:@"cardJustFlipped"];
+    [aCoder encodeObject:cardJustTaken forKey:@"cardJustTaken"];
+    [aCoder encodeInt:indexOfLastCardAction forKey:@"indexOfLastCardAction"];
+    [aCoder encodeObject:name forKey:@"name"];
+    [aCoder encodeObject:unlockedDice forKey:@"unlockedDice"];
+    [aCoder encodeObject:lockedDice forKey:@"lockedDice"];
+    [aCoder encodeInt:score forKey:@"score"];
+    [aCoder encodeConditionalObject:game forKey:@"game"];
+    [aCoder encodeInt:number forKey:@"number"];
+}
+
+
+-(id) initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
+    if (self ) {
+        [self setGame:[aDecoder decodeObjectForKey:@"game"]];
+        [self setHasRolledDice:[aDecoder decodeBoolForKey:@"hasRolledDice"]];
+        [self setCardJustFlipped:[aDecoder decodeObjectForKey:@"cardJustFlipped"]];
+        [self setCardJustTaken:[aDecoder decodeObjectForKey:@"cardJustTaken"]];
+        [self setIndexOfLastCardAction:[aDecoder decodeIntForKey:@"indexOfLastCardAction"]];
+        [self setName:[aDecoder decodeObjectForKey:@"name"]];
+        [self setUnlockedDice:[aDecoder decodeObjectForKey:@"unlockedDice"]];
+        [self setLockedDice:[aDecoder decodeObjectForKey:@"lockedDice"]];
+        [self setScore:[aDecoder decodeIntForKey:@"score"]];
+        [self setGame:[aDecoder decodeObjectForKey:@"game"]];
+        [self setNumber:[aDecoder decodeIntForKey:@"number"]];
+    }
+    return self;
 }
 
 @end

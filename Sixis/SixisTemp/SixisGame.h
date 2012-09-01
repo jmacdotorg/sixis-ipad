@@ -15,8 +15,7 @@ An instance of this class is an abstract representation of a Sixis game.
 @class SixisPlayersType;
 @class SixisPlayer;
 
-@interface SixisGame : NSObject {
-    BOOL shouldRaiseNewRoundFlag;
+@interface SixisGame : NSObject <NSCoding> {
     NSMutableArray *deck;
 }
 
@@ -42,6 +41,8 @@ An instance of this class is an abstract representation of a Sixis game.
 
 /// YES if this is a four-player team game. NO otherwise.
 @property (nonatomic) BOOL hasTeams;
+@property (nonatomic) BOOL shouldRaiseNewRoundFlag;
+
 
 /// If the game is over, this array contains the winning players. (It will contain more than one player on a team victory, or a tie.)
 @property (nonatomic, strong) NSArray *winningPlayers;
@@ -113,6 +114,12 @@ It then calls startTurn:.
 /// Returns YES if this is a two-player game, and the board is in a state where either player has the option of declaring the round over (at the start of their turn).
 -(BOOL) roundMightEnd;
 
+/// Encodes and saves the game state to the filesystem.
+-(BOOL) save;
+
+/// Removes this game's save-position from the filesystem.
+-(void) unsave;
+
 // Notification handlers
 -(void)handleNewTurn:(NSNotification *)note;
 -(void)handleDiceRoll:(NSNotification *)note;
@@ -121,5 +128,7 @@ It then calls startTurn:.
 -(void)handleDiceLock:(NSNotification *)note;
 -(void)handleWinning:(NSNotification *)note;
 -(void)handleDealtCard:(NSNotification *)note;
+
++(NSString *)gameArchivePath;
 
 @end

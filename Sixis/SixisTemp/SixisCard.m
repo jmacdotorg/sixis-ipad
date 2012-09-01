@@ -51,4 +51,22 @@
     return nil; // Control should never get here.
 }
 
+-(void) encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeConditionalObject:[self game] forKey:@"game"];
+    [aCoder encodeInt:value forKey:@"value"];
+    [aCoder encodeBool:isBlue forKey:@"isBlue"];
+    [aCoder encodeObject:flipSide forKey:@"flipSide"];
+}
+
+-(id) initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
+    if (self ) {
+        [self setGame:[aDecoder decodeObjectForKey:@"game"]];
+        [self setValue:[aDecoder decodeIntForKey:@"value"]];
+        [self setIsBlue:[aDecoder decodeBoolForKey:@"isBlue"]];
+        [self setFlipSide:[aDecoder decodeObjectForKey:@"flipSide"]];
+    }
+    return self;
+}
+
 @end

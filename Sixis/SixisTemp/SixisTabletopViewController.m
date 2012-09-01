@@ -11,6 +11,7 @@
 #import "SixisGame.h"
 #import "SixisCardView.h"
 #import "SixisPlayer.h"
+#import "SixisRobot.h"
 #import "SixisHuman.h"
 #import "SixisDieView.h"
 #import "SixisCard.h"
@@ -189,7 +190,7 @@
         [self _addCardViewWithX:341 Y:400  rotation:M_PI_4 + M_PI_2];
     }
     
-    // Clean up any status bard lying around from a previous game.
+    // Clean up any status bars lying around from a previous game.
     // Then init the status bar array.
     if ( statusBars != nil ) {
         for ( UIView *statusBar in statusBars ) {
@@ -218,7 +219,7 @@
         UILabel *nameLabel = (UILabel *)[statusBar viewWithTag:NAME_LABEL_TAG];
         [nameLabel setText:[player name]];
         UILabel *scoreLabel = (UILabel *)[statusBar viewWithTag:SCORE_LABEL_TAG];
-        [scoreLabel setText:@"0"];
+        [scoreLabel setText:[NSString stringWithFormat:@"%d", player.score]];
         [tempDict setObject:tableInfo forKey:player.name];
         
         // Set the status bar's frame and rotation.
@@ -229,6 +230,44 @@
     
     // Remember the original gameType, since it might change if people want to add rounds later.
     originalGameType = [game.gameType copy];
+    
+    // If the game has cards in play, then it's in progress!! Set up an existing game based on the game object.
+    if (game.remainingCardsInPlay.count > 0) {
+        int cardIndex = 0;
+        for (SixisCard *card in game.cardsInPlay) {
+            if ( ![[game.cardsInPlay objectAtIndex:cardIndex] isEqual:[NSNull null]] ) {
+                [[cards objectAtIndex:cardIndex] setCard:[game.cardsInPlay objectAtIndex:cardIndex]];
+            }
+            cardIndex++;
+        }
+        
+        // Draw everyone's locked dice.
+        for (SixisPlayer *player in [game players] ) {
+            [self lockDice:[player lockedDice] forPlayerNumber:[player number]];
+        }
+        
+        // Start the current player's turn in motion.
+        [self startNewTurnWithPlayer:game.currentPlayer];
+        
+        // If the current player's a robot, give it a nudge.
+        if ( [currentPlayer isKindOfClass:[SixisRobot class]]) {
+            SixisRobot *robot = (SixisRobot *)currentPlayer;
+            [robot takeTurn];
+        }
+        
+        /* These don't work too good right now
+        if (currentPlayer.hasRolledDice) {
+            [self rollDice:currentPlayer.dice];
+        }
+        if (currentPlayer.cardJustFlipped) {
+            [self flipCard:currentPlayer.cardJustFlipped atIndex:currentPlayer.indexOfLastCardAction];
+        }
+        if (currentPlayer.cardJustTaken) {
+            [self takeCardatIndex:currentPlayer.indexOfLastCardAction];
+        }
+         */
+    }
+    
 }
 
 /****************
@@ -239,6 +278,10 @@
     
     // Set the current player, based on the argument attached to this notification.
     SixisPlayer *player = [[note userInfo] valueForKey:@"player"];
+    [self startNewTurnWithPlayer:player];
+}
+
+-(void)startNewTurnWithPlayer:(SixisPlayer *)player {
     currentPlayer = player;
     
     // Update the thisIsTheFirstRound boolean.
@@ -334,8 +377,11 @@
     // Set the dice of the given player's die-views.
     // (This assumes that the views are all clear to begin with...)
     NSSet *theDice = [[note userInfo] valueForKey:@"dice"];
+    [self rollDice:theDice];
+}
+
+-(void)rollDice:(NSSet *)theDice {
     NSMutableSet *dice = [NSMutableSet setWithSet:theDice];
-    
     // Sweep out the dice from the player's bank, and add em to the dice to display.
     [dice unionSet:[currentPlayer lockedDice]];
     SixisPlayerTableInfo *info = (SixisPlayerTableInfo *)[tableInfoForPlayer objectForKey:[currentPlayer name]];
@@ -366,6 +412,10 @@
 -(void)handleCardPickup:(NSNotification *)note {
     // Tell the card view at the given index that it should be empty now.
     int index = [[[note userInfo] valueForKey:@"index"] intValue];
+    [self takeCardatIndex:index];
+}
+
+-(void)takeCardatIndex:(int)index {
     SixisCardView *cardView = [cards objectAtIndex:index];
     [cardView setCard:nil];
     
@@ -417,6 +467,12 @@
     // Sweep away all the current player's dice.
 
     int playerNumber = [[[self game] players] indexOfObject:currentPlayer] + 1;
+    NSSet *theDice = [[note userInfo] objectForKey:@"dice"];
+    
+    [self lockDice:theDice forPlayerNumber:playerNumber];
+}
+
+-(void)lockDice:(NSSet *)theDice forPlayerNumber:(int)playerNumber {
     UIView *dieHolder = [[self view] viewWithTag:playerNumber];
     NSArray *dieViews = [dieHolder subviews];
     
@@ -424,7 +480,7 @@
        [dieView setDie:nil];
     }
    
-    NSMutableSet *dice = [NSMutableSet setWithSet:[[note userInfo] objectForKey:@"dice"]];
+    NSMutableSet *dice = [NSMutableSet setWithSet:theDice];
     
     SixisPlayerTableInfo *info = (SixisPlayerTableInfo *)[tableInfoForPlayer objectForKey:[currentPlayer name]];
     UIView *bank = [info.statusBar viewWithTag:DICE_BANK_TAG];
@@ -486,6 +542,10 @@
     // Tell the card view at the given index that it's holding a new card.
     int index = [[[note userInfo] valueForKey:@"index"] intValue];
     SixisCard *card = [[note userInfo] valueForKey:@"card"];
+    [self flipCard:card atIndex:index];
+}
+
+-(void)flipCard:(SixisCard *)card atIndex:(int)index {
     SixisCardView *cardView = [cards objectAtIndex:index];
     [cardView setCard:[card flipSide]];
     

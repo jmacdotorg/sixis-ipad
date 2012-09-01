@@ -51,4 +51,21 @@
     return [NSSet setWithArray:[cardIndicesForPlayerIndex objectAtIndex:playerIndex]];
 }
 
+-(void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeConditionalObject:game forKey:@"game"];
+    [aCoder encodeObject:cardIndicesForPlayerIndex forKey:@"cardIndicesForPlayerIndex"];
+    [aCoder encodeInt:tableauSize forKey:@"tableauSize"];
+}
+
+-(id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
+    if ( self ) {
+        cardIndicesForPlayerIndex = [aDecoder decodeObjectForKey:@"cardIndicesForPlayerIndex"];
+        game = [aDecoder decodeObjectForKey:@"game"];
+        tableauSize = [aDecoder decodeIntForKey:@"tableauSize"];
+    }
+    
+    return self;
+}
+
 @end

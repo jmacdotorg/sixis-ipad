@@ -32,6 +32,10 @@
     return self;
 }
 
+-(id) init {
+    return [self initWithName:@"Sixis Robot"];
+}
+
 -(void)handleNewTurn:(NSNotification *)note {
 
     if ( [[[self game] currentPlayer] isEqual:self] ) {
@@ -44,6 +48,16 @@
 -(void)handleCardDealt:(NSNotification *)note {
     // A dealt card means that a new round is beginning. Make sure that we don't have a desired card hanging around.
     [self setTargetCard:nil];
+}
+
+
+-(id) initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    
+    [nc addObserver:self selector:@selector(handleNewTurn:) name:@"SixisNewTurn" object:nil];
+    [nc addObserver:self selector:@selector(handleCardDealt:) name:@"SixisCardDealt" object:nil];
+    return self;
 }
 
 @end

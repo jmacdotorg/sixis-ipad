@@ -15,7 +15,7 @@
 
 @class SixisGame;
 
-@interface SixisGameType : NSObject
+@interface SixisGameType : NSObject <NSCoding>
 
 @property (nonatomic, weak) SixisGame *game;
 

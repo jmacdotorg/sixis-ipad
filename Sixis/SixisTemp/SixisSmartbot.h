@@ -10,7 +10,7 @@
 
 @class SixisCard;
 
-@interface SixisSmartbot : SixisRobot {
+@interface SixisSmartbot : SixisRobot  <NSCoding> {
     BOOL flipBeforeTaking;
     BOOL targetCardIsPresent;
     BOOL iHaveNotTakenACardThisTurn;

@@ -8,6 +8,9 @@
 
 #import "SixisCardView.h"
 #import "SixisCard.h"
+#import "SixisGame.h"
+#import "SixisPlayerTableInfo.h"
+#import "SixisTabletopViewController.h"
 
 @implementation SixisCardView
 
@@ -34,11 +37,30 @@
 */
 
 -(void) setCard:(SixisCard *)newCard {
+    SixisCard *oldCard = card;
     card = newCard;
     // Also set this object's image.
     if ( newCard == nil ) {
-        // Oh, we've removed the card? Then we'll remove the image, too.
-        [self setImage:nil forState:UIControlStateNormal];
+        // This card is getting picked up! Animate it flying towards its new owner.
+        SixisPlayerTableInfo *info = [[SixisPlayerTableInfo alloc] init];
+        info.game = oldCard.game;
+        info.player = oldCard.game.currentPlayer;
+        
+        CGPoint origin = self.center;
+        CGPoint destPoint = [info cardFlingCenter];
+        
+        SixisTabletopViewController *tabletop = (SixisTabletopViewController *)self.window.rootViewController;
+        [UIView animateWithDuration:1
+                         animations:^{
+                             tabletop.aCardAnimationIsOccurring = YES;
+                             self.center = destPoint;
+                         }
+                         completion:^(BOOL finished){
+                             [self setImage:nil forState:UIControlStateNormal];
+                             self.center = origin;
+                             tabletop.aCardAnimationIsOccurring = NO;
+                         }];
+        
         self.enabled = NO;
     }
     else {
@@ -53,7 +75,14 @@
         UIImage *highlightedImage1 = [UIImage imageNamed:[NSString stringWithFormat:@"%@Highlight1", cardClass]];
         UIImage *highlightedImage3 = [UIImage imageNamed:[NSString stringWithFormat:@"%@Highlight3", cardClass]];
         UIImage *animatedImage = [UIImage animatedImageWithImages:@[ highlightedImage1, highlightedImage2, highlightedImage1, image, image, image, image, image, image] duration:1];
-        [self setImage:animatedImage forState:UIControlStateSelected];
+        
+        [UIView transitionWithView:self
+                          duration:1
+                           options:UIViewAnimationOptionTransitionFlipFromLeft
+                        animations:^{ [self setImage:animatedImage forState:UIControlStateSelected]; }
+                        completion:NULL];
+        
+//        [self setImage:animatedImage forState:UIControlStateSelected];
 
     }
 }

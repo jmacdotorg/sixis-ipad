@@ -39,7 +39,7 @@
 @synthesize diceView;
 @synthesize mainMenuController;
 
-@synthesize game, currentPlayer;
+@synthesize game, currentPlayer, aCardAnimationIsOccurring;
 
 #define NAME_LABEL_TAG 10
 #define SCORE_LABEL_TAG 20
@@ -49,7 +49,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-
+        aCardAnimationIsOccurring = NO;
     }
     return self;
 }
@@ -521,6 +521,13 @@
     // Tell the card view at the given index that it's holding a new card.
     int index = [[[note userInfo] valueForKey:@"index"] intValue];
     SixisCard *card = [[note userInfo] valueForKey:@"card"];
+    [self dealCard:card toIndex:index];
+}
+ 
+-(void)dealCard:(SixisCard *)card toIndex:(int)index {
+    // Before making the card appear, check for whether a card from the last round is still flying around. If so, stop and wait for that animation to comple
+    
+    
     SixisCardView *cardView = [cards objectAtIndex:index];
     [cardView setCard:card];
     

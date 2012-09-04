@@ -20,6 +20,7 @@
 -(CGPoint) controlsCenter;
 -(CGPoint) textCenter;
 -(CGPoint) diceCenter;
+-(CGPoint) cardFlingCenter;
 -(CGRect) statusFrame;
 
 -(CGFloat) rotation;

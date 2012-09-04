@@ -72,6 +72,7 @@
     }
     int cardIndex = [self.game.cardsInPlay indexOfObject:card];
     cardJustTaken = card;
+    cardJustFlipped = nil;
     indexOfLastCardAction = cardIndex;
     NSLog(@"cardIndex: %d card: %@", cardIndex, card);
     [self.game.cardsInPlay replaceObjectAtIndex:cardIndex withObject:[NSNull null]];
@@ -79,9 +80,15 @@
 }
 
 -(void) flipCard:(SixisCard *)card {
+    // XXX This check shouldn't happen! It's here as I debug stuff.
+    if ( ! [card isBlue] ) {
+        NSLog(@"***ARGH*** A robot just tried to flip a red card: %@", card);
+        return;
+    }
     SixisCard *newCard = [card flipSide];
     int cardIndex = [self.game.cardsInPlay indexOfObject:card];
     cardJustFlipped = card;
+    cardJustTaken = nil;
     indexOfLastCardAction = cardIndex;
     NSLog(@"cardIndex: %d card: %@", cardIndex, card);
     [self.game.cardsInPlay replaceObjectAtIndex:cardIndex withObject:newCard];
@@ -160,8 +167,11 @@
     }
     else if ( cardJustTaken ) {
         [self.game.cardsInPlay replaceObjectAtIndex:indexOfLastCardAction withObject:cardJustTaken];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"SixisPlayerUntookCard" object:self userInfo:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:cardJustTaken, [NSNumber numberWithInt:indexOfLastCardAction], nil] forKeys:[NSArray arrayWithObjects:@"card", @"index", nil]]];
         self.score -= cardJustTaken.value;
+        if ( self.teammate ) {
+            self.teammate.score -= cardJustTaken.value;
+        }
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"SixisPlayerUntookCard" object:self userInfo:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:cardJustTaken, [NSNumber numberWithInt:indexOfLastCardAction], nil] forKeys:[NSArray arrayWithObjects:@"card", @"index", nil]]];
         cardJustTaken = nil;
     }
     // else, this is a no-op.

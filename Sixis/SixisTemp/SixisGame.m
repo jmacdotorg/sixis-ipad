@@ -235,7 +235,7 @@
         SixisCard *card = [cardsInPlay objectAtIndex:[index intValue]];
         if ( ! [ card isEqual:[NSNull null] ] ) {
             [availableCards addObject:card];
-            NSLog(@"I see %@ at index %d.", card, [index integerValue]);
+//            NSLog(@"I see %@ at index %d.", card, [index integerValue]);
         }
     }
     

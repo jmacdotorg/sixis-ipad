@@ -35,6 +35,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *textPromptLabel;
 @property (weak, nonatomic) IBOutlet UIButton *undoCardButton;
 @property (nonatomic) SixisMainMenuViewController *mainMenuController;
+@property (nonatomic) BOOL aCardAnimationIsOccurring;
 
 - (IBAction)handleRollAllDiceTap:(id)sender;
 - (IBAction)handleRollUnlockedDiceTap:(id)sender;

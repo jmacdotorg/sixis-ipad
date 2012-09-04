@@ -40,6 +40,23 @@
     return frame;
 }
 
+-(CGPoint) cardFlingCenter {
+    CGPoint frame;
+    if ( [self _tablePosition] == BOTTOM ) {
+        frame = CGPointMake(512, 868);
+    }
+    else if ( [self _tablePosition] == TOP ) {
+        frame = CGPointMake(512, -100);
+    }
+    else if ( [self _tablePosition] == RIGHT ) {
+        frame = CGPointMake(1124, 384);
+    }
+    else {
+        frame = CGPointMake(-100, 384);
+    }
+    return frame;
+}
+
 -(CGPoint) diceCenter {
     CGPoint frame;
     if ( [self _tablePosition] == BOTTOM ) {

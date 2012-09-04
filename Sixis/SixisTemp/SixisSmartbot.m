@@ -82,8 +82,8 @@
         }
         else {
             NSLog(@"But I can't pick it up yet. Maybe I can pick up something else.");
-            [self _endTurnWithTarget:[self targetCard]];
-            return;
+//            [self _endTurnWithTarget:[self targetCard]];
+//            return;
         }
     }
     else {

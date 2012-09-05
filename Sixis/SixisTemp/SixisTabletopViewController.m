@@ -518,15 +518,26 @@
 }
 
 -(void)handleDealtCard:(NSNotification *)note {
+    
     // Tell the card view at the given index that it's holding a new card.
     int index = [[[note userInfo] valueForKey:@"index"] intValue];
     SixisCard *card = [[note userInfo] valueForKey:@"card"];
     [self dealCard:card toIndex:index];
+
 }
  
 -(void)dealCard:(SixisCard *)card toIndex:(int)index {
-    // Before making the card appear, check for whether a card from the last round is still flying around. If so, stop and wait for that animation to comple
-    
+/*
+    // Before making the card appear, check for whether a card from the last round is still flying around. If so, stop, and try calling this method again a little later.
+    if ( aCardAnimationIsOccurring ) {
+        NSMethodSignature *signature = [SixisTabletopViewController instanceMethodSignatureForSelector:@selector(dealCard:toIndex:)];
+        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
+        [invocation setTarget:self];
+        [invocation setArgument:&card atIndex:0];
+        [invocation setArgument:&index atIndex:1];
+        return;
+    }
+  */
     
     SixisCardView *cardView = [cards objectAtIndex:index];
     [cardView setCard:card];

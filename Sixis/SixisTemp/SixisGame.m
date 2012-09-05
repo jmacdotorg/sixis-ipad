@@ -54,20 +54,7 @@
         int number = [players indexOfObject:player] + 1;
         [player setNumber:number];
     }
-    
-    // Register for various notifications.
-    // For the most part, we'll just react to these events by logging them.
-    // The controllers will also register as observers to the same events, and their reactions will of more interest to actual players.
-    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-    [nc addObserver:self selector:@selector(handleNewTurn:) name:@"SixisNewTurn" object:nil];
-    [nc addObserver:self selector:@selector(handleCardPickup:) name:@"SixisPlayerTookCard" object:nil];
-    [nc addObserver:self selector:@selector(handleCardFlip:) name:@"SixisPlayerFlippedCard" object:nil];
-    [nc addObserver:self selector:@selector(handleCardUnpickup:) name:@"SixisPlayerUntookCard" object:nil];
-    [nc addObserver:self selector:@selector(handleCardUnflip:) name:@"SixisPlayerUnflippedCard" object:nil];
-    [nc addObserver:self selector:@selector(handleDiceLock:) name:@"SixisPlayerLockedDice" object:nil];
-    [nc addObserver:self selector:@selector(handleDiceRoll:) name:@"SixisPlayerRolledDice" object:nil];
-    [nc addObserver:self selector:@selector(handleWinning:) name:@"SixisPlayersWon" object:nil];
-    [nc addObserver:self selector:@selector(handleDealtCard:) name:@"SixisCardDealt" object:nil];
+
     
     return self;
 }
@@ -90,6 +77,19 @@
     self.winningPlayers = nil;
     
     [self startRound];
+    
+    // XXX HACK for game night
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc addObserver:self selector:@selector(handleNewTurn:) name:@"SixisNewTurn" object:nil];
+    [nc addObserver:self selector:@selector(handleCardPickup:) name:@"SixisPlayerTookCard" object:nil];
+    [nc addObserver:self selector:@selector(handleCardFlip:) name:@"SixisPlayerFlippedCard" object:nil];
+    [nc addObserver:self selector:@selector(handleCardUnpickup:) name:@"SixisPlayerUntookCard" object:nil];
+    [nc addObserver:self selector:@selector(handleCardUnflip:) name:@"SixisPlayerUnflippedCard" object:nil];
+    [nc addObserver:self selector:@selector(handleDiceLock:) name:@"SixisPlayerLockedDice" object:nil];
+    [nc addObserver:self selector:@selector(handleDiceRoll:) name:@"SixisPlayerRolledDice" object:nil];
+    [nc addObserver:self selector:@selector(handleWinning:) name:@"SixisPlayersWon" object:nil];
+    [nc addObserver:self selector:@selector(handleDealtCard:) name:@"SixisCardDealt" object:nil];
+    
 }
 
 -(void)startRound {
@@ -100,6 +100,7 @@
     [self.gameType checkForWinner];
     if ( self.winningPlayers ) {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"SixisPlayersWon" object:self userInfo:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:self.winningPlayers, nil] forKeys:[NSArray arrayWithObjects:@"players", nil]]];
+        [self unsave];
         return;
     }
     
@@ -139,6 +140,7 @@
     // If someone just won the game, make that info public, and stop.
     [self.gameType checkForWinner];
     if ( self.winningPlayers ) {
+        [self unsave];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"SixisPlayersWon" object:self userInfo:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:self.winningPlayers, nil] forKeys:[NSArray arrayWithObjects:@"players", nil]]];
         return;
     }

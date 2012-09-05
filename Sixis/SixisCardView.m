@@ -41,24 +41,30 @@
     card = newCard;
     // Also set this object's image.
     if ( newCard == nil ) {
-        // This card is getting picked up! Animate it flying towards its new owner.
+        // This card is getting picked up!
+        
+        // Remove the card image from the original (and permanent) card view.
+        [self setImage:nil forState:UIControlStateNormal];
+        
         SixisPlayerTableInfo *info = [[SixisPlayerTableInfo alloc] init];
         info.game = oldCard.game;
         info.player = oldCard.game.currentPlayer;
         
-        CGPoint origin = self.center;
+        // Make a copy of this card's view, sitting on top of the card.
+        SixisCardView *copy = [[SixisCardView alloc] initWithFrame:self.frame];
+        [copy setCard:oldCard];
+        [copy setTransform:self.transform];
+        [self.superview addSubview:copy];
+        
+        // Animate the copy flying towards the player who picked it up. Then throw it out.
         CGPoint destPoint = [info cardFlingCenter];
         
-        SixisTabletopViewController *tabletop = (SixisTabletopViewController *)self.window.rootViewController;
         [UIView animateWithDuration:1
                          animations:^{
-                             tabletop.aCardAnimationIsOccurring = YES;
-                             self.center = destPoint;
+                             copy.center = destPoint;
                          }
                          completion:^(BOOL finished){
-                             [self setImage:nil forState:UIControlStateNormal];
-                             self.center = origin;
-                             tabletop.aCardAnimationIsOccurring = NO;
+                             [copy removeFromSuperview];
                          }];
         
         self.enabled = NO;

@@ -10,7 +10,9 @@
 
 @class SixisCard;
 
-@interface SixisCardView : UIButton
+@interface SixisCardView : UIButton {
+
+}
 
 @property (nonatomic, strong) SixisCard *card;
 

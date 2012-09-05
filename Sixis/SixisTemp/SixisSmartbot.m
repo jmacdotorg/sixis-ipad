@@ -11,7 +11,7 @@
 #import "SixisDie.h"
 #import "SixisCard.h"
 
-#define SNOOZE_LENGTH .1
+#define SNOOZE_LENGTH .5
 #define FLIP_PROBABILITY .75
 
 @implementation SixisSmartbot
@@ -82,8 +82,6 @@
         }
         else {
             NSLog(@"But I can't pick it up yet. Maybe I can pick up something else.");
-//            [self _endTurnWithTarget:[self targetCard]];
-//            return;
         }
     }
     else {

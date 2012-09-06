@@ -169,6 +169,11 @@
 		89A4F85915DF01AA00FAE553 /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 89A4F85815DF01AA00FAE553 /* Default-Landscape@2x~ipad.png */; };
 		89A4F85B15DF02FB00FAE553 /* icon_72.png in Resources */ = {isa = PBXBuildFile; fileRef = 89A4F85A15DF02FB00FAE553 /* icon_72.png */; };
 		89A4F85D15DF02FE00FAE553 /* icon_144.png in Resources */ = {isa = PBXBuildFile; fileRef = 89A4F85C15DF02FD00FAE553 /* icon_144.png */; };
+		89AA44E915F7E71A002C6D0D /* two_dice_on_wood.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 89AA44E715F7E71A002C6D0D /* two_dice_on_wood.aiff */; };
+		89AA44EA15F7E71A002C6D0D /* two_dice_shake.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 89AA44E815F7E71A002C6D0D /* two_dice_shake.aiff */; };
+		89AA44EC15F7EE94002C6D0D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89AA44EB15F7EE94002C6D0D /* AVFoundation.framework */; };
+		89AA44F215F80345002C6D0D /* shuffle.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 89AA44F115F80344002C6D0D /* shuffle.aiff */; };
+		89AA44F415F81AEC002C6D0D /* cardflip.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 89AA44F315F81AEC002C6D0D /* cardflip.aiff */; };
 		89ADEBFF15B4E24300F0F82C /* FourOnes.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEBDB15B4E24300F0F82C /* FourOnes.png */; };
 		89ADEC0015B4E24300F0F82C /* DoubleOnes.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEBDC15B4E24300F0F82C /* DoubleOnes.png */; };
 		89ADEC0115B4E24300F0F82C /* FourTwos.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEBDD15B4E24300F0F82C /* FourTwos.png */; };
@@ -470,6 +475,11 @@
 		89A4F85815DF01AA00FAE553 /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
 		89A4F85A15DF02FB00FAE553 /* icon_72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_72.png; sourceTree = "<group>"; };
 		89A4F85C15DF02FD00FAE553 /* icon_144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_144.png; sourceTree = "<group>"; };
+		89AA44E715F7E71A002C6D0D /* two_dice_on_wood.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = two_dice_on_wood.aiff; sourceTree = "<group>"; };
+		89AA44E815F7E71A002C6D0D /* two_dice_shake.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = two_dice_shake.aiff; sourceTree = "<group>"; };
+		89AA44EB15F7EE94002C6D0D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		89AA44F115F80344002C6D0D /* shuffle.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = shuffle.aiff; path = ../../../../../Desktop/shuffle.aiff; sourceTree = "<group>"; };
+		89AA44F315F81AEC002C6D0D /* cardflip.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = cardflip.aiff; path = ../../../../../Desktop/cardflip.aiff; sourceTree = "<group>"; };
 		89ADEBDB15B4E24300F0F82C /* FourOnes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FourOnes.png; sourceTree = "<group>"; };
 		89ADEBDC15B4E24300F0F82C /* DoubleOnes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DoubleOnes.png; sourceTree = "<group>"; };
 		89ADEBDD15B4E24300F0F82C /* FourTwos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FourTwos.png; sourceTree = "<group>"; };
@@ -668,6 +678,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89AA44EC15F7EE94002C6D0D /* AVFoundation.framework in Frameworks */,
 				89EFB3E515926DAC00D09240 /* UIKit.framework in Frameworks */,
 				89EFB3E715926DAC00D09240 /* Foundation.framework in Frameworks */,
 				89EFB3E915926DAC00D09240 /* CoreGraphics.framework in Frameworks */,
@@ -696,6 +707,17 @@
 				8925DD6A15CC352700C1399A /* wood.jpg */,
 			);
 			name = "Table images";
+			sourceTree = "<group>";
+		};
+		89AA44F515F81B12002C6D0D /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				89AA44E715F7E71A002C6D0D /* two_dice_on_wood.aiff */,
+				89AA44E815F7E71A002C6D0D /* two_dice_shake.aiff */,
+				89AA44F315F81AEC002C6D0D /* cardflip.aiff */,
+				89AA44F115F80344002C6D0D /* shuffle.aiff */,
+			);
+			name = Sounds;
 			sourceTree = "<group>";
 		};
 		89ADEBDA15B4E24000F0F82C /* Card Artwork */ = {
@@ -909,9 +931,11 @@
 		89EFB3D515926DAB00D09240 = {
 			isa = PBXGroup;
 			children = (
+				89AA44EB15F7EE94002C6D0D /* AVFoundation.framework */,
 				89A4F85C15DF02FD00FAE553 /* icon_144.png */,
 				89A4F85A15DF02FB00FAE553 /* icon_72.png */,
 				89A4F85815DF01AA00FAE553 /* Default-Landscape@2x~ipad.png */,
+				89AA44F515F81B12002C6D0D /* Sounds */,
 				89A4F85515DF019900FAE553 /* Default-Landscape~ipad.png */,
 				89CBE86315BDE5EB0045AD3E /* SixisCardView.h */,
 				89CBE86415BDE5EB0045AD3E /* SixisCardView.m */,
@@ -1448,6 +1472,10 @@
 				89A4F85915DF01AA00FAE553 /* Default-Landscape@2x~ipad.png in Resources */,
 				89A4F85B15DF02FB00FAE553 /* icon_72.png in Resources */,
 				89A4F85D15DF02FE00FAE553 /* icon_144.png in Resources */,
+				89AA44E915F7E71A002C6D0D /* two_dice_on_wood.aiff in Resources */,
+				89AA44EA15F7E71A002C6D0D /* two_dice_shake.aiff in Resources */,
+				89AA44F215F80345002C6D0D /* shuffle.aiff in Resources */,
+				89AA44F415F81AEC002C6D0D /* cardflip.aiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

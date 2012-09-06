@@ -23,11 +23,15 @@
 #import "SixisRoundsGame.h"
 #import "SixisPointsGame.h"
 
+#import <AVFoundation/AVFoundation.h>
+
 @interface SixisTabletopViewController ()
 
 @end
 
 @implementation SixisTabletopViewController
+@synthesize roundEndExplanationLabel;
+@synthesize roundEndControls;
 @synthesize endRoundButton;
 @synthesize textPromptLabel;
 @synthesize undoCardButton;
@@ -99,6 +103,8 @@
     [self setTextPromptLabel:nil];
     [self setGameOverView:nil];
     [self setUndoCardButton:nil];
+    [self setRoundEndExplanationLabel:nil];
+    [self setRoundEndControls:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -292,20 +298,23 @@
     else if ( [firstPlayer isEqual:currentPlayer] ) {
         thisIsTheFirstGoRound = NO;
     }
-        
+
+    // Get the current player's tableInfo object.
+    SixisPlayerTableInfo *info = (SixisPlayerTableInfo *)[tableInfoForPlayer objectForKey:[currentPlayer name]];
+    
+    // Reposition the UIView that holds the rolled dice.
+    diceView.hidden = YES;
+    CGPoint diceCenter = info.diceCenter;
+    [diceView setCenter:diceCenter];
+    [diceView setTransform:CGAffineTransformMakeRotation(info.rotation)];
+
     // If the current player is a human, plop the control view on the screen, placed and rotated in a position appropriate to that player.
     if ( [currentPlayer isKindOfClass:[SixisHuman class]]) {
-        SixisPlayerTableInfo *info = (SixisPlayerTableInfo *)[tableInfoForPlayer objectForKey:[currentPlayer name]];
+
         CGPoint controlsCenter = info.controlsCenter;
         [playerControls setCenter:controlsCenter];
         [playerControls setTransform:CGAffineTransformMakeRotation(info.rotation)];
         playerControls.hidden = NO;
-        
-        // Reposition the UIView that holds the rolled dice.
-        CGPoint diceCenter = info.diceCenter;
-        [diceView setCenter:diceCenter];
-        [diceView setTransform:CGAffineTransformMakeRotation(info.rotation)];
-        diceView.hidden = NO;
         
         // Reposition and show the UILabel that displays the text prompt.
         CGPoint textCenter = info.textCenter;
@@ -331,7 +340,6 @@
             [self _setTitleOfButton:rollUnlockedDiceButton toString:@"Roll Unlocked"];
         }
         
-        diceView.hidden = YES;
         endTurnButton.hidden = YES;
         undoCardButton.hidden = YES;
         
@@ -366,9 +374,9 @@
         [textPromptLabel setText:newText];
     }
     else {
-        // The player is a robot, so hide all the player controls.
+        // The player is a robot, so hide all the player controls and stuff.
         playerControls.hidden = YES;
-        diceView.hidden = YES;
+        textPromptLabel.hidden = YES;
     }
     
 }
@@ -391,15 +399,26 @@
         [dieView setDie:nil];
     }
     
+    // Play a dice-rolling sound.
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"two_dice_on_wood" withExtension:@"aiff"];
+    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:NULL];
+    [audioPlayer play];
+    
     // Update the dice imageviews.
+    if ( diceView.hidden ) {
+        diceView.hidden = NO;
+    }
+    
     NSArray *dieViews = [diceView subviews];
     for (SixisDieView *dieView in dieViews) {
         if ( dice.count == 0 ) {
             break;
         }
         SixisDie *die = [dice anyObject];
-        [dice removeObject:die];
-        [dieView setDie:die];
+//        if ( ! die.isLocked ) {
+            [dice removeObject:die];
+            [dieView setDie:die];
+//        }
     }
     [self _selectOnlyLockedDice];
     
@@ -434,6 +453,11 @@
 
     // Unhide the undo button.
     undoCardButton.hidden = NO;
+    
+    // Make a flippy noise.
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"cardflip" withExtension:@"aiff"];
+    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:NULL];
+    [audioPlayer play];
     
 }
 
@@ -527,20 +551,16 @@
 }
  
 -(void)dealCard:(SixisCard *)card toIndex:(int)index {
-/*
-    // Before making the card appear, check for whether a card from the last round is still flying around. If so, stop, and try calling this method again a little later.
-    if ( aCardAnimationIsOccurring ) {
-        NSMethodSignature *signature = [SixisTabletopViewController instanceMethodSignatureForSelector:@selector(dealCard:toIndex:)];
-        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
-        [invocation setTarget:self];
-        [invocation setArgument:&card atIndex:0];
-        [invocation setArgument:&index atIndex:1];
-        return;
-    }
-  */
     
     SixisCardView *cardView = [cards objectAtIndex:index];
     [cardView setCard:card];
+    
+    // Make a card-shuffle noise (if none such is playing).
+    if ( ! audioPlayer.playing ) {
+        NSURL *url = [[NSBundle mainBundle] URLForResource:@"shuffle" withExtension:@"aiff"];
+        audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:NULL];
+        [audioPlayer play];
+    }
     
     // Make sure that all players' banks are empty.
     // XXX This is inefficient; should really just fire on the first dealt card. Eh.
@@ -569,6 +589,11 @@
     
     // Unhide the undo button.
     undoCardButton.hidden = NO;
+    
+    // Make a flippy noise.
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"cardflip" withExtension:@"aiff"];
+    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:NULL];
+    [audioPlayer play];
 }
 
 -(void)handleCardUnflip:(NSNotification *) note {
@@ -769,5 +794,8 @@
 
 - (IBAction)handleUndoCard:(id)sender {
     [currentPlayer undoLastAction];
+}
+
+- (IBAction)handleNextRound:(id)sender {
 }
 @end

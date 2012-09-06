@@ -74,22 +74,22 @@
         // matches the card's classname (minus the "SixisCard" prefix).
         NSString *cardClass = [NSStringFromClass([newCard class]) substringFromIndex:9];
         UIImage *image = [UIImage imageNamed:cardClass];
-        [self setImage:image forState:UIControlStateNormal];
         
         NSString *highlightedFile = [NSString stringWithFormat:@"%@Highlight2", cardClass];
         UIImage *highlightedImage2 = [UIImage imageNamed:highlightedFile];
         UIImage *highlightedImage1 = [UIImage imageNamed:[NSString stringWithFormat:@"%@Highlight1", cardClass]];
         UIImage *highlightedImage3 = [UIImage imageNamed:[NSString stringWithFormat:@"%@Highlight3", cardClass]];
-        UIImage *animatedImage = [UIImage animatedImageWithImages:@[ highlightedImage1, highlightedImage2, highlightedImage1, image, image, image, image, image, image] duration:1];
-        
+        UIImage *animatedImage = [UIImage animatedImageWithImages:@[ highlightedImage1, highlightedImage2, highlightedImage3, highlightedImage2, highlightedImage1, image, image, image, image, image] duration:1];
+
         [UIView transitionWithView:self
                           duration:1
                            options:UIViewAnimationOptionTransitionFlipFromLeft
-                        animations:^{ [self setImage:animatedImage forState:UIControlStateSelected]; }
+                        animations:^{ 
+                            [self setImage:animatedImage forState:UIControlStateSelected];
+                            [self setImage:image forState:UIControlStateNormal];
+                        }
                         completion:NULL];
         
-//        [self setImage:animatedImage forState:UIControlStateSelected];
-
     }
 }
 

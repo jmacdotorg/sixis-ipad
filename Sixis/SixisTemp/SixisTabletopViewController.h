@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
 @class SixisGame;
 @class SixisPlayer;
@@ -24,6 +25,7 @@
     SixisPlayer *firstPlayer;
     BOOL thisIsTheFirstGoRound;
     SixisGameType *originalGameType;
+    AVAudioPlayer *audioPlayer;
 }
 @property (weak, nonatomic) IBOutlet UILabel *winMessage;
 @property (weak, nonatomic) IBOutlet UIView *gameOverView;
@@ -36,6 +38,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *undoCardButton;
 @property (nonatomic) SixisMainMenuViewController *mainMenuController;
 @property (nonatomic) BOOL aCardAnimationIsOccurring;
+@property (weak, nonatomic) IBOutlet UILabel *roundEndExplanationLabel;
+@property (weak, nonatomic) IBOutlet UIView *roundEndControls;
 
 - (IBAction)handleRollAllDiceTap:(id)sender;
 - (IBAction)handleRollUnlockedDiceTap:(id)sender;
@@ -48,6 +52,7 @@
 - (IBAction)handleMainMenu:(id)sender;
 - (IBAction)handleAddRound:(id)sender;
 - (IBAction)handleUndoCard:(id)sender;
+- (IBAction)handleNextRound:(id)sender;
 
 
 @property (nonatomic, strong) SixisGame *game;

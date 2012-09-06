@@ -172,8 +172,8 @@
 		89AA44E915F7E71A002C6D0D /* two_dice_on_wood.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 89AA44E715F7E71A002C6D0D /* two_dice_on_wood.aiff */; };
 		89AA44EA15F7E71A002C6D0D /* two_dice_shake.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 89AA44E815F7E71A002C6D0D /* two_dice_shake.aiff */; };
 		89AA44EC15F7EE94002C6D0D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89AA44EB15F7EE94002C6D0D /* AVFoundation.framework */; };
-		89AA44F215F80345002C6D0D /* shuffle.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 89AA44F115F80344002C6D0D /* shuffle.aiff */; };
-		89AA44F415F81AEC002C6D0D /* cardflip.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 89AA44F315F81AEC002C6D0D /* cardflip.aiff */; };
+		89AA44F715F820A7002C6D0D /* cardflip.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 89AA44F615F820A7002C6D0D /* cardflip.aiff */; };
+		89AA44F915F820CA002C6D0D /* shuffle.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 89AA44F815F820CA002C6D0D /* shuffle.aiff */; };
 		89ADEBFF15B4E24300F0F82C /* FourOnes.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEBDB15B4E24300F0F82C /* FourOnes.png */; };
 		89ADEC0015B4E24300F0F82C /* DoubleOnes.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEBDC15B4E24300F0F82C /* DoubleOnes.png */; };
 		89ADEC0115B4E24300F0F82C /* FourTwos.png in Resources */ = {isa = PBXBuildFile; fileRef = 89ADEBDD15B4E24300F0F82C /* FourTwos.png */; };
@@ -478,8 +478,8 @@
 		89AA44E715F7E71A002C6D0D /* two_dice_on_wood.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = two_dice_on_wood.aiff; sourceTree = "<group>"; };
 		89AA44E815F7E71A002C6D0D /* two_dice_shake.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = two_dice_shake.aiff; sourceTree = "<group>"; };
 		89AA44EB15F7EE94002C6D0D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		89AA44F115F80344002C6D0D /* shuffle.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = shuffle.aiff; path = ../../../../../Desktop/shuffle.aiff; sourceTree = "<group>"; };
-		89AA44F315F81AEC002C6D0D /* cardflip.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = cardflip.aiff; path = ../../../../../Desktop/cardflip.aiff; sourceTree = "<group>"; };
+		89AA44F615F820A7002C6D0D /* cardflip.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = cardflip.aiff; sourceTree = "<group>"; };
+		89AA44F815F820CA002C6D0D /* shuffle.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = shuffle.aiff; sourceTree = "<group>"; };
 		89ADEBDB15B4E24300F0F82C /* FourOnes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FourOnes.png; sourceTree = "<group>"; };
 		89ADEBDC15B4E24300F0F82C /* DoubleOnes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DoubleOnes.png; sourceTree = "<group>"; };
 		89ADEBDD15B4E24300F0F82C /* FourTwos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FourTwos.png; sourceTree = "<group>"; };
@@ -714,8 +714,8 @@
 			children = (
 				89AA44E715F7E71A002C6D0D /* two_dice_on_wood.aiff */,
 				89AA44E815F7E71A002C6D0D /* two_dice_shake.aiff */,
-				89AA44F315F81AEC002C6D0D /* cardflip.aiff */,
-				89AA44F115F80344002C6D0D /* shuffle.aiff */,
+				89AA44F615F820A7002C6D0D /* cardflip.aiff */,
+				89AA44F815F820CA002C6D0D /* shuffle.aiff */,
 			);
 			name = Sounds;
 			sourceTree = "<group>";
@@ -1474,8 +1474,8 @@
 				89A4F85D15DF02FE00FAE553 /* icon_144.png in Resources */,
 				89AA44E915F7E71A002C6D0D /* two_dice_on_wood.aiff in Resources */,
 				89AA44EA15F7E71A002C6D0D /* two_dice_shake.aiff in Resources */,
-				89AA44F215F80345002C6D0D /* shuffle.aiff in Resources */,
-				89AA44F415F81AEC002C6D0D /* cardflip.aiff in Resources */,
+				89AA44F715F820A7002C6D0D /* cardflip.aiff in Resources */,
+				89AA44F915F820CA002C6D0D /* shuffle.aiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

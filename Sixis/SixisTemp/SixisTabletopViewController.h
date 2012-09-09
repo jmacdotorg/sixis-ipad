@@ -40,6 +40,7 @@
 @property (nonatomic) BOOL aCardAnimationIsOccurring;
 @property (weak, nonatomic) IBOutlet UILabel *roundEndExplanationLabel;
 @property (weak, nonatomic) IBOutlet UIView *roundEndControls;
+@property (weak, nonatomic) IBOutlet UILabel *gameEndExplanationLabel;
 
 - (IBAction)handleRollAllDiceTap:(id)sender;
 - (IBAction)handleRollUnlockedDiceTap:(id)sender;

@@ -79,4 +79,8 @@
     return self;
 }
 
+-(NSString *)gameEndReason {
+    return [self.game roundEndExplanation];
+}
+
 @end

@@ -44,4 +44,8 @@
     [aCoder encodeInt:goal forKey:@"goal"];
 }
 
+-(NSString *)gameEndReason {
+    return [NSString stringWithFormat:@"The game ended because the winners reached the %d-point goal.", self.goal];
+}
+
 @end

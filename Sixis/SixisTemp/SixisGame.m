@@ -72,7 +72,7 @@
         player.score = 0;
     }
     
-    self.currentRound = 0; // startRound will increment this to 1
+    self.currentRound = 1;
     
     self.winningPlayers = nil;
     
@@ -93,16 +93,6 @@
 }
 
 -(void)startRound {
-    // Increment round straight away, since that might be an endgame condition.
-    self.currentRound++;
-    
-    // If someone just won the game, make that info public, and stop.
-    [self.gameType checkForWinner];
-    if ( self.winningPlayers ) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"SixisPlayersWon" object:self userInfo:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:self.winningPlayers, nil] forKeys:[NSArray arrayWithObjects:@"players", nil]]];
-        [self unsave];
-        return;
-    }
     
     // Set this so that the public new-round property flag goes up when the turn starts:
     shouldRaiseNewRoundFlag = YES;
@@ -134,6 +124,22 @@
     self.currentPlayer = [players objectAtIndex:0];
     
     [self startTurn];
+}
+
+-(void) endRound {
+    // Increment round straight away, since that might be an endgame condition.
+    self.currentRound++;
+    
+    // If someone just won the game, make that info public, and stop.
+    [self.gameType checkForWinner];
+    if ( self.winningPlayers ) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"SixisPlayersWon" object:self userInfo:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:self.winningPlayers, nil] forKeys:[NSArray arrayWithObjects:@"players", nil]]];
+        [self unsave];
+        return;
+    }
+    else {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"SixisRoundEnded" object:self userInfo:nil];
+    }
 }
 
 -(void)startTurn {
@@ -173,7 +179,7 @@
         
     // Check for round-end. (This MUST happen AFTER advancing the player-pointer.)
     if ( [self.playersType roundHasEnded] ) {
-        [self startRound];
+        [self endRound];
         return;
     }
 
@@ -373,5 +379,18 @@
     // This is saying: the filename is "games.archive". And the full path is just that appended to the app's document directory.
     return [documentDirectory stringByAppendingPathComponent:@"game.archive"];
 }
+
+-(NSString *)roundEndExplanation {
+    if ( [[cardsInPlay objectAtIndex:0] isEqual:[NSNull null]] ) {
+        return @"Taking the Sixis card makes the round end immediately.";
+    }
+    else if ( players.count > 2 ) {
+        return @"The round's over because the current player has only the Sixis available.";
+    }
+    else {
+        return @"The last player chose to declare the round over.";
+    }
+}
+
 
 @end

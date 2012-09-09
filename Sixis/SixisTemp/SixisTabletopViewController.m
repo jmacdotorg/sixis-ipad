@@ -32,6 +32,7 @@
 @implementation SixisTabletopViewController
 @synthesize roundEndExplanationLabel;
 @synthesize roundEndControls;
+@synthesize gameEndExplanationLabel;
 @synthesize endRoundButton;
 @synthesize textPromptLabel;
 @synthesize undoCardButton;
@@ -73,6 +74,7 @@
     [nc addObserver:self selector:@selector(handleDiceRoll:) name:@"SixisPlayerRolledDice" object:nil];
     [nc addObserver:self selector:@selector(handleWinning:) name:@"SixisPlayersWon" object:nil];
     [nc addObserver:self selector:@selector(handleDealtCard:) name:@"SixisCardDealt" object:nil];
+    [nc addObserver:self selector:@selector(handleRoundEnd:) name:@"SixisRoundEnded" object:nil];
     
     // Load the player-controls view from its XIB.
     playerControls = [[[NSBundle mainBundle] loadNibNamed:@"SixisPlayerControls" owner:self options:nil] objectAtIndex:0];
@@ -105,6 +107,7 @@
     [self setUndoCardButton:nil];
     [self setRoundEndExplanationLabel:nil];
     [self setRoundEndControls:nil];
+    [self setGameEndExplanationLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -537,6 +540,7 @@
     }
     winMessage.text = winners;
     
+    gameEndExplanationLabel.text = [game.gameType gameEndReason];
     [gameOverView setHidden:NO];
     [self.view bringSubviewToFront:gameOverView];
 }
@@ -736,7 +740,7 @@
 }
 
 - (IBAction)handleEndRoundButtonTap:(id)sender {
-    [game startRound];
+    [game endRound];
 }
 
 - (IBAction)handlePlayAgain:(id)sender {
@@ -775,6 +779,7 @@
 }
 
 - (IBAction)handleAddRound:(id)sender {
+    game.currentRound++;
     if ( [game.gameType isKindOfClass:[SixisRoundsGame class]] ) {
         SixisRoundsGame *gameType = (SixisRoundsGame *)game.gameType;
         game.currentRound--;
@@ -785,6 +790,7 @@
     }
     else {
         SixisRoundsGame *gameType = [[SixisRoundsGame alloc] initWithRounds:2];
+        game.currentRound = 2;
         game.gameType = gameType;
         gameOverView.hidden = YES;
         game.winningPlayers = nil;
@@ -797,5 +803,18 @@
 }
 
 - (IBAction)handleNextRound:(id)sender {
+    roundEndControls.hidden = YES;
+    [game startRound];
 }
+
+-(void)handleRoundEnd:(NSNotification *)note {
+    
+    // Update the explanation text.
+    roundEndExplanationLabel.text = [game roundEndExplanation];
+    
+    // Display the round-end dialog.
+    roundEndControls.hidden = NO;
+    [self.view bringSubviewToFront:roundEndControls];    
+}
+
 @end

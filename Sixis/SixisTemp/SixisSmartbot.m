@@ -11,7 +11,7 @@
 #import "SixisDie.h"
 #import "SixisCard.h"
 
-#define SNOOZE_LENGTH .5
+#define SNOOZE_LENGTH .3
 #define FLIP_PROBABILITY .75
 
 @implementation SixisSmartbot
@@ -22,7 +22,7 @@
     // Before anything happens: If this is a two-player game, and I have the option of ending the round, _and_ I am winning, end the round.
     if ( [self.game roundMightEnd] && [[[self.game.players sortedArrayUsingSelector:@selector(compareScores:)] objectAtIndex:0] isEqual:self] ) {
         NSLog(@"I'm declaring this round over!");
-        [[self game] startRound];
+        [self.game endRound];
         return;
     }
     

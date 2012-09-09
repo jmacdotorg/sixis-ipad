@@ -20,5 +20,6 @@
 @property (nonatomic, weak) SixisGame *game;
 
 -(void) checkForWinner;
+-(NSString *) gameEndReason;
 
 @end

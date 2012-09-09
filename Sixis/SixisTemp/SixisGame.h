@@ -89,12 +89,16 @@ It then calls startRound:.
  */
 -(void)startGame;
 
-/** Starts a new round, incrementing the round counter. Shuffles the deck and deals out cards to the table. The number of cards it deals varies depending upon the playersType object present.
+/** Starts a new round. Shuffles the deck and deals out cards to the table. The number of cards it deals varies depending upon the playersType object present.
 
 It then calls startTurn:.
 
  */
 -(void)startRound;
+
+
+/// Ends the current round, and sends out a notification about this.
+-(void)endRound;
 
 /** Starts a new turn, shifting the currentPlayer pointer appropriately. */
 -(void)startTurn;
@@ -119,6 +123,9 @@ It then calls startTurn:.
 
 /// Removes this game's save-position from the filesystem.
 -(void) unsave;
+
+/// An (English-only, at this time) explanation of why the round just ended. Note that it does no sanity-checking of whether a round actually did just end. Calling this method at any other time won't give you meaningful information.
+-(NSString *) roundEndExplanation;
 
 // Notification handlers
 -(void)handleNewTurn:(NSNotification *)note;

@@ -8,13 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@class SixisPlayer;
-@class SixisGame;
 
 @interface SixisPlayerTableInfo : NSObject
 
-@property (nonatomic) SixisPlayer *player;
-@property (nonatomic, weak) SixisGame *game;
+@property (nonatomic) int playerNumber;
+@property (nonatomic) int playerCount;
 @property (nonatomic) UIView *statusBar;
 
 -(CGPoint) controlsCenter;

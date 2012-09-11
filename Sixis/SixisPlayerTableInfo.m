@@ -21,7 +21,7 @@
 #define DICE_HEIGHT 136
 #define BANK_WIDTH 391
 
-@synthesize game, player;
+@synthesize playerCount, playerNumber;
 
 -(CGPoint) controlsCenter {
     CGPoint frame;
@@ -60,10 +60,10 @@
 -(CGPoint) diceCenter {
     CGPoint frame;
     if ( [self _tablePosition] == BOTTOM ) {
-        if ( game.players.count == 2 ) {
+        if ( playerCount == 2 ) {
             frame = CGPointMake(759, 533 );
         }
-        else if ( game.players.count == 3 ) {
+        else if ( playerCount == 3 ) {
             frame = CGPointMake(385, 555 );
         }
         else {
@@ -71,10 +71,10 @@
         }
     }
     else if ( [self _tablePosition] == TOP ) {
-        if ( game.players.count == 2 ) {
+        if ( playerCount == 2 ) {
             frame = CGPointMake(265, 215 );
         }
-        else if ( game.players.count == 3 ) {
+        else if ( playerCount == 3 ) {
             frame = CGPointMake(225, 168 );
         }
         else {
@@ -93,10 +93,10 @@
 -(CGPoint) textCenter {
     CGPoint frame;
     if ( [self _tablePosition] == TOP ) {
-        if ( game.players.count == 2 ) {
+        if ( playerCount == 2 ) {
             frame = CGPointMake(759, 533 );
         }
-        else if ( game.players.count == 3 ) {
+        else if ( playerCount == 3 ) {
             frame = CGPointMake(385, 555 );
         }
         else {
@@ -104,10 +104,10 @@
         }
     }
     else if ( [self _tablePosition] == BOTTOM ) {
-        if ( game.players.count == 2 ) {
+        if ( playerCount == 2 ) {
             frame = CGPointMake(265, 215 );
         }
-        else if ( game.players.count == 3 ) {
+        else if ( playerCount == 3 ) {
             frame = CGPointMake(225, 168 );
         }
         else {
@@ -118,7 +118,7 @@
         frame = CGPointMake(874, 375 );
     }
     else {
-        if ( game.players.count == 3 ) {
+        if ( playerCount == 3 ) {
             frame = CGPointMake(200, 575);
         }
         else {
@@ -161,13 +161,13 @@
 
 // _tablePosition: Return whether this player is sitting at the bottom/left/top/right, assuming that player 1 is sitting at the bottom.
 -(int) _tablePosition {
-    if (player.number == 1) {
+    if (playerNumber == 1) {
         return BOTTOM;
     }
-    else if ( (player.number == 2 && game.players.count < 4) || ( player.number == 3 && game.players.count == 4 ) ) {
+    else if ( (playerNumber == 2 && playerCount < 4) || ( playerNumber == 3 && playerCount == 4 ) ) {
         return TOP;
     }
-    else if ( (player.number == 3 && game.players.count == 3) || player.number == 4 ) {
+    else if ( (playerNumber == 3 && playerCount == 3) || playerNumber == 4 ) {
         return RIGHT;
     }
     else {

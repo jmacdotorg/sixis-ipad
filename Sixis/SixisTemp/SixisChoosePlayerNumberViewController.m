@@ -13,6 +13,7 @@
 #import "SixisPlayerSetupViewController.h"
 #import "SixisGameLengthViewController.h"
 #import "SixisTeamOrNotViewController.h"
+#import "SixisMainMenuViewController.h"
 
 @interface SixisChoosePlayerNumberViewController ()
 
@@ -31,6 +32,10 @@
         
     }
     return self;
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [(SixisMainMenuViewController *)self.view.window.rootViewController hideSeatingArrangement];
 }
 
 - (void)viewDidLoad
@@ -59,6 +64,8 @@
     SixisGameLengthViewController *controller = [[SixisGameLengthViewController alloc] init];
     [controller setGameInfo:gameInfo];
     [self.navigationController pushViewController:controller animated:NO];
+    [(SixisMainMenuViewController *)self.view.window.rootViewController displaySeatingArrangementWithGameInfo:gameInfo];
+
 }
 
 - (IBAction)threePlayerButtonTapped:(id)sender {
@@ -69,6 +76,8 @@
     SixisGameLengthViewController *controller = [[SixisGameLengthViewController alloc] init];
     [controller setGameInfo:gameInfo];
     [self.navigationController pushViewController:controller animated:NO];
+    [(SixisMainMenuViewController *)self.view.window.rootViewController displaySeatingArrangementWithGameInfo:gameInfo];
+
 }
 
 - (IBAction)fourPlayerButtonTapped:(id)sender {
@@ -77,6 +86,7 @@
     SixisTeamOrNotViewController *controller = [[SixisTeamOrNotViewController alloc] init];
     [controller setGameInfo:gameInfo];
     [self.navigationController pushViewController:controller animated:NO];
+    [(SixisMainMenuViewController *)self.view.window.rootViewController displaySeatingArrangementWithGameInfo:gameInfo];
 }
 
 @end

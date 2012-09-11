@@ -218,8 +218,8 @@
         
         // Initialize a table-info object for this player.
         SixisPlayerTableInfo *tableInfo = [[SixisPlayerTableInfo alloc] init];
-        tableInfo.player = player;
-        tableInfo.game = game;
+        tableInfo.playerNumber = player.number;
+        tableInfo.playerCount = game.players.count;
         tableInfo.statusBar = statusBar;
 
         [tableInfos addObject:tableInfo];

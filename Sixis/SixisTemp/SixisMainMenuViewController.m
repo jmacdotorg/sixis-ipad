@@ -7,10 +7,11 @@
 //
 
 #import "SixisMainMenuViewController.h"
-#import "SixisChoosePlayerNumberViewController.h"
+#import "SixisFirstActionsViewController.h"
 #import "SixisNewGameInfo.h"
 #import "SixisRoundsGame.h"
 #import "SixisTabletopViewController.h"
+#import "SixisPlayerTableInfo.h"
 
 
 @interface SixisMainMenuViewController ()
@@ -25,6 +26,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        seatLabels = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -34,7 +36,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
         
-    SixisChoosePlayerNumberViewController *numberController = [[SixisChoosePlayerNumberViewController alloc] init];
+    SixisFirstActionsViewController *numberController = [[SixisFirstActionsViewController alloc] init];
     
     SixisNewGameInfo *gameInfo = [[SixisNewGameInfo alloc] init];
     [numberController setGameInfo:gameInfo];
@@ -62,6 +64,7 @@
             [nc removeObserver:player];
         }
     }
+    
 }
 
 - (void)viewDidUnload
@@ -85,4 +88,27 @@
 
 - (IBAction)handlePlayButton:(id)sender {
 }
+
+// Given a gameInfo object, draw "PlayerN sits here!" labels along the "wooden" edges of the tabletop, as appropriate.
+-(void)displaySeatingArrangementWithGameInfo:(SixisNewGameInfo *)gameInfo {
+    for (int i = 1; i <= gameInfo.numberOfPlayers; i++ ) {
+        SixisPlayerTableInfo *tableInfo = [[SixisPlayerTableInfo alloc] init];
+        tableInfo.playerCount = gameInfo.numberOfPlayers;
+        tableInfo.playerNumber = i;
+        UILabel *seatlabel = [[[NSBundle mainBundle] loadNibNamed:@"SixisSitsHereLabel" owner:self options:nil] objectAtIndex:0];
+        [[self view] addSubview:seatlabel];
+        seatlabel.frame = [tableInfo statusFrame];
+        seatlabel.transform = CGAffineTransformMakeRotation([tableInfo rotation]);
+        seatlabel.text = [NSString stringWithFormat:@"Player %d sits here!", i];
+        [seatLabels addObject:seatlabel];
+    }
+}
+
+-(void)hideSeatingArrangement {
+    for (UILabel *seatlabel in seatLabels) {
+        [seatlabel removeFromSuperview];
+    }
+    seatLabels = [[NSMutableArray alloc] init];
+}
+
 @end

@@ -13,6 +13,7 @@
 #import "SixisGame.h"
 #import "SixisSmartbot.h"
 #import "SixisHuman.h"
+#import "SixisMainMenuViewController.h"
 
 @interface SixisPlayerSetupViewController ()
 
@@ -169,9 +170,10 @@
         game.hasTeams = NO;
     }
     
-//    SixisTabletopViewController *tabletop = [[SixisTabletopViewController alloc] init];
     SixisTabletopViewController *tabletop = gameInfo.tabletopController;
     tabletop.game = game;
+    [(SixisMainMenuViewController *)self.view.window.rootViewController hideSeatingArrangement];
+
     self.view.window.rootViewController = tabletop;
     [game startGame];
     

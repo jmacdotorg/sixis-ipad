@@ -9,6 +9,7 @@
 #import "SixisCardView.h"
 #import "SixisCard.h"
 #import "SixisGame.h"
+#import "SixisPlayer.h"
 #import "SixisPlayerTableInfo.h"
 #import "SixisTabletopViewController.h"
 
@@ -47,8 +48,8 @@
         [self setImage:nil forState:UIControlStateNormal];
         
         SixisPlayerTableInfo *info = [[SixisPlayerTableInfo alloc] init];
-        info.game = oldCard.game;
-        info.player = oldCard.game.currentPlayer;
+        info.playerCount = oldCard.game.players.count;
+        info.playerNumber = oldCard.game.currentPlayer.number;
         
         // Make a copy of this card's view, sitting on top of the card.
         SixisCardView *copy = [[SixisCardView alloc] initWithFrame:self.frame];

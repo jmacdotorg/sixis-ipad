@@ -19,6 +19,10 @@
 @end
 
 @implementation SixisMainMenuViewController
+@synthesize bigCardBack;
+@synthesize bigCardView;
+@synthesize bigCardRules;
+@synthesize rulesWebView;
 @synthesize controlsView, tabletopController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -52,6 +56,12 @@
     [self.view addSubview:navController.view];
     [self addChildViewController:navController];
     
+    // Load HTML into the rules card.
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"rules card" withExtension:@"html"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    [rulesWebView loadRequest:request];
+
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -70,6 +80,10 @@
 - (void)viewDidUnload
 {
     [self setControlsView:nil];
+    [self setBigCardView:nil];
+    [self setBigCardBack:nil];
+    [self setBigCardRules:nil];
+    [self setRulesWebView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -109,6 +123,30 @@
         [seatlabel removeFromSuperview];
     }
     seatLabels = [[NSMutableArray alloc] init];
+}
+
+-(void)showRulesCard {
+    [UIView transitionWithView:bigCardView duration:1 options:UIViewAnimationOptionTransitionFlipFromLeft
+                    animations:^{
+                        [(SixisMainMenuViewController *)self.view.window.rootViewController bigCardBack].hidden = YES;
+                        [(SixisMainMenuViewController *)self.view.window.rootViewController bigCardRules].hidden = NO;
+                    }
+                    completion:^(BOOL finished){
+                        
+                    }];
+}
+
+-(void)hideRulesCard {
+    if ( bigCardRules.hidden == NO ) {
+        [UIView transitionWithView:bigCardView duration:1 options:UIViewAnimationOptionTransitionFlipFromLeft
+                        animations:^{
+                            [(SixisMainMenuViewController *)self.view.window.rootViewController bigCardBack].hidden = NO;
+                            [(SixisMainMenuViewController *)self.view.window.rootViewController bigCardRules].hidden = YES;
+                        }
+                        completion:^(BOOL finished){
+                            
+                        }];
+    }
 }
 
 @end

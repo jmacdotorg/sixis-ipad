@@ -7,6 +7,7 @@
 //
 
 #import "SixisFirstActionsViewController.h"
+#import "SixisMainMenuViewController.h"
 #import "SixisChoosePlayerNumberViewController.h"
 
 @interface SixisFirstActionsViewController ()
@@ -47,9 +48,17 @@
 - (IBAction)handlePlayButton:(id)sender {
     SixisChoosePlayerNumberViewController *controller = [[SixisChoosePlayerNumberViewController alloc] init];
     [controller setGameInfo:gameInfo];
+
+    [(SixisMainMenuViewController *)self.view.window.rootViewController showRulesCard];
+    
     [self.navigationController pushViewController:controller animated:NO];
 }
 
 - (IBAction)handleAboutButton:(id)sender {
 }
+
+-(void)viewDidAppear:(BOOL)animated {
+    [(SixisMainMenuViewController *)self.view.window.rootViewController hideRulesCard];
+}
+
 @end

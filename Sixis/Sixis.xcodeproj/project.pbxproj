@@ -226,6 +226,8 @@
 		89D9C38715FEA34400ED11C7 /* SixisFirstActionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D9C38515FEA34400ED11C7 /* SixisFirstActionsViewController.m */; };
 		89D9C38815FEA34400ED11C7 /* SixisFirstActionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89D9C38615FEA34400ED11C7 /* SixisFirstActionsViewController.xib */; };
 		89D9C38B15FEA9FF00ED11C7 /* SixisSitsHereLabel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89D9C38A15FEA9FF00ED11C7 /* SixisSitsHereLabel.xib */; };
+		89D9C38D1600393E00ED11C7 /* Empty big card.png in Resources */ = {isa = PBXBuildFile; fileRef = 89D9C38C1600393E00ED11C7 /* Empty big card.png */; };
+		89D9C3911601461900ED11C7 /* rules card.html in Resources */ = {isa = PBXBuildFile; fileRef = 89D9C3901601461800ED11C7 /* rules card.html */; };
 		89E3861E15DC37C800B3D517 /* Sixis table.png in Resources */ = {isa = PBXBuildFile; fileRef = 89E3861D15DC37C800B3D517 /* Sixis table.png */; };
 		89E3862015DC605B00B3D517 /* big sixis.png in Resources */ = {isa = PBXBuildFile; fileRef = 89E3861F15DC605B00B3D517 /* big sixis.png */; };
 		89E3862415DC60AB00B3D517 /* SixisMainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E3862215DC60AA00B3D517 /* SixisMainMenuViewController.m */; };
@@ -541,6 +543,8 @@
 		89D9C38515FEA34400ED11C7 /* SixisFirstActionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SixisFirstActionsViewController.m; path = ../SixisFirstActionsViewController.m; sourceTree = "<group>"; };
 		89D9C38615FEA34400ED11C7 /* SixisFirstActionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SixisFirstActionsViewController.xib; path = ../SixisFirstActionsViewController.xib; sourceTree = "<group>"; };
 		89D9C38A15FEA9FF00ED11C7 /* SixisSitsHereLabel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SixisSitsHereLabel.xib; path = ../SixisSitsHereLabel.xib; sourceTree = "<group>"; };
+		89D9C38C1600393E00ED11C7 /* Empty big card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Empty big card.png"; sourceTree = "<group>"; };
+		89D9C3901601461800ED11C7 /* rules card.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "rules card.html"; path = "SixisTemp/rules card.html"; sourceTree = "<group>"; };
 		89E3861D15DC37C800B3D517 /* Sixis table.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Sixis table.png"; sourceTree = "<group>"; };
 		89E3861F15DC605B00B3D517 /* big sixis.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "big sixis.png"; sourceTree = "<group>"; };
 		89E3862115DC60AA00B3D517 /* SixisMainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisMainMenuViewController.h; sourceTree = "<group>"; };
@@ -708,6 +712,8 @@
 		8925DD6C15CC353800C1399A /* Table images */ = {
 			isa = PBXGroup;
 			children = (
+				89D9C3901601461800ED11C7 /* rules card.html */,
+				89D9C38C1600393E00ED11C7 /* Empty big card.png */,
 				89E3861D15DC37C800B3D517 /* Sixis table.png */,
 				89E3861F15DC605B00B3D517 /* big sixis.png */,
 				8925DD6815CC352000C1399A /* felt.jpg */,
@@ -1489,6 +1495,8 @@
 				89AA44F915F820CA002C6D0D /* shuffle.aiff in Resources */,
 				89D9C38815FEA34400ED11C7 /* SixisFirstActionsViewController.xib in Resources */,
 				89D9C38B15FEA9FF00ED11C7 /* SixisSitsHereLabel.xib in Resources */,
+				89D9C38D1600393E00ED11C7 /* Empty big card.png in Resources */,
+				89D9C3911601461900ED11C7 /* rules card.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

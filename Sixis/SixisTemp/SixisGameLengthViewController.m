@@ -69,7 +69,8 @@
 }
 
 -(void) _goToNextController {
-    SixisPlayerSetupViewController *controller = [[SixisPlayerSetupViewController alloc] initWithStyle:UITableViewStyleGrouped];
+//    SixisPlayerSetupViewController *controller = [[SixisPlayerSetupViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    SixisPlayerSetupViewController *controller = [[SixisPlayerSetupViewController alloc] initWithStyle:UITableViewStylePlain];
     [controller setGameInfo:gameInfo];
     
     [self.navigationController pushViewController:controller animated:NO];

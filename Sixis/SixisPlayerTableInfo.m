@@ -40,6 +40,23 @@
     return frame;
 }
 
+-(CGPoint) partnerLabelCenter {
+    CGPoint frame;
+    if ( [self _tablePosition] == BOTTOM ) {
+        frame = CGPointMake(780, 721);
+    }
+    else if ( [self _tablePosition] == TOP ) {
+        frame = CGPointMake(230, 26);
+    }
+    else if ( [self _tablePosition] == RIGHT ) {
+        frame = CGPointMake(1000, 215);
+    }
+    else {
+        frame = CGPointMake(24, 535);
+    }
+    return frame;
+}
+
 -(CGPoint) cardFlingCenter {
     CGPoint frame;
     if ( [self _tablePosition] == BOTTOM ) {

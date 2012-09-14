@@ -31,6 +31,7 @@
     if (self) {
         // Custom initialization
         seatLabels = [[NSMutableArray alloc] init];
+        partnerLabels = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -55,6 +56,8 @@
     [[navController view] setFrame:[controlsView frame]];
     [self.view addSubview:navController.view];
     [self addChildViewController:navController];
+    
+    navController.navigationBar.backgroundColor = [UIColor clearColor];
     
     // Load HTML into the rules card.
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"rules card" withExtension:@"html"];
@@ -125,6 +128,28 @@
     seatLabels = [[NSMutableArray alloc] init];
 }
 
+-(void)displayPartnerArangementWithGameInfo:(SixisNewGameInfo *)gameInfo {
+    for (int i = 1; i <= gameInfo.numberOfPlayers; i++ ) {
+        SixisPlayerTableInfo *tableInfo = [[SixisPlayerTableInfo alloc] init];
+        tableInfo.playerCount = gameInfo.numberOfPlayers;
+        tableInfo.playerNumber = i;
+        UILabel *partnerlabel = [[[NSBundle mainBundle] loadNibNamed:@"SixisTeammateLabel" owner:self options:nil] objectAtIndex:0];
+        [[self view] addSubview:partnerlabel];
+        partnerlabel.center = [tableInfo partnerLabelCenter];
+        partnerlabel.transform = CGAffineTransformMakeRotation([tableInfo rotation]);
+        partnerlabel.text = [NSString stringWithFormat:@"Player %d is your partner.", (i + 2) % 4];
+        [partnerLabels addObject:partnerlabel];
+    }
+}
+
+-(void)hidePartnerArrangement {
+    for (UILabel *partnerlabel in partnerLabels) {
+        [partnerlabel removeFromSuperview];
+    }
+    partnerLabels = [[NSMutableArray alloc] init];
+
+}
+
 -(void)showRulesCard {
     [UIView transitionWithView:bigCardView duration:1 options:UIViewAnimationOptionTransitionFlipFromLeft
                     animations:^{
@@ -147,6 +172,12 @@
                             
                         }];
     }
+}
+
+-(void)resetHelperViews {
+    [self hideRulesCard];
+    [self hidePartnerArrangement];
+    [self hideSeatingArrangement];
 }
 
 @end

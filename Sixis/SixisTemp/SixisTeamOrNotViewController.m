@@ -10,6 +10,7 @@
 #import "SixisPlayerSetupViewController.h"
 #import "SixisGameLengthViewController.h"
 #import "SixisNewGameInfo.h"
+#import "SixisMainMenuViewController.h"
 
 @interface SixisTeamOrNotViewController ()
 
@@ -35,6 +36,10 @@
 
 }
 
+-(void)viewDidAppear:(BOOL)animated {
+    [(SixisMainMenuViewController *)self.view.window.rootViewController hidePartnerArrangement];
+}
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];
@@ -48,6 +53,10 @@
 }
 
 - (IBAction)yesButtonTapped:(id)sender {
+    // Tell the main controller to display the "Foo is your partner" labels.
+    [(SixisMainMenuViewController *)self.view.window.rootViewController displayPartnerArangementWithGameInfo:gameInfo];
+
+    // Now update the gameInfo object, and continue.
     [gameInfo setGameHasTeams:YES];    
     SixisGameLengthViewController *controller = [[SixisGameLengthViewController alloc] init];
     [controller setGameInfo:gameInfo];

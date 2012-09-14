@@ -232,6 +232,7 @@
 		89E3862015DC605B00B3D517 /* big sixis.png in Resources */ = {isa = PBXBuildFile; fileRef = 89E3861F15DC605B00B3D517 /* big sixis.png */; };
 		89E3862415DC60AB00B3D517 /* SixisMainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E3862215DC60AA00B3D517 /* SixisMainMenuViewController.m */; };
 		89E3862515DC60AB00B3D517 /* SixisMainMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89E3862315DC60AA00B3D517 /* SixisMainMenuViewController.xib */; };
+		89EEBD901602C9370012BEA1 /* SixisTeammateLabel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89EEBD8F1602C9370012BEA1 /* SixisTeammateLabel.xib */; };
 		89EFB3E515926DAC00D09240 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89EFB3E415926DAC00D09240 /* UIKit.framework */; };
 		89EFB3E715926DAC00D09240 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89EFB3E615926DAC00D09240 /* Foundation.framework */; };
 		89EFB3E915926DAC00D09240 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89EFB3E815926DAC00D09240 /* CoreGraphics.framework */; };
@@ -550,6 +551,7 @@
 		89E3862115DC60AA00B3D517 /* SixisMainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisMainMenuViewController.h; sourceTree = "<group>"; };
 		89E3862215DC60AA00B3D517 /* SixisMainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisMainMenuViewController.m; sourceTree = "<group>"; };
 		89E3862315DC60AA00B3D517 /* SixisMainMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SixisMainMenuViewController.xib; sourceTree = "<group>"; };
+		89EEBD8F1602C9370012BEA1 /* SixisTeammateLabel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SixisTeammateLabel.xib; sourceTree = "<group>"; };
 		89EFB3E015926DAC00D09240 /* Sixis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sixis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89EFB3E415926DAC00D09240 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		89EFB3E615926DAC00D09240 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1048,6 +1050,7 @@
 			isa = PBXGroup;
 			children = (
 				89D9C38A15FEA9FF00ED11C7 /* SixisSitsHereLabel.xib */,
+				89EEBD8F1602C9370012BEA1 /* SixisTeammateLabel.xib */,
 				89E3862115DC60AA00B3D517 /* SixisMainMenuViewController.h */,
 				89E3862215DC60AA00B3D517 /* SixisMainMenuViewController.m */,
 				89E3862315DC60AA00B3D517 /* SixisMainMenuViewController.xib */,
@@ -1497,6 +1500,7 @@
 				89D9C38B15FEA9FF00ED11C7 /* SixisSitsHereLabel.xib in Resources */,
 				89D9C38D1600393E00ED11C7 /* Empty big card.png in Resources */,
 				89D9C3911601461900ED11C7 /* rules card.html in Resources */,
+				89EEBD901602C9370012BEA1 /* SixisTeammateLabel.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,6 +16,7 @@
 @property (nonatomic) UIView *statusBar;
 
 -(CGPoint) controlsCenter;
+-(CGPoint) partnerLabelCenter;
 -(CGPoint) textCenter;
 -(CGPoint) diceCenter;
 -(CGPoint) cardFlingCenter;

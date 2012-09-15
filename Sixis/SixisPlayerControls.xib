@@ -38,27 +38,31 @@
 					<object class="IBUIButton" id="7585664">
 						<reference key="NSNextResponder" ref="141930728"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{148, 20}, {120, 37}}</string>
+						<string key="NSFrame">{{148, 1}, {120, 76}}</string>
 						<reference key="NSSuperview" ref="141930728"/>
-						<reference key="NSNextKeyView" ref="979097970"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="557302621"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Re-roll All</string>
 						<object class="NSColor" key="IBUIHighlightedTitleColor" id="61072796">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
 						</object>
-						<object class="NSColor" key="IBUINormalTitleColor">
+						<object class="NSColor" key="IBUINormalTitleColor" id="561321860">
 							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
+							<bytes key="NSRGB">MSAxIDEAA</bytes>
 						</object>
 						<object class="NSColor" key="IBUINormalTitleShadowColor" id="564627634">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MC41AA</bytes>
+						</object>
+						<object class="NSCustomResource" key="IBUINormalBackgroundImage" id="486219685">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">Blank red button.png</string>
 						</object>
 						<object class="IBUIFontDescription" key="IBUIFontDescription" id="461573420">
 							<int key="type">2</int>
@@ -73,92 +77,90 @@
 					<object class="IBUIButton" id="557302621">
 						<reference key="NSNextResponder" ref="141930728"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{148, 20}, {120, 37}}</string>
+						<string key="NSFrame">{{148, 1}, {120, 76}}</string>
 						<reference key="NSSuperview" ref="141930728"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="979097970"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Undo Card</string>
 						<reference key="IBUIHighlightedTitleColor" ref="61072796"/>
-						<object class="NSColor" key="IBUINormalTitleColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-						</object>
+						<reference key="IBUINormalTitleColor" ref="561321860"/>
 						<reference key="IBUINormalTitleShadowColor" ref="564627634"/>
+						<reference key="IBUINormalBackgroundImage" ref="486219685"/>
 						<reference key="IBUIFontDescription" ref="461573420"/>
 						<reference key="IBUIFont" ref="4774195"/>
 					</object>
 					<object class="IBUIButton" id="885430485">
 						<reference key="NSNextResponder" ref="141930728"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 20}, {120, 37}}</string>
+						<string key="NSFrame">{{20, 0}, {120, 77}}</string>
 						<reference key="NSSuperview" ref="141930728"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="706981666"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Roll unlocked</string>
 						<reference key="IBUIHighlightedTitleColor" ref="61072796"/>
-						<object class="NSColor" key="IBUINormalTitleColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-						</object>
+						<reference key="IBUINormalTitleColor" ref="61072796"/>
 						<reference key="IBUINormalTitleShadowColor" ref="564627634"/>
+						<object class="NSCustomResource" key="IBUINormalBackgroundImage" id="1058678147">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">Blank blue button.png</string>
+						</object>
 						<reference key="IBUIFontDescription" ref="461573420"/>
 						<reference key="IBUIFont" ref="4774195"/>
 					</object>
 					<object class="IBUIButton" id="706981666">
 						<reference key="NSNextResponder" ref="141930728"/>
 						<int key="NSvFlags">293</int>
-						<string key="NSFrame">{{20, 20}, {120, 37}}</string>
+						<string key="NSFrame">{{20, 0}, {120, 77}}</string>
 						<reference key="NSSuperview" ref="141930728"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="7585664"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">End Turn</string>
 						<reference key="IBUIHighlightedTitleColor" ref="61072796"/>
-						<object class="NSColor" key="IBUINormalTitleColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-						</object>
+						<reference key="IBUINormalTitleColor" ref="61072796"/>
 						<reference key="IBUINormalTitleShadowColor" ref="564627634"/>
+						<reference key="IBUINormalBackgroundImage" ref="1058678147"/>
 						<reference key="IBUIFontDescription" ref="461573420"/>
 						<reference key="IBUIFont" ref="4774195"/>
 					</object>
 					<object class="IBUIButton" id="979097970">
 						<reference key="NSNextResponder" ref="141930728"/>
 						<int key="NSvFlags">293</int>
-						<string key="NSFrame">{{276, 20}, {120, 37}}</string>
+						<string key="NSFrame">{{276, 0}, {120, 78}}</string>
 						<reference key="NSSuperview" ref="141930728"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">End Round</string>
 						<reference key="IBUIHighlightedTitleColor" ref="61072796"/>
-						<object class="NSColor" key="IBUINormalTitleColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-						</object>
+						<reference key="IBUINormalTitleColor" ref="61072796"/>
 						<reference key="IBUINormalTitleShadowColor" ref="564627634"/>
+						<reference key="IBUINormalBackgroundImage" ref="1058678147"/>
 						<reference key="IBUIFontDescription" ref="461573420"/>
 						<reference key="IBUIFont" ref="4774195"/>
 					</object>
 				</array>
 				<string key="NSFrameSize">{416, 77}</string>
 				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="885430485"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -284,11 +286,11 @@
 						<int key="objectID">24</int>
 						<reference key="object" ref="141930728"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="979097970"/>
 							<reference ref="885430485"/>
-							<reference ref="706981666"/>
 							<reference ref="7585664"/>
+							<reference ref="706981666"/>
 							<reference ref="557302621"/>
+							<reference ref="979097970"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -335,9 +337,148 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">77</int>
+			<int key="maxID">80</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes"/>
+		<object class="IBClassDescriber" key="IBDocument.Classes">
+			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
+				<object class="IBPartialClassDescription">
+					<string key="className">SixisTabletopViewController</string>
+					<string key="superclassName">UIViewController</string>
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="handleAddRound:">id</string>
+						<string key="handleDieTap:">id</string>
+						<string key="handleEndRoundButtonTap:">id</string>
+						<string key="handleEndTurnTap:">id</string>
+						<string key="handleMainMenu:">id</string>
+						<string key="handleNextRound:">id</string>
+						<string key="handlePlayAgain:">id</string>
+						<string key="handleRollAllDiceTap:">id</string>
+						<string key="handleRollUnlockedDiceTap:">id</string>
+						<string key="handleSettingsButton:">id</string>
+						<string key="handleUndoCard:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="handleAddRound:">
+							<string key="name">handleAddRound:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="handleDieTap:">
+							<string key="name">handleDieTap:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="handleEndRoundButtonTap:">
+							<string key="name">handleEndRoundButtonTap:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="handleEndTurnTap:">
+							<string key="name">handleEndTurnTap:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="handleMainMenu:">
+							<string key="name">handleMainMenu:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="handleNextRound:">
+							<string key="name">handleNextRound:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="handlePlayAgain:">
+							<string key="name">handlePlayAgain:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="handleRollAllDiceTap:">
+							<string key="name">handleRollAllDiceTap:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="handleRollUnlockedDiceTap:">
+							<string key="name">handleRollUnlockedDiceTap:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="handleSettingsButton:">
+							<string key="name">handleSettingsButton:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="handleUndoCard:">
+							<string key="name">handleUndoCard:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="diceView">UIView</string>
+						<string key="endRoundButton">UIButton</string>
+						<string key="endTurnButton">UIButton</string>
+						<string key="gameEndExplanationLabel">UILabel</string>
+						<string key="gameOverView">UIView</string>
+						<string key="rollAllDiceButton">UIButton</string>
+						<string key="rollUnlockedDiceButton">UIButton</string>
+						<string key="roundEndControls">UIView</string>
+						<string key="roundEndExplanationLabel">UILabel</string>
+						<string key="settingsButton">UIButton</string>
+						<string key="textPromptLabel">UILabel</string>
+						<string key="undoCardButton">UIButton</string>
+						<string key="winMessage">UILabel</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="diceView">
+							<string key="name">diceView</string>
+							<string key="candidateClassName">UIView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="endRoundButton">
+							<string key="name">endRoundButton</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="endTurnButton">
+							<string key="name">endTurnButton</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="gameEndExplanationLabel">
+							<string key="name">gameEndExplanationLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="gameOverView">
+							<string key="name">gameOverView</string>
+							<string key="candidateClassName">UIView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="rollAllDiceButton">
+							<string key="name">rollAllDiceButton</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="rollUnlockedDiceButton">
+							<string key="name">rollUnlockedDiceButton</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="roundEndControls">
+							<string key="name">roundEndControls</string>
+							<string key="candidateClassName">UIView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="roundEndExplanationLabel">
+							<string key="name">roundEndExplanationLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="settingsButton">
+							<string key="name">settingsButton</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="textPromptLabel">
+							<string key="name">textPromptLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="undoCardButton">
+							<string key="name">undoCardButton</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="winMessage">
+							<string key="name">winMessage</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/SixisTabletopViewController.h</string>
+					</object>
+				</object>
+			</array>
+		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBIPadFramework</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
@@ -346,6 +487,10 @@
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
+		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
+			<string key="Blank blue button.png">{240, 154}</string>
+			<string key="Blank red button.png">{240, 154}</string>
+		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">1498</string>
 	</data>
 </archive>

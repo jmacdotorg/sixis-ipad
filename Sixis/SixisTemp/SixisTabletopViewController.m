@@ -386,6 +386,17 @@
         textPromptLabel.hidden = YES;
     }
     
+    // Lower the opacity of all cards not available to this player.
+    NSSet *availableCards = [game availableCards];
+    for (SixisCardView *cardView in cards) {
+        if ( [availableCards containsObject:cardView.card] ) {
+            cardView.alpha = 1;
+        }
+        else {
+            cardView.alpha = .6;
+        }
+    }
+    
 }
 
 -(void)handleDiceRoll:(NSNotification *)note {

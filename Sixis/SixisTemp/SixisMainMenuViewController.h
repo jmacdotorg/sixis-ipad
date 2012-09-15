@@ -20,6 +20,10 @@
 @property (weak, nonatomic) IBOutlet UIView *bigCardView;
 @property (weak, nonatomic) IBOutlet UIView *bigCardRules;
 @property (weak, nonatomic) IBOutlet UIWebView *rulesWebView;
+- (IBAction)handleBackButton:(id)sender;
+- (IBAction)handleStartButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
+@property (weak, nonatomic) IBOutlet UIButton *startButton;
 
 @property (weak, nonatomic) IBOutlet UIView *controlsView;
 @property (nonatomic) SixisTabletopViewController *tabletopController;

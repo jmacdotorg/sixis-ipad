@@ -50,6 +50,7 @@
     [controller setGameInfo:gameInfo];
 
     [(SixisMainMenuViewController *)self.view.window.rootViewController showRulesCard];
+    [(SixisMainMenuViewController *)self.view.window.rootViewController backButton].hidden = NO;
     
     [self.navigationController pushViewController:controller animated:NO];
 }
@@ -58,7 +59,7 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated {
-    [(SixisMainMenuViewController *)self.view.window.rootViewController hideRulesCard];
+    [(SixisMainMenuViewController *)self.view.window.rootViewController resetHelperViews];
 }
 
 @end

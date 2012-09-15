@@ -12,6 +12,7 @@
 #import "SixisRoundsGame.h"
 #import "SixisTabletopViewController.h"
 #import "SixisPlayerTableInfo.h"
+#import "SixisPlayerSetupViewController.h"
 
 
 @interface SixisMainMenuViewController ()
@@ -19,6 +20,8 @@
 @end
 
 @implementation SixisMainMenuViewController
+@synthesize backButton;
+@synthesize startButton;
 @synthesize bigCardBack;
 @synthesize bigCardView;
 @synthesize bigCardRules;
@@ -57,7 +60,7 @@
     [self.view addSubview:navController.view];
     [self addChildViewController:navController];
     
-    navController.navigationBar.backgroundColor = [UIColor clearColor];
+    navController.navigationBar.alpha = 0;
     
     // Load HTML into the rules card.
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"rules card" withExtension:@"html"];
@@ -87,6 +90,8 @@
     [self setBigCardBack:nil];
     [self setBigCardRules:nil];
     [self setRulesWebView:nil];
+    [self setBackButton:nil];
+    [self setStartButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -178,6 +183,16 @@
     [self hideRulesCard];
     [self hidePartnerArrangement];
     [self hideSeatingArrangement];
+    backButton.hidden = YES;
+    startButton.hidden = YES;
 }
 
+- (IBAction)handleBackButton:(id)sender {
+    [navController popViewControllerAnimated:NO];
+    startButton.hidden = YES;
+}
+
+- (IBAction)handleStartButton:(id)sender {
+    [(SixisPlayerSetupViewController *)navController.topViewController doneTapped:sender];
+}
 @end

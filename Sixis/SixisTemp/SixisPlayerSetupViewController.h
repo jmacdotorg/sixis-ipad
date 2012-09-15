@@ -12,10 +12,10 @@
 
 @interface SixisPlayerSetupViewController : UITableViewController {
 
-UIBarButtonItem *doneButton;
-
 }
 
 @property (nonatomic, strong) SixisNewGameInfo *gameInfo;
+
+-(void)doneTapped:(id)sender;
 
 @end

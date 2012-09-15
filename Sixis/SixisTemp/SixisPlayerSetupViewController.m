@@ -45,10 +45,6 @@
     // Register it
     [[self tableView] registerNib:nib forCellReuseIdentifier:@"SixisPlayerSetupCell"];
         
-    // Put a Done button on the nav bar.
-    doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneTapped:)];
-    [[self navigationItem] setRightBarButtonItem:doneButton];
-    
     [self tableView].rowHeight = 127;
     
     // Messing around with transparency.
@@ -64,6 +60,14 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [(SixisMainMenuViewController *)self.view.window.rootViewController startButton].hidden = NO;
+}
+
+-(void)viewDidDisappear:(BOOL)animated {
+
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -110,8 +114,8 @@
     return nil;
 }
 
-// XXX Not sure this needs to be an IBAction...
--(IBAction)doneTapped:(id)sender {
+//-(IBAction)doneTapped:(id)sender {
+-(void)doneTapped:(id)sender {
     // Create the game! But at this point we have nowhere to put it...
     
     NSMutableArray *players = [[NSMutableArray alloc] init];

@@ -41,6 +41,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *roundEndExplanationLabel;
 @property (weak, nonatomic) IBOutlet UIView *roundEndControls;
 @property (weak, nonatomic) IBOutlet UILabel *gameEndExplanationLabel;
+@property (weak, nonatomic) IBOutlet UIButton *settingsButton;
 
 - (IBAction)handleRollAllDiceTap:(id)sender;
 - (IBAction)handleRollUnlockedDiceTap:(id)sender;
@@ -55,6 +56,7 @@
 - (IBAction)handleUndoCard:(id)sender;
 - (IBAction)handleNextRound:(id)sender;
 
+- (IBAction)handleSettingsButton:(id)sender;
 
 @property (nonatomic, strong) SixisGame *game;
 @property (nonatomic, strong) SixisPlayer *currentPlayer;

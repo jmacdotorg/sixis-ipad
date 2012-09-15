@@ -8,6 +8,7 @@
 
 #import "SixisTabletopViewController.h"
 #import "SixisCardPopoverViewController.h"
+#import "SixisSettingsPopoverViewController.h"
 #import "SixisGame.h"
 #import "SixisCardView.h"
 #import "SixisPlayer.h"
@@ -33,6 +34,7 @@
 @synthesize roundEndExplanationLabel;
 @synthesize roundEndControls;
 @synthesize gameEndExplanationLabel;
+@synthesize settingsButton;
 @synthesize endRoundButton;
 @synthesize textPromptLabel;
 @synthesize undoCardButton;
@@ -108,6 +110,7 @@
     [self setRoundEndExplanationLabel:nil];
     [self setRoundEndControls:nil];
     [self setGameEndExplanationLabel:nil];
+    [self setSettingsButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -763,6 +766,11 @@
 - (IBAction)handleMainMenu:(id)sender {
     gameOverView.hidden = YES;
     
+    if (popover) {
+        [popover dismissPopoverAnimated:YES];
+    }
+    [game unsave];
+    
 //    SixisMainMenuViewController *mainMenu = [[SixisMainMenuViewController alloc] init];
     SixisMainMenuViewController *mainMenu = self.mainMenuController;
     self.view.window.rootViewController = mainMenu;
@@ -805,6 +813,14 @@
 - (IBAction)handleNextRound:(id)sender {
     roundEndControls.hidden = YES;
     [game startRound];
+}
+
+- (IBAction)handleSettingsButton:(id)sender {
+    SixisSettingsPopoverViewController *content = [[SixisSettingsPopoverViewController alloc] init];
+    popover = [[UIPopoverController alloc] initWithContentViewController:content];
+    
+    // Display the popover as eminating from the tapped card.
+    [popover presentPopoverFromRect:[settingsButton frame] inView:[self view] permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
 -(void)handleRoundEnd:(NSNotification *)note {

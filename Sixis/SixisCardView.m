@@ -15,7 +15,7 @@
 
 @implementation SixisCardView
 
-@synthesize card;
+@synthesize card, rotation;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -82,15 +82,62 @@
         UIImage *highlightedImage3 = [UIImage imageNamed:[NSString stringWithFormat:@"%@Highlight3", cardClass]];
         UIImage *animatedImage = [UIImage animatedImageWithImages:@[ highlightedImage1, highlightedImage2, highlightedImage3, highlightedImage2, highlightedImage1, image, image, image, image, image] duration:1];
 
+        // If this view already has an image set, then a player is flipping this card, so show a flip animation. Otherwise, just splat the card directly into view.
+        if ( self.currentImage ) {
+            [self _startFlipAnimationToImage:image selectedImage:animatedImage];
+        }
+        else {
+            [self setImage:animatedImage forState:UIControlStateSelected];
+            [self setImage:image forState:UIControlStateNormal];
+        }
+        
+
+    }
+    
+}
+
+-(void) _startFlipAnimationToImage:(UIImage *)image selectedImage:(UIImage *)selectedImage {
+    if ( ! ( rotation == 0 || rotation == M_PI ) ) {
         [UIView transitionWithView:self
-                          duration:1
-                           options:UIViewAnimationOptionTransitionFlipFromLeft
-                        animations:^{ 
-                            [self setImage:animatedImage forState:UIControlStateSelected];
-                            [self setImage:image forState:UIControlStateNormal];
+                          duration:.5
+                           options:nil
+                        animations:^{
+                            CGAffineTransform newTransform = CGAffineTransformMakeRotation(0);
+                            self.transform = newTransform;
+                        }
+                        completion:^(BOOL finished){
+                            [self _continueFlipAnimationToImage:image selectedImage:selectedImage];
+                        }];
+    }
+    else {
+        [self _continueFlipAnimationToImage:image selectedImage:selectedImage];
+    }
+
+}
+
+-(void) _continueFlipAnimationToImage:(UIImage *)image selectedImage:(UIImage *)selectedImage {
+    [UIView transitionWithView:self
+                      duration:1
+                       options:UIViewAnimationOptionTransitionFlipFromLeft
+                    animations:^{
+                        [self setImage:selectedImage forState:UIControlStateSelected];
+                        [self setImage:image forState:UIControlStateNormal];
+                    }
+                    completion:^(BOOL finished){
+                        [self _finishFlipAnimationToImage:image selectedImage:selectedImage];
+                    }];
+}
+
+-(void) _finishFlipAnimationToImage:(UIImage *)image selectedImage:(UIImage *)selectedImage {
+    if ( ! ( rotation == 0 || rotation == M_PI ) ) {
+        [UIView transitionWithView:self
+                          duration:.5
+                           options:nil
+                        animations:^{
+                            CGAffineTransform newTransform = CGAffineTransformMakeRotation(rotation);
+                            self.transform = newTransform;
                         }
                         completion:NULL];
-        
     }
 }
 

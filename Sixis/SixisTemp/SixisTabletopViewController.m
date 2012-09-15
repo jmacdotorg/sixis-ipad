@@ -134,6 +134,7 @@
     
     if ( rotation > 0 ) {
         CGAffineTransform xform = CGAffineTransformMakeRotation( rotation );
+        cardView.rotation = rotation;
         cardView.transform = xform;
     }
     

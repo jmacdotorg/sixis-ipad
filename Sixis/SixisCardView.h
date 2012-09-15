@@ -15,5 +15,8 @@
 }
 
 @property (nonatomic, strong) SixisCard *card;
+@property (nonatomic) CGFloat rotation;
+
+-(void) _startFlipAnimationToImage:(UIImage *)image selectedImage:(UIImage *)selectedImage;
 
 @end

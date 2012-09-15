@@ -56,6 +56,7 @@
 }
 
 - (IBAction)handleAboutButton:(id)sender {
+    [(SixisMainMenuViewController *)self.view.window.rootViewController showAboutCard];
 }
 
 -(void)viewDidAppear:(BOOL)animated {

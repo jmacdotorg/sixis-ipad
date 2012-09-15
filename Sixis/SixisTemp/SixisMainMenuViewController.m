@@ -24,8 +24,8 @@
 @synthesize startButton;
 @synthesize bigCardBack;
 @synthesize bigCardView;
-@synthesize bigCardRules;
-@synthesize rulesWebView;
+@synthesize bigCardRules, bigCardAbout;
+@synthesize rulesWebView, aboutWebView;
 @synthesize controlsView, tabletopController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -66,6 +66,10 @@
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"rules card" withExtension:@"html"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [rulesWebView loadRequest:request];
+    
+    url = [[NSBundle mainBundle] URLForResource:@"about card" withExtension:@"html"];
+    request = [NSURLRequest requestWithURL:url];
+    [aboutWebView loadRequest:request];
 
     
 }
@@ -92,6 +96,7 @@
     [self setRulesWebView:nil];
     [self setBackButton:nil];
     [self setStartButton:nil];
+    [self setBigCardAbout:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -156,8 +161,14 @@
 }
 
 -(void)showRulesCard {
+    // Load the about-text HTML into the rules card.
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"rules card" withExtension:@"html"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    [rulesWebView loadRequest:request];
+    
     [UIView transitionWithView:bigCardView duration:1 options:UIViewAnimationOptionTransitionFlipFromLeft
                     animations:^{
+                        bigCardAbout.hidden = YES;
                         [(SixisMainMenuViewController *)self.view.window.rootViewController bigCardBack].hidden = YES;
                         [(SixisMainMenuViewController *)self.view.window.rootViewController bigCardRules].hidden = NO;
                     }
@@ -172,6 +183,7 @@
                         animations:^{
                             [(SixisMainMenuViewController *)self.view.window.rootViewController bigCardBack].hidden = NO;
                             [(SixisMainMenuViewController *)self.view.window.rootViewController bigCardRules].hidden = YES;
+                            bigCardAbout.hidden = YES;
                         }
                         completion:^(BOOL finished){
                             
@@ -195,4 +207,22 @@
 - (IBAction)handleStartButton:(id)sender {
     [(SixisPlayerSetupViewController *)navController.topViewController doneTapped:sender];
 }
+
+-(void)showAboutCard {
+    [UIView transitionWithView:bigCardView duration:1 options:UIViewAnimationOptionTransitionFlipFromLeft
+                    animations:^{
+                        if ( bigCardAbout.hidden ) {
+                            [(SixisMainMenuViewController *)self.view.window.rootViewController bigCardBack].hidden = YES;
+                            [(SixisMainMenuViewController *)self.view.window.rootViewController bigCardAbout].hidden = NO;
+                        }
+                        else {
+                            bigCardAbout.hidden = YES;
+                            bigCardBack.hidden = NO;
+                        }
+                    }
+                    completion:^(BOOL finished){
+                        
+                    }];
+}
+
 @end

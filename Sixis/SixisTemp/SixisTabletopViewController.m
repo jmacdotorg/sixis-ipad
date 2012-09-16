@@ -99,6 +99,11 @@
     // Get out of here, game-over view, nobody likes your style
     gameOverView.hidden = YES;
     
+    // Add drop shadows and stuff to our homemake dialog-box-like things.
+    
+    [self _addDialogEffectsToSubview:roundEndControls];
+    [self _addDialogEffectsToSubview:gameOverView];
+    
 }
 
 - (void)viewDidUnload
@@ -855,6 +860,16 @@
     // Display the round-end dialog.
     roundEndControls.hidden = NO;
     [self.view bringSubviewToFront:roundEndControls];    
+}
+
+-(void)_addDialogEffectsToSubview:(UIView *)subview {
+    // (This is copied from StackOverflow: http://stackoverflow.com/questions/805872/how-do-i-draw-a-shadow-under-a-uiview)
+    subview.layer.masksToBounds = NO;
+    subview.layer.cornerRadius = 8;
+    subview.layer.shadowOffset = CGSizeMake(-15, 20);
+    subview.layer.shadowRadius = 5;
+    subview.layer.shadowOpacity = .5;
+    subview.layer.shadowPath = [UIBezierPath bezierPathWithRect:roundEndControls.bounds].CGPath;
 }
 
 @end

@@ -74,6 +74,7 @@
     
 }
 
+/*
 -(void)viewWillAppear:(BOOL)animated {
     [navController popToRootViewControllerAnimated:NO];
     
@@ -86,6 +87,7 @@
     }
     
 }
+*/
 
 - (void)viewDidUnload
 {

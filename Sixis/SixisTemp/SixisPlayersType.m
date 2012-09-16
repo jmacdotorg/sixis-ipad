@@ -65,7 +65,7 @@
     self = [super init];
     if ( self ) {
         cardIndicesForPlayerIndex = [aDecoder decodeObjectForKey:@"cardIndicesForPlayerIndex"];
-        game = [aDecoder decodeObjectForKey:@"game"];
+        self.game = [aDecoder decodeObjectForKey:@"game"];
         tableauSize = [aDecoder decodeIntForKey:@"tableauSize"];
     }
     

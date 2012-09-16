@@ -794,7 +794,7 @@
         [popover dismissPopoverAnimated:YES];
     }
     [game unsave];
-    game = nil;
+    self.game = nil;
     
     SixisMainMenuViewController *mainMenu = self.mainMenuController;
     self.view.window.rootViewController = mainMenu;

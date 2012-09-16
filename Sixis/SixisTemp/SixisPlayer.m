@@ -209,4 +209,9 @@
     return self;
 }
 
+-(void)dealloc {
+    // Woo, I'm deallocating!
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 @end

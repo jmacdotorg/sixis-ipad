@@ -42,6 +42,10 @@
     return NO;
 }
 
+-(NSString *)roundMightEndReason {
+    return nil;
+}
+
 -(BOOL)roundHasEnded {
     // Subclass needs to override this.
     return NO;

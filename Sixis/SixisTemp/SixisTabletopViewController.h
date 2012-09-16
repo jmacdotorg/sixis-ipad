@@ -26,6 +26,7 @@
     BOOL thisIsTheFirstGoRound;
     SixisGameType *originalGameType;
     AVAudioPlayer *audioPlayer;
+    UILabel *roundMightEndReasonLabel;
 }
 @property (weak, nonatomic) IBOutlet UILabel *winMessage;
 @property (weak, nonatomic) IBOutlet UIView *gameOverView;

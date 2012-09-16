@@ -91,6 +91,11 @@
     [[self view] addSubview:textPromptLabel];
     [textPromptLabel setText:@"Hi mom!"];
     
+    // And the view that holds the round-might-end reason.
+    roundMightEndReasonLabel = [[[NSBundle mainBundle] loadNibNamed:@"RoundEndReason" owner:self options:nil] objectAtIndex:0];
+    roundMightEndReasonLabel.hidden = YES;
+    [[self view] addSubview:roundMightEndReasonLabel];
+    
     // Get out of here, game-over view, nobody likes your style
     gameOverView.hidden = YES;
     
@@ -353,9 +358,16 @@
         // If it's a 2P game and the player can call the round over, show that button.
         if ( [game roundMightEnd] ) {
             endRoundButton.hidden = NO;
+            
+            // Also display the label explaining why.
+            roundMightEndReasonLabel.hidden = NO;
+            roundMightEndReasonLabel.center = [info roundMightEndReasonCenter];
+            roundMightEndReasonLabel.transform = CGAffineTransformMakeRotation([info rotation]);
+            roundMightEndReasonLabel.text = [NSString stringWithFormat:@"%@\n\nIn a two-player game, that means either player can end the round before their roll.", [game.playersType roundMightEndReason]];
         }
         else {
             endRoundButton.hidden = YES;
+            roundMightEndReasonLabel.hidden = YES;
         }
         
         // Update the text prompt.

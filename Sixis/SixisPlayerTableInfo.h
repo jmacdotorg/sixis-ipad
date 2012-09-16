@@ -18,6 +18,7 @@
 -(CGPoint) controlsCenter;
 -(CGPoint) partnerLabelCenter;
 -(CGPoint) textCenter;
+-(CGPoint) roundMightEndReasonCenter;
 -(CGPoint) diceCenter;
 -(CGPoint) cardFlingCenter;
 -(CGRect) statusFrame;

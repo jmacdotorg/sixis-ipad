@@ -145,6 +145,18 @@
     return frame;
 }
 
+// This will only ever get called in 2-player games...
+-(CGPoint) roundMightEndReasonCenter {
+    CGPoint frame;
+    if ( [self _tablePosition] == BOTTOM ) {
+        frame = CGPointMake(765, 525);
+    }
+    else if ( [self _tablePosition] == TOP ) {
+        frame = CGPointMake(259, 223);
+    }
+    return frame;
+}
+
 -(CGRect) statusFrame {
     if ( [self _tablePosition] == BOTTOM ) {
         return CGRectMake(50, 700, BANK_WIDTH, 50);

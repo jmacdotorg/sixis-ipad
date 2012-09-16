@@ -8,6 +8,9 @@
 
 #import "SixisPlayersType.h"
 
-@interface SixisTwoPlayers : SixisPlayersType
+@interface SixisTwoPlayers : SixisPlayersType {
+    BOOL allCardsAreRed;
+    BOOL halfTheCardsAreGone;
+}
 
 @end

@@ -22,6 +22,8 @@ cardIndicesForPlayerIndex:(NSArray *) cardIndices;
 -(BOOL)roundHasEnded;
 -(BOOL)roundMightEnd;
 
+-(NSString *)roundMightEndReason;
+
 -(BOOL)cardsRemainAtIndexes:(NSIndexSet *) indexSet;
 
 -(NSSet *)cardIndicesForPlayerAtIndex:(int) playerIndex;

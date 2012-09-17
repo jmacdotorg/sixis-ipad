@@ -2,7 +2,7 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1296</int>
-		<string key="IBDocument.SystemVersion">12A269</string>
+		<string key="IBDocument.SystemVersion">12B19</string>
 		<string key="IBDocument.InterfaceBuilderVersion">2549</string>
 		<string key="IBDocument.AppKitVersion">1187</string>
 		<string key="IBDocument.HIToolboxVersion">624.00</string>
@@ -41,6 +41,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{20, 61}, {310, 46}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="35880803"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
@@ -58,11 +59,13 @@
 						<float key="IBUIMinimumFontSize">10</float>
 						<int key="IBUITextAlignment">1</int>
 						<object class="IBUIFontDescription" key="IBUIFontDescription">
-							<int key="type">1</int>
+							<string key="name">Baskerville-Bold</string>
+							<string key="family">Baskerville</string>
+							<int key="traits">2</int>
 							<double key="pointSize">36</double>
 						</object>
 						<object class="NSFont" key="IBUIFont">
-							<string key="NSName">Helvetica</string>
+							<string key="NSName">Baskerville-Bold</string>
 							<double key="NSSize">36</double>
 							<int key="NSfFlags">16</int>
 						</object>
@@ -72,6 +75,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{89, 147}, {161, 136}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="325470272"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
@@ -84,21 +88,24 @@
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
 						</object>
-						<object class="NSColor" key="IBUINormalTitleColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-						</object>
+						<reference key="IBUINormalTitleColor" ref="373419945"/>
 						<object class="NSColor" key="IBUINormalTitleShadowColor" id="583665136">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MC41AA</bytes>
 						</object>
-						<object class="IBUIFontDescription" key="IBUIFontDescription" id="38253120">
-							<int key="type">2</int>
-							<double key="pointSize">15</double>
+						<object class="NSCustomResource" key="IBUINormalBackgroundImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">Team yes.png</string>
 						</object>
-						<object class="NSFont" key="IBUIFont" id="960323548">
-							<string key="NSName">Helvetica-Bold</string>
-							<double key="NSSize">15</double>
+						<object class="IBUIFontDescription" key="IBUIFontDescription" id="186610743">
+							<string key="name">Arial-BoldMT</string>
+							<string key="family">Arial</string>
+							<int key="traits">2</int>
+							<double key="pointSize">35</double>
+						</object>
+						<object class="NSFont" key="IBUIFont" id="103998659">
+							<string key="NSName">Arial-BoldMT</string>
+							<double key="NSSize">35</double>
 							<int key="NSfFlags">16</int>
 						</object>
 					</object>
@@ -107,7 +114,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{89, 291}, {161, 136}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
-						<reference key="NSNextKeyView"/>
+						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -116,17 +123,19 @@
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">No</string>
 						<reference key="IBUIHighlightedTitleColor" ref="373419945"/>
-						<object class="NSColor" key="IBUINormalTitleColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-						</object>
+						<reference key="IBUINormalTitleColor" ref="373419945"/>
 						<reference key="IBUINormalTitleShadowColor" ref="583665136"/>
-						<reference key="IBUIFontDescription" ref="38253120"/>
-						<reference key="IBUIFont" ref="960323548"/>
+						<object class="NSCustomResource" key="IBUINormalBackgroundImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">Team no.png</string>
+						</object>
+						<reference key="IBUIFontDescription" ref="186610743"/>
+						<reference key="IBUIFont" ref="103998659"/>
 					</object>
 				</array>
 				<string key="NSFrameSize">{350, 500}</string>
 				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="986901827"/>
 				<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -184,9 +193,9 @@
 						<int key="objectID">2</int>
 						<reference key="object" ref="766721923"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="35880803"/>
-							<reference ref="325470272"/>
 							<reference ref="986901827"/>
+							<reference ref="325470272"/>
+							<reference ref="35880803"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -223,7 +232,32 @@
 			<nil key="sourceID"/>
 			<int key="maxID">9</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes"/>
+		<object class="IBClassDescriber" key="IBDocument.Classes">
+			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
+				<object class="IBPartialClassDescription">
+					<string key="className">SixisTeamOrNotViewController</string>
+					<string key="superclassName">UIViewController</string>
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="noButtonTapped:">id</string>
+						<string key="yesButtonTapped:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="noButtonTapped:">
+							<string key="name">noButtonTapped:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="yesButtonTapped:">
+							<string key="name">yesButtonTapped:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/SixisTeamOrNotViewController.h</string>
+					</object>
+				</object>
+			</array>
+		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBIPadFramework</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
@@ -232,6 +266,10 @@
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
+		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
+			<string key="Team no.png">{322, 272}</string>
+			<string key="Team yes.png">{322, 272}</string>
+		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">1498</string>
 	</data>
 </archive>

@@ -222,6 +222,8 @@
 		89CBE87B15BF0FC20045AD3E /* DieBlue2.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CBE87A15BF0FC20045AD3E /* DieBlue2.png */; };
 		89D02C0615AF737500A5DC5F /* SixisRobotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D02C0515AF737500A5DC5F /* SixisRobotTests.m */; };
 		89D15C1E1606471900569E4E /* RoundEndReason.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89D15C1D1606471900569E4E /* RoundEndReason.xib */; };
+		89D15C2216069E0500569E4E /* Team no.png in Resources */ = {isa = PBXBuildFile; fileRef = 89D15C2016069E0500569E4E /* Team no.png */; };
+		89D15C2316069E0500569E4E /* Team yes.png in Resources */ = {isa = PBXBuildFile; fileRef = 89D15C2116069E0500569E4E /* Team yes.png */; };
 		89D3816D15CDAB8200ADE63D /* SixisPlayerTableInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D3816C15CDAB8200ADE63D /* SixisPlayerTableInfo.m */; };
 		89D3817815D0B81000ADE63D /* SixisRolledDice.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89D3817715D0B81000ADE63D /* SixisRolledDice.xib */; };
 		89D9C38715FEA34400ED11C7 /* SixisFirstActionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D9C38515FEA34400ED11C7 /* SixisFirstActionsViewController.m */; };
@@ -551,6 +553,8 @@
 		89D02C0415AF737500A5DC5F /* SixisRobotTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisRobotTests.h; sourceTree = "<group>"; };
 		89D02C0515AF737500A5DC5F /* SixisRobotTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisRobotTests.m; sourceTree = "<group>"; };
 		89D15C1D1606471900569E4E /* RoundEndReason.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoundEndReason.xib; sourceTree = "<group>"; };
+		89D15C2016069E0500569E4E /* Team no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Team no.png"; sourceTree = "<group>"; };
+		89D15C2116069E0500569E4E /* Team yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Team yes.png"; sourceTree = "<group>"; };
 		89D3816B15CDAB8200ADE63D /* SixisPlayerTableInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisPlayerTableInfo.h; sourceTree = "<group>"; };
 		89D3816C15CDAB8200ADE63D /* SixisPlayerTableInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisPlayerTableInfo.m; sourceTree = "<group>"; };
 		89D3817715D0B81000ADE63D /* SixisRolledDice.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SixisRolledDice.xib; sourceTree = "<group>"; };
@@ -741,6 +745,8 @@
 		8925DD6C15CC353800C1399A /* Table images */ = {
 			isa = PBXGroup;
 			children = (
+				89D15C2016069E0500569E4E /* Team no.png */,
+				89D15C2116069E0500569E4E /* Team yes.png */,
 				89EEBDAA1604D2200012BEA1 /* little gear.png */,
 				89EEBDB316051E850012BEA1 /* Roll button.png */,
 				89D9C3901601461800ED11C7 /* rules card.html */,
@@ -1554,6 +1560,8 @@
 				89EEBDB616051EDC0012BEA1 /* Blank blue button.png in Resources */,
 				89EEBDB8160527290012BEA1 /* Blank red button.png in Resources */,
 				89D15C1E1606471900569E4E /* RoundEndReason.xib in Resources */,
+				89D15C2216069E0500569E4E /* Team no.png in Resources */,
+				89D15C2316069E0500569E4E /* Team yes.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

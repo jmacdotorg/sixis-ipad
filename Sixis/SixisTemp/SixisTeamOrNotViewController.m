@@ -60,12 +60,12 @@
     [gameInfo setGameHasTeams:YES];    
     SixisGameLengthViewController *controller = [[SixisGameLengthViewController alloc] init];
     [controller setGameInfo:gameInfo];
-    [self.navigationController pushViewController:controller animated:YES];    
+    [self.navigationController pushViewController:controller animated:NO];
 }
 
 - (IBAction)noButtonTapped:(id)sender {
     [gameInfo setGameHasTeams:NO];
     SixisGameLengthViewController *controller = [[SixisGameLengthViewController alloc] init];
     [controller setGameInfo:gameInfo];
-    [self.navigationController pushViewController:controller animated:YES];}
+    [self.navigationController pushViewController:controller animated:NO];}
 @end

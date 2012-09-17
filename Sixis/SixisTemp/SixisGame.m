@@ -385,7 +385,7 @@
         return @"Taking the Sixis card makes the round end immediately.";
     }
     else if ( players.count > 2 ) {
-        return @"The round's over because the current player has only the Sixis available.";
+        return @"The round's over because the current player has only the Sixis card available.";
     }
     else {
         return @"The last player chose to declare the round over.";

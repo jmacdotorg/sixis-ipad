@@ -149,7 +149,9 @@
         [[self view] addSubview:partnerlabel];
         partnerlabel.center = [tableInfo partnerLabelCenter];
         partnerlabel.transform = CGAffineTransformMakeRotation([tableInfo rotation]);
-        partnerlabel.text = [NSString stringWithFormat:@"Player %d is your partner.", (i + 2) % 4];
+        int partnerNumber = (i + 2) % 4;
+        if ( partnerNumber == 0 ) { partnerNumber = 4; } // Tee hee.
+        partnerlabel.text = [NSString stringWithFormat:@"Player %d is your partner.", partnerNumber];
         [partnerLabels addObject:partnerlabel];
     }
 }

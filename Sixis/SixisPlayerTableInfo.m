@@ -49,10 +49,10 @@
         frame = CGPointMake(230, 26);
     }
     else if ( [self _tablePosition] == RIGHT ) {
-        frame = CGPointMake(1000, 215);
+        frame = CGPointMake(998, 215);
     }
     else {
-        frame = CGPointMake(24, 535);
+        frame = CGPointMake(22, 535);
     }
     return frame;
 }

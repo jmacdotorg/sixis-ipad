@@ -869,7 +869,7 @@
     subview.layer.shadowOffset = CGSizeMake(-15, 20);
     subview.layer.shadowRadius = 5;
     subview.layer.shadowOpacity = .5;
-    subview.layer.shadowPath = [UIBezierPath bezierPathWithRect:roundEndControls.bounds].CGPath;
+    subview.layer.shadowPath = [UIBezierPath bezierPathWithRect:subview.bounds].CGPath;
 }
 
 @end

@@ -74,20 +74,11 @@
     
 }
 
-/*
+
 -(void)viewWillAppear:(BOOL)animated {
     [navController popToRootViewControllerAnimated:NO];
-    
-    if ( tabletopController.game != nil ) {
-        NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-        [nc removeObserver:tabletopController.game];
-        for (SixisPlayer *player in tabletopController.game.players) {
-            [nc removeObserver:player];
-        }
-    }
-    
 }
-*/
+
 
 - (void)viewDidUnload
 {

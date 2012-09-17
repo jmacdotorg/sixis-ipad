@@ -866,7 +866,7 @@
     // (This is copied from StackOverflow: http://stackoverflow.com/questions/805872/how-do-i-draw-a-shadow-under-a-uiview)
     subview.layer.masksToBounds = NO;
     subview.layer.cornerRadius = 8;
-    subview.layer.shadowOffset = CGSizeMake(-15, 20);
+    subview.layer.shadowOffset = CGSizeMake(15, 10);
     subview.layer.shadowRadius = 5;
     subview.layer.shadowOpacity = .5;
     subview.layer.shadowPath = [UIBezierPath bezierPathWithRect:subview.bounds].CGPath;

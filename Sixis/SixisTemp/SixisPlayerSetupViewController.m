@@ -104,6 +104,8 @@
     UIImage *dieImage = [UIImage imageNamed:dieImageName];
     playerCell.dieImage.image = dieImage;
     
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
     return cell;
 }
 

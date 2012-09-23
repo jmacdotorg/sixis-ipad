@@ -660,6 +660,9 @@
     rollAllDiceButton.hidden = YES;
     rollUnlockedDiceButton.hidden = YES;
     
+    // This label is only meaningful before the die-roll, so away it goes.
+    roundMightEndReasonLabel.hidden = YES;
+    
     // Highlight all the qualified cards
     [self _highlightQualifiedCards];
     

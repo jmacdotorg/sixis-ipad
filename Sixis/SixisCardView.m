@@ -97,12 +97,23 @@
 }
 
 -(void) _startFlipAnimationToImage:(UIImage *)image selectedImage:(UIImage *)selectedImage {
-    if ( ! ( rotation == 0 || rotation == M_PI ) ) {
+    if ( ! ( rotation == 0 || rotation == M_PI || rotation == M_PI_2 ) ) {
+        CGFloat newRotation;
+        NSLog(@"The card's current rotation is %f. M_PI_4 + M_PI is %f. M_PI_4 + M_PI_2 is %f.", rotation, M_PI_4 + M_PI, M_PI_4 + M_PI_2);
+//        if ( (rotation == M_PI_4 + M_PI) || (rotation == M_PI_4 + M_PI_2) ) {
+        if ( ( rotation > 2.3 ) && ( rotation < 4.0 ) ) {
+            newRotation = M_PI;
+        }
+        else {
+//            NSLog(@"Tuns out, there's no equivalence.");
+            newRotation = 0;
+        }
+        NSLog(@"New rotation is %f.", newRotation);
         [UIView transitionWithView:self
-                          duration:.5
+                          duration:.25
                            options:nil
                         animations:^{
-                            CGAffineTransform newTransform = CGAffineTransformMakeRotation(0);
+                            CGAffineTransform newTransform = CGAffineTransformMakeRotation(newRotation);
                             self.transform = newTransform;
                         }
                         completion:^(BOOL finished){
@@ -129,9 +140,9 @@
 }
 
 -(void) _finishFlipAnimationToImage:(UIImage *)image selectedImage:(UIImage *)selectedImage {
-    if ( ! ( rotation == 0 || rotation == M_PI ) ) {
+    if ( ! ( rotation == 0 || rotation == M_PI || rotation == M_PI_2 ) ) {
         [UIView transitionWithView:self
-                          duration:.5
+                          duration:.25
                            options:nil
                         animations:^{
                             CGAffineTransform newTransform = CGAffineTransformMakeRotation(rotation);

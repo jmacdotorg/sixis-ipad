@@ -65,6 +65,9 @@ An instance of this class is an abstract representation of a Sixis game.
 /// The number of the current round. (The first round is number 1.)
 @property (nonatomic) int currentRound;
 
+/// Convenience property, holding the trailing players as of the start of the current round.
+@property (nonatomic, readonly) NSMutableArray *trailingPlayers;
+
 /// @name Initializing a Game
 
 /** This is the designated initializer.

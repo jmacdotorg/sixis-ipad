@@ -38,7 +38,7 @@
 
 @implementation SixisGame
 
-@synthesize gameType, playersType, players, cardsInPlay, winningPlayers, hasTeams, currentRound, newRoundJustStarted, currentPlayer, shouldRaiseNewRoundFlag;
+@synthesize gameType, playersType, players, cardsInPlay, winningPlayers, hasTeams, currentRound, newRoundJustStarted, currentPlayer, shouldRaiseNewRoundFlag, trailingPlayers;
 
 -(id)initWithGameType:(SixisGameType *)newGameType PlayersType:(SixisPlayersType *)newPlayersType Players:(NSMutableArray *)newPlayers {
     self = [super init];
@@ -78,7 +78,6 @@
     
     [self startRound];
     
-    // XXX HACK for game night
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     [nc addObserver:self selector:@selector(handleNewTurn:) name:@"SixisNewTurn" object:nil];
     [nc addObserver:self selector:@selector(handleCardPickup:) name:@"SixisPlayerTookCard" object:nil];
@@ -120,8 +119,23 @@
         }
     }
     
-    // XXX This isn't the correct way to determine the first player.
-    self.currentPlayer = [players objectAtIndex:0];
+    // The most-losingest player starts every round. Ties are broken randomly.
+    // This does NOT implement the tabletop Sixis game's "Advanced Start" rule.
+    int lowestScore = -1;
+    trailingPlayers = [[NSMutableArray alloc] init];
+    for (SixisPlayer *player in players) {
+        if ( ( lowestScore == -1 ) || ( player.score < lowestScore ) ) {
+            lowestScore = player.score;
+            [trailingPlayers removeAllObjects];
+            [trailingPlayers addObject:player];
+        }
+        else if ( player.score == lowestScore ) {
+            [trailingPlayers addObject:player];
+        }
+    }
+
+    int startingPlayerIndex = random() % trailingPlayers.count;
+    self.currentPlayer = [trailingPlayers objectAtIndex:startingPlayerIndex];
     
     [self startTurn];
 }

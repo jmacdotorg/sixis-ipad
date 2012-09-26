@@ -28,7 +28,7 @@
 @property (nonatomic) int indexOfLastCardAction;
 @property (nonatomic) BOOL hasRolledDice;
 
--(id)initWithName: (NSString *)newName;
+-(id)initWithName:(NSString *)newName dieColor:(UIColor *)color;
 
 -(void) takeCard:(SixisCard *)card;
 -(void) flipCard:(SixisCard *)card;

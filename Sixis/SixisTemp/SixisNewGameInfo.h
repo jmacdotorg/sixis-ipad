@@ -15,6 +15,7 @@
 @interface SixisNewGameInfo : NSObject
 
 @property (nonatomic) int numberOfPlayers;
+@property (nonatomic, strong) NSMutableArray *playerColors;
 @property (nonatomic, strong) SixisPlayersType *playersType;
 @property (nonatomic, strong) SixisGameType *gameType;
 @property (nonatomic) BOOL gameHasTeams;

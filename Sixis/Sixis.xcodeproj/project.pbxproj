@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		890F7FEC16115DB400580E5E /* SixisColorPickerPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 890F7FEA16115DB400580E5E /* SixisColorPickerPopoverViewController.m */; };
+		890F7FED16115DB400580E5E /* SixisColorPickerPopoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 890F7FEB16115DB400580E5E /* SixisColorPickerPopoverViewController.xib */; };
 		8925DCC915CB625200C1399A /* AllDiceEvenHighlight1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8925DC3915CB625200C1399A /* AllDiceEvenHighlight1.png */; };
 		8925DCCA15CB625200C1399A /* AllDiceEvenHighlight2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8925DC3A15CB625200C1399A /* AllDiceEvenHighlight2.png */; };
 		8925DCCB15CB625200C1399A /* AllDiceEvenHighlight3.png in Resources */ = {isa = PBXBuildFile; fileRef = 8925DC3B15CB625200C1399A /* AllDiceEvenHighlight3.png */; };
@@ -126,6 +128,36 @@
 		8925DD6E15CC516500C1399A /* SixisPlayerStatus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8925DD6D15CC516500C1399A /* SixisPlayerStatus.xib */; };
 		89329B9215D58E8E0055A001 /* SixisTextPrompt.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89329B9115D58E8E0055A001 /* SixisTextPrompt.xib */; };
 		8943560915AB9220009E3C79 /* SixisSmartbot.m in Sources */ = {isa = PBXBuildFile; fileRef = 8943560815AB9220009E3C79 /* SixisSmartbot.m */; };
+		8971E6D1160FFBCF00F01269 /* DiePurple4.png in Resources */ = {isa = PBXBuildFile; fileRef = 8971E6B3160FFBCE00F01269 /* DiePurple4.png */; };
+		8971E6D2160FFBCF00F01269 /* DiePurple6.png in Resources */ = {isa = PBXBuildFile; fileRef = 8971E6B4160FFBCE00F01269 /* DiePurple6.png */; };
+		8971E6D3160FFBCF00F01269 /* DiePurple5.png in Resources */ = {isa = PBXBuildFile; fileRef = 8971E6B5160FFBCE00F01269 /* DiePurple5.png */; };
+		8971E6D4160FFBCF00F01269 /* DiePurple2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8971E6B6160FFBCE00F01269 /* DiePurple2.png */; };
+		8971E6D5160FFBCF00F01269 /* DiePurple3.png in Resources */ = {isa = PBXBuildFile; fileRef = 8971E6B7160FFBCE00F01269 /* DiePurple3.png */; };
+		8971E6D6160FFBCF00F01269 /* DieRed2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8971E6B8160FFBCE00F01269 /* DieRed2.png */; };
+		8971E6D7160FFBCF00F01269 /* DieRed6.png in Resources */ = {isa = PBXBuildFile; fileRef = 8971E6B9160FFBCE00F01269 /* DieRed6.png */; };
+		8971E6D8160FFBCF00F01269 /* DieRed5.png in Resources */ = {isa = PBXBuildFile; fileRef = 8971E6BA160FFBCE00F01269 /* DieRed5.png */; };
+		8971E6D9160FFBCF00F01269 /* DieRed3.png in Resources */ = {isa = PBXBuildFile; fileRef = 8971E6BB160FFBCE00F01269 /* DieRed3.png */; };
+		8971E6DA160FFBCF00F01269 /* DieRed4.png in Resources */ = {isa = PBXBuildFile; fileRef = 8971E6BC160FFBCE00F01269 /* DieRed4.png */; };
+		8971E6DB160FFBCF00F01269 /* DieGreen4.png in Resources */ = {isa = PBXBuildFile; fileRef = 8971E6BD160FFBCE00F01269 /* DieGreen4.png */; };
+		8971E6DC160FFBCF00F01269 /* DieWhite6.png in Resources */ = {isa = PBXBuildFile; fileRef = 8971E6BE160FFBCE00F01269 /* DieWhite6.png */; };
+		8971E6DD160FFBCF00F01269 /* DieWhite3.png in Resources */ = {isa = PBXBuildFile; fileRef = 8971E6BF160FFBCE00F01269 /* DieWhite3.png */; };
+		8971E6DE160FFBCF00F01269 /* DieWhite5.png in Resources */ = {isa = PBXBuildFile; fileRef = 8971E6C0160FFBCE00F01269 /* DieWhite5.png */; };
+		8971E6DF160FFBCF00F01269 /* DieWhite2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8971E6C1160FFBCE00F01269 /* DieWhite2.png */; };
+		8971E6E0160FFBCF00F01269 /* DieWhite4.png in Resources */ = {isa = PBXBuildFile; fileRef = 8971E6C2160FFBCE00F01269 /* DieWhite4.png */; };
+		8971E6E1160FFBCF00F01269 /* DieGreen3.png in Resources */ = {isa = PBXBuildFile; fileRef = 8971E6C3160FFBCE00F01269 /* DieGreen3.png */; };
+		8971E6E2160FFBCF00F01269 /* DieGreen5.png in Resources */ = {isa = PBXBuildFile; fileRef = 8971E6C4160FFBCE00F01269 /* DieGreen5.png */; };
+		8971E6E3160FFBCF00F01269 /* DieGreen6.png in Resources */ = {isa = PBXBuildFile; fileRef = 8971E6C5160FFBCE00F01269 /* DieGreen6.png */; };
+		8971E6E4160FFBCF00F01269 /* DieGreen2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8971E6C6160FFBCE00F01269 /* DieGreen2.png */; };
+		8971E6E5160FFBCF00F01269 /* DieBlack5.png in Resources */ = {isa = PBXBuildFile; fileRef = 8971E6C7160FFBCE00F01269 /* DieBlack5.png */; };
+		8971E6E6160FFBCF00F01269 /* DieBlack6.png in Resources */ = {isa = PBXBuildFile; fileRef = 8971E6C8160FFBCE00F01269 /* DieBlack6.png */; };
+		8971E6E7160FFBCF00F01269 /* DieBlack3.png in Resources */ = {isa = PBXBuildFile; fileRef = 8971E6C9160FFBCE00F01269 /* DieBlack3.png */; };
+		8971E6E8160FFBCF00F01269 /* DieBlack4.png in Resources */ = {isa = PBXBuildFile; fileRef = 8971E6CA160FFBCE00F01269 /* DieBlack4.png */; };
+		8971E6E9160FFBCF00F01269 /* DieWhite1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8971E6CB160FFBCE00F01269 /* DieWhite1.png */; };
+		8971E6EA160FFBCF00F01269 /* DieRed1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8971E6CC160FFBCE00F01269 /* DieRed1.png */; };
+		8971E6EB160FFBCF00F01269 /* DiePurple1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8971E6CD160FFBCE00F01269 /* DiePurple1.png */; };
+		8971E6EC160FFBCF00F01269 /* DieGreen1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8971E6CE160FFBCE00F01269 /* DieGreen1.png */; };
+		8971E6ED160FFBCF00F01269 /* DieBlack2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8971E6CF160FFBCE00F01269 /* DieBlack2.png */; };
+		8971E6EE160FFBCF00F01269 /* DieBlack1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8971E6D0160FFBCF00F01269 /* DieBlack1.png */; };
 		89A08EFC15C70FB40011E57D /* SixisPlayerControls.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89A08EFB15C70FB40011E57D /* SixisPlayerControls.xib */; };
 		89A08F0A15C77ADE0011E57D /* DieBlueSelected1.png in Resources */ = {isa = PBXBuildFile; fileRef = 89A08F0915C77ADE0011E57D /* DieBlueSelected1.png */; };
 		89A08F0C15C77AE50011E57D /* DieBlueSelected2.png in Resources */ = {isa = PBXBuildFile; fileRef = 89A08F0B15C77AE50011E57D /* DieBlueSelected2.png */; };
@@ -296,6 +328,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		890F7FE916115DB400580E5E /* SixisColorPickerPopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SixisColorPickerPopoverViewController.h; path = ../SixisColorPickerPopoverViewController.h; sourceTree = "<group>"; };
+		890F7FEA16115DB400580E5E /* SixisColorPickerPopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SixisColorPickerPopoverViewController.m; path = ../SixisColorPickerPopoverViewController.m; sourceTree = "<group>"; };
+		890F7FEB16115DB400580E5E /* SixisColorPickerPopoverViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SixisColorPickerPopoverViewController.xib; path = ../SixisColorPickerPopoverViewController.xib; sourceTree = "<group>"; };
 		8925DC3815CB625200C1399A /* AllDiceEven.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AllDiceEven.png; sourceTree = "<group>"; };
 		8925DC3915CB625200C1399A /* AllDiceEvenHighlight1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AllDiceEvenHighlight1.png; sourceTree = "<group>"; };
 		8925DC3A15CB625200C1399A /* AllDiceEvenHighlight2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AllDiceEvenHighlight2.png; sourceTree = "<group>"; };
@@ -453,6 +488,36 @@
 		89329B9115D58E8E0055A001 /* SixisTextPrompt.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SixisTextPrompt.xib; sourceTree = "<group>"; };
 		8943560715AB921F009E3C79 /* SixisSmartbot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisSmartbot.h; sourceTree = "<group>"; };
 		8943560815AB9220009E3C79 /* SixisSmartbot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisSmartbot.m; sourceTree = "<group>"; };
+		8971E6B3160FFBCE00F01269 /* DiePurple4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DiePurple4.png; sourceTree = "<group>"; };
+		8971E6B4160FFBCE00F01269 /* DiePurple6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DiePurple6.png; sourceTree = "<group>"; };
+		8971E6B5160FFBCE00F01269 /* DiePurple5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DiePurple5.png; sourceTree = "<group>"; };
+		8971E6B6160FFBCE00F01269 /* DiePurple2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DiePurple2.png; sourceTree = "<group>"; };
+		8971E6B7160FFBCE00F01269 /* DiePurple3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DiePurple3.png; sourceTree = "<group>"; };
+		8971E6B8160FFBCE00F01269 /* DieRed2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DieRed2.png; sourceTree = "<group>"; };
+		8971E6B9160FFBCE00F01269 /* DieRed6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DieRed6.png; sourceTree = "<group>"; };
+		8971E6BA160FFBCE00F01269 /* DieRed5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DieRed5.png; sourceTree = "<group>"; };
+		8971E6BB160FFBCE00F01269 /* DieRed3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DieRed3.png; sourceTree = "<group>"; };
+		8971E6BC160FFBCE00F01269 /* DieRed4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DieRed4.png; sourceTree = "<group>"; };
+		8971E6BD160FFBCE00F01269 /* DieGreen4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DieGreen4.png; sourceTree = "<group>"; };
+		8971E6BE160FFBCE00F01269 /* DieWhite6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DieWhite6.png; sourceTree = "<group>"; };
+		8971E6BF160FFBCE00F01269 /* DieWhite3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DieWhite3.png; sourceTree = "<group>"; };
+		8971E6C0160FFBCE00F01269 /* DieWhite5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DieWhite5.png; sourceTree = "<group>"; };
+		8971E6C1160FFBCE00F01269 /* DieWhite2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DieWhite2.png; sourceTree = "<group>"; };
+		8971E6C2160FFBCE00F01269 /* DieWhite4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DieWhite4.png; sourceTree = "<group>"; };
+		8971E6C3160FFBCE00F01269 /* DieGreen3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DieGreen3.png; sourceTree = "<group>"; };
+		8971E6C4160FFBCE00F01269 /* DieGreen5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DieGreen5.png; sourceTree = "<group>"; };
+		8971E6C5160FFBCE00F01269 /* DieGreen6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DieGreen6.png; sourceTree = "<group>"; };
+		8971E6C6160FFBCE00F01269 /* DieGreen2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DieGreen2.png; sourceTree = "<group>"; };
+		8971E6C7160FFBCE00F01269 /* DieBlack5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DieBlack5.png; sourceTree = "<group>"; };
+		8971E6C8160FFBCE00F01269 /* DieBlack6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DieBlack6.png; sourceTree = "<group>"; };
+		8971E6C9160FFBCE00F01269 /* DieBlack3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DieBlack3.png; sourceTree = "<group>"; };
+		8971E6CA160FFBCE00F01269 /* DieBlack4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DieBlack4.png; sourceTree = "<group>"; };
+		8971E6CB160FFBCE00F01269 /* DieWhite1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DieWhite1.png; sourceTree = "<group>"; };
+		8971E6CC160FFBCE00F01269 /* DieRed1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DieRed1.png; sourceTree = "<group>"; };
+		8971E6CD160FFBCE00F01269 /* DiePurple1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DiePurple1.png; sourceTree = "<group>"; };
+		8971E6CE160FFBCE00F01269 /* DieGreen1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DieGreen1.png; sourceTree = "<group>"; };
+		8971E6CF160FFBCE00F01269 /* DieBlack2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DieBlack2.png; sourceTree = "<group>"; };
+		8971E6D0160FFBCF00F01269 /* DieBlack1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DieBlack1.png; sourceTree = "<group>"; };
 		89A08EFB15C70FB40011E57D /* SixisPlayerControls.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SixisPlayerControls.xib; sourceTree = "<group>"; };
 		89A08F0915C77ADE0011E57D /* DieBlueSelected1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DieBlueSelected1.png; sourceTree = "<group>"; };
 		89A08F0B15C77AE50011E57D /* DieBlueSelected2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DieBlueSelected2.png; sourceTree = "<group>"; };
@@ -927,6 +992,36 @@
 		89CBE86D15BF06510045AD3E /* Die images */ = {
 			isa = PBXGroup;
 			children = (
+				8971E6B3160FFBCE00F01269 /* DiePurple4.png */,
+				8971E6B4160FFBCE00F01269 /* DiePurple6.png */,
+				8971E6B5160FFBCE00F01269 /* DiePurple5.png */,
+				8971E6B6160FFBCE00F01269 /* DiePurple2.png */,
+				8971E6B7160FFBCE00F01269 /* DiePurple3.png */,
+				8971E6B8160FFBCE00F01269 /* DieRed2.png */,
+				8971E6B9160FFBCE00F01269 /* DieRed6.png */,
+				8971E6BA160FFBCE00F01269 /* DieRed5.png */,
+				8971E6BB160FFBCE00F01269 /* DieRed3.png */,
+				8971E6BC160FFBCE00F01269 /* DieRed4.png */,
+				8971E6BD160FFBCE00F01269 /* DieGreen4.png */,
+				8971E6BE160FFBCE00F01269 /* DieWhite6.png */,
+				8971E6BF160FFBCE00F01269 /* DieWhite3.png */,
+				8971E6C0160FFBCE00F01269 /* DieWhite5.png */,
+				8971E6C1160FFBCE00F01269 /* DieWhite2.png */,
+				8971E6C2160FFBCE00F01269 /* DieWhite4.png */,
+				8971E6C3160FFBCE00F01269 /* DieGreen3.png */,
+				8971E6C4160FFBCE00F01269 /* DieGreen5.png */,
+				8971E6C5160FFBCE00F01269 /* DieGreen6.png */,
+				8971E6C6160FFBCE00F01269 /* DieGreen2.png */,
+				8971E6C7160FFBCE00F01269 /* DieBlack5.png */,
+				8971E6C8160FFBCE00F01269 /* DieBlack6.png */,
+				8971E6C9160FFBCE00F01269 /* DieBlack3.png */,
+				8971E6CA160FFBCE00F01269 /* DieBlack4.png */,
+				8971E6CB160FFBCE00F01269 /* DieWhite1.png */,
+				8971E6CC160FFBCE00F01269 /* DieRed1.png */,
+				8971E6CD160FFBCE00F01269 /* DiePurple1.png */,
+				8971E6CE160FFBCE00F01269 /* DieGreen1.png */,
+				8971E6CF160FFBCE00F01269 /* DieBlack2.png */,
+				8971E6D0160FFBCF00F01269 /* DieBlack1.png */,
 				89A08F0B15C77AE50011E57D /* DieBlueSelected2.png */,
 				89A08F0915C77ADE0011E57D /* DieBlueSelected1.png */,
 				8925DD6015CB9D3200C1399A /* DieBlueSelected3.png */,
@@ -1057,6 +1152,9 @@
 			children = (
 				89EEBDA4160436040012BEA1 /* about button.png */,
 				89EEBDA2160422E40012BEA1 /* about card.html */,
+				890F7FE916115DB400580E5E /* SixisColorPickerPopoverViewController.h */,
+				890F7FEA16115DB400580E5E /* SixisColorPickerPopoverViewController.m */,
+				890F7FEB16115DB400580E5E /* SixisColorPickerPopoverViewController.xib */,
 				89D9C38A15FEA9FF00ED11C7 /* SixisSitsHereLabel.xib */,
 				89EEBDA6160436140012BEA1 /* Play button.png */,
 				89EEBD8F1602C9370012BEA1 /* SixisTeammateLabel.xib */,
@@ -1072,6 +1170,7 @@
 				89EFB3FD15926F0A00D09240 /* SixisChoosePlayerNumberViewController.xib */,
 				89EFB4131595793600D09240 /* SixisPlayerSetupCell.h */,
 				89EFB4141595793600D09240 /* SixisPlayerSetupCell.m */,
+				89EFB44A1596B22200D09240 /* SixisPlayerSetupCell.xib */,
 				89EFB404159572F800D09240 /* SixisTeamOrNotViewController.h */,
 				89EFB405159572F800D09240 /* SixisTeamOrNotViewController.m */,
 				89EFB406159572F800D09240 /* SixisTeamOrNotViewController.xib */,
@@ -1081,7 +1180,6 @@
 				89EFB44515968EAF00D09240 /* SixisPlayerSetupViewController.h */,
 				89EFB44615968EAF00D09240 /* SixisPlayerSetupViewController.m */,
 				89EFB44715968EB000D09240 /* SixisPlayerSetupViewController.xib */,
-				89EFB44A1596B22200D09240 /* SixisPlayerSetupCell.xib */,
 				89D9C38415FEA34400ED11C7 /* SixisFirstActionsViewController.h */,
 				89D9C38515FEA34400ED11C7 /* SixisFirstActionsViewController.m */,
 				89D9C38615FEA34400ED11C7 /* SixisFirstActionsViewController.xib */,
@@ -1490,6 +1588,37 @@
 				89D15C1E1606471900569E4E /* RoundEndReason.xib in Resources */,
 				89D15C2216069E0500569E4E /* Team no.png in Resources */,
 				89D15C2316069E0500569E4E /* Team yes.png in Resources */,
+				8971E6D1160FFBCF00F01269 /* DiePurple4.png in Resources */,
+				8971E6D2160FFBCF00F01269 /* DiePurple6.png in Resources */,
+				8971E6D3160FFBCF00F01269 /* DiePurple5.png in Resources */,
+				8971E6D4160FFBCF00F01269 /* DiePurple2.png in Resources */,
+				8971E6D5160FFBCF00F01269 /* DiePurple3.png in Resources */,
+				8971E6D6160FFBCF00F01269 /* DieRed2.png in Resources */,
+				8971E6D7160FFBCF00F01269 /* DieRed6.png in Resources */,
+				8971E6D8160FFBCF00F01269 /* DieRed5.png in Resources */,
+				8971E6D9160FFBCF00F01269 /* DieRed3.png in Resources */,
+				8971E6DA160FFBCF00F01269 /* DieRed4.png in Resources */,
+				8971E6DB160FFBCF00F01269 /* DieGreen4.png in Resources */,
+				8971E6DC160FFBCF00F01269 /* DieWhite6.png in Resources */,
+				8971E6DD160FFBCF00F01269 /* DieWhite3.png in Resources */,
+				8971E6DE160FFBCF00F01269 /* DieWhite5.png in Resources */,
+				8971E6DF160FFBCF00F01269 /* DieWhite2.png in Resources */,
+				8971E6E0160FFBCF00F01269 /* DieWhite4.png in Resources */,
+				8971E6E1160FFBCF00F01269 /* DieGreen3.png in Resources */,
+				8971E6E2160FFBCF00F01269 /* DieGreen5.png in Resources */,
+				8971E6E3160FFBCF00F01269 /* DieGreen6.png in Resources */,
+				8971E6E4160FFBCF00F01269 /* DieGreen2.png in Resources */,
+				8971E6E5160FFBCF00F01269 /* DieBlack5.png in Resources */,
+				8971E6E6160FFBCF00F01269 /* DieBlack6.png in Resources */,
+				8971E6E7160FFBCF00F01269 /* DieBlack3.png in Resources */,
+				8971E6E8160FFBCF00F01269 /* DieBlack4.png in Resources */,
+				8971E6E9160FFBCF00F01269 /* DieWhite1.png in Resources */,
+				8971E6EA160FFBCF00F01269 /* DieRed1.png in Resources */,
+				8971E6EB160FFBCF00F01269 /* DiePurple1.png in Resources */,
+				8971E6EC160FFBCF00F01269 /* DieGreen1.png in Resources */,
+				8971E6ED160FFBCF00F01269 /* DieBlack2.png in Resources */,
+				8971E6EE160FFBCF00F01269 /* DieBlack1.png in Resources */,
+				890F7FED16115DB400580E5E /* SixisColorPickerPopoverViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1590,6 +1719,7 @@
 				89E3862415DC60AB00B3D517 /* SixisMainMenuViewController.m in Sources */,
 				89D9C38715FEA34400ED11C7 /* SixisFirstActionsViewController.m in Sources */,
 				89EEBDAF1604D2E00012BEA1 /* SixisSettingsPopoverViewController.m in Sources */,
+				890F7FEC16115DB400580E5E /* SixisColorPickerPopoverViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

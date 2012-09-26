@@ -14,6 +14,8 @@
 #import "SixisSmartbot.h"
 #import "SixisHuman.h"
 #import "SixisMainMenuViewController.h"
+#import "SixisDie.h"
+#import "SixisDieView.h"
 
 @interface SixisPlayerSetupViewController ()
 
@@ -52,6 +54,16 @@
     self.tableView.opaque = NO;
     self.tableView.backgroundView = nil;
     self.tableView.separatorColor = [UIColor clearColor];
+    
+    // All the nascent players get random die colors.
+    gameInfo.playerColors = [[NSMutableArray alloc] init];
+    for (int i = 1; i <= gameInfo.numberOfPlayers; i++) {
+        [gameInfo.playerColors addObject:[NSNull null]];
+    }
+    self.unusedColors = [[NSMutableSet alloc] initWithArray:@[[UIColor whiteColor], [UIColor blackColor], [UIColor redColor], [UIColor greenColor], [UIColor blueColor], [UIColor purpleColor]]];
+    for (int i = 1; i <= gameInfo.numberOfPlayers; i++) {
+        [self assignAnyUnusedColorToPlayerNumber:i];
+    }
 }
 
 
@@ -99,13 +111,23 @@
     SixisPlayerSetupCell *playerCell = (SixisPlayerSetupCell *)cell;
     playerCell.nameField.text = [NSString stringWithFormat:@"Player %i", ( indexPath.section * 2 ) + indexPath.row + 1];
     
-    // Set the die image. XXX Non-interactive and only blue, for now.
+    // Set the die image.
+    /*
     NSString *dieImageName = [NSString stringWithFormat:@"DieBlue%d", indexPath.row + 1];
     UIImage *dieImage = [UIImage imageNamed:dieImageName];
     playerCell.dieImage.image = dieImage;
+    */
+    SixisDieView *dieButton = playerCell.dieButton;
+    SixisDie *die = [[SixisDie alloc] init];
+    die.color = [gameInfo.playerColors objectAtIndex:indexPath.row];
+    die.value = indexPath.row + 1;
+    dieButton.die = die;
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
+    playerCell.playerNumber = indexPath.row + 1;
+    playerCell.parent = self;
+    
     return cell;
 }
 
@@ -131,10 +153,10 @@
         SixisPlayerSetupCell *cell = (SixisPlayerSetupCell *)rawCell;
         
         if ( cell.humanOrBotControl.selectedSegmentIndex == 0 ) {
-            [players addObject:[[SixisHuman alloc] initWithName:cell.nameField.text]];
+            [players addObject:[[SixisHuman alloc] initWithName:cell.nameField.text dieColor:[gameInfo.playerColors objectAtIndex:i]]];
         }
         else {
-            [players addObject:[[SixisSmartbot alloc] initWithName:cell.nameField.text]];
+            [players addObject:[[SixisSmartbot alloc] initWithName:cell.nameField.text dieColor:[gameInfo.playerColors objectAtIndex:i]]];
         }
         
     }
@@ -154,6 +176,33 @@
     self.view.window.rootViewController = tabletop;
     [game startGame];
     
+}
+
+-(void)assignAnyUnusedColorToPlayerNumber:(int)playerNumber {
+    UIColor *newColor = [self.unusedColors anyObject];
+    [self assignColor:newColor toPlayerNumber:playerNumber];
+}
+
+-(void)assignColor:(UIColor *)newColor toPlayerNumber:(int)playerNumber {
+    // First make sure that nobody else has this color.
+    for ( int i = 1; i <= gameInfo.numberOfPlayers; i++ ) {
+        if ( i != playerNumber ) {
+            if ( [[gameInfo.playerColors objectAtIndex:i - 1] isEqual:newColor] ) {
+                [self assignAnyUnusedColorToPlayerNumber:i];
+                SixisPlayerSetupCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:i - 1 inSection:0]];
+                SixisDie *die = [[SixisDie alloc] init];
+                die.color = [gameInfo.playerColors objectAtIndex:i - 1];
+                die.value = i;
+                cell.dieButton.die = die;
+            }
+        }
+    }
+    UIColor *oldColor = (UIColor *)[gameInfo.playerColors objectAtIndex:playerNumber - 1];
+    if ( oldColor ) {
+        [self.unusedColors addObject:oldColor];
+    }
+    [self.unusedColors removeObject:newColor];
+    [gameInfo.playerColors replaceObjectAtIndex:playerNumber - 1 withObject:newColor];
 }
 
 @end

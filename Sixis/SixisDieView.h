@@ -14,5 +14,6 @@
 
 @property (nonatomic, strong) SixisDie *die;
 
++(NSString *)nameForColor:(UIColor *)color;
 
 @end

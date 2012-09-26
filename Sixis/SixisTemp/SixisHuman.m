@@ -11,8 +11,8 @@
 
 @implementation SixisHuman
 
--(id) initWithName:(NSString *)newName {
-    self = [super initWithName:newName];
+-(id) initWithName:(NSString *)newName dieColor:newColor {
+    self = [super initWithName:newName dieColor:newColor];
     
     // Register notification handlers.
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];

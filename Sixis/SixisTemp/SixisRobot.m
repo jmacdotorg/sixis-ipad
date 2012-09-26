@@ -21,8 +21,8 @@
 //    hasFinishedTurn = YES;
 }
 
--(id) initWithName:(NSString *)newName {
-    self = [super initWithName:newName];
+-(id) initWithName:(NSString *)newName dieColor:(UIColor *)color{
+    self = [super initWithName:newName dieColor:color];
     
     // Register notification handlers.
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
@@ -33,7 +33,7 @@
 }
 
 -(id) init {
-    return [self initWithName:@"Sixis Robot"];
+    return [self initWithName:@"Sixis Robot" dieColor:[UIColor blackColor]];
 }
 
 -(void)handleNewTurn:(NSNotification *)note {

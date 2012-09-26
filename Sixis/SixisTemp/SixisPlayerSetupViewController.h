@@ -15,7 +15,10 @@
 }
 
 @property (nonatomic, strong) SixisNewGameInfo *gameInfo;
+@property (nonatomic, strong) NSMutableSet *unusedColors;
 
 -(void)doneTapped:(id)sender;
+-(void)assignAnyUnusedColorToPlayerNumber:(int)playerNumber;
+-(void)assignColor:(UIColor *)newColor toPlayerNumber:(int)playerNumber;
 
 @end

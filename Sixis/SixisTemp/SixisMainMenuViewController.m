@@ -47,6 +47,7 @@
     SixisFirstActionsViewController *numberController = [[SixisFirstActionsViewController alloc] init];
     
     SixisNewGameInfo *gameInfo = [[SixisNewGameInfo alloc] init];
+    gameInfo.playerColors = [[NSMutableArray alloc] init];
     [numberController setGameInfo:gameInfo];
     
     // Create the tabletop view controller. This is destined to get passed around for the rest of the app's lifetime.

@@ -8,9 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SixisPlayerSetupCell : UITableViewCell
+@class SixisDieView;
+@class SixisPlayerSetupViewController;
+
+@interface SixisPlayerSetupCell : UITableViewCell {
+    UIPopoverController *popover;
+}
 @property (weak, nonatomic) IBOutlet UIImageView *dieImage;
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *humanOrBotControl;
+@property (weak, nonatomic) IBOutlet SixisDieView *dieButton;
+@property int playerNumber;
+@property (weak, nonatomic) SixisPlayerSetupViewController *parent;
 
+- (IBAction)handleDieButton:(id)sender;
+-(void)assignColor:(UIColor *)color toPlayerNumber:(int)playerNumber;
 @end

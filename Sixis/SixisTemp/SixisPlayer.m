@@ -15,9 +15,10 @@
 
 @synthesize name, dieColor, score, lockedDice, unlockedDice, game, number, cardJustFlipped, cardJustTaken, indexOfLastCardAction, hasRolledDice;
 
--(id)initWithName:(NSString *)newName {
+-(id)initWithName:(NSString *)newName dieColor:(UIColor *)newColor {
     self = [super init];
     self.name = newName;
+    self.dieColor = newColor;
     
     // Pick up your dice!
     unlockedDice = [[NSMutableSet alloc] init];
@@ -28,6 +29,7 @@
     
     for ( SixisDie *die in unlockedDice ) {
         [die setPlayer:self];
+        [die setColor:newColor];
     }
     
     hasRolledDice = NO;
@@ -36,7 +38,7 @@
 }
 
 -(id) init {
-    return [self initWithName:@"Nobody"];
+    return [self initWithName:@"Nobody" dieColor:[UIColor whiteColor]];
 }
 
 -(NSSet *)dice {

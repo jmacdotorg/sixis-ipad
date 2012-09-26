@@ -31,13 +31,38 @@
     }
     else {
         // We've set a new die object for this view. Set its image appropriately.
-        // XXX Wer'e gonna wanna update this to get the right color.
-        NSString *dieImage = [NSString stringWithFormat:@"DieBlue%d", [die value]];
+        // This way of getting the color substring isn't awesome.
+        NSString *colorName = [SixisDieView nameForColor:die.color];
+
+        NSString *dieImage = [NSString stringWithFormat:@"Die%@%d", colorName, [die value]];
         NSString *selectedImage = [NSString stringWithFormat:@"DieBlueSelected%d", [die value]];
         UIImage *image = [UIImage imageNamed:dieImage];
         [self setImage:image forState:UIControlStateNormal];
         [self setImage:[UIImage imageNamed:selectedImage] forState:UIControlStateSelected];
     }
+}
+
++(NSString *)nameForColor:(UIColor *)color {
+    NSString *colorName;
+    if ( [color isEqual:[UIColor whiteColor]] ) {
+        colorName = @"White";
+    }
+    else if ( [color isEqual:[UIColor blackColor]] ) {
+        colorName = @"Black";
+    }
+    else if ( [color isEqual:[UIColor greenColor]] ) {
+        colorName = @"Green";
+    }
+    else if ( [color isEqual:[UIColor purpleColor]] ) {
+        colorName = @"Purple";
+    }
+    else if ( [color isEqual:[UIColor redColor]] ) {
+        colorName = @"Red";
+    }
+    else {
+        colorName = @"Blue";
+    }
+    return colorName;
 }
 
 /*

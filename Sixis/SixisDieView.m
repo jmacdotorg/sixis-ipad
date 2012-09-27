@@ -35,7 +35,7 @@
         NSString *colorName = [SixisDieView nameForColor:die.color];
 
         NSString *dieImage = [NSString stringWithFormat:@"Die%@%d", colorName, [die value]];
-        NSString *selectedImage = [NSString stringWithFormat:@"DieBlueSelected%d", [die value]];
+        NSString *selectedImage = [NSString stringWithFormat:@"Die%@Selected%d", colorName,[die value]];
         UIImage *image = [UIImage imageNamed:dieImage];
         [self setImage:image forState:UIControlStateNormal];
         [self setImage:[UIImage imageNamed:selectedImage] forState:UIControlStateSelected];
@@ -65,13 +65,5 @@
     return colorName;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

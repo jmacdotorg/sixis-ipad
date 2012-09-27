@@ -190,6 +190,7 @@
     [aCoder encodeInt:score forKey:@"score"];
     [aCoder encodeConditionalObject:game forKey:@"game"];
     [aCoder encodeInt:number forKey:@"number"];
+    [aCoder encodeObject:dieColor forKey:@"dieColor"];
 }
 
 
@@ -207,6 +208,7 @@
         [self setScore:[aDecoder decodeIntForKey:@"score"]];
         [self setGame:[aDecoder decodeObjectForKey:@"game"]];
         [self setNumber:[aDecoder decodeIntForKey:@"number"]];
+        [self setDieColor:[aDecoder decodeObjectForKey:@"dieColor"]];
     }
     return self;
 }

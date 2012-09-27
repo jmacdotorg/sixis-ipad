@@ -17,6 +17,7 @@ An instance of this class is an abstract representation of a Sixis game.
 
 @interface SixisGame : NSObject <NSCoding> {
     NSMutableArray *deck;
+    SixisPlayer *firstPlayer;
 }
 
 /// @name Properties
@@ -43,6 +44,11 @@ An instance of this class is an abstract representation of a Sixis game.
 @property (nonatomic) BOOL hasTeams;
 @property (nonatomic) BOOL shouldRaiseNewRoundFlag;
 
+/** YES if the current turn is happening in the first go-round of the current round.
+ 
+ Useful when restoring a saved game, when it's not technically possible to deduce this information based on the current game state.
+ */
+@property (nonatomic) BOOL thisIsTheFirstGoRound;
 
 /// If the game is over, this array contains the winning players. (It will contain more than one player on a team victory, or a tie.)
 @property (nonatomic, strong) NSArray *winningPlayers;

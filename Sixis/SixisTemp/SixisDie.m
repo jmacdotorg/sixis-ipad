@@ -47,6 +47,7 @@
     [aCoder encodeConditionalObject:[self player] forKey:@"player"];
     [aCoder encodeInt:value forKey:@"value"];
     [aCoder encodeBool:isLocked forKey:@"isLocked"];
+    [aCoder encodeObject:color forKey:@"color"];
 }
 
 -(id) initWithCoder:(NSCoder *)aDecoder {
@@ -55,6 +56,7 @@
         [self setPlayer:[aDecoder decodeObjectForKey:@"player"]];
         [self setValue:[aDecoder decodeIntForKey:@"value"]];
         [self setIsLocked:[aDecoder decodeBoolForKey:@"isLocked"]];
+        [self setColor:[aDecoder decodeObjectForKey:@"color"]];
     }
     return self;
 }

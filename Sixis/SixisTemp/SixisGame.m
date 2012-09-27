@@ -205,6 +205,15 @@
         NSLog(@"Game FAILED to save at start of turn.");
     }
     
+    // Update the thisIsTheFirstGoRound boolean.
+    if ( firstPlayer == nil ) {
+        firstPlayer = currentPlayer;
+        self.thisIsTheFirstGoRound = YES;
+    }
+    else if ( [firstPlayer isEqual:currentPlayer] ) {
+        self.thisIsTheFirstGoRound = NO;
+    }
+    
     // Post a notification that a new turn has started.
     // If the current player is a robot, this will spur them into action.
     [[NSNotificationCenter defaultCenter] postNotificationName:@"SixisNewTurn" object:self userInfo:[NSDictionary dictionaryWithObject:currentPlayer forKey:@"player"]];
@@ -354,6 +363,8 @@
     [aCoder encodeBool:newRoundJustStarted forKey:@"newRoundJustStarted"];
     [aCoder encodeInt:currentRound forKey:@"currentRound"];
     [aCoder encodeBool:shouldRaiseNewRoundFlag forKey:@"shouldRaiseNewRoundFlag"];
+    [aCoder encodeBool:_thisIsTheFirstGoRound forKey:@"thisIsTheFirstGoRound"];
+    [aCoder encodeObject:firstPlayer forKey:@"firstPlayer"];
 }
 
 -(id)initWithCoder:(NSCoder *)aDecoder {
@@ -368,6 +379,8 @@
         [self setCurrentRound:[aDecoder decodeIntForKey:@"currentRound"]];
         [self setShouldRaiseNewRoundFlag:[aDecoder decodeBoolForKey:@"shouldRaiseNewRoundFlag"]];
         [self setCurrentPlayer:[aDecoder decodeObjectForKey:@"currentPlayer"]];
+        [self setThisIsTheFirstGoRound:[aDecoder decodeBoolForKey:@"thisIsTheFirstGoRound"]];
+        firstPlayer = [aDecoder decodeObjectForKey:@"firstPlayer"];
     }
     return self;
 }

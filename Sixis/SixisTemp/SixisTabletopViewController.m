@@ -307,15 +307,6 @@
 -(void)startNewTurnWithPlayer:(SixisPlayer *)player {
     currentPlayer = player;
     
-    // Update the thisIsTheFirstRound boolean.
-    if ( firstPlayer == nil ) {
-        firstPlayer = currentPlayer;
-        thisIsTheFirstGoRound = YES;
-    }
-    else if ( [firstPlayer isEqual:currentPlayer] ) {
-        thisIsTheFirstGoRound = NO;
-    }
-
     // Get the current player's tableInfo object.
     SixisPlayerTableInfo *info = (SixisPlayerTableInfo *)[tableInfoForPlayer objectForKey:[currentPlayer name]];
     
@@ -385,7 +376,7 @@
         if ( currentPlayer.lockedDice.count == 6 ) {
             [newText appendString:@"All of your dice are locked! Roll nothing, OR re-roll all six."];
         }
-        else if ( thisIsTheFirstGoRound ) {
+        else if ( game.thisIsTheFirstGoRound ) {
             [newText appendString:@"This is your first turn this round, so roll all your dice! Tap the Roll All button."];
         }
         else if ( currentPlayer.lockedDice.count == 0 ) {
@@ -540,8 +531,9 @@
     }
    
     NSMutableSet *dice = [NSMutableSet setWithSet:theDice];
+    SixisPlayer *player = [game.players objectAtIndex:playerNumber - 1];
     
-    SixisPlayerTableInfo *info = (SixisPlayerTableInfo *)[tableInfoForPlayer objectForKey:[currentPlayer name]];
+    SixisPlayerTableInfo *info = (SixisPlayerTableInfo *)[tableInfoForPlayer objectForKey:[player name]];
     UIView *bank = [info.statusBar viewWithTag:DICE_BANK_TAG];
     NSArray *bankDieViews = [bank subviews];
     for (SixisDieView *dieView in bankDieViews) {

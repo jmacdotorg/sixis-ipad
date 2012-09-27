@@ -11,7 +11,7 @@
 #import "SixisDie.h"
 #import "SixisCard.h"
 
-#define SNOOZE_LENGTH .3
+#define SNOOZE_LENGTH 1
 #define FLIP_PROBABILITY .75
 
 @implementation SixisSmartbot

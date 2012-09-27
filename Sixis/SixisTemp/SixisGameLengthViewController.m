@@ -64,7 +64,7 @@
 }
 
 - (IBAction)pointButtonTapped:(id)sender {
-    [gameInfo setGameType:[[SixisPointsGame alloc] initWithGoal:200]];
+    [gameInfo setGameType:[[SixisPointsGame alloc] initWithGoal:600]];
     [self _goToNextController];
 }
 

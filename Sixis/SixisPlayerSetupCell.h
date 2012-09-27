@@ -15,7 +15,8 @@
     UIPopoverController *popover;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *dieImage;
-@property (weak, nonatomic) IBOutlet UITextField *nameField;
+
+@property (weak, nonatomic) IBOutlet UILabel *nameField;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *humanOrBotControl;
 @property (weak, nonatomic) IBOutlet SixisDieView *dieButton;
 @property int playerNumber;

@@ -198,7 +198,7 @@
         }
     }
     UIColor *oldColor = (UIColor *)[gameInfo.playerColors objectAtIndex:playerNumber - 1];
-    if ( oldColor ) {
+    if ( ! [oldColor isEqual:[NSNull null]] ) {
         [self.unusedColors addObject:oldColor];
     }
     [self.unusedColors removeObject:newColor];

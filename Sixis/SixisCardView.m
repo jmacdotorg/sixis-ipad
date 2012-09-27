@@ -54,7 +54,9 @@
         // Make a copy of this card's view, sitting on top of the card.
         SixisCardView *copy = [[SixisCardView alloc] initWithFrame:self.frame];
         [copy setCard:oldCard];
+        [copy setBounds:self.bounds];
         [copy setTransform:self.transform];
+
         [self.superview addSubview:copy];
         
         // Animate the copy flying towards the player who picked it up. Then throw it out.

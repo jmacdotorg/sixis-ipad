@@ -125,11 +125,13 @@
     trailingPlayers = [[NSMutableArray alloc] init];
     for (SixisPlayer *player in players) {
         if ( ( lowestScore == -1 ) || ( player.score < lowestScore ) ) {
+            NSLog(@"%@ is the biggest loser!", [player name]);
             lowestScore = player.score;
             [trailingPlayers removeAllObjects];
             [trailingPlayers addObject:player];
         }
         else if ( player.score == lowestScore ) {
+            NSLog(@"%@ is a new fellow-loser.", [player name]);
             [trailingPlayers addObject:player];
         }
     }

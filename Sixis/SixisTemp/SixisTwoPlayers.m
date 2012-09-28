@@ -85,10 +85,10 @@
 
 -(NSString *)roundMightEndReason {
     if ( halfTheCardsAreGone ) {
-        return @"All cards on one side of the Sixis are gone!";
+        return @"All cards on one side of the Sixis are gone.";
     }
     else if ( allCardsAreRed ) {
-        return @"All remaining cards are red!";
+        return @"All remaining cards are red.";
     }
     else {
         return nil;

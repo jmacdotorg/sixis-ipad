@@ -424,7 +424,8 @@
         return @"The round's over because the current player has only the Sixis card available.";
     }
     else {
-        return @"The last player chose to declare the round over.";
+        NSString *roundMightEndReason = [playersType roundMightEndReason];
+        return [NSString stringWithFormat:@"%@ So, the last player chose to declare the round over.", roundMightEndReason];
     }
 }
 

@@ -125,19 +125,17 @@
     trailingPlayers = [[NSMutableArray alloc] init];
     for (SixisPlayer *player in players) {
         if ( ( lowestScore == -1 ) || ( player.score < lowestScore ) ) {
-            NSLog(@"%@ is the biggest loser!", [player name]);
             lowestScore = player.score;
             [trailingPlayers removeAllObjects];
             [trailingPlayers addObject:player];
         }
         else if ( player.score == lowestScore ) {
-            NSLog(@"%@ is a new fellow-loser.", [player name]);
             [trailingPlayers addObject:player];
         }
     }
 
     int startingPlayerIndex = random() % trailingPlayers.count;
-    self.currentPlayer = [trailingPlayers objectAtIndex:startingPlayerIndex];
+    firstPlayer = [trailingPlayers objectAtIndex:startingPlayerIndex];
     
     [self startTurn];
 }
@@ -156,6 +154,8 @@
     else {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"SixisRoundEnded" object:self userInfo:nil];
     }
+    
+    currentPlayer = nil;
 }
 
 -(void)startTurn {
@@ -182,17 +182,24 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:@"SixisPlayerLockedDice"object:self userInfo:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[currentPlayer lockedDice], currentPlayer, nil] forKeys:[NSArray arrayWithObjects:@"dice", @"player", nil]]];
     }
     
-    // Advance the player-pointer.
-    int indexOfCurrentPlayer = [players indexOfObject:self.currentPlayer];
-    int indexOfNextPlayer;
-    if ( indexOfCurrentPlayer == players.count - 1 ) {
-        indexOfNextPlayer = 0;
+    // Figure out who the current player is.
+    if ( currentPlayer == nil ) {
+        // This is a new round, so we've already chosen the first player.
+        currentPlayer = firstPlayer;
     }
     else {
-        indexOfNextPlayer = indexOfCurrentPlayer + 1;
+        // We are mid-round. Advance the player-pointer.
+        int indexOfCurrentPlayer = [players indexOfObject:self.currentPlayer];
+        int indexOfNextPlayer;
+        if ( indexOfCurrentPlayer == players.count - 1 ) {
+            indexOfNextPlayer = 0;
     }
-    self.currentPlayer = [players objectAtIndex:indexOfNextPlayer];
-        
+        else {
+            indexOfNextPlayer = indexOfCurrentPlayer + 1;
+        }
+        self.currentPlayer = [players objectAtIndex:indexOfNextPlayer];
+    }
+    
     // Check for round-end. (This MUST happen AFTER advancing the player-pointer.)
     if ( [self.playersType roundHasEnded] ) {
         [self endRound];

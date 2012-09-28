@@ -790,9 +790,11 @@
 - (IBAction)handleMainMenu:(id)sender {
     gameOverView.hidden = YES;
     
+    // Clean up before we leave...
     if (popover) {
         [popover dismissPopoverAnimated:YES];
     }
+    roundEndControls.hidden = YES;
     [game unsave];
     self.game = nil;
     

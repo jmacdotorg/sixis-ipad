@@ -61,7 +61,10 @@
     UIViewController *root = self.window.rootViewController;
     if ( [root isKindOfClass:[SixisTabletopViewController class]] ) {
         SixisTabletopViewController *tabletop = (SixisTabletopViewController *)root;
-        [tabletop.game save];
+        if ( tabletop.game.winningPlayers.count == 0 ) {
+            // If there are no winners, then the game is still on, so yes.
+            [tabletop.game save];
+        }
     }
 
     

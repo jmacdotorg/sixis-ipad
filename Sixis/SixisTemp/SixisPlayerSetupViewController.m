@@ -189,7 +189,8 @@
         if ( i != playerNumber ) {
             if ( [[gameInfo.playerColors objectAtIndex:i - 1] isEqual:newColor] ) {
                 [self assignAnyUnusedColorToPlayerNumber:i];
-                SixisPlayerSetupCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:i - 1 inSection:0]];
+                NSIndexPath *path = [NSIndexPath indexPathForRow:i-1 inSection:0];
+                SixisPlayerSetupCell *cell = [self.tableView cellForRowAtIndexPath:path];
                 SixisDie *die = [[SixisDie alloc] init];
                 die.color = [gameInfo.playerColors objectAtIndex:i - 1];
                 die.value = i;

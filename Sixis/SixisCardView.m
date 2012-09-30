@@ -150,4 +150,16 @@
     }
 }
 
+-(BOOL)beginTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event {
+    SixisTabletopViewController *superview = (SixisTabletopViewController *)self.window.rootViewController;
+    [superview unhighlightAllCards];
+    return [super beginTrackingWithTouch:touch withEvent:event];
+}
+
+-(void)endTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event {
+    SixisTabletopViewController *superview = (SixisTabletopViewController *)self.window.rootViewController;
+    [superview highlightQualifiedCards];
+    [super endTrackingWithTouch:touch withEvent:event];
+}
+
 @end

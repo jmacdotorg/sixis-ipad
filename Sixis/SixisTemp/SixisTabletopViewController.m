@@ -656,7 +656,7 @@
     roundMightEndReasonLabel.hidden = YES;
     
     // Highlight all the qualified cards
-    [self _highlightQualifiedCards];
+    [self highlightQualifiedCards];
     
     // Display the player-action hint.
     NSMutableString *newText = [[NSMutableString alloc] init];
@@ -694,7 +694,7 @@
 
 - (IBAction)handleEndTurnTap:(id)sender {
     [game startTurn];
-    [self _unhighlightAllCards];
+    [self unhighlightAllCards];
 }
 
 -(void)handleCardTap:(id)sender {
@@ -714,14 +714,14 @@
 - (void)handleTakeCardTap:(SixisCard *)card {
     [popover dismissPopoverAnimated:YES];
     [currentPlayer takeCard:card];
-    [self _unhighlightAllCards];
+    [self unhighlightAllCards];
     [self _removeCardInstruction];
 }
 
 - (void)handleFlipCardTap:(SixisCard *)card {
     [popover dismissPopoverAnimated:YES];
     [currentPlayer flipCard:card];
-    [self _unhighlightAllCards];
+    [self unhighlightAllCards];
     [self _removeCardInstruction];
 }
 
@@ -731,7 +731,7 @@
     }
 }
 
-- (void) _highlightQualifiedCards {
+- (void) highlightQualifiedCards {
     NSSet *availableCardIndices = [game.playersType cardIndicesForPlayerAtIndex:[currentPlayer number] - 1];
     thereAreHighlightedCards = NO;
     for (NSNumber *cardIndex in availableCardIndices) {
@@ -744,7 +744,7 @@
     }
 }
 
--(void) _unhighlightAllCards {
+-(void) unhighlightAllCards {
     for (int i = 0; i < [game cardsInPlay].count; i++) {
         SixisCardView *cardView = [cards objectAtIndex:i];
         cardView.selected = NO;

@@ -76,6 +76,7 @@
 -(void)handleWinning:(NSNotification *)note;
 -(void)handleDealtCard:(NSNotification *)note;
 
-
+-(void)highlightQualifiedCards;
+-(void)unhighlightAllCards;
 
 @end

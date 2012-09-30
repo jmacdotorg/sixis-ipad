@@ -159,14 +159,6 @@
 }
 
 -(void)startTurn {
-    // If someone just won the game, make that info public, and stop.
-    [self.gameType checkForWinner];
-    if ( self.winningPlayers ) {
-        [self unsave];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"SixisPlayersWon" object:self userInfo:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:self.winningPlayers, nil] forKeys:[NSArray arrayWithObjects:@"players", nil]]];
-        return;
-    }
-
     // Set the new-round flags
     if ( shouldRaiseNewRoundFlag ) {
         self.newRoundJustStarted = YES;

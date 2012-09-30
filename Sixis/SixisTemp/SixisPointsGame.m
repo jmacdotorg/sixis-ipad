@@ -27,15 +27,22 @@
 }
 
 -(void) checkForWinner {
+    NSMutableArray *winners = [[NSMutableArray alloc] init];
+    int winningScore = -1;
     for (SixisPlayer *player in self.game.players ) {
         if ( player.score >= goal ) {
-            if ( player.teammate ) {
-                self.game.winningPlayers = [NSArray arrayWithObjects:player, player.teammate, nil];
+            if ( ( winningScore == -1 ) || ( player.score > winningScore ) ) {
+                winningScore = player.score;
+                [winners removeAllObjects];
+                [winners addObject:player];
             }
-            else {
-                self.game.winningPlayers = [NSArray arrayWithObject:player];
+            else if ( player.score == winningScore ) {
+                [winners addObject:player];
             }
         }
+    }
+    if ( winners.count ) {
+        self.game.winningPlayers = winners;
     }
 }
 

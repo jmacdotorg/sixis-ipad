@@ -178,6 +178,7 @@
     if ( currentPlayer == nil ) {
         // This is a new round, so we've already chosen the first player.
         currentPlayer = firstPlayer;
+        self.thisIsTheFirstGoRound = YES;
     }
     else {
         // We are mid-round. Advance the player-pointer.
@@ -185,11 +186,16 @@
         int indexOfNextPlayer;
         if ( indexOfCurrentPlayer == players.count - 1 ) {
             indexOfNextPlayer = 0;
-    }
+        }
         else {
             indexOfNextPlayer = indexOfCurrentPlayer + 1;
         }
         self.currentPlayer = [players objectAtIndex:indexOfNextPlayer];
+        
+        // See if we've completed a go-round.
+        if ( [firstPlayer isEqual:currentPlayer] ) {
+            self.thisIsTheFirstGoRound = NO;
+        }
     }
     
     // Check for round-end. (This MUST happen AFTER advancing the player-pointer.)
@@ -204,15 +210,6 @@
     }
     else {
         NSLog(@"Game FAILED to save at start of turn.");
-    }
-    
-    // Update the thisIsTheFirstGoRound boolean.
-    if ( firstPlayer == nil ) {
-        firstPlayer = currentPlayer;
-        self.thisIsTheFirstGoRound = YES;
-    }
-    else if ( [firstPlayer isEqual:currentPlayer] ) {
-        self.thisIsTheFirstGoRound = NO;
     }
     
     // Post a notification that a new turn has started.

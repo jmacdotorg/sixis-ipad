@@ -51,6 +51,15 @@
     [aCoder encodeInt:goal forKey:@"goal"];
 }
 
+-(id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
+    if (self) {
+        [self setGame:[aDecoder decodeObjectForKey:@"game"]];
+        [self setGoal:[aDecoder decodeIntForKey:@"goal"]];
+    }
+    return self;
+}
+
 -(NSString *)gameEndReason {
     return [NSString stringWithFormat:@"The game ended because the winners reached the %d-point goal.", self.goal];
 }

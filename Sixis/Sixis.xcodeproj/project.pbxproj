@@ -238,6 +238,8 @@
 		89C4284C1614E5F9007C08D5 /* DieBlueSelected3.png in Resources */ = {isa = PBXBuildFile; fileRef = 89C428461614E5F9007C08D5 /* DieBlueSelected3.png */; };
 		89C4284D1614E5F9007C08D5 /* DieBlueSelected4.png in Resources */ = {isa = PBXBuildFile; fileRef = 89C428471614E5F9007C08D5 /* DieBlueSelected4.png */; };
 		89C4284E1614E5F9007C08D5 /* DieBlueSelected5.png in Resources */ = {isa = PBXBuildFile; fileRef = 89C428481614E5F9007C08D5 /* DieBlueSelected5.png */; };
+		89CA55931617FE0B009ED7D8 /* SixisCardFourDiceOdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CA55921617FE0B009ED7D8 /* SixisCardFourDiceOdd.m */; };
+		89CA55961617FE17009ED7D8 /* SixisCardFourDiceEven.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CA55951617FE17009ED7D8 /* SixisCardFourDiceEven.m */; };
 		89CBE85E15BDE5030045AD3E /* SixisTabletopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CBE85C15BDE5030045AD3E /* SixisTabletopViewController.m */; };
 		89CBE85F15BDE5030045AD3E /* SixisTabletopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89CBE85D15BDE5030045AD3E /* SixisTabletopViewController.xib */; };
 		89CBE86515BDE5EB0045AD3E /* SixisCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CBE86415BDE5EB0045AD3E /* SixisCardView.m */; };
@@ -630,6 +632,10 @@
 		89C428461614E5F9007C08D5 /* DieBlueSelected3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DieBlueSelected3.png; sourceTree = "<group>"; };
 		89C428471614E5F9007C08D5 /* DieBlueSelected4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DieBlueSelected4.png; sourceTree = "<group>"; };
 		89C428481614E5F9007C08D5 /* DieBlueSelected5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DieBlueSelected5.png; sourceTree = "<group>"; };
+		89CA55911617FE0B009ED7D8 /* SixisCardFourDiceOdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisCardFourDiceOdd.h; sourceTree = "<group>"; };
+		89CA55921617FE0B009ED7D8 /* SixisCardFourDiceOdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCardFourDiceOdd.m; sourceTree = "<group>"; };
+		89CA55941617FE17009ED7D8 /* SixisCardFourDiceEven.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisCardFourDiceEven.h; sourceTree = "<group>"; };
+		89CA55951617FE17009ED7D8 /* SixisCardFourDiceEven.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCardFourDiceEven.m; sourceTree = "<group>"; };
 		89CBE85B15BDE5030045AD3E /* SixisTabletopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SixisTabletopViewController.h; path = SixisTemp/SixisTabletopViewController.h; sourceTree = "<group>"; };
 		89CBE85C15BDE5030045AD3E /* SixisTabletopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SixisTabletopViewController.m; path = SixisTemp/SixisTabletopViewController.m; sourceTree = "<group>"; };
 		89CBE85D15BDE5030045AD3E /* SixisTabletopViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SixisTabletopViewController.xib; path = SixisTemp/SixisTabletopViewController.xib; sourceTree = "<group>"; };
@@ -1321,6 +1327,10 @@
 				89EFB4E115A49AC700D09240 /* SixisCardDoubleFives.h */,
 				89EFB4E215A49AC700D09240 /* SixisCardDoubleFives.m */,
 				89EFB4DE15A49A9E00D09240 /* SixisCardDoubleFours.h */,
+				89CA55911617FE0B009ED7D8 /* SixisCardFourDiceOdd.h */,
+				89CA55921617FE0B009ED7D8 /* SixisCardFourDiceOdd.m */,
+				89CA55941617FE17009ED7D8 /* SixisCardFourDiceEven.h */,
+				89CA55951617FE17009ED7D8 /* SixisCardFourDiceEven.m */,
 				89EFB4DF15A49A9E00D09240 /* SixisCardDoubleFours.m */,
 				89EFB45A159A3B4A00D09240 /* SixisCardDoubleOnes.h */,
 				89EFB45B159A3B4A00D09240 /* SixisCardDoubleOnes.m */,
@@ -1848,6 +1858,8 @@
 				89D9C38715FEA34400ED11C7 /* SixisFirstActionsViewController.m in Sources */,
 				89EEBDAF1604D2E00012BEA1 /* SixisSettingsPopoverViewController.m in Sources */,
 				890F7FEC16115DB400580E5E /* SixisColorPickerPopoverViewController.m in Sources */,
+				89CA55931617FE0B009ED7D8 /* SixisCardFourDiceOdd.m in Sources */,
+				89CA55961617FE17009ED7D8 /* SixisCardFourDiceEven.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

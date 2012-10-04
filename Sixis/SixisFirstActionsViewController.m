@@ -42,7 +42,12 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-	return YES;
+	if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft) {
+        return YES;
+    }
+    else {
+        return NO;
+    }
 }
 
 - (IBAction)handlePlayButton:(id)sender {

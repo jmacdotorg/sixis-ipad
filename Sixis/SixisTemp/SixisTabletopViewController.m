@@ -856,7 +856,12 @@
     
     // Display the round-end dialog.
     roundEndControls.hidden = NO;
-    [self.view bringSubviewToFront:roundEndControls];    
+    [self.view bringSubviewToFront:roundEndControls];
+    
+    // Hide other stuff.
+    roundMightEndReasonLabel.hidden = YES;
+    textPromptLabel.hidden = YES;
+    
 }
 
 -(void)_addDialogEffectsToSubview:(UIView *)subview {

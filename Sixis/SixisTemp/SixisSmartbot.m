@@ -17,6 +17,10 @@
 @implementation SixisSmartbot
 
 -(void) takeTurn {
+    [NSTimer scheduledTimerWithTimeInterval:SNOOZE_LENGTH target:self selector:@selector(_startTurn) userInfo:nil repeats:NO];
+}
+
+-(void) _startTurn {
     NSLog(@"==================================================");
     NSLog(@"I am a smartbot named %@, and I am taking my turn.", self.name);
     // Before anything happens: If this is a two-player game, and I have the option of ending the round, _and_ I am winning, end the round.

@@ -552,7 +552,9 @@
         SixisDieView *clone = [[SixisDieView alloc] init];
         CGRect originFrame = [dieView.superview convertRect:dieView.frame toView:self.view];
         clone.frame = originFrame;
-        clone.die = dieView.die;
+        SixisDie *die = dieView.die;
+//        clone.die = dieView.die;
+        clone.die = die;
         clone.transform = info.statusBar.transform;
         [self.view addSubview:clone];
         
@@ -562,13 +564,14 @@
         CGRect destinationFrame = [destination.superview convertRect:destination.frame toView:self.view];
 
         // Animate the clone flying to its new home.
-        [UIView animateWithDuration:1
+        [UIView animateWithDuration:0.75
                          animations:^{
                              clone.frame = destinationFrame;
                          }
                          completion:^(BOOL finished){
                              [clone removeFromSuperview];
-                             [destination setDie:dieView.die];
+//                             [destination setDie:dieView.die];
+                             [destination setDie:die];
                          }];
         
     }

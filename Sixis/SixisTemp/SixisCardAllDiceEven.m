@@ -11,7 +11,7 @@
 @implementation SixisCardAllDiceEven
 
 -(id) init {
-    return [self initWithValue:55 flipSide:nil Blueness:NO];
+    return [self initWithValue:65 flipSide:nil Blueness:NO];
 }
 
 -(BOOL) isQualified {

@@ -238,6 +238,14 @@
 		89C4284C1614E5F9007C08D5 /* DieBlueSelected3.png in Resources */ = {isa = PBXBuildFile; fileRef = 89C428461614E5F9007C08D5 /* DieBlueSelected3.png */; };
 		89C4284D1614E5F9007C08D5 /* DieBlueSelected4.png in Resources */ = {isa = PBXBuildFile; fileRef = 89C428471614E5F9007C08D5 /* DieBlueSelected4.png */; };
 		89C4284E1614E5F9007C08D5 /* DieBlueSelected5.png in Resources */ = {isa = PBXBuildFile; fileRef = 89C428481614E5F9007C08D5 /* DieBlueSelected5.png */; };
+		89C920401640B371007A74B2 /* FourDiceOdd.png in Resources */ = {isa = PBXBuildFile; fileRef = 89C920381640B371007A74B2 /* FourDiceOdd.png */; };
+		89C920411640B371007A74B2 /* FourDiceOddHighlight1.png in Resources */ = {isa = PBXBuildFile; fileRef = 89C920391640B371007A74B2 /* FourDiceOddHighlight1.png */; };
+		89C920421640B371007A74B2 /* FourDiceOddHighlight2.png in Resources */ = {isa = PBXBuildFile; fileRef = 89C9203A1640B371007A74B2 /* FourDiceOddHighlight2.png */; };
+		89C920431640B371007A74B2 /* FourDiceOddHighlight3.png in Resources */ = {isa = PBXBuildFile; fileRef = 89C9203B1640B371007A74B2 /* FourDiceOddHighlight3.png */; };
+		89C920441640B371007A74B2 /* FourDiceEven.png in Resources */ = {isa = PBXBuildFile; fileRef = 89C9203C1640B371007A74B2 /* FourDiceEven.png */; };
+		89C920451640B371007A74B2 /* FourDiceEvenHighlight1.png in Resources */ = {isa = PBXBuildFile; fileRef = 89C9203D1640B371007A74B2 /* FourDiceEvenHighlight1.png */; };
+		89C920461640B371007A74B2 /* FourDiceEvenHighlight2.png in Resources */ = {isa = PBXBuildFile; fileRef = 89C9203E1640B371007A74B2 /* FourDiceEvenHighlight2.png */; };
+		89C920471640B371007A74B2 /* FourDiceEvenHighlight3.png in Resources */ = {isa = PBXBuildFile; fileRef = 89C9203F1640B371007A74B2 /* FourDiceEvenHighlight3.png */; };
 		89CA55931617FE0B009ED7D8 /* SixisCardFourDiceOdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CA55921617FE0B009ED7D8 /* SixisCardFourDiceOdd.m */; };
 		89CA55961617FE17009ED7D8 /* SixisCardFourDiceEven.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CA55951617FE17009ED7D8 /* SixisCardFourDiceEven.m */; };
 		89CBE85E15BDE5030045AD3E /* SixisTabletopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CBE85C15BDE5030045AD3E /* SixisTabletopViewController.m */; };
@@ -632,6 +640,14 @@
 		89C428461614E5F9007C08D5 /* DieBlueSelected3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DieBlueSelected3.png; sourceTree = "<group>"; };
 		89C428471614E5F9007C08D5 /* DieBlueSelected4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DieBlueSelected4.png; sourceTree = "<group>"; };
 		89C428481614E5F9007C08D5 /* DieBlueSelected5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DieBlueSelected5.png; sourceTree = "<group>"; };
+		89C920381640B371007A74B2 /* FourDiceOdd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FourDiceOdd.png; sourceTree = "<group>"; };
+		89C920391640B371007A74B2 /* FourDiceOddHighlight1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FourDiceOddHighlight1.png; sourceTree = "<group>"; };
+		89C9203A1640B371007A74B2 /* FourDiceOddHighlight2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FourDiceOddHighlight2.png; sourceTree = "<group>"; };
+		89C9203B1640B371007A74B2 /* FourDiceOddHighlight3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FourDiceOddHighlight3.png; sourceTree = "<group>"; };
+		89C9203C1640B371007A74B2 /* FourDiceEven.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FourDiceEven.png; sourceTree = "<group>"; };
+		89C9203D1640B371007A74B2 /* FourDiceEvenHighlight1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FourDiceEvenHighlight1.png; sourceTree = "<group>"; };
+		89C9203E1640B371007A74B2 /* FourDiceEvenHighlight2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FourDiceEvenHighlight2.png; sourceTree = "<group>"; };
+		89C9203F1640B371007A74B2 /* FourDiceEvenHighlight3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FourDiceEvenHighlight3.png; sourceTree = "<group>"; };
 		89CA55911617FE0B009ED7D8 /* SixisCardFourDiceOdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisCardFourDiceOdd.h; sourceTree = "<group>"; };
 		89CA55921617FE0B009ED7D8 /* SixisCardFourDiceOdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisCardFourDiceOdd.m; sourceTree = "<group>"; };
 		89CA55941617FE17009ED7D8 /* SixisCardFourDiceEven.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisCardFourDiceEven.h; sourceTree = "<group>"; };
@@ -1320,6 +1336,14 @@
 		89EFB459159A3AF700D09240 /* Cards */ = {
 			isa = PBXGroup;
 			children = (
+				89C920381640B371007A74B2 /* FourDiceOdd.png */,
+				89C920391640B371007A74B2 /* FourDiceOddHighlight1.png */,
+				89C9203A1640B371007A74B2 /* FourDiceOddHighlight2.png */,
+				89C9203B1640B371007A74B2 /* FourDiceOddHighlight3.png */,
+				89C9203C1640B371007A74B2 /* FourDiceEven.png */,
+				89C9203D1640B371007A74B2 /* FourDiceEvenHighlight1.png */,
+				89C9203E1640B371007A74B2 /* FourDiceEvenHighlight2.png */,
+				89C9203F1640B371007A74B2 /* FourDiceEvenHighlight3.png */,
 				89EFB49B15A3E1FE00D09240 /* SixisCardAllDiceEven.h */,
 				89EFB49C15A3E1FE00D09240 /* SixisCardAllDiceEven.m */,
 				89EFB4A115A3ECC000D09240 /* SixisCardAllDiceOdd.h */,
@@ -1757,6 +1781,14 @@
 				89C4284C1614E5F9007C08D5 /* DieBlueSelected3.png in Resources */,
 				89C4284D1614E5F9007C08D5 /* DieBlueSelected4.png in Resources */,
 				89C4284E1614E5F9007C08D5 /* DieBlueSelected5.png in Resources */,
+				89C920401640B371007A74B2 /* FourDiceOdd.png in Resources */,
+				89C920411640B371007A74B2 /* FourDiceOddHighlight1.png in Resources */,
+				89C920421640B371007A74B2 /* FourDiceOddHighlight2.png in Resources */,
+				89C920431640B371007A74B2 /* FourDiceOddHighlight3.png in Resources */,
+				89C920441640B371007A74B2 /* FourDiceEven.png in Resources */,
+				89C920451640B371007A74B2 /* FourDiceEvenHighlight1.png in Resources */,
+				89C920461640B371007A74B2 /* FourDiceEvenHighlight2.png in Resources */,
+				89C920471640B371007A74B2 /* FourDiceEvenHighlight3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1955,6 +1987,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SixisTemp/Sixis-Prefix.pch";
 				INFOPLIST_FILE = "SixisTemp/Sixis-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = Sixis;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1966,6 +1999,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SixisTemp/Sixis-Prefix.pch";
 				INFOPLIST_FILE = "SixisTemp/Sixis-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = Sixis;
 				WRAPPER_EXTENSION = app;
 			};

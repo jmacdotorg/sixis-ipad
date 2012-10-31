@@ -53,8 +53,14 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-	return YES;
+	if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight) {
+        return YES;
+    }
+    else {
+        return NO;
+    }
 }
+
 
 - (IBAction)twoPlayerButtonTapped:(id)sender {
     [gameInfo setPlayersType:[[SixisTwoPlayers alloc] init]];

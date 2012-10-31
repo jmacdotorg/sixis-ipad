@@ -42,13 +42,14 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-	if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft) {
+	if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight) {
         return YES;
     }
     else {
         return NO;
     }
 }
+
 
 - (IBAction)handlePlayButton:(id)sender {
     SixisChoosePlayerNumberViewController *controller = [[SixisChoosePlayerNumberViewController alloc] init];

@@ -45,8 +45,14 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-	return YES;
+	if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight) {
+        return YES;
+    }
+    else {
+        return NO;
+    }
 }
+
 
 - (IBAction)oneRoundButtonTapped:(id)sender {
     [gameInfo setGameType:[[SixisRoundsGame alloc] initWithRounds:1]];

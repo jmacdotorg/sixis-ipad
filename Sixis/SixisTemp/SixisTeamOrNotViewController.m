@@ -49,8 +49,14 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-	return YES;
+	if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight) {
+        return YES;
+    }
+    else {
+        return NO;
+    }
 }
+
 
 - (IBAction)yesButtonTapped:(id)sender {
     // Tell the main controller to display the "Foo is your partner" labels.

@@ -24,12 +24,8 @@
 #import "SixisCardThreeAndFour.h"
 #import "SixisCardRun123.h"
 #import "SixisCardRun456.h"
-/*
 #import "SixisCardFourDiceEven.h"
 #import "SixisCardFourDiceOdd.h"
- */
-#import "SixisCardOneThreeFive.h"
-#import "SixisCardTwoFourSix.h"
 #import "SixisCardThreeOfAKind.h"
 #import "SixisCardTwoPair.h"
 #import "SixisCardLow.h"
@@ -342,12 +338,8 @@
             [[SixisCardRun456 alloc] init],
             [[SixisCardThreeOfAKind alloc] init],
             [[SixisCardTwoPair alloc] init],
-            [[SixisCardOneThreeFive alloc] init],
-            [[SixisCardTwoFourSix alloc] init],
-/*
- [[SixisCardFourDiceEven alloc] init],
+            [[SixisCardFourDiceEven alloc] init],
             [[SixisCardFourDiceOdd alloc] init],
- */
             [[SixisCardLow alloc] init],
             [[SixisCardHigh alloc] init],
             nil];

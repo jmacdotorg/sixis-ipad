@@ -325,7 +325,10 @@
 
 -(void) _refreshTheDeck {
     // Initialize the deck of blue cards.
-    deck = [NSMutableArray arrayWithObjects:[[SixisCardDoubleOnes alloc] init],
+    deck = [NSMutableArray arrayWithObjects:
+            [[SixisCardFourDiceEven alloc] init],
+            [[SixisCardFourDiceOdd alloc] init],
+            [[SixisCardDoubleOnes alloc] init],
             [[SixisCardDoubleTwos alloc] init],
             [[SixisCardDoubleThrees alloc] init],
             [[SixisCardDoubleFours alloc] init],
@@ -338,8 +341,6 @@
             [[SixisCardRun456 alloc] init],
             [[SixisCardThreeOfAKind alloc] init],
             [[SixisCardTwoPair alloc] init],
-            [[SixisCardFourDiceEven alloc] init],
-            [[SixisCardFourDiceOdd alloc] init],
             [[SixisCardLow alloc] init],
             [[SixisCardHigh alloc] init],
             nil];

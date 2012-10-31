@@ -18,15 +18,19 @@
 -(BOOL) isQualified {
     NSDictionary *sortedDice = [self sortedDice];
     
+    int evenCount = 0;
     for (NSNumber *pipCount in [NSArray arrayWithObjects:[NSNumber numberWithInt:2], [NSNumber numberWithInt:4], [NSNumber numberWithInt:6], nil]) {
         
         NSSet *dice = [sortedDice objectForKey:pipCount];
-        if ( dice.count > 2 ) {
-            return NO;
-        }
+        evenCount = evenCount + dice.count;
     }
-    
-    return YES;
+
+    if ( evenCount > 2 ) {
+        return NO;
+    }
+    else {
+        return YES;
+    }
 }
 
 -(NSSet *)bestDice {

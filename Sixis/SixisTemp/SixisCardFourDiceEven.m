@@ -17,15 +17,19 @@
 -(BOOL) isQualified {
     NSDictionary *sortedDice = [self sortedDice];
     
+    int oddCount = 0;
     for (NSNumber *pipCount in [NSArray arrayWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:3], [NSNumber numberWithInt:5], nil]) {
         
         NSSet *dice = [sortedDice objectForKey:pipCount];
-        if ( dice.count > 2 ) {
-            return NO;
-        }
+        oddCount = oddCount + dice.count;
     }
     
-    return YES;
+    if ( oddCount > 2 ) {
+        return NO;
+    }
+    else {
+        return YES;
+    }
 }
 
 -(NSSet *)bestDice {

@@ -301,6 +301,7 @@
     
     // Set the current player, based on the argument attached to this notification.
     SixisPlayer *player = [[note userInfo] valueForKey:@"player"];
+    
     [self startNewTurnWithPlayer:player];
 }
 
@@ -519,7 +520,58 @@
     int playerNumber = [[[self game] players] indexOfObject:currentPlayer] + 1;
     NSSet *theDice = [[note userInfo] objectForKey:@"dice"];
     
-    [self lockDice:theDice forPlayerNumber:playerNumber];
+    // Figure out which of the dieViews on the table are the ones getting locked.
+    NSMutableDictionary *lockedDice = [[NSMutableDictionary alloc] init];
+    for (SixisDie *die in theDice) {
+        for (SixisDieView *dieView in [diceView subviews] ) {
+            if ( [dieView.die isEqual:die] ) {
+                lockedDice[ [die description] ] = dieView;
+                break;
+            }
+        }
+    }
+    [self animatedLockDice:theDice withDieViews:lockedDice forPlayerNumber:playerNumber];
+}
+
+-(void)animatedLockDice:(NSSet *)theDice withDieViews:(NSMutableDictionary *)dieViews forPlayerNumber:(int)playerNumber {
+    
+    // Get the array of the current player's locked-dice bank subviews.
+    // XXX Refactor this pasta.
+    SixisPlayer *player = [game.players objectAtIndex:playerNumber - 1];
+    
+    SixisPlayerTableInfo *info = (SixisPlayerTableInfo *)[tableInfoForPlayer objectForKey:[player name]];
+    UIView *bank = [info.statusBar viewWithTag:DICE_BANK_TAG];
+    NSArray *bankDieViews = [bank subviews];
+    // XXX End of pasta.
+    
+    int currentBankIndex = 0;
+    
+    for ( SixisDieView *dieView in [ dieViews allValues ] ) {
+    
+        // Make a temporary clone of this die view, which we'll animate
+        SixisDieView *clone = [[SixisDieView alloc] init];
+        CGRect originFrame = [dieView.superview convertRect:dieView.frame toView:self.view];
+        clone.frame = originFrame;
+        clone.die = dieView.die;
+        clone.transform = info.statusBar.transform;
+        [self.view addSubview:clone];
+        
+        // Figure out this clone's destination, in the player's bank.
+        SixisDieView *destination = bankDieViews[ currentBankIndex++ ];
+
+        CGRect destinationFrame = [destination.superview convertRect:destination.frame toView:self.view];
+
+        // Animate the clone flying to its new home.
+        [UIView animateWithDuration:1
+                         animations:^{
+                             clone.frame = destinationFrame;
+                         }
+                         completion:^(BOOL finished){
+                             [clone removeFromSuperview];
+                             [destination setDie:dieView.die];
+                         }];
+        
+    }
 }
 
 -(void)lockDice:(NSSet *)theDice forPlayerNumber:(int)playerNumber {
@@ -531,11 +583,15 @@
     }
    
     NSMutableSet *dice = [NSMutableSet setWithSet:theDice];
+    
+    // XXX Refactor this pasta.
     SixisPlayer *player = [game.players objectAtIndex:playerNumber - 1];
     
     SixisPlayerTableInfo *info = (SixisPlayerTableInfo *)[tableInfoForPlayer objectForKey:[player name]];
     UIView *bank = [info.statusBar viewWithTag:DICE_BANK_TAG];
     NSArray *bankDieViews = [bank subviews];
+    // XXX End of pasta.
+    
     for (SixisDieView *dieView in bankDieViews) {
         if ( dice.count == 0 ) {
             break;

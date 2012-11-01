@@ -28,6 +28,7 @@
     SixisGameType *originalGameType;
     AVAudioPlayer *audioPlayer;
     UILabel *roundMightEndReasonLabel;
+    NSMutableSet *flyingDieClones;
 }
 @property (weak, nonatomic) IBOutlet UILabel *winMessage;
 @property (weak, nonatomic) IBOutlet UIView *gameOverView;

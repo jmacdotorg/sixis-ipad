@@ -57,6 +57,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         aCardAnimationIsOccurring = NO;
+        flyingDieClones = [[NSMutableSet alloc] init];
     }
     return self;
 }
@@ -442,10 +443,8 @@
             break;
         }
         SixisDie *die = [dice anyObject];
-//        if ( ! die.isLocked ) {
             [dice removeObject:die];
             [dieView setDie:die];
-//        }
     }
     [self _selectOnlyLockedDice];
     
@@ -553,7 +552,6 @@
         CGRect originFrame = [dieView.superview convertRect:dieView.frame toView:self.view];
         clone.frame = originFrame;
         SixisDie *die = dieView.die;
-//        clone.die = dieView.die;
         clone.die = die;
         clone.transform = info.statusBar.transform;
         [self.view addSubview:clone];
@@ -563,6 +561,7 @@
 
         CGRect destinationFrame = [destination.superview convertRect:destination.frame toView:self.view];
 
+        [flyingDieClones addObject:clone];
         // Animate the clone flying to its new home.
         [UIView animateWithDuration:0.75
                          animations:^{
@@ -570,8 +569,8 @@
                          }
                          completion:^(BOOL finished){
                              [clone removeFromSuperview];
-//                             [destination setDie:dieView.die];
                              [destination setDie:die];
+                             [flyingDieClones removeObject:clone];
                          }];
         
     }
@@ -626,6 +625,8 @@
     gameEndExplanationLabel.text = [game.gameType gameEndReason];
     [gameOverView setHidden:NO];
     [self.view bringSubviewToFront:gameOverView];
+    
+    [self _cleanUpDiceAnimations];
 }
 
 -(void)handleDealtCard:(NSNotification *)note {
@@ -920,7 +921,17 @@
     // Hide other stuff.
     roundMightEndReasonLabel.hidden = YES;
     textPromptLabel.hidden = YES;
-    
+ 
+    [self _cleanUpDiceAnimations];
+}
+
+-(void)_cleanUpDiceAnimations {
+    // Clean up any dice-lock animations.
+    for ( SixisDieView *clone in flyingDieClones ) {
+        [clone.layer removeAllAnimations];
+        [clone removeFromSuperview];
+    }
+    [flyingDieClones removeAllObjects];
 }
 
 -(void)_addDialogEffectsToSubview:(UIView *)subview {

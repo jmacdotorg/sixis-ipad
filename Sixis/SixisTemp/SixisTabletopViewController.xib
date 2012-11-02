@@ -42,6 +42,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrameSize">{1024, 748}</string>
 						<reference key="NSSuperview" ref="766721923"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="572746071"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -60,6 +61,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{20, 20}, {224, 49}}</string>
 								<reference key="NSSuperview" ref="572746071"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="509634243"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
@@ -91,9 +93,10 @@
 							</object>
 							<object class="IBUIButton" id="702150783">
 								<reference key="NSNextResponder" ref="572746071"/>
-								<int key="NSvFlags">292</int>
+								<int key="NSvFlags">293</int>
 								<string key="NSFrame">{{20, 172}, {224, 37}}</string>
 								<reference key="NSSuperview" ref="572746071"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="771501915"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
@@ -126,9 +129,10 @@
 							</object>
 							<object class="IBUIButton" id="56708386">
 								<reference key="NSNextResponder" ref="572746071"/>
-								<int key="NSvFlags">292</int>
+								<int key="NSvFlags">293</int>
 								<string key="NSFrame">{{20, 262}, {224, 37}}</string>
 								<reference key="NSSuperview" ref="572746071"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="328789698"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
@@ -148,9 +152,10 @@
 							</object>
 							<object class="IBUIButton" id="771501915">
 								<reference key="NSNextResponder" ref="572746071"/>
-								<int key="NSvFlags">292</int>
+								<int key="NSvFlags">293</int>
 								<string key="NSFrame">{{20, 217}, {224, 37}}</string>
 								<reference key="NSSuperview" ref="572746071"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="56708386"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
@@ -170,9 +175,10 @@
 							</object>
 							<object class="IBUILabel" id="509634243">
 								<reference key="NSNextResponder" ref="572746071"/>
-								<int key="NSvFlags">292</int>
+								<int key="NSvFlags">293</int>
 								<string key="NSFrame">{{20, 77}, {224, 65}}</string>
 								<reference key="NSSuperview" ref="572746071"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="702150783"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
@@ -203,6 +209,7 @@
 						</array>
 						<string key="NSFrame">{{380, 214}, {264, 319}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="242674743"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
@@ -216,9 +223,10 @@
 						<array class="NSMutableArray" key="NSSubviews">
 							<object class="IBUIButton" id="149173177">
 								<reference key="NSNextResponder" ref="328789698"/>
-								<int key="NSvFlags">292</int>
+								<int key="NSvFlags">293</int>
 								<string key="NSFrame">{{20, 93}, {224, 37}}</string>
 								<reference key="NSSuperview" ref="328789698"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="874859208"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
@@ -238,9 +246,10 @@
 							</object>
 							<object class="IBUILabel" id="820104526">
 								<reference key="NSNextResponder" ref="328789698"/>
-								<int key="NSvFlags">292</int>
+								<int key="NSvFlags">293</int>
 								<string key="NSFrame">{{20, 20}, {224, 65}}</string>
 								<reference key="NSSuperview" ref="328789698"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="149173177"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
@@ -263,6 +272,7 @@
 						</array>
 						<string key="NSFrame">{{380, 299}, {264, 150}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="820104526"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
@@ -275,6 +285,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{927, 652}, {40, 40}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
+						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -297,6 +308,7 @@
 				</array>
 				<string key="NSFrame">{{0, 20}, {1024, 748}}</string>
 				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="762985758"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
@@ -542,7 +554,146 @@
 			<nil key="sourceID"/>
 			<int key="maxID">131</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes"/>
+		<object class="IBClassDescriber" key="IBDocument.Classes">
+			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
+				<object class="IBPartialClassDescription">
+					<string key="className">SixisTabletopViewController</string>
+					<string key="superclassName">UIViewController</string>
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="handleAddRound:">id</string>
+						<string key="handleDieTap:">id</string>
+						<string key="handleEndRoundButtonTap:">id</string>
+						<string key="handleEndTurnTap:">id</string>
+						<string key="handleMainMenu:">id</string>
+						<string key="handleNextRound:">id</string>
+						<string key="handlePlayAgain:">id</string>
+						<string key="handleRollAllDiceTap:">id</string>
+						<string key="handleRollUnlockedDiceTap:">id</string>
+						<string key="handleSettingsButton:">id</string>
+						<string key="handleUndoCard:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="handleAddRound:">
+							<string key="name">handleAddRound:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="handleDieTap:">
+							<string key="name">handleDieTap:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="handleEndRoundButtonTap:">
+							<string key="name">handleEndRoundButtonTap:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="handleEndTurnTap:">
+							<string key="name">handleEndTurnTap:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="handleMainMenu:">
+							<string key="name">handleMainMenu:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="handleNextRound:">
+							<string key="name">handleNextRound:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="handlePlayAgain:">
+							<string key="name">handlePlayAgain:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="handleRollAllDiceTap:">
+							<string key="name">handleRollAllDiceTap:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="handleRollUnlockedDiceTap:">
+							<string key="name">handleRollUnlockedDiceTap:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="handleSettingsButton:">
+							<string key="name">handleSettingsButton:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="handleUndoCard:">
+							<string key="name">handleUndoCard:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="diceView">UIView</string>
+						<string key="endRoundButton">UIButton</string>
+						<string key="endTurnButton">UIButton</string>
+						<string key="gameEndExplanationLabel">UILabel</string>
+						<string key="gameOverView">UIView</string>
+						<string key="rollAllDiceButton">UIButton</string>
+						<string key="rollUnlockedDiceButton">UIButton</string>
+						<string key="roundEndControls">UIView</string>
+						<string key="roundEndExplanationLabel">UILabel</string>
+						<string key="settingsButton">UIButton</string>
+						<string key="textPromptLabel">UILabel</string>
+						<string key="undoCardButton">UIButton</string>
+						<string key="winMessage">UILabel</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="diceView">
+							<string key="name">diceView</string>
+							<string key="candidateClassName">UIView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="endRoundButton">
+							<string key="name">endRoundButton</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="endTurnButton">
+							<string key="name">endTurnButton</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="gameEndExplanationLabel">
+							<string key="name">gameEndExplanationLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="gameOverView">
+							<string key="name">gameOverView</string>
+							<string key="candidateClassName">UIView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="rollAllDiceButton">
+							<string key="name">rollAllDiceButton</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="rollUnlockedDiceButton">
+							<string key="name">rollUnlockedDiceButton</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="roundEndControls">
+							<string key="name">roundEndControls</string>
+							<string key="candidateClassName">UIView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="roundEndExplanationLabel">
+							<string key="name">roundEndExplanationLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="settingsButton">
+							<string key="name">settingsButton</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="textPromptLabel">
+							<string key="name">textPromptLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="undoCardButton">
+							<string key="name">undoCardButton</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="winMessage">
+							<string key="name">winMessage</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/SixisTabletopViewController.h</string>
+					</object>
+				</object>
+			</array>
+		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBIPadFramework</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">

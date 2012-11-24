@@ -11,6 +11,7 @@
 @interface SixisRoundsGame : SixisGameType
 
 @property (nonatomic) int rounds;
+@property (nonatomic) int originalRounds;
 
 -(id)initWithRounds:(int) rounds;
 

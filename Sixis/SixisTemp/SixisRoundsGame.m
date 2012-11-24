@@ -18,12 +18,13 @@
     self = [super init];
     
     [self setRounds:newRounds];
+    [self setOriginalRounds:newRounds];
     
     return self;
 }
 
 -(id)copy {
-    return [[SixisRoundsGame alloc] initWithRounds:self.rounds];
+    return [[SixisRoundsGame alloc] initWithRounds:self.originalRounds];
 }
 
 -(void)checkForWinner {

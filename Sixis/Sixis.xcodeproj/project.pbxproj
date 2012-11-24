@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		890F7FEC16115DB400580E5E /* SixisColorPickerPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 890F7FEA16115DB400580E5E /* SixisColorPickerPopoverViewController.m */; };
 		890F7FED16115DB400580E5E /* SixisColorPickerPopoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 890F7FEB16115DB400580E5E /* SixisColorPickerPopoverViewController.xib */; };
+		89182659166178E100EE8AC6 /* SIxis 144.png in Resources */ = {isa = PBXBuildFile; fileRef = 89182658166178E100EE8AC6 /* SIxis 144.png */; };
+		8918265C166178E400EE8AC6 /* Sixis 72.png in Resources */ = {isa = PBXBuildFile; fileRef = 8918265B166178E400EE8AC6 /* Sixis 72.png */; };
 		891BD8151641CD950074DD5C /* FourDiceOdd.png in Resources */ = {isa = PBXBuildFile; fileRef = 891BD8111641CD940074DD5C /* FourDiceOdd.png */; };
 		891BD8161641CD950074DD5C /* FourDiceOddHighlight1.png in Resources */ = {isa = PBXBuildFile; fileRef = 891BD8121641CD940074DD5C /* FourDiceOddHighlight1.png */; };
 		891BD8171641CD950074DD5C /* FourDiceOddHighlight2.png in Resources */ = {isa = PBXBuildFile; fileRef = 891BD8131641CD940074DD5C /* FourDiceOddHighlight2.png */; };
@@ -376,6 +378,8 @@
 		890F7FE916115DB400580E5E /* SixisColorPickerPopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SixisColorPickerPopoverViewController.h; path = ../SixisColorPickerPopoverViewController.h; sourceTree = "<group>"; };
 		890F7FEA16115DB400580E5E /* SixisColorPickerPopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SixisColorPickerPopoverViewController.m; path = ../SixisColorPickerPopoverViewController.m; sourceTree = "<group>"; };
 		890F7FEB16115DB400580E5E /* SixisColorPickerPopoverViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SixisColorPickerPopoverViewController.xib; path = ../SixisColorPickerPopoverViewController.xib; sourceTree = "<group>"; };
+		89182658166178E100EE8AC6 /* SIxis 144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SIxis 144.png"; sourceTree = "<group>"; };
+		8918265B166178E400EE8AC6 /* Sixis 72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Sixis 72.png"; sourceTree = "<group>"; };
 		891BD8111641CD940074DD5C /* FourDiceOdd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FourDiceOdd.png; sourceTree = "<group>"; };
 		891BD8121641CD940074DD5C /* FourDiceOddHighlight1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FourDiceOddHighlight1.png; sourceTree = "<group>"; };
 		891BD8131641CD940074DD5C /* FourDiceOddHighlight2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FourDiceOddHighlight2.png; sourceTree = "<group>"; };
@@ -1175,6 +1179,8 @@
 		89EFB3D515926DAB00D09240 = {
 			isa = PBXGroup;
 			children = (
+				8918265B166178E400EE8AC6 /* Sixis 72.png */,
+				89182658166178E100EE8AC6 /* SIxis 144.png */,
 				89AA44EB15F7EE94002C6D0D /* AVFoundation.framework */,
 				89A4F85C15DF02FD00FAE553 /* icon_144.png */,
 				89A4F85A15DF02FB00FAE553 /* icon_72.png */,
@@ -1799,6 +1805,8 @@
 				891BD8DC16441F260074DD5C /* DieBlueSelected1.png in Resources */,
 				891BD8DD16441F260074DD5C /* DieBlackSelected1.png in Resources */,
 				891BD8DE16441F260074DD5C /* DieBlackSelected2.png in Resources */,
+				89182659166178E100EE8AC6 /* SIxis 144.png in Resources */,
+				8918265C166178E400EE8AC6 /* Sixis 72.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

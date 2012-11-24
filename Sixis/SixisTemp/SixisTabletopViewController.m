@@ -127,14 +127,9 @@
     // e.g. self.myOutlet = nil;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-	if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft) {
-        return YES;
-    }
-    else {
-        return NO;
-    }
+
+-(NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskLandscapeLeft;
 }
 
 -(void)_addCardViewWithX:(int)x Y:(int)y rotation:(CGFloat)rotation {

@@ -95,7 +95,7 @@
     
     // Set this so that the public new-round property flag goes up when the turn starts:
     shouldRaiseNewRoundFlag = YES;
-    
+        
     // Refresh the deck.
     [self _refreshTheDeck];
     
@@ -125,17 +125,23 @@
     trailingPlayers = [[NSMutableArray alloc] init];
     for (SixisPlayer *player in players) {
         if ( ( lowestScore == -1 ) || ( player.score < lowestScore ) ) {
+            NSLog(@"I see %d, which is the lowest score yet!", player.score);
             lowestScore = player.score;
             [trailingPlayers removeAllObjects];
             [trailingPlayers addObject:player];
         }
         else if ( player.score == lowestScore ) {
+            NSLog(@"Another loser with only %d points.", player.score);
             [trailingPlayers addObject:player];
         }
     }
 
     int startingPlayerIndex = random() % trailingPlayers.count;
     firstPlayer = [trailingPlayers objectAtIndex:startingPlayerIndex];
+    NSLog(@"The first player is going to be %@.", firstPlayer.name);
+    
+    // Make sure that currentPlayer is clear before we call startTurn. This will have startTurn use firstPlayer to set currentPlayer.
+    currentPlayer = nil;
     
     [self startTurn];
 }

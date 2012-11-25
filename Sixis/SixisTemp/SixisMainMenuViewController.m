@@ -229,4 +229,9 @@
     return YES;
 }
 
+-(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    self.tabletopController.lastOrientation = fromInterfaceOrientation;
+    NSLog(@"The last orientation was %d", fromInterfaceOrientation);
+}
+
 @end

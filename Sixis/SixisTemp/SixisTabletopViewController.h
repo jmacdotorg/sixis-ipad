@@ -63,6 +63,7 @@
 
 @property (nonatomic, strong) SixisGame *game;
 @property (nonatomic, strong) SixisPlayer *currentPlayer;
+@property (nonatomic) UIInterfaceOrientation lastOrientation;
 
 -(void)_addCardViewWithX: (int) x
                        Y: (int) y

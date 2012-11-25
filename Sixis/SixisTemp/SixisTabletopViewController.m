@@ -129,7 +129,12 @@
 
 
 -(NSUInteger)supportedInterfaceOrientations {
-    return UIInterfaceOrientationMaskLandscapeLeft;
+    if ( self.lastOrientation == UIInterfaceOrientationLandscapeLeft ) {
+        return UIInterfaceOrientationMaskLandscapeRight;
+    }
+    else {
+        return UIInterfaceOrientationMaskLandscapeLeft;
+    }
 }
 
 -(void)_addCardViewWithX:(int)x Y:(int)y rotation:(CGFloat)rotation {

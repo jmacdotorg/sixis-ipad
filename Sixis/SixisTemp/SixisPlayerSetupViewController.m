@@ -134,6 +134,8 @@
     playerCell.playerNumber = indexPath.row + 1;
     playerCell.parent = self;
     
+    playerCell.backgroundColor = [UIColor clearColor];
+    
     return cell;
 }
 

@@ -61,7 +61,7 @@
     [self.view addSubview:navController.view];
     [self addChildViewController:navController];
     
-    navController.navigationBar.alpha = 0;
+    navController.navigationBarHidden = YES;
     
     // Load HTML into the rules card.
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"rules card" withExtension:@"html"];

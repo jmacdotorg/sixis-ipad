@@ -204,6 +204,9 @@
 		8925DD6E15CC516500C1399A /* SixisPlayerStatus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8925DD6D15CC516500C1399A /* SixisPlayerStatus.xib */; };
 		89329B9215D58E8E0055A001 /* SixisTextPrompt.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89329B9115D58E8E0055A001 /* SixisTextPrompt.xib */; };
 		8943560915AB9220009E3C79 /* SixisSmartbot.m in Sources */ = {isa = PBXBuildFile; fileRef = 8943560815AB9220009E3C79 /* SixisSmartbot.m */; };
+		8991E8CD17ED3C6A0046EBA1 /* Sixis table.png in Resources */ = {isa = PBXBuildFile; fileRef = 8991E8CC17ED3C6A0046EBA1 /* Sixis table.png */; };
+		8991E8D117ED51020046EBA1 /* Blank red button big long.png in Resources */ = {isa = PBXBuildFile; fileRef = 8991E8D017ED51020046EBA1 /* Blank red button big long.png */; };
+		8991E8D517ED53930046EBA1 /* Blank blue button big long.png in Resources */ = {isa = PBXBuildFile; fileRef = 8991E8D417ED53930046EBA1 /* Blank blue button big long.png */; };
 		89A08EFC15C70FB40011E57D /* SixisPlayerControls.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89A08EFB15C70FB40011E57D /* SixisPlayerControls.xib */; };
 		89A4F85615DF019900FAE553 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 89A4F85515DF019900FAE553 /* Default-Landscape~ipad.png */; };
 		89A4F85915DF01AA00FAE553 /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 89A4F85815DF01AA00FAE553 /* Default-Landscape@2x~ipad.png */; };
@@ -273,7 +276,6 @@
 		89D9C38B15FEA9FF00ED11C7 /* SixisSitsHereLabel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89D9C38A15FEA9FF00ED11C7 /* SixisSitsHereLabel.xib */; };
 		89D9C38D1600393E00ED11C7 /* Empty big card.png in Resources */ = {isa = PBXBuildFile; fileRef = 89D9C38C1600393E00ED11C7 /* Empty big card.png */; };
 		89D9C3911601461900ED11C7 /* rules card.html in Resources */ = {isa = PBXBuildFile; fileRef = 89D9C3901601461800ED11C7 /* rules card.html */; };
-		89E3861E15DC37C800B3D517 /* Sixis table.png in Resources */ = {isa = PBXBuildFile; fileRef = 89E3861D15DC37C800B3D517 /* Sixis table.png */; };
 		89E3862015DC605B00B3D517 /* big sixis.png in Resources */ = {isa = PBXBuildFile; fileRef = 89E3861F15DC605B00B3D517 /* big sixis.png */; };
 		89E3862415DC60AB00B3D517 /* SixisMainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E3862215DC60AA00B3D517 /* SixisMainMenuViewController.m */; };
 		89E3862515DC60AB00B3D517 /* SixisMainMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89E3862315DC60AA00B3D517 /* SixisMainMenuViewController.xib */; };
@@ -610,6 +612,9 @@
 		89329B9115D58E8E0055A001 /* SixisTextPrompt.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SixisTextPrompt.xib; sourceTree = "<group>"; };
 		8943560715AB921F009E3C79 /* SixisSmartbot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisSmartbot.h; sourceTree = "<group>"; };
 		8943560815AB9220009E3C79 /* SixisSmartbot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisSmartbot.m; sourceTree = "<group>"; };
+		8991E8CC17ED3C6A0046EBA1 /* Sixis table.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Sixis table.png"; sourceTree = "<group>"; };
+		8991E8D017ED51020046EBA1 /* Blank red button big long.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Blank red button big long.png"; sourceTree = "<group>"; };
+		8991E8D417ED53930046EBA1 /* Blank blue button big long.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Blank blue button big long.png"; sourceTree = "<group>"; };
 		89A08EFB15C70FB40011E57D /* SixisPlayerControls.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SixisPlayerControls.xib; sourceTree = "<group>"; };
 		89A4F85515DF019900FAE553 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		89A4F85815DF01AA00FAE553 /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
@@ -687,7 +692,6 @@
 		89D9C38A15FEA9FF00ED11C7 /* SixisSitsHereLabel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SixisSitsHereLabel.xib; path = ../SixisSitsHereLabel.xib; sourceTree = "<group>"; };
 		89D9C38C1600393E00ED11C7 /* Empty big card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Empty big card.png"; sourceTree = "<group>"; };
 		89D9C3901601461800ED11C7 /* rules card.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "rules card.html"; path = "SixisTemp/rules card.html"; sourceTree = "<group>"; };
-		89E3861D15DC37C800B3D517 /* Sixis table.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Sixis table.png"; sourceTree = "<group>"; };
 		89E3861F15DC605B00B3D517 /* big sixis.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "big sixis.png"; sourceTree = "<group>"; };
 		89E3862115DC60AA00B3D517 /* SixisMainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixisMainMenuViewController.h; sourceTree = "<group>"; };
 		89E3862215DC60AA00B3D517 /* SixisMainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixisMainMenuViewController.m; sourceTree = "<group>"; };
@@ -868,15 +872,17 @@
 		8925DD6C15CC353800C1399A /* Table images */ = {
 			isa = PBXGroup;
 			children = (
+				8991E8D417ED53930046EBA1 /* Blank blue button big long.png */,
+				8991E8D017ED51020046EBA1 /* Blank red button big long.png */,
 				89D15C2016069E0500569E4E /* Team no.png */,
 				89D15C2116069E0500569E4E /* Team yes.png */,
 				89EEBDAA1604D2200012BEA1 /* little gear.png */,
 				89EEBDB316051E850012BEA1 /* Roll button.png */,
+				8991E8CC17ED3C6A0046EBA1 /* Sixis table.png */,
 				89D9C3901601461800ED11C7 /* rules card.html */,
 				89EEBDB516051EDC0012BEA1 /* Blank blue button.png */,
 				89EEBDB7160527290012BEA1 /* Blank red button.png */,
 				89D9C38C1600393E00ED11C7 /* Empty big card.png */,
-				89E3861D15DC37C800B3D517 /* Sixis table.png */,
 				89E3861F15DC605B00B3D517 /* big sixis.png */,
 				8925DD6815CC352000C1399A /* felt.jpg */,
 				8925DD6A15CC352700C1399A /* wood.jpg */,
@@ -1598,6 +1604,7 @@
 				8925DCE915CB625200C1399A /* DoubleTwosHighlight1.png in Resources */,
 				8925DCEA15CB625200C1399A /* DoubleTwosHighlight2.png in Resources */,
 				8925DCEB15CB625200C1399A /* DoubleTwosHighlight3.png in Resources */,
+				8991E8D517ED53930046EBA1 /* Blank blue button big long.png in Resources */,
 				8925DCED15CB625200C1399A /* FourFivesHighlight1.png in Resources */,
 				8925DCEE15CB625200C1399A /* FourFivesHighlight2.png in Resources */,
 				8925DCEF15CB625200C1399A /* FourFivesHighlight3.png in Resources */,
@@ -1658,6 +1665,7 @@
 				8925DD3915CB625200C1399A /* ThreePairHighlight1.png in Resources */,
 				8925DD3A15CB625200C1399A /* ThreePairHighlight2.png in Resources */,
 				8925DD3B15CB625200C1399A /* ThreePairHighlight3.png in Resources */,
+				8991E8CD17ED3C6A0046EBA1 /* Sixis table.png in Resources */,
 				8925DD3D15CB625200C1399A /* ThreesAndFoursHighlight1.png in Resources */,
 				8925DD3E15CB625200C1399A /* ThreesAndFoursHighlight2.png in Resources */,
 				8925DD3F15CB625200C1399A /* ThreesAndFoursHighlight3.png in Resources */,
@@ -1685,7 +1693,6 @@
 				8925DD6E15CC516500C1399A /* SixisPlayerStatus.xib in Resources */,
 				89D3817815D0B81000ADE63D /* SixisRolledDice.xib in Resources */,
 				89329B9215D58E8E0055A001 /* SixisTextPrompt.xib in Resources */,
-				89E3861E15DC37C800B3D517 /* Sixis table.png in Resources */,
 				89E3862015DC605B00B3D517 /* big sixis.png in Resources */,
 				89E3862515DC60AB00B3D517 /* SixisMainMenuViewController.xib in Resources */,
 				89A4F85615DF019900FAE553 /* Default-Landscape~ipad.png in Resources */,
@@ -1739,6 +1746,7 @@
 				891BD87716441F120074DD5C /* DieRed5.png in Resources */,
 				891BD87816441F120074DD5C /* DieRed3.png in Resources */,
 				891BD87916441F120074DD5C /* DieRed4.png in Resources */,
+				8991E8D117ED51020046EBA1 /* Blank red button big long.png in Resources */,
 				891BD87A16441F120074DD5C /* DieGreen4.png in Resources */,
 				891BD87B16441F120074DD5C /* DieWhite6.png in Resources */,
 				891BD87C16441F120074DD5C /* DieWhite3.png in Resources */,

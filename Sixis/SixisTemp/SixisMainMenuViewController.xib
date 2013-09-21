@@ -25,7 +25,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Sixis table.png" id="5">
-                    <rect key="frame" x="0.0" y="0.0" width="1024" height="748"/>
+                    <rect key="frame" x="0.0" y="-20" width="1024" height="768"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
                 </imageView>
@@ -35,16 +35,15 @@
                     <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
                 </view>
                 <view contentMode="scaleToFill" id="12">
-                    <rect key="frame" x="128" y="124" width="350" height="500"/>
+                    <rect key="frame" x="128" y="144" width="350" height="500"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="big sixis.png" id="6">
-                            <rect key="frame" x="0.0" y="-20" width="350" height="500"/>
+                            <rect key="frame" x="0.0" y="0.0" width="350" height="500"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
                         </imageView>
                         <view hidden="YES" contentMode="scaleToFill" id="17">
-                            <rect key="frame" x="0.0" y="-20" width="350" height="500"/>
+                            <rect key="frame" x="0.0" y="0.0" width="350" height="500"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <webView contentMode="scaleToFill" id="18">
@@ -60,31 +59,26 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </imageView>
                             </subviews>
-                            <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
                         </view>
                         <view hidden="YES" contentMode="scaleToFill" id="31">
-                            <rect key="frame" x="0.0" y="-20" width="350" height="500"/>
+                            <rect key="frame" x="0.0" y="0.0" width="350" height="500"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <webView contentMode="scaleToFill" id="33">
-                                    <rect key="frame" x="15" y="-5" width="322" height="472"/>
+                                    <rect key="frame" x="15" y="15" width="322" height="472"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
                                     <connections>
                                         <outlet property="delegate" destination="-1" id="34"/>
                                     </connections>
                                 </webView>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Empty big card.png" id="32">
-                                    <rect key="frame" x="0.0" y="-20" width="350" height="500"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="350" height="500"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <inset key="insetFor6xAndEarlier" minX="0.0" minY="-20" maxX="0.0" maxY="20"/>
                                 </imageView>
                             </subviews>
-                            <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
                         </view>
                     </subviews>
-                    <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
                 </view>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="24">
                     <rect key="frame" x="79" y="74" width="118" height="42"/>
@@ -134,7 +128,7 @@
         <image name="Blue start button.png" width="641" height="210"/>
         <image name="Empty big card.png" width="700" height="1000"/>
         <image name="Red back arrow.png" width="641" height="210"/>
-        <image name="Sixis table.png" width="2048" height="1536"/>
+        <image name="Sixis table.png" width="2048" height="1576"/>
         <image name="big sixis.png" width="700" height="1000"/>
     </resources>
 </document>

@@ -138,8 +138,16 @@
 }
 
 -(void)_addCardViewWithX:(int)x Y:(int)y rotation:(CGFloat)rotation {
-    CGRect frame = CGRectMake(x, y, 118.75, 170.05);
 
+    // If we're running iOS < 7 move up the card by 20 pixels, due to status-bar tomfoolery.
+    NSString *version = [UIDevice currentDevice].systemVersion;
+    int majorVersion = [[version componentsSeparatedByString:@"."][0] intValue];
+    if ( majorVersion < 7 ) {
+        y = y - 20;
+    }
+    
+    CGRect frame = CGRectMake(x, y, 118.75, 170.05);
+    
     SixisCardView *cardView = [[SixisCardView alloc] initWithFrame:frame];
     [cards addObject:cardView];
     
@@ -167,51 +175,51 @@
     
     // Define all of this game's cardviews, then place them onto the tabletop view.
     if ( [game players].count == 2 ) {
-        [self _addCardViewWithX:450 Y:282 rotation:M_PI_2];
+        [self _addCardViewWithX:450 Y:302 rotation:M_PI_2];
 
-        [self _addCardViewWithX:54 Y:442 rotation:0];
-        [self _addCardViewWithX:186 Y:442 rotation:0];
-        [self _addCardViewWithX:318 Y:442  rotation:0];
-        [self _addCardViewWithX:450 Y:442  rotation:0];
+        [self _addCardViewWithX:54 Y:462 rotation:0];
+        [self _addCardViewWithX:186 Y:462 rotation:0];
+        [self _addCardViewWithX:318 Y:462  rotation:0];
+        [self _addCardViewWithX:450 Y:462  rotation:0];
 
-        [self _addCardViewWithX:450 Y:125  rotation:0];
-        [self _addCardViewWithX:582 Y:125  rotation:0];
-        [self _addCardViewWithX:714 Y:125  rotation:0];
-        [self _addCardViewWithX:846 Y:125  rotation:0];
+        [self _addCardViewWithX:450 Y:145  rotation:0];
+        [self _addCardViewWithX:582 Y:145  rotation:0];
+        [self _addCardViewWithX:714 Y:145  rotation:0];
+        [self _addCardViewWithX:846 Y:145  rotation:0];
     }
     else if ( [game players].count == 3 ) {
-        [self _addCardViewWithX:450 Y:282 rotation:M_PI_2];
+        [self _addCardViewWithX:450 Y:302 rotation:M_PI_2];
         
-        [self _addCardViewWithX:53 Y:282 rotation:0];
-        [self _addCardViewWithX:177 Y:282 rotation:0];
-        [self _addCardViewWithX:301 Y:282  rotation:0];
+        [self _addCardViewWithX:53 Y:302 rotation:0];
+        [self _addCardViewWithX:177 Y:302 rotation:0];
+        [self _addCardViewWithX:301 Y:302  rotation:0];
         
-        [self _addCardViewWithX:560 Y:167  rotation:M_PI_4 * 7];
-        [self _addCardViewWithX:685 Y:117  rotation:M_PI_4 * 7];
-        [self _addCardViewWithX:810 Y:67  rotation:M_PI_4 * 7];
+        [self _addCardViewWithX:560 Y:187  rotation:M_PI_4 * 7];
+        [self _addCardViewWithX:685 Y:137  rotation:M_PI_4 * 7];
+        [self _addCardViewWithX:810 Y:87  rotation:M_PI_4 * 7];
         
-        [self _addCardViewWithX:560 Y:400  rotation:M_PI_4];
-        [self _addCardViewWithX:685 Y:450  rotation:M_PI_4];
-        [self _addCardViewWithX:810 Y:505  rotation:M_PI_4];
+        [self _addCardViewWithX:560 Y:420  rotation:M_PI_4];
+        [self _addCardViewWithX:685 Y:470  rotation:M_PI_4];
+        [self _addCardViewWithX:810 Y:525  rotation:M_PI_4];
     }
     else {
-        [self _addCardViewWithX:450 Y:282 rotation:M_PI_2];
+        [self _addCardViewWithX:450 Y:302 rotation:M_PI_2];
         
-        [self _addCardViewWithX:93 Y:67 rotation:M_PI_4 + M_PI];
-        [self _addCardViewWithX:217 Y:117 rotation:M_PI_4 + M_PI];
-        [self _addCardViewWithX:341 Y:167  rotation:M_PI_4 + M_PI];
+        [self _addCardViewWithX:93 Y:87 rotation:M_PI_4 + M_PI];
+        [self _addCardViewWithX:217 Y:137 rotation:M_PI_4 + M_PI];
+        [self _addCardViewWithX:341 Y:187  rotation:M_PI_4 + M_PI];
         
-        [self _addCardViewWithX:560 Y:167  rotation:M_PI_4 * 7];
-        [self _addCardViewWithX:685 Y:117  rotation:M_PI_4 * 7];
-        [self _addCardViewWithX:810 Y:67  rotation:M_PI_4 * 7];
+        [self _addCardViewWithX:560 Y:187  rotation:M_PI_4 * 7];
+        [self _addCardViewWithX:685 Y:137  rotation:M_PI_4 * 7];
+        [self _addCardViewWithX:810 Y:87  rotation:M_PI_4 * 7];
         
-        [self _addCardViewWithX:560 Y:400  rotation:M_PI_4];
-        [self _addCardViewWithX:685 Y:450  rotation:M_PI_4];
-        [self _addCardViewWithX:810 Y:505  rotation:M_PI_4];
+        [self _addCardViewWithX:560 Y:420  rotation:M_PI_4];
+        [self _addCardViewWithX:685 Y:470  rotation:M_PI_4];
+        [self _addCardViewWithX:810 Y:525  rotation:M_PI_4];
         
-        [self _addCardViewWithX:93 Y:505 rotation:M_PI_4 + M_PI_2];
-        [self _addCardViewWithX:217 Y:450 rotation:M_PI_4 + M_PI_2];
-        [self _addCardViewWithX:341 Y:400  rotation:M_PI_4 + M_PI_2];
+        [self _addCardViewWithX:93 Y:525 rotation:M_PI_4 + M_PI_2];
+        [self _addCardViewWithX:217 Y:470 rotation:M_PI_4 + M_PI_2];
+        [self _addCardViewWithX:341 Y:420  rotation:M_PI_4 + M_PI_2];
     }
     
     // Clean up any status bars lying around from a previous game.

@@ -952,4 +952,8 @@
     subview.layer.shadowPath = [UIBezierPath bezierPathWithRect:subview.bounds].CGPath;
 }
 
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
+}
+
 @end

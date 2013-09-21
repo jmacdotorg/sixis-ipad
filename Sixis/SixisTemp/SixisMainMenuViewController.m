@@ -234,4 +234,8 @@
     NSLog(@"The last orientation was %d", fromInterfaceOrientation);
 }
 
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
+}
+
 @end

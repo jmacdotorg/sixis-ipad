@@ -14,16 +14,12 @@ The author sold iOS Sixis in the App Store for four years, from 2012 through 201
 
 ## Contents
 
+* **README.md** You're reading it.
+
+* **LICENSE.md** Legal information, including usage permissions granted (and withheld). Please read this file too if you plan on studying the contents of this repository at all.
+
 * **Notes and documents** contains design documents and sketches drafted in the early stages of this adaptation's creation.
 
 * **Screenshots** contains a few iPad screenshots of the game in action.
 
 * **Sixis** contains all the source code, sounds, images, and other resources necessary to build the game with XCode. `Sixis.xcodeproj` is the main XCode file.
-
-## Copyright and license
-
-All material in this repository is copyright © 2013 by Jason McIntosh, with the exception of the Sixis logo image and the Sixis card artwork, which are copyright © 2011 by Asmadi Games and appear here with permission.
-
-You may study and tinker with the material in this repository for personal use all that you wish. You may not publicly release work under your own name that copies or directly derives from any of the material in this repository.
-
-Please direct any questions about this software and your use of it to [Jason McIntosh (jmac@jmac.org)](mailto:jmac@jmac.org). Thank you for your interest!
